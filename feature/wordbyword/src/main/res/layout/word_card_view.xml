@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_margin="4dp"
+    android:background="@drawable/word_card_background"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/arabic_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/word_card_arabic_text"
+        android:gravity="center"
+        tools:text="بِسْمِ" />
+
+    <TextView
+        android:id="@+id/transliteration_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/word_card_transliteration_text"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        tools:text="Bismi"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/translation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/word_card_translation_text"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        tools:text="In the name of" />
+
+</LinearLayout>

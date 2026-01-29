@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorControlNormal">
+    <!-- Simple grid/table icon to represent word-by-word view -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M3,5v14h18V5H3zM7,7v4H5V7H7zM5,17v-4h2v4H5zM9,17v-4h2v4H9zM9,11V7h2v4H9zM13,17v-4h2v4H13zM13,11V7h2v4H13zM19,17h-2v-4h2V17zM19,11h-2V7h2V11z" />
+</vector>

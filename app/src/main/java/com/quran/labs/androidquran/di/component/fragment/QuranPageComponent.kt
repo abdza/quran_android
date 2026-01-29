@@ -5,6 +5,7 @@ import com.quran.data.di.QuranReadingPageScope
 import com.quran.labs.androidquran.ui.fragment.QuranPageFragment
 import com.quran.labs.androidquran.ui.fragment.TabletFragment
 import com.quran.labs.androidquran.ui.fragment.TranslationFragment
+import com.quran.labs.androidquran.ui.fragment.WordByWordFragment
 import com.quran.mobile.di.QuranReadingPageComponent
 import dev.zacsweers.metro.GraphExtension
 import dev.zacsweers.metro.Provides
@@ -15,6 +16,7 @@ interface QuranPageComponent: QuranReadingPageComponent {
   fun inject(quranPageFragment: QuranPageFragment)
   fun inject(tabletFragment: TabletFragment)
   fun inject(translationFragment: TranslationFragment)
+  fun inject(wordByWordFragment: WordByWordFragment)
 
   @GraphExtension.Factory
   interface Factory {

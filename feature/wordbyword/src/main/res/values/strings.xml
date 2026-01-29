@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="verse_number_format">%1$d:%2$d</string>
+    <string name="word_by_word_mode">Word by Word</string>
+    <string name="word_by_word_enabled">Enable Word by Word Mode</string>
+    <string name="word_by_word_enabled_summary">View each Arabic word with its meaning</string>
+    <string name="show_transliteration">Show Transliteration</string>
+    <string name="show_transliteration_summary">Display pronunciation guide for each word</string>
+</resources>

@@ -138,6 +138,28 @@
   </PreferenceCategory>
 
   <PreferenceCategory
+      android:title="@string/prefs_category_word_by_word"
+      app:iconSpaceReserved="false">
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/prefs_word_by_word_enabled"
+        android:persistent="true"
+        android:summary="@string/prefs_word_by_word_summary"
+        android:title="@string/prefs_word_by_word_title"
+        app:iconSpaceReserved="false"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:dependency="@string/prefs_word_by_word_enabled"
+        android:key="@string/prefs_show_transliteration"
+        android:persistent="true"
+        android:summary="@string/prefs_show_transliteration_summary"
+        android:title="@string/prefs_show_transliteration_title"
+        app:iconSpaceReserved="false"/>
+  </PreferenceCategory>
+
+  <PreferenceCategory
       android:title="@string/prefs_category_translation"
       app:iconSpaceReserved="false">
 

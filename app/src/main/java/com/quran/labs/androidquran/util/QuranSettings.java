@@ -415,4 +415,21 @@ public class QuranSettings {
     perInstallationPrefs.edit()
         .putStringSet(Constants.PREF_CHECKED_PARTIAL_IMAGES, setToSave).apply();
   }
+
+  // Word by Word settings
+  public boolean isWordByWordEnabled() {
+    return prefs.getBoolean(Constants.PREF_WORD_BY_WORD_ENABLED, false);
+  }
+
+  public void setWordByWordEnabled(boolean enabled) {
+    prefs.edit().putBoolean(Constants.PREF_WORD_BY_WORD_ENABLED, enabled).apply();
+  }
+
+  public boolean showTransliteration() {
+    return prefs.getBoolean(Constants.PREF_SHOW_TRANSLITERATION, true);
+  }
+
+  public void setShowTransliteration(boolean show) {
+    prefs.edit().putBoolean(Constants.PREF_SHOW_TRANSLITERATION, show).apply();
+  }
 }

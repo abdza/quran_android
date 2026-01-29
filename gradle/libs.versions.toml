@@ -49,6 +49,7 @@ androidxWindowManager = "1.5.1"
 
 # ui libraries
 accompanistVersion = "0.36.0"
+flexboxVersion = "3.0.0"
 balloonVersion = "1.7.3"
 tooltipComposeVersion = "0.2.0"
 insetterVersion = "0.6.1"
@@ -156,6 +157,7 @@ insetter = { module = "dev.chrisbanes.insetter:insetter", version.ref = "insette
 accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanistVersion" }
 tooltip-compose = { module = "com.github.skgmn:composetooltip", version.ref = "tooltipComposeVersion" }
 reorderable-compose = { module = "org.burnoutcrew.composereorderable:reorderable", version.ref = "reorderableComposeVersion" }
+flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexboxVersion" }
 
 # utils
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanaryAndroidVersion" }

@@ -7,6 +7,7 @@ import com.quran.data.core.QuranInfo
 import com.quran.labs.androidquran.ui.fragment.QuranPageFragment
 import com.quran.labs.androidquran.ui.fragment.TabletFragment
 import com.quran.labs.androidquran.ui.fragment.TranslationFragment
+import com.quran.labs.androidquran.ui.fragment.WordByWordFragment
 import com.quran.page.common.data.PageMode
 import com.quran.page.common.factory.PageViewFactory
 import timber.log.Timber
@@ -14,26 +15,51 @@ import timber.log.Timber
 class QuranPageAdapter(
   fm: FragmentManager?,
   private val isDualPages: Boolean,
-  var isShowingTranslation: Boolean,
+  isShowingTranslation: Boolean,
   private val quranInfo: QuranInfo,
   private val isSplitScreen: Boolean,
   private val pageViewFactory: PageViewFactory? = null
 ) : FragmentStatePagerAdapter(fm, if (isDualPages) "dualPages" else "singlePage") {
+
+  enum class ViewMode {
+    QURAN,
+    TRANSLATION,
+    WORD_BY_WORD
+  }
+
+  var viewMode: ViewMode = if (isShowingTranslation) ViewMode.TRANSLATION else ViewMode.QURAN
+    private set
+
+  // For backward compatibility
+  val isShowingTranslation: Boolean
+    get() = viewMode == ViewMode.TRANSLATION
+
+  val isShowingWordByWord: Boolean
+    get() = viewMode == ViewMode.WORD_BY_WORD
+
   private var pageMode: PageMode = makePageMode()
   private val totalPages: Int = quranInfo.numberOfPagesConsideringSkipped
   private val totalPagesDual: Int = totalPages / 2 + (totalPages % 2)
 
   fun setTranslationMode() {
-    if (!isShowingTranslation) {
-      isShowingTranslation = true
+    if (viewMode != ViewMode.TRANSLATION) {
+      viewMode = ViewMode.TRANSLATION
       pageMode = makePageMode()
       notifyDataSetChanged()
     }
   }
 
   fun setQuranMode() {
-    if (isShowingTranslation) {
-      isShowingTranslation = false
+    if (viewMode != ViewMode.QURAN) {
+      viewMode = ViewMode.QURAN
+      pageMode = makePageMode()
+      notifyDataSetChanged()
+    }
+  }
+
+  fun setWordByWordMode() {
+    if (viewMode != ViewMode.WORD_BY_WORD) {
+      viewMode = ViewMode.WORD_BY_WORD
       pageMode = makePageMode()
       notifyDataSetChanged()
     }
@@ -41,18 +67,19 @@ class QuranPageAdapter(
 
   private fun makePageMode(): PageMode {
     return if (isDualPages) {
-      if (isShowingTranslation && isSplitScreen) {
-        PageMode.DualScreenMode.Mix
-      } else if (isShowingTranslation) {
-        PageMode.DualScreenMode.Translation
-      } else {
-        PageMode.DualScreenMode.Arabic
+      when (viewMode) {
+        ViewMode.TRANSLATION -> {
+          if (isSplitScreen) PageMode.DualScreenMode.Mix
+          else PageMode.DualScreenMode.Translation
+        }
+        ViewMode.WORD_BY_WORD -> PageMode.SingleTranslationPage // For now, word by word doesn't support dual pages
+        ViewMode.QURAN -> PageMode.DualScreenMode.Arabic
       }
     } else {
-      if (isShowingTranslation) {
-        PageMode.SingleTranslationPage
-      } else {
-        PageMode.SingleArabicPage
+      when (viewMode) {
+        ViewMode.TRANSLATION -> PageMode.SingleTranslationPage
+        ViewMode.WORD_BY_WORD -> PageMode.SingleTranslationPage
+        ViewMode.QURAN -> PageMode.SingleArabicPage
       }
     }
   }
@@ -85,16 +112,22 @@ class QuranPageAdapter(
 
   override fun getItem(position: Int): Fragment {
     val page = quranInfo.getPageFromPosition(position, isDualPagesVisible)
-    Timber.d("getting page: %d, from position %d", page, position)
+    Timber.d("getting page: %d, from position %d, viewMode: %s", page, position, viewMode)
     return pageViewFactory?.providePage(page, pageMode) ?: when {
-      isDualPages -> {
+      isDualPages && viewMode != ViewMode.WORD_BY_WORD -> {
         TabletFragment.newInstance(
           page,
-          if (isShowingTranslation) TabletFragment.Mode.TRANSLATION else TabletFragment.Mode.ARABIC,
+          when (viewMode) {
+            ViewMode.TRANSLATION -> TabletFragment.Mode.TRANSLATION
+            else -> TabletFragment.Mode.ARABIC
+          },
           isSplitScreen
         )
       }
-      isShowingTranslation -> {
+      viewMode == ViewMode.WORD_BY_WORD -> {
+        WordByWordFragment.newInstance(page)
+      }
+      viewMode == ViewMode.TRANSLATION -> {
         TranslationFragment.newInstance(page)
       }
       else -> {
@@ -119,5 +152,6 @@ class QuranPageAdapter(
   }
 
   private val isDualPagesVisible: Boolean
-    get() = isDualPages && !(isSplitScreen && isShowingTranslation)
+    get() = isDualPages && viewMode == ViewMode.QURAN ||
+            (isDualPages && viewMode == ViewMode.TRANSLATION && !isSplitScreen)
 }

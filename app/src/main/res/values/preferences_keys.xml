@@ -36,6 +36,9 @@
   <string translatable="false" name="prefs_send_logs">sendLogsKey</string>
   <string translatable="false" name="prefs_page_type">pageTypeKey</string>
   <string translatable="false" name="prefs_category_dual_screen_key">dualScreenKey</string>
+  <string translatable="false" name="prefs_reading_category_key">readingCategoryKey</string>
+  <string translatable="false" name="prefs_word_by_word_enabled">wordByWordEnabled</string>
+  <string translatable="false" name="prefs_show_transliteration">showTransliteration</string>
 
   <!-- Preference but value controlled by AppCompat or the OS -->
   <string translatable="false" name="use_arabic_names">useArabicNames</string>

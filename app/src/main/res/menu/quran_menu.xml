@@ -13,6 +13,10 @@
           android:icon="@drawable/ic_goto_quran"
           android:title="@string/menu_back_to_page"
           app:showAsAction="ifRoom" />
+    <item android:id="@+id/word_by_word"
+          android:icon="@drawable/ic_word_by_word"
+          android:title="@string/menu_word_by_word"
+          app:showAsAction="ifRoom" />
     <item android:id="@+id/search"
           android:icon="@drawable/ic_ab_search"
           android:title="@string/menu_search"

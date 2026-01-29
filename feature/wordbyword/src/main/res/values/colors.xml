@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Word Card Colors -->
+    <color name="word_card_background">#FFFFFF</color>
+    <color name="word_card_background_night">#1E1E1E</color>
+    <color name="word_card_border">#E0E0E0</color>
+    <color name="word_card_border_night">#424242</color>
+    <color name="word_card_arabic_text">#1B5E20</color>
+    <color name="word_card_arabic_text_night">#81C784</color>
+    <color name="word_card_transliteration_text">#757575</color>
+    <color name="word_card_transliteration_text_night">#BDBDBD</color>
+    <color name="word_card_translation_text">#212121</color>
+    <color name="word_card_translation_text_night">#E0E0E0</color>
+
+    <!-- Word By Word Page Colors -->
+    <color name="word_by_word_background">#FAFAFA</color>
+    <color name="word_by_word_background_night">#121212</color>
+    <color name="word_by_word_header_text">#FFFFFF</color>
+    <color name="word_by_word_header_background">#1B5E20</color>
+    <color name="word_by_word_header_background_night">#2E7D32</color>
+    <color name="word_by_word_verse_number">#757575</color>
+    <color name="word_by_word_verse_number_night">#9E9E9E</color>
+    <color name="word_by_word_divider">#E0E0E0</color>
+    <color name="word_by_word_divider_night">#424242</color>
+    <color name="word_by_word_basmallah_text">#000000</color>
+    <color name="word_by_word_basmallah_text_night">#E0E0E0</color>
+    <color name="word_by_word_selection_highlight">#E8F5E9</color>
+    <color name="word_by_word_selection_highlight_night">#1B5E20</color>
+</resources>

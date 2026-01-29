@@ -16,6 +16,7 @@ import com.quran.labs.androidquran.di.component.activity.ActivityComponent
 import com.quran.labs.androidquran.di.module.application.ApplicationModule
 import com.quran.labs.androidquran.di.module.application.DatabaseModule
 import com.quran.labs.androidquran.di.module.application.PageAggregationModule
+import com.quran.labs.androidquran.di.module.application.WordByWordModule
 import com.quran.labs.androidquran.di.module.widgets.BookmarksWidgetUpdaterModule
 import com.quran.labs.androidquran.pageselect.PageSelectActivity
 import com.quran.labs.androidquran.service.AudioService
@@ -48,6 +49,7 @@ import dev.zacsweers.metro.SingleIn
     NetworkModule::class,
     PageAggregationModule::class,
     QuranDataModule::class,
+    WordByWordModule::class,
     WorkerModule::class,
     BookmarksWidgetUpdaterModule::class
   ]

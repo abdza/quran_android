@@ -90,6 +90,10 @@ object Constants {
   const val PREF_SHOW_LINE_DIVIDERS = "showLineDividers"
   const val PREF_APP_THEME = "appTheme"
 
+  // Word by Word
+  const val PREF_WORD_BY_WORD_ENABLED = "wordByWordEnabled"
+  const val PREF_SHOW_TRANSLITERATION = "showTransliteration"
+
   // Themes
   const val THEME_LIGHT = "light"
   const val THEME_DARK = "dark"

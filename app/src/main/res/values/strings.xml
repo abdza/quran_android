@@ -31,6 +31,7 @@
   <string name="menu_show_recents" translatable="false">@string/recent_pages</string>
   <string name="menu_show_date">Show Date</string>
   <string name="menu_translation">Show Translation</string>
+  <string name="menu_word_by_word">Word by Word</string>
   <string name="menu_back_to_page">Show Quran</string>
   <string name="menu_help">Help</string>
   <string name="menu_search">Search</string>
@@ -161,6 +162,11 @@
   <string name="prefs_volume_key_navigation_summary">Navigate between pages using volume keys</string>
   <string name="prefs_category_reading">Reading Preferences</string>
   <string name="prefs_category_translation">Translation Preferences</string>
+  <string name="prefs_category_word_by_word">Word by Word</string>
+  <string name="prefs_word_by_word_title">Word by Word Mode</string>
+  <string name="prefs_word_by_word_summary">View each Arabic word with its meaning</string>
+  <string name="prefs_show_transliteration_title">Show Transliteration</string>
+  <string name="prefs_show_transliteration_summary">Display pronunciation guide for each word</string>
   <string name="prefs_category_display_settings">Display Settings</string>
   <string name="prefs_use_arabic_title">Arabic mode (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Use Arabic for application interface</string>

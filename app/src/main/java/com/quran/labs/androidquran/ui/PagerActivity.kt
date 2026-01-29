@@ -1143,13 +1143,25 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
 
     val quran = menu.findItem(R.id.goto_quran)
     val translation = menu.findItem(R.id.goto_translation)
+    val wordByWord = menu.findItem(R.id.word_by_word)
+    val isShowingWordByWord = pagerAdapter.isShowingWordByWord
     if (quran != null && translation != null) {
-      if (!showingTranslation) {
-        quran.isVisible = false
-        translation.isVisible = true
-      } else {
-        quran.isVisible = true
-        translation.isVisible = false
+      when {
+        isShowingWordByWord -> {
+          quran.isVisible = true
+          translation.isVisible = true
+          wordByWord?.isVisible = false
+        }
+        showingTranslation -> {
+          quran.isVisible = true
+          translation.isVisible = false
+          wordByWord?.isVisible = true
+        }
+        else -> {
+          quran.isVisible = false
+          translation.isVisible = true
+          wordByWord?.isVisible = true
+        }
       }
     }
 
@@ -1176,6 +1188,9 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         quranEventLogger.switchToTranslationMode(translations!!.size)
         switchToTranslation()
       }
+      return true
+    } else if (itemId == R.id.word_by_word) {
+      switchToWordByWord()
       return true
     } else if (itemId == R.id.night_mode) {
       val prefs = PreferenceManager
@@ -1261,6 +1276,23 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       promptedForExtraDownload = true
       showGetRequiredFilesDialog()
     }
+  }
+
+  private fun switchToWordByWord() {
+    if (selectionStart != null) {
+      endAyahMode()
+    }
+
+    val page = currentPage
+    pagerAdapter.setWordByWordMode()
+    showingTranslation = false // Word by Word is not translation mode
+    onShowingTranslationBackCallback.isEnabled = true
+    if (shouldUpdatePageNumber()) {
+      val position = quranInfo.getPositionFromPage(page, false)
+      viewPager.currentItem = position
+    }
+    supportInvalidateOptionsMenu()
+    updateActionBarTitle(page)
   }
 
   fun startTranslationManager() {

@@ -1,0 +1,28 @@
+CREATE TABLE word_translations(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  sura INTEGER NOT NULL,
+  ayah INTEGER NOT NULL,
+  word_position INTEGER NOT NULL,
+  arabic_text TEXT NOT NULL,
+  translation TEXT NOT NULL,
+  transliteration TEXT,
+  UNIQUE(sura, ayah, word_position)
+);
+
+CREATE INDEX word_translations_idx ON word_translations(sura, ayah);
+
+wordsForAyah:
+SELECT * FROM word_translations WHERE sura = ? AND ayah = ? ORDER BY word_position;
+
+wordsForVerseRange:
+SELECT * FROM word_translations
+WHERE (sura > :startSura OR (sura = :startSura AND ayah >= :startAyah))
+  AND (sura < :endSura OR (sura = :endSura AND ayah <= :endAyah))
+ORDER BY sura, ayah, word_position;
+
+insertWord:
+INSERT OR REPLACE INTO word_translations(sura, ayah, word_position, arabic_text, translation, transliteration)
+VALUES (?, ?, ?, ?, ?, ?);
+
+deleteAll:
+DELETE FROM word_translations;
