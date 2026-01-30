@@ -93,6 +93,7 @@ object Constants {
   // Word by Word
   const val PREF_WORD_BY_WORD_ENABLED = "wordByWordEnabled"
   const val PREF_SHOW_TRANSLITERATION = "showTransliteration"
+  const val PREF_SHOW_ETYMOLOGY = "showEtymology"
 
   // Themes
   const val THEME_LIGHT = "light"

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="8dp"
     android:layout_margin="4dp"
-    android:background="@drawable/word_card_background"
+    android:background="@drawable/word_card_background_ripple"
     android:gravity="center_horizontal">
 
     <TextView

@@ -76,12 +76,12 @@ class WordCardView @JvmOverloads constructor(
 
   private fun updateColors() {
     if (isNightMode) {
-      setBackgroundResource(R.drawable.word_card_background_night)
+      setBackgroundResource(R.drawable.word_card_background_ripple_night)
       arabicText.setTextColor(ContextCompat.getColor(context, R.color.word_card_arabic_text_night))
       transliterationText.setTextColor(ContextCompat.getColor(context, R.color.word_card_transliteration_text_night))
       translationText.setTextColor(ContextCompat.getColor(context, R.color.word_card_translation_text_night))
     } else {
-      setBackgroundResource(R.drawable.word_card_background)
+      setBackgroundResource(R.drawable.word_card_background_ripple)
       arabicText.setTextColor(ContextCompat.getColor(context, R.color.word_card_arabic_text))
       transliterationText.setTextColor(ContextCompat.getColor(context, R.color.word_card_transliteration_text))
       translationText.setTextColor(ContextCompat.getColor(context, R.color.word_card_translation_text))

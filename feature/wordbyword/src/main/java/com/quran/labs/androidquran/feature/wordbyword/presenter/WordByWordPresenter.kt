@@ -116,6 +116,8 @@ class WordByWordPresenter @Inject constructor(
 
   fun isDatabaseAvailable(): Boolean = wordTranslationDataSource.isDatabaseAvailable()
 
+  fun getDataSource(): WordTranslationDataSource = wordTranslationDataSource
+
   interface WordByWordScreen {
     fun setWords(page: Int, rows: List<WordByWordDisplayRow>)
     fun updateScrollPosition()

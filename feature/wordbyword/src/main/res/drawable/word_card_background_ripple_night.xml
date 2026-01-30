@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/word_by_word_selection_highlight_night">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/word_card_background_night" />
+            <corners android:radius="8dp" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/word_card_border_night" />
+        </shape>
+    </item>
+</ripple>

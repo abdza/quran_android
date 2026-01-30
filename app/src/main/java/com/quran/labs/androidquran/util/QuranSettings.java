@@ -432,4 +432,12 @@ public class QuranSettings {
   public void setShowTransliteration(boolean show) {
     prefs.edit().putBoolean(Constants.PREF_SHOW_TRANSLITERATION, show).apply();
   }
+
+  public boolean showEtymology() {
+    return prefs.getBoolean(Constants.PREF_SHOW_ETYMOLOGY, true);
+  }
+
+  public void setShowEtymology(boolean show) {
+    prefs.edit().putBoolean(Constants.PREF_SHOW_ETYMOLOGY, show).apply();
+  }
 }

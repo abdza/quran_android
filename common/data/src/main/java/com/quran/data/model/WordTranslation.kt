@@ -6,5 +6,6 @@ data class WordTranslation(
   val wordPosition: Int,
   val arabicText: String,
   val translation: String,
-  val transliteration: String? = null
+  val transliteration: String? = null,
+  val etymology: String? = null
 )

@@ -6,10 +6,21 @@ CREATE TABLE word_translations(
   arabic_text TEXT NOT NULL,
   translation TEXT NOT NULL,
   transliteration TEXT,
+  etymology TEXT,
   UNIQUE(sura, ayah, word_position)
 );
 
+CREATE TABLE root_meanings(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  root TEXT NOT NULL UNIQUE,
+  primary_meaning TEXT NOT NULL,
+  extended_meaning TEXT,
+  quran_usage TEXT,
+  notes TEXT
+);
+
 CREATE INDEX word_translations_idx ON word_translations(sura, ayah);
+CREATE INDEX word_translations_etymology_idx ON word_translations(etymology);
 
 wordsForAyah:
 SELECT * FROM word_translations WHERE sura = ? AND ayah = ? ORDER BY word_position;
@@ -21,8 +32,25 @@ WHERE (sura > :startSura OR (sura = :startSura AND ayah >= :startAyah))
 ORDER BY sura, ayah, word_position;
 
 insertWord:
-INSERT OR REPLACE INTO word_translations(sura, ayah, word_position, arabic_text, translation, transliteration)
-VALUES (?, ?, ?, ?, ?, ?);
+INSERT OR REPLACE INTO word_translations(sura, ayah, word_position, arabic_text, translation, transliteration, etymology)
+VALUES (?, ?, ?, ?, ?, ?, ?);
 
 deleteAll:
 DELETE FROM word_translations;
+
+wordsByEtymology:
+SELECT DISTINCT arabic_text, translation, sura, ayah, word_position
+FROM word_translations
+WHERE etymology = ?
+ORDER BY sura, ayah, word_position
+LIMIT 20;
+
+countByEtymology:
+SELECT COUNT(DISTINCT arabic_text) FROM word_translations WHERE etymology = ?;
+
+getRootMeaning:
+SELECT * FROM root_meanings WHERE root = ?;
+
+insertRootMeaning:
+INSERT OR REPLACE INTO root_meanings(root, primary_meaning, extended_meaning, quran_usage, notes)
+VALUES (?, ?, ?, ?, ?);

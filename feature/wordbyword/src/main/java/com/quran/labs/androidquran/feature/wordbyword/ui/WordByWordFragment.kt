@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.quran.data.core.QuranInfo
 import com.quran.data.model.SuraAyah
+import com.quran.data.model.WordTranslation
 import com.quran.data.model.selection.AyahSelection
 import com.quran.labs.androidquran.feature.wordbyword.R
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
@@ -23,7 +24,8 @@ import kotlinx.coroutines.launch
 
 abstract class WordByWordFragment : Fragment(),
   WordByWordPresenter.WordByWordScreen,
-  WordByWordAdapter.OnVerseSelectedListener {
+  WordByWordAdapter.OnVerseSelectedListener,
+  WordByWordAdapter.OnWordClickListener {
 
   private var pageNumber = 0
   private var scrollPosition = 0
@@ -70,6 +72,7 @@ abstract class WordByWordFragment : Fragment(),
       requireContext(),
       recyclerView,
       View.OnClickListener { onPageClicked() },
+      this,
       this
     )
     recyclerView.adapter = adapter
@@ -170,6 +173,21 @@ abstract class WordByWordFragment : Fragment(),
 
   fun unhighlight() {
     adapter.unhighlight()
+  }
+
+  override fun onWordClicked(word: WordTranslation) {
+    showWordDetail(word)
+  }
+
+  private fun showWordDetail(word: WordTranslation) {
+    val bottomSheet = WordDetailBottomSheet.newInstance(
+      word = word,
+      arabicTypeface = arabicTypeface,
+      isNightMode = isNightMode,
+      suraName = getSuraName(word.sura),
+      dataSource = presenter.getDataSource()
+    )
+    bottomSheet.show(childFragmentManager, WordDetailBottomSheet.TAG)
   }
 
   interface WordByWordSettings {

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Arabic Word (Large) -->
+        <TextView
+            android:id="@+id/arabic_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="48sp"
+            android:textColor="@color/word_card_arabic_text"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            tools:text="بِسْمِ" />
+
+        <!-- Transliteration -->
+        <TextView
+            android:id="@+id/transliteration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/word_card_transliteration_text"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            tools:text="Bismi" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/word_by_word_divider"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Translation Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/word_detail_translation"
+            android:textSize="12sp"
+            android:textColor="@color/word_card_transliteration_text"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/translation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/word_card_translation_text"
+            android:layout_marginBottom="16dp"
+            tools:text="In (the) name" />
+
+        <!-- Etymology Section -->
+        <LinearLayout
+            android:id="@+id/etymology_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/word_detail_root"
+                android:textSize="12sp"
+                android:textColor="@color/word_card_transliteration_text"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/etymology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/word_card_etymology_text"
+                android:layout_marginBottom="12dp"
+                tools:text="س-م-و" />
+
+            <!-- Primary Meaning -->
+            <TextView
+                android:id="@+id/primary_meaning_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/word_detail_primary_meaning"
+                android:textSize="11sp"
+                android:textColor="@color/word_card_transliteration_text"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="2dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/primary_meaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/word_card_translation_text"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                tools:text="to cover, to conceal"
+                tools:visibility="visible" />
+
+            <!-- Quran Usage -->
+            <TextView
+                android:id="@+id/quran_usage_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/word_detail_quran_usage"
+                android:textSize="11sp"
+                android:textColor="@color/word_card_transliteration_text"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="2dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/quran_usage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/word_card_translation_text"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                tools:text="In the Quran, this root is used for disbelief - one who covers or conceals the truth. A kafir literally 'covers' the signs of Allah."
+                tools:visibility="visible" />
+
+            <!-- Extended Meaning / Notes -->
+            <TextView
+                android:id="@+id/extended_meaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/word_card_transliteration_text"
+                android:textStyle="italic"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                tools:text="Note: In classical Arabic, a farmer is also called 'kafir' because he covers seeds with soil."
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <!-- Related Words Section -->
+        <LinearLayout
+            android:id="@+id/related_words_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/word_by_word_divider"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/related_words_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/word_detail_related_words"
+                android:textSize="12sp"
+                android:textColor="@color/word_card_transliteration_text"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"
+                tools:text="OTHER WORDS FROM ROOT ر-ح-م (15 TOTAL)" />
+
+            <LinearLayout
+                android:id="@+id/related_words_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+        <!-- Location Reference -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/word_detail_location"
+            android:textSize="12sp"
+            android:textColor="@color/word_card_transliteration_text"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/word_card_translation_text"
+            android:layout_marginBottom="24dp"
+            tools:text="Surah 1 (Al-Fatihah), Ayah 1, Word 1" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

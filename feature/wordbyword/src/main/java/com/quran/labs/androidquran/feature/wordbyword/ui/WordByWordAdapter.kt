@@ -13,16 +13,16 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.FlexboxLayout
 import com.quran.data.model.SuraAyah
+import com.quran.data.model.WordTranslation
 import com.quran.labs.androidquran.feature.wordbyword.R
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
-import kotlin.math.ln1p
-import kotlin.math.min
 
 class WordByWordAdapter(
   private val context: Context,
   private val recyclerView: RecyclerView,
   private val onClickListener: View.OnClickListener,
-  private val onVerseSelectedListener: OnVerseSelectedListener
+  private val onVerseSelectedListener: OnVerseSelectedListener,
+  private val onWordClickListener: OnWordClickListener? = null
 ) : RecyclerView.Adapter<WordByWordAdapter.RowViewHolder>() {
 
   private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -204,6 +204,11 @@ class WordByWordAdapter(
           wordCard.setArabicTypeface(arabicTypeface)
           wordCard.setArabicTextSize(arabicTextSize)
           wordCard.setTranslationTextSize(translationTextSize)
+          wordCard.isClickable = true
+          wordCard.isFocusable = true
+          wordCard.setOnClickListener {
+            onWordClickListener?.onWordClicked(word)
+          }
           holder.wordsContainer?.addView(wordCard)
         }
       }
@@ -237,6 +242,10 @@ class WordByWordAdapter(
 
   interface OnVerseSelectedListener {
     fun onVerseSelected(suraAyah: SuraAyah)
+  }
+
+  interface OnWordClickListener {
+    fun onWordClicked(word: WordTranslation)
   }
 
   companion object {

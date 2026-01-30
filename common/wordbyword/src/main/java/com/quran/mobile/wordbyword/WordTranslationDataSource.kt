@@ -26,7 +26,8 @@ class WordTranslationDataSource @Inject constructor(
             wordPosition = row.word_position.toInt(),
             arabicText = row.arabic_text,
             translation = row.translation,
-            transliteration = row.transliteration
+            transliteration = row.transliteration,
+            etymology = row.etymology
           )
         }
     }
@@ -59,7 +60,8 @@ class WordTranslationDataSource @Inject constructor(
                 wordPosition = row.word_position.toInt(),
                 arabicText = row.arabic_text,
                 translation = row.translation,
-                transliteration = row.transliteration
+                transliteration = row.transliteration,
+                etymology = row.etymology
               )
             }
           )
@@ -78,4 +80,68 @@ class WordTranslationDataSource @Inject constructor(
   }
 
   fun isDatabaseAvailable(): Boolean = databaseProvider.isDatabaseAvailable()
+
+  suspend fun getRelatedWordsByRoot(etymology: String): List<RootOccurrence> {
+    return withContext(Dispatchers.IO) {
+      val database = databaseProvider.provideDatabase() ?: return@withContext emptyList()
+      database.wordTranslationsQueries.wordsByEtymology(etymology)
+        .executeAsList()
+        .map { row ->
+          RootOccurrence(
+            arabicText = row.arabic_text,
+            translation = row.translation,
+            sura = row.sura.toInt(),
+            ayah = row.ayah.toInt(),
+            wordPosition = row.word_position.toInt()
+          )
+        }
+    }
+  }
+
+  suspend fun getRelatedWordsCount(etymology: String): Int {
+    return withContext(Dispatchers.IO) {
+      val database = databaseProvider.provideDatabase() ?: return@withContext 0
+      database.wordTranslationsQueries.countByEtymology(etymology)
+        .executeAsOne()
+        .toInt()
+    }
+  }
+
+  suspend fun getRootMeaning(root: String): RootMeaning? {
+    return withContext(Dispatchers.IO) {
+      try {
+        val database = databaseProvider.provideDatabase() ?: return@withContext null
+        database.wordTranslationsQueries.getRootMeaning(root)
+          .executeAsOneOrNull()
+          ?.let { row ->
+            RootMeaning(
+              root = row.root,
+              primaryMeaning = row.primary_meaning,
+              extendedMeaning = row.extended_meaning,
+              quranUsage = row.quran_usage,
+              notes = row.notes
+            )
+          }
+      } catch (e: Exception) {
+        // Table might not exist in older database versions
+        null
+      }
+    }
+  }
 }
+
+data class RootOccurrence(
+  val arabicText: String,
+  val translation: String,
+  val sura: Int,
+  val ayah: Int,
+  val wordPosition: Int
+)
+
+data class RootMeaning(
+  val root: String,
+  val primaryMeaning: String,
+  val extendedMeaning: String?,
+  val quranUsage: String?,
+  val notes: String?
+)

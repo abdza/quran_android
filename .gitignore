@@ -13,6 +13,7 @@ gen-external-apklibs
 classes
 ApiKeys.java
 .gradle
+*.logcat
 app/src/beta
 app/src/release
 app/seed.txt
@@ -22,3 +23,4 @@ crashlytics-build.properties
 com_crashlytics_export_strings.xml
 extras
 app/google-services.json
+CLAUDE.md

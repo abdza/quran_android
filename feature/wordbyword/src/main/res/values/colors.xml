@@ -11,6 +11,8 @@
     <color name="word_card_transliteration_text_night">#BDBDBD</color>
     <color name="word_card_translation_text">#212121</color>
     <color name="word_card_translation_text_night">#E0E0E0</color>
+    <color name="word_card_etymology_text">#5D4037</color>
+    <color name="word_card_etymology_text_night">#BCAAA4</color>
 
     <!-- Word By Word Page Colors -->
     <color name="word_by_word_background">#FAFAFA</color>
