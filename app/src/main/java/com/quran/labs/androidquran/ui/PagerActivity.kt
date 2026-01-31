@@ -92,6 +92,7 @@ import com.quran.labs.androidquran.ui.fragment.JumpFragment
 import com.quran.labs.androidquran.ui.fragment.TabletFragment
 import com.quran.labs.androidquran.ui.fragment.TagBookmarkDialog.OnBookmarkTagsUpdateListener
 import com.quran.labs.androidquran.ui.fragment.TranslationFragment
+import com.quran.labs.androidquran.feature.wordbyword.ui.WordByWordFragment
 import com.quran.labs.androidquran.ui.helpers.AyahSelectedListener
 import com.quran.labs.androidquran.ui.helpers.AyahTracker
 import com.quran.labs.androidquran.ui.helpers.JumpDestination
@@ -1172,6 +1173,12 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       nightMode.isChecked = isNightMode
       nightMode.setIcon(if (isNightMode) R.drawable.ic_night_mode else R.drawable.ic_day_mode)
     }
+
+    val memorizationMode = menu.findItem(R.id.memorization_mode)
+    if (memorizationMode != null) {
+      memorizationMode.isVisible = isShowingWordByWord
+      memorizationMode.isChecked = quranSettings.isMemorizationModeEnabled
+    }
     return true
   }
 
@@ -1200,6 +1207,12 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       prefsEditor.putBoolean(Constants.PREF_NIGHT_MODE, isNightMode).apply()
       item.setIcon(if (isNightMode) R.drawable.ic_night_mode else R.drawable.ic_day_mode)
       item.isChecked = isNightMode
+      refreshQuranPages()
+      return true
+    } else if (itemId == R.id.memorization_mode) {
+      val isEnabled = !item.isChecked
+      quranSettings.isMemorizationModeEnabled = isEnabled
+      item.isChecked = isEnabled
       refreshQuranPages()
       return true
     } else if (itemId == R.id.settings) {
@@ -1231,6 +1244,8 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       val f = pagerAdapter.getFragmentIfExists(i)
       if (f is QuranPage) {
         (f as QuranPage).updateView()
+      } else if (f is WordByWordFragment) {
+        f.updateView()
       }
     }
   }

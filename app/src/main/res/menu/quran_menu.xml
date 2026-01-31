@@ -27,6 +27,10 @@
         android:icon="@drawable/ic_day_mode"
         android:title="@string/prefs_night_mode_title"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/memorization_mode"
+        android:checkable="true"
+        android:title="@string/menu_memorization_mode"
+        app:showAsAction="never" />
     <item android:id="@+id/jump"
           android:title="@string/menu_jump"
           app:showAsAction="never" />
