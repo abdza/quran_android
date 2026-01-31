@@ -4034,6 +4034,6612 @@ class WordByWordDatabaseProvider @Inject constructor(
         extendedMeaning = "Morning, and lamp (source of morning-like light).",
         quranUsage = "'The lamp (misbah) in a glass.' Subh is morning. Misbah is lamp.",
         notes = "Already covered morning - adding lamp meaning."
+      ),
+
+      // === ADDITIONAL PROPHETIC ROOTS ===
+      RootMeaningData(
+        root = "ن-ب-ء",
+        primaryMeaning = "news, information, prophecy",
+        extendedMeaning = "Important news or information, especially from unseen realm. A nabi (prophet) is one who receives and conveys divine news.",
+        quranUsage = "'We relate to you the news (naba') of those who came before.' Naba' is significant news. Nabiy is prophet.",
+        notes = "Naba' refers to momentous news, unlike ordinary khabar. Prophets convey news from Allah."
+      ),
+      RootMeaningData(
+        root = "ر-س-ل",
+        primaryMeaning = "to send, messenger, message",
+        extendedMeaning = "Sending forth, especially sending messengers. Implies gentleness in sending, like letting camels loose to graze.",
+        quranUsage = "'We sent (arsalna) messengers.' Rasul is messenger. Risalah is message/mission.",
+        notes = "A Rasul brings a new scripture; a Nabiy follows existing revelation."
+      ),
+      RootMeaningData(
+        root = "و-ح-ي",
+        primaryMeaning = "to inspire, revelation, swift communication",
+        extendedMeaning = "Quick, subtle communication. Can be divine revelation or natural instinct given to creatures.",
+        quranUsage = "'We revealed (awhayna) to the bee.' Wahy is revelation. Divine wahy is the highest form.",
+        notes = "Allah inspires bees, mountains, and prophets - each receiving guidance appropriate to their nature."
+      ),
+      RootMeaningData(
+        root = "ن-ز-ل",
+        primaryMeaning = "to descend, send down, revelation",
+        extendedMeaning = "Coming down from high to low. Used for rain, revelation, and guests (who 'descend' upon a host).",
+        quranUsage = "'We sent down (nazzalna) the Quran.' Tanzil is the sending down of scripture. Munzal is place of descent.",
+        notes = "The Quran's tanzil emphasizes its divine origin from above."
+      ),
+
+      // === COVENANT AND PROMISE ===
+      RootMeaningData(
+        root = "ع-ه-د",
+        primaryMeaning = "covenant, promise, era, to know",
+        extendedMeaning = "A binding agreement, also refers to a time period. To have knowledge or experience of something.",
+        quranUsage = "'Fulfill My covenant ('ahdi), I will fulfill yours.' 'Ahd is covenant. Ma'hud is known/promised.",
+        notes = "Allah's covenant with humanity includes worship and following guidance."
+      ),
+      RootMeaningData(
+        root = "م-ي-ث",
+        primaryMeaning = "firm covenant, solemn pledge",
+        extendedMeaning = "A strongly binding covenant, more emphatic than 'ahd.",
+        quranUsage = "'We took from them a solemn covenant (mithaq).' Mithaq is solemn covenant.",
+        notes = "Used for the primordial covenant when souls testified to Allah's lordship."
+      ),
+      RootMeaningData(
+        root = "و-ع-د",
+        primaryMeaning = "to promise, appointment",
+        extendedMeaning = "Making a promise, usually for good. The appointed time or place.",
+        quranUsage = "'The promise (wa'd) of Allah is true.' Wa'd is promise. Maw'id is appointed time/place.",
+        notes = "Allah's promises are always fulfilled. Paradise is the ultimate promise."
+      ),
+      RootMeaningData(
+        root = "و-ف-ي",
+        primaryMeaning = "to fulfill, complete, loyal",
+        extendedMeaning = "Fulfilling obligations completely. Being faithful and loyal.",
+        quranUsage = "'Ibrahim who fulfilled (waffa).' Wafa' is fulfillment/loyalty. Tawaffa is to take in full (death).",
+        notes = "Death is described as Allah taking the soul in full (tawaffa)."
+      ),
+
+      // === SPIRITUAL STATES ===
+      RootMeaningData(
+        root = "خ-ش-ع",
+        primaryMeaning = "humility, submissiveness, awe",
+        extendedMeaning = "Deep humility and lowering oneself, especially in worship. Inner stillness and reverence.",
+        quranUsage = "'Those who are humble (khashi'un) in their prayer.' Khushu' is reverent humility.",
+        notes = "Khushu' in prayer means the heart is present and humble before Allah."
+      ),
+      RootMeaningData(
+        root = "خ-و-ف",
+        primaryMeaning = "fear, to frighten",
+        extendedMeaning = "Fear, especially fear of harm or loss.",
+        quranUsage = "'They fear (yakhafuna) a Day.' Khawf is fear. Takhwif is to frighten.",
+        notes = "Khawf of Allah is praiseworthy - it leads to righteousness."
+      ),
+      RootMeaningData(
+        root = "ر-ج-و",
+        primaryMeaning = "hope, to expect, to wish",
+        extendedMeaning = "Hope and expectation, especially hoping for good from Allah.",
+        quranUsage = "'Whoever hopes (yarju) to meet his Lord.' Raja' is hope. Marjuw is hoped for.",
+        notes = "Balance between khawf (fear) and raja' (hope) is the ideal spiritual state."
+      ),
+      RootMeaningData(
+        root = "ط-م-ع",
+        primaryMeaning = "greed, to covet, to hope",
+        extendedMeaning = "Eager desire, can be positive (hoping for mercy) or negative (greed).",
+        quranUsage = "'They hope (yatma'una) for His mercy.' Tama' is eager desire. Matma' is object of desire.",
+        notes = "Tama' in Allah's mercy is encouraged; tama' for worldly things leads to trouble."
+      ),
+      RootMeaningData(
+        root = "ي-ء-س",
+        primaryMeaning = "despair, to lose hope",
+        extendedMeaning = "Complete loss of hope, giving up.",
+        quranUsage = "'Do not despair (ta'yasu) of Allah's mercy.' Ya's is despair. Iblas is extreme despair.",
+        notes = "Despair of Allah's mercy is itself a sin - His mercy is limitless."
+      ),
+      RootMeaningData(
+        root = "ق-ن-ط",
+        primaryMeaning = "to despair utterly",
+        extendedMeaning = "Extreme despair and hopelessness.",
+        quranUsage = "'Do not be of those who despair (qanitin).' Qunut is utter despair.",
+        notes = "Similar to ya's but more intense - complete giving up on Allah's help."
+      ),
+
+      // === INTELLECT AND UNDERSTANDING ===
+      RootMeaningData(
+        root = "ع-ق-ل",
+        primaryMeaning = "reason, intellect, to understand",
+        extendedMeaning = "The faculty of reason that restrains one from foolishness. Originally meant to hobble a camel (restrain it).",
+        quranUsage = "'Do you not reason (ta'qilun)?' 'Aql is intellect. Ma'qul is reasonable.",
+        notes = "The Quran repeatedly calls people to use their 'aql to recognize truth."
+      ),
+      RootMeaningData(
+        root = "ف-ق-ه",
+        primaryMeaning = "understanding, comprehension, jurisprudence",
+        extendedMeaning = "Deep understanding, especially of religion. Fiqh became the term for Islamic jurisprudence.",
+        quranUsage = "'That they may understand (yafqahun).' Fiqh is deep understanding. Faqih is jurist.",
+        notes = "Fiqh goes beyond mere knowledge ('ilm) to penetrating understanding."
+      ),
+      RootMeaningData(
+        root = "ف-ك-ر",
+        primaryMeaning = "thought, reflection, pondering",
+        extendedMeaning = "Deep thought and contemplation.",
+        quranUsage = "'Those who reflect (yatafakkarun) on the creation.' Fikr is thought. Tafakkur is contemplation.",
+        notes = "Tafakkur in Allah's creation strengthens faith."
+      ),
+      RootMeaningData(
+        root = "ت-د-ب-ر",
+        primaryMeaning = "to ponder, reflect on consequences",
+        extendedMeaning = "Contemplating something by looking at its end (dubur - back/end). Deep reflection.",
+        quranUsage = "'Do they not ponder (yatadabbarun) the Quran?' Tadabbur is deep reflection.",
+        notes = "Tadabbur of the Quran is commanded - not just recitation but understanding."
+      ),
+      RootMeaningData(
+        root = "ب-ص-ر",
+        primaryMeaning = "sight, vision, insight",
+        extendedMeaning = "Physical sight and inner insight. Basira is spiritual perception.",
+        quranUsage = "'Have they not traveled and had hearts to reason and ears to hear? For it is not the eyes that are blind but the hearts.' Basar is sight. Basira is insight.",
+        notes = "Al-Basir (The All-Seeing) is one of Allah's names."
+      ),
+
+      // === TRUTH AND FALSEHOOD ===
+      RootMeaningData(
+        root = "ص-د-ق",
+        primaryMeaning = "truth, sincerity, to confirm",
+        extendedMeaning = "Speaking truth, being sincere, and confirming/fulfilling. Sidq includes truthfulness in speech, action, and intention.",
+        quranUsage = "'This is what the Most Merciful promised, and the messengers told the truth (sadaqa).' Sidq is truthfulness. Siddiq is extremely truthful.",
+        notes = "Abu Bakr was called As-Siddiq for his unwavering belief in the Prophet."
+      ),
+      RootMeaningData(
+        root = "ك-ذ-ب",
+        primaryMeaning = "to lie, falsehood, denial",
+        extendedMeaning = "Lying and denying the truth. Opposite of sidq.",
+        quranUsage = "'They denied (kadhdhabu) Our signs.' Kidhb is lying. Mukadhdhibun are deniers.",
+        notes = "Lying is among the worst sins in Islam."
+      ),
+      RootMeaningData(
+        root = "ب-ط-ل",
+        primaryMeaning = "falsehood, vanity, to nullify",
+        extendedMeaning = "That which has no substance or reality. Invalid, void, futile.",
+        quranUsage = "'Truth has come and falsehood (batil) has perished.' Batil is falsehood/vanity.",
+        notes = "Batil is inherently temporary - truth always prevails."
+      ),
+      RootMeaningData(
+        root = "ز-و-ر",
+        primaryMeaning = "falsehood, forgery, to visit",
+        extendedMeaning = "Deliberate falsehood and fabrication. Also means visiting (turning towards someone).",
+        quranUsage = "'Avoid false testimony (zur).' Zur is false testimony. Ziyara is visit.",
+        notes = "False testimony (shahadat al-zur) is a major sin."
+      ),
+
+      // === NATURE AND CREATION ===
+      RootMeaningData(
+        root = "س-م-ء",
+        primaryMeaning = "sky, heaven, rain, height",
+        extendedMeaning = "The sky, heavens, and anything elevated. Also refers to rain that comes from sky.",
+        quranUsage = "'We sent down from the sky (sama') water.' Sama' is sky/heaven. Samawi is heavenly.",
+        notes = "Seven heavens (sab' samawat) are mentioned in the Quran."
+      ),
+      RootMeaningData(
+        root = "أ-ر-ض",
+        primaryMeaning = "earth, land, ground",
+        extendedMeaning = "The earth, land, ground, and territory.",
+        quranUsage = "'The earth (ard) will shine with the light of its Lord.' Ard is earth. Ardi is earthly.",
+        notes = "The earth is described as spread out, stable, and producing sustenance."
+      ),
+      RootMeaningData(
+        root = "ب-ح-ر",
+        primaryMeaning = "sea, vast expanse",
+        extendedMeaning = "Sea, ocean, and any vast expanse. One who delves deep is 'bahhar' (expert).",
+        quranUsage = "'The two seas (bahrayn) are not alike.' Bahr is sea. Bahri is maritime.",
+        notes = "Fresh and salt water seas that don't mix are signs of Allah."
+      ),
+      RootMeaningData(
+        root = "ن-ه-ر",
+        primaryMeaning = "river, to flow, daytime",
+        extendedMeaning = "River, flowing water. Also related to daytime (nahar).",
+        quranUsage = "'Gardens beneath which rivers (anhar) flow.' Nahr is river. Nahar is daytime.",
+        notes = "Rivers of Paradise include water, milk, wine, and honey."
+      ),
+      RootMeaningData(
+        root = "ج-ب-ل",
+        primaryMeaning = "mountain, to create, nature",
+        extendedMeaning = "Mountain, creation, and innate nature. Jibillah is innate disposition.",
+        quranUsage = "'He created you in natures (jibillan) different.' Jabal is mountain. Jibal is mountains.",
+        notes = "Mountains are described as pegs (awtad) that stabilize the earth."
+      ),
+      RootMeaningData(
+        root = "ش-ج-ر",
+        primaryMeaning = "tree, to dispute",
+        extendedMeaning = "Trees (with intertwining branches), and disputation (ideas intertwining).",
+        quranUsage = "'Have you seen what you sow? Is it you who makes it grow or are We the grower?' Shajar is tree. Shajara is dispute.",
+        notes = "The forbidden tree in Paradise and the tree of Zaqqum in Hell."
+      ),
+      RootMeaningData(
+        root = "ز-ر-ع",
+        primaryMeaning = "agriculture, crops, to plant",
+        extendedMeaning = "Planting, agriculture, and crops.",
+        quranUsage = "'Is it you who cause it to grow (tazra'unahu) or are We the grower?' Zar' is crops/planting.",
+        notes = "Agriculture is presented as a sign of Allah's creative power."
+      ),
+      RootMeaningData(
+        root = "ث-م-ر",
+        primaryMeaning = "fruit, result, outcome",
+        extendedMeaning = "Fruit and the result or product of something.",
+        quranUsage = "'Eat of His fruit (thamarihi) when it ripens.' Thamar is fruit. Thamara is to bear fruit.",
+        notes = "Paradise has fruits of every kind."
+      ),
+
+      // === ANIMALS ===
+      RootMeaningData(
+        root = "د-ب-ب",
+        primaryMeaning = "creature, to crawl, move",
+        extendedMeaning = "Any creature that moves on earth (from insect to elephant).",
+        quranUsage = "'There is no creature (dabbah) on earth but that upon Allah is its provision.' Dabbah is creature.",
+        notes = "Allah provides for every creature, however small."
+      ),
+      RootMeaningData(
+        root = "ط-ي-ر",
+        primaryMeaning = "bird, to fly, omen",
+        extendedMeaning = "Birds, flying, and (in pre-Islamic times) omens from bird flight.",
+        quranUsage = "'Do they not see the birds (tayr) controlled in the atmosphere?' Tayr is birds. Tayaran is flying.",
+        notes = "Birds praising Allah and obeying Sulayman are mentioned."
+      ),
+      RootMeaningData(
+        root = "ن-ع-م",
+        primaryMeaning = "blessing, livestock, soft",
+        extendedMeaning = "Blessings, grazing livestock (camels, cattle, sheep), and softness.",
+        quranUsage = "'The livestock (an'am) He created for you.' Ni'mah is blessing. An'am is livestock.",
+        notes = "Surah Al-An'am discusses livestock as blessings from Allah."
+      ),
+      RootMeaningData(
+        root = "ب-ق-ر",
+        primaryMeaning = "cow, cattle, to split open",
+        extendedMeaning = "Cattle/cows, and splitting open (cows split the earth plowing).",
+        quranUsage = "'A yellow cow (baqarah), bright in color.' Baqar is cattle. Baqarah is cow.",
+        notes = "Surah Al-Baqarah is named after the cow in Musa's story."
+      ),
+      RootMeaningData(
+        root = "ج-م-ل",
+        primaryMeaning = "camel, beauty, entirety",
+        extendedMeaning = "Camel, beauty, and totality. The camel represents patience and endurance.",
+        quranUsage = "'Do they not look at the camel (ibil) - how it is created?' Jamal is camel. Jamil is beautiful.",
+        notes = "The same root gives both 'camel' (jamal) and 'beautiful' (jamil)."
+      ),
+      RootMeaningData(
+        root = "خ-ن-ز-ر",
+        primaryMeaning = "pig, swine",
+        extendedMeaning = "Pig or swine.",
+        quranUsage = "'Forbidden to you is the flesh of swine (khinzir).' Khinzir is pig.",
+        notes = "Pork is forbidden (haram) in Islam."
+      ),
+      RootMeaningData(
+        root = "ك-ل-ب",
+        primaryMeaning = "dog",
+        extendedMeaning = "Dog, and rabidity/madness.",
+        quranUsage = "'Their dog stretched his forelegs at the entrance.' Kalb is dog.",
+        notes = "The dog of the People of the Cave (Ashab al-Kahf)."
+      ),
+      RootMeaningData(
+        root = "ن-م-ل",
+        primaryMeaning = "ant",
+        extendedMeaning = "Ant.",
+        quranUsage = "'An ant (namlah) said: O ants, enter your dwellings.' Naml is ants.",
+        notes = "Surah An-Naml tells of Sulayman understanding the ant's speech."
+      ),
+      RootMeaningData(
+        root = "ن-ح-ل",
+        primaryMeaning = "bee",
+        extendedMeaning = "Bee, and gifting.",
+        quranUsage = "'Your Lord inspired the bee (nahl).' Nahl is bee.",
+        notes = "Surah An-Nahl describes the bee's divine guidance."
+      ),
+      RootMeaningData(
+        root = "ع-ن-ك-ب",
+        primaryMeaning = "spider",
+        extendedMeaning = "Spider.",
+        quranUsage = "'The likeness of those who take protectors other than Allah is that of the spider ('ankabut).' 'Ankabut is spider.",
+        notes = "The spider's web represents the weakness of false protectors."
+      ),
+      RootMeaningData(
+        root = "ح-و-ت",
+        primaryMeaning = "fish, whale",
+        extendedMeaning = "Large fish or whale.",
+        quranUsage = "'The companion of the fish (dhul-nun).' Hut is whale/fish.",
+        notes = "Yunus was swallowed by a huge fish (hut)."
+      ),
+
+      // === FAMILY RELATIONS ===
+      RootMeaningData(
+        root = "أ-ب-و",
+        primaryMeaning = "father, ancestor",
+        extendedMeaning = "Father, forefather, and ancestors.",
+        quranUsage = "'And (remember) when Ibrahim said to his father (abihi).' Ab is father. Aba' is fathers/ancestors.",
+        notes = "Respecting parents, especially fathers, is strongly emphasized."
+      ),
+      RootMeaningData(
+        root = "أ-م-م",
+        primaryMeaning = "mother, nation, source",
+        extendedMeaning = "Mother, nation/community, and origin/source. The ummah is like a mother nurturing its members.",
+        quranUsage = "'His mother (ummuhu) is Jahannam.' Umm is mother. Ummah is nation.",
+        notes = "Umm al-Kitab is the Mother of the Book (essence of scripture)."
+      ),
+      RootMeaningData(
+        root = "ب-ن-و",
+        primaryMeaning = "son, children, build",
+        extendedMeaning = "Son, children, and building. Banu (sons of) indicates tribal descent.",
+        quranUsage = "'O Children (bani) of Israel.' Ibn is son. Bina' is building.",
+        notes = "Building (bina') and children (ibn) share the root - both are constructions."
+      ),
+      RootMeaningData(
+        root = "ب-ن-ت",
+        primaryMeaning = "daughter",
+        extendedMeaning = "Daughter.",
+        quranUsage = "'These are my daughters (banati).' Bint is daughter. Banat is daughters.",
+        notes = "The Quran condemned the pre-Islamic practice of burying daughters alive."
+      ),
+      RootMeaningData(
+        root = "أ-خ-و",
+        primaryMeaning = "brother, brotherhood",
+        extendedMeaning = "Brother, brotherhood, and companionship.",
+        quranUsage = "'The believers are but brothers (ikhwah).' Akh is brother. Ukhuwwah is brotherhood.",
+        notes = "Brotherhood in faith transcends blood relations."
+      ),
+      RootMeaningData(
+        root = "أ-خ-ت",
+        primaryMeaning = "sister",
+        extendedMeaning = "Sister.",
+        quranUsage = "'And (remember) when she said to his sister (ukhtihi).' Ukht is sister.",
+        notes = "Maryam was addressed as 'sister of Harun' (O sister of Aaron)."
+      ),
+      RootMeaningData(
+        root = "ز-و-ج",
+        primaryMeaning = "spouse, pair, kind",
+        extendedMeaning = "Spouse (husband or wife), pair, and type/kind. Everything created in pairs.",
+        quranUsage = "'We created you in pairs (azwaj).' Zawj is spouse/pair. Zawja is wife.",
+        notes = "Creation in pairs is a divine sign - male/female, positive/negative."
+      ),
+      RootMeaningData(
+        root = "ن-ك-ح",
+        primaryMeaning = "marriage, to marry",
+        extendedMeaning = "Marriage contract and the marital relationship.",
+        quranUsage = "'Marry (ankihu) those among you who are single.' Nikah is marriage.",
+        notes = "Marriage is described as half of faith."
+      ),
+      RootMeaningData(
+        root = "ي-ت-م",
+        primaryMeaning = "orphan, solitary",
+        extendedMeaning = "Orphan (one who lost their father), and being alone.",
+        quranUsage = "'Did He not find you (O Muhammad) an orphan (yatim) and give refuge?' Yatim is orphan.",
+        notes = "Caring for orphans is heavily emphasized in Islam."
+      ),
+      RootMeaningData(
+        root = "أ-ر-م-ل",
+        primaryMeaning = "widow",
+        extendedMeaning = "Widow, one left alone.",
+        quranUsage = "Armalah is widow. Caring for widows is encouraged.",
+        notes = "The Prophet specifically encouraged marrying widows."
+      ),
+
+      // === BODY PARTS ===
+      RootMeaningData(
+        root = "ر-ء-س",
+        primaryMeaning = "head, chief, capital",
+        extendedMeaning = "Head, leader, and the main/principal thing (capital in money).",
+        quranUsage = "'If you repent, you may have your principal (ra's).' Ra's is head/principal. Ra'is is chief.",
+        notes = "The head represents leadership and primacy."
+      ),
+      RootMeaningData(
+        root = "و-ج-ه",
+        primaryMeaning = "face, direction, aspect",
+        extendedMeaning = "Face, countenance, direction, and manner/way.",
+        quranUsage = "'Wherever you turn, there is the Face (wajh) of Allah.' Wajh is face. Wijhah is direction.",
+        notes = "Turning one's face (wajh) to Allah means directing oneself entirely to Him."
+      ),
+      RootMeaningData(
+        root = "ع-ي-ن",
+        primaryMeaning = "eye, spring, essence",
+        extendedMeaning = "Eye, water spring, and the essence/self of something.",
+        quranUsage = "'In it are springs ('uyun).' 'Ayn is eye/spring. 'Ayni is my eye (expression of care).",
+        notes = "Eye, spring, and essence share the root - all are sources of life."
+      ),
+      RootMeaningData(
+        root = "أ-ذ-ن",
+        primaryMeaning = "ear, permission, announcement",
+        extendedMeaning = "Ear, permission (hearing and accepting), and announcement.",
+        quranUsage = "'Let those who have ears (adhan) hear.' Udhun is ear. Idhn is permission. Adhan is call to prayer.",
+        notes = "The adhan (call to prayer) comes from this root - the announcement to the ears."
+      ),
+      RootMeaningData(
+        root = "ل-س-ن",
+        primaryMeaning = "tongue, language",
+        extendedMeaning = "Tongue and language.",
+        quranUsage = "'We sent no messenger except in the language (lisan) of his people.' Lisan is tongue/language.",
+        notes = "The Quran is in clear Arabic tongue (lisan 'arabi mubin)."
+      ),
+      RootMeaningData(
+        root = "ي-د-د",
+        primaryMeaning = "hand, power, favor",
+        extendedMeaning = "Hand, and by extension power, ability, and favor.",
+        quranUsage = "'The Hand (yad) of Allah is over their hands.' Yad is hand. Aydi is hands.",
+        notes = "Hand symbolizes power, generosity, and covenant."
+      ),
+      RootMeaningData(
+        root = "ر-ج-ل",
+        primaryMeaning = "foot, leg, man",
+        extendedMeaning = "Foot/leg, and man (one who walks on legs). Rijal are men.",
+        quranUsage = "'Men (rijal) whom neither commerce nor sale distracts.' Rijl is foot. Rajul is man.",
+        notes = "The standing (qiyam) in prayer is on one's feet."
+      ),
+      RootMeaningData(
+        root = "ص-د-ر",
+        primaryMeaning = "chest, breast, to proceed from",
+        extendedMeaning = "Chest/breast (where emotions reside), and issuing forth.",
+        quranUsage = "'We expand his breast (sadr) for Islam.' Sadr is chest. Masdar is source/origin.",
+        notes = "The chest (sadr) is where spiritual states manifest."
+      ),
+      RootMeaningData(
+        root = "ب-ط-ن",
+        primaryMeaning = "belly, interior, hidden",
+        extendedMeaning = "Belly/stomach, interior, and the hidden aspect of things.",
+        quranUsage = "'The outer (zahir) and the inner (batin).' Batn is belly. Batin is inner/hidden.",
+        notes = "Al-Batin (The Hidden) is one of Allah's names - His essence is beyond comprehension."
+      ),
+      RootMeaningData(
+        root = "ظ-ه-ر",
+        primaryMeaning = "back, outer, apparent, to appear",
+        extendedMeaning = "Back, outer surface, appearing, and becoming manifest.",
+        quranUsage = "'That He may make it prevail (yuzhirahu) over all religion.' Zahr is back. Zahir is apparent.",
+        notes = "Al-Zahir (The Manifest) pairs with Al-Batin - Allah is both apparent in His signs and hidden in His essence."
+      ),
+
+      // === TIME CONCEPTS ===
+      RootMeaningData(
+        root = "د-ه-ر",
+        primaryMeaning = "time, age, eternity",
+        extendedMeaning = "A long period of time, fate, eternity.",
+        quranUsage = "'Has there not been over man a period of time (dahr)?' Dahr is time/fate.",
+        notes = "Pre-Islamic Arabs blamed 'dahr' (time/fate) for misfortunes."
+      ),
+      RootMeaningData(
+        root = "ز-م-ن",
+        primaryMeaning = "time, period",
+        extendedMeaning = "Time, period, and era.",
+        quranUsage = "Zaman is time/period. Azminah is times.",
+        notes = "Time (zaman) is a creation of Allah."
+      ),
+      RootMeaningData(
+        root = "ح-ي-ن",
+        primaryMeaning = "time, moment, when",
+        extendedMeaning = "A specific time or moment.",
+        quranUsage = "'Has there come upon man a period of time (hin)?' Hin is a period of time.",
+        notes = "Hin implies a specific, appointed moment."
+      ),
+      RootMeaningData(
+        root = "أ-ب-د",
+        primaryMeaning = "eternity, forever",
+        extendedMeaning = "Eternity, forever, perpetually.",
+        quranUsage = "'Abiding therein forever (abadan).' Abad is eternity. Abadi is eternal.",
+        notes = "Paradise and Hell are described as eternal (abadan)."
+      ),
+      RootMeaningData(
+        root = "أ-ز-ل",
+        primaryMeaning = "eternity past, pre-eternal",
+        extendedMeaning = "Eternity without beginning, pre-eternity.",
+        quranUsage = "Azal is pre-eternity. Azali is pre-eternal (no beginning).",
+        notes = "Allah is Azali (pre-eternal) - He has no beginning."
+      ),
+      RootMeaningData(
+        root = "ق-د-م",
+        primaryMeaning = "to precede, ancient, foot",
+        extendedMeaning = "Preceding, ancient, and foot (what goes forward first).",
+        quranUsage = "'The truth which they had sent before (qaddamat).' Qadim is ancient. Qadam is foot.",
+        notes = "Al-Qadim describes Allah's eternal existence without beginning."
+      ),
+      RootMeaningData(
+        root = "أ-خ-ر",
+        primaryMeaning = "other, last, to delay",
+        extendedMeaning = "Other, another, the last/final, and delaying.",
+        quranUsage = "'The Last Day (al-yawm al-akhir).' Akhir is last. Akhar is other. Akhkhara is to delay.",
+        notes = "Al-Akhir (The Last) is one of Allah's names - He remains after all else perishes."
+      ),
+
+      // === ISLAMIC TERMS ===
+      RootMeaningData(
+        root = "ف-ت-و",
+        primaryMeaning = "youth, religious verdict",
+        extendedMeaning = "Youth, and issuing a religious verdict (fatwa).",
+        quranUsage = "'They ask you for a verdict (yastaftunaka).' Fata is youth. Fatwa is religious verdict.",
+        notes = "The youth of the cave (fityah) were praised for their faith."
+      ),
+      RootMeaningData(
+        root = "ج-ه-د",
+        primaryMeaning = "effort, struggle, strive",
+        extendedMeaning = "Exerting effort, striving, and struggling. Jihad is striving in Allah's cause.",
+        quranUsage = "'Strive (jahidu) in the way of Allah.' Jihad is striving. Mujtahid is one who strives.",
+        notes = "The greater jihad is the struggle against one's own ego."
+      ),
+      RootMeaningData(
+        root = "ه-ج-ر",
+        primaryMeaning = "emigration, to abandon",
+        extendedMeaning = "Emigration, abandoning, and separation.",
+        quranUsage = "'Those who emigrated (hajaru) for Allah.' Hijrah is emigration. Hajr is abandonment.",
+        notes = "The Hijrah from Makkah to Madinah marks the start of the Islamic calendar."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ب",
+        primaryMeaning = "companion, to accompany",
+        extendedMeaning = "Companionship and accompanying someone.",
+        quranUsage = "'When he said to his companion (sahibihi).' Sahib is companion. Sahaba are the Prophet's companions.",
+        notes = "The Sahabah (Companions) are the Prophet's closest followers."
+      ),
+      RootMeaningData(
+        root = "ت-ب-ع",
+        primaryMeaning = "to follow, followers",
+        extendedMeaning = "Following, succession, and followers.",
+        quranUsage = "'Follow (ittabi') what has been revealed to you.' Tabi' is follower. Tabi'un are the followers of Sahabah.",
+        notes = "The Tabi'un are the generation after the Sahabah."
+      ),
+      RootMeaningData(
+        root = "س-ن-ن",
+        primaryMeaning = "way, practice, law of nature",
+        extendedMeaning = "Established way, practice, and natural law. Sunnah is the Prophet's practice.",
+        quranUsage = "'The practice (sunnah) of those who were sent before.' Sunnah is established way.",
+        notes = "Allah's sunnah (way) in dealing with nations does not change."
+      ),
+      RootMeaningData(
+        root = "ب-د-ع",
+        primaryMeaning = "to innovate, originate, create anew",
+        extendedMeaning = "Creating something unprecedented, innovation.",
+        quranUsage = "'Originator (badi') of the heavens and earth.' Bid'ah is innovation. Ibda' is creation.",
+        notes = "Al-Badi' (The Originator) creates without precedent."
+      ),
+
+      // === MORAL QUALITIES ===
+      RootMeaningData(
+        root = "خ-ل-ق",
+        primaryMeaning = "creation, character, morals",
+        extendedMeaning = "Creating, and moral character (which is the 'creation' of one's soul).",
+        quranUsage = "'And indeed, you are of great moral character (khuluq).' Khalq is creation. Khuluq is character.",
+        notes = "The Prophet was praised for his excellent character (khuluq 'azim)."
+      ),
+      RootMeaningData(
+        root = "أ-د-ب",
+        primaryMeaning = "manners, literature, discipline",
+        extendedMeaning = "Good manners, refined behavior, literature, and discipline.",
+        quranUsage = "Adab is manners/literature. Ta'dib is disciplining/refining.",
+        notes = "The Prophet said: 'My Lord disciplined me (addabani) and perfected my discipline.'"
+      ),
+      RootMeaningData(
+        root = "ح-ل-م",
+        primaryMeaning = "forbearance, gentleness, dream",
+        extendedMeaning = "Forbearance, clemency, puberty/maturity, and dreams.",
+        quranUsage = "'When they reach maturity (hulm).' Hilm is forbearance. Hulm is dream.",
+        notes = "Al-Halim (The Forbearing) is one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "س-خ-و",
+        primaryMeaning = "generosity, to be generous",
+        extendedMeaning = "Generosity and open-handedness.",
+        quranUsage = "Sakha' is generosity. Sakhi is generous.",
+        notes = "The Prophet was described as more generous than the blowing wind."
+      ),
+      RootMeaningData(
+        root = "ب-خ-ل",
+        primaryMeaning = "miserliness, stinginess",
+        extendedMeaning = "Miserliness and withholding.",
+        quranUsage = "'Those who are miserly (yabkhalun) and enjoin miserliness.' Bukhl is miserliness.",
+        notes = "Miserliness is condemned; generosity is praised."
+      ),
+      RootMeaningData(
+        root = "ك-ب-ر",
+        primaryMeaning = "greatness, to grow, arrogance",
+        extendedMeaning = "Being great/large, growing up, and arrogance (seeing oneself as great).",
+        quranUsage = "'Allahu Akbar' - Allah is Greater. Kibr is arrogance. Kabir is great.",
+        notes = "Greatness belongs to Allah; human arrogance (kibr) is condemned."
+      ),
+      RootMeaningData(
+        root = "ت-و-ض-ع",
+        primaryMeaning = "humility, to be humble",
+        extendedMeaning = "Lowering oneself, humility.",
+        quranUsage = "'Lower (ikhfid) your wing to the believers.' Tawadu' is humility.",
+        notes = "Humility before Allah and creation is praiseworthy."
+      ),
+      RootMeaningData(
+        root = "غ-ر-ر",
+        primaryMeaning = "deception, delusion",
+        extendedMeaning = "Deception, delusion, and being fooled by appearances.",
+        quranUsage = "'Let not the worldly life delude (yaghurrannaka) you.' Ghurur is delusion.",
+        notes = "The world (dunya) is described as deceptive enjoyment."
+      ),
+
+      // === PRAYER AND WORSHIP ===
+      RootMeaningData(
+        root = "ر-ك-ع",
+        primaryMeaning = "bowing, to bow",
+        extendedMeaning = "Bowing, especially in prayer. Also humbling oneself.",
+        quranUsage = "'Bow (irka'u) and prostrate.' Ruku' is bowing. Raki' is one who bows.",
+        notes = "Ruku' in prayer symbolizes humility before Allah."
+      ),
+      RootMeaningData(
+        root = "ق-و-م",
+        primaryMeaning = "standing, to stand, establish, people",
+        extendedMeaning = "Standing, rising, establishing, and a people/nation.",
+        quranUsage = "'Establish (aqim) the prayer.' Qiyam is standing. Qawm is people. Qiyamah is resurrection.",
+        notes = "Standing (qiyam) in prayer and on Judgment Day (Yawm al-Qiyamah)."
+      ),
+      RootMeaningData(
+        root = "ت-ل-و",
+        primaryMeaning = "recitation, to follow, to recite",
+        extendedMeaning = "Following (something after another), and reciting (words following each other).",
+        quranUsage = "'When the Quran is recited (tutla).' Tilawah is recitation.",
+        notes = "Tilawah implies reciting with proper following of rules (tajweed)."
+      ),
+      RootMeaningData(
+        root = "س-ب-ح",
+        primaryMeaning = "to glorify, swim",
+        extendedMeaning = "Glorifying (Allah), and swimming/floating.",
+        quranUsage = "'Glorify (sabbih) the name of your Lord.' Tasbih is glorification. Subhan is glory be.",
+        notes = "Everything in the heavens and earth glorifies Allah."
+      ),
+      RootMeaningData(
+        root = "ق-د-س",
+        primaryMeaning = "holiness, sacred, to purify",
+        extendedMeaning = "Holiness, sacredness, and spiritual purification.",
+        quranUsage = "'The Holy Spirit (Ruh al-Qudus).' Quds is holiness. Muqaddas is sacred.",
+        notes = "Al-Quddus (The Holy) is one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "ح-ج-ج",
+        primaryMeaning = "pilgrimage, argument, proof",
+        extendedMeaning = "Pilgrimage (journeying to sacred place), and presenting an argument/proof.",
+        quranUsage = "'Pilgrimage (hajj) to the House is a duty.' Hajj is pilgrimage. Hujjah is proof.",
+        notes = "Hajj is one of the five pillars of Islam."
+      ),
+      RootMeaningData(
+        root = "ع-م-ر",
+        primaryMeaning = "life, to visit, to populate",
+        extendedMeaning = "Life span, visiting (Umrah), and populating/building up.",
+        quranUsage = "'Complete the Hajj and Umrah for Allah.' 'Umr is life. 'Umrah is lesser pilgrimage.",
+        notes = "Umrah is the lesser pilgrimage that can be performed anytime."
+      ),
+
+      // === ESCHATOLOGY ===
+      RootMeaningData(
+        root = "ب-ع-ث",
+        primaryMeaning = "to resurrect, send, raise",
+        extendedMeaning = "Raising from death, sending (messengers), and awakening.",
+        quranUsage = "'The Day they will be resurrected (yub'athun).' Ba'th is resurrection. Mab'uth is sent.",
+        notes = "Ba'th refers to the bodily resurrection on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ح-ش-ر",
+        primaryMeaning = "gathering, to assemble",
+        extendedMeaning = "Gathering together, especially the gathering on Judgment Day.",
+        quranUsage = "'The Day of Gathering (hashr).' Hashr is gathering. Mahshar is place of gathering.",
+        notes = "All creatures will be gathered (hashr) for judgment."
+      ),
+      RootMeaningData(
+        root = "ح-س-ب",
+        primaryMeaning = "reckoning, account, to calculate",
+        extendedMeaning = "Counting, calculating, reckoning, and considering sufficient.",
+        quranUsage = "'Swift is He in reckoning (hisab).' Hisab is account/reckoning. Hasib is accountant.",
+        notes = "Everyone will be held to account for their deeds."
+      ),
+      RootMeaningData(
+        root = "ص-ر-ط",
+        primaryMeaning = "path, way, road",
+        extendedMeaning = "A clear, straight path.",
+        quranUsage = "'Guide us to the straight path (sirat al-mustaqim).' Sirat is path.",
+        notes = "The Sirat is also the bridge over Hell that all must cross."
+      ),
+      RootMeaningData(
+        root = "ج-ز-ء",
+        primaryMeaning = "recompense, part, reward",
+        extendedMeaning = "Recompense (reward or punishment), and a part/portion.",
+        quranUsage = "'Is the recompense (jaza') of good except good?' Jaza' is recompense. Juz' is part.",
+        notes = "Allah's recompense is perfectly just."
+      ),
+      RootMeaningData(
+        root = "ث-و-ب",
+        primaryMeaning = "reward, garment, to return",
+        extendedMeaning = "Reward, garment/clothing, and returning.",
+        quranUsage = "'A good reward (thawab) from Allah.' Thawab is reward. Thawb is garment.",
+        notes = "Good deeds bring thawab (reward) in the Hereafter."
+      ),
+      RootMeaningData(
+        root = "ع-ذ-ب",
+        primaryMeaning = "punishment, torment, fresh water",
+        extendedMeaning = "Punishment, torment, and (paradoxically) fresh/sweet water.",
+        quranUsage = "'A painful punishment ('adhab alim).' 'Adhab is punishment. 'Adhb is fresh water.",
+        notes = "The same root gives both 'punishment' and 'sweet water' - linguistic richness."
+      ),
+      RootMeaningData(
+        root = "ن-ع-م",
+        primaryMeaning = "blessing, bounty, comfort",
+        extendedMeaning = "Blessing, favor, comfort, and livestock (which are blessings).",
+        quranUsage = "'Which of the favors (ni'am) of your Lord will you deny?' Na'im is bliss. Ni'mah is blessing.",
+        notes = "An-Na'im is the bliss of Paradise."
+      ),
+
+      // === FOOD AND DRINK ===
+      RootMeaningData(
+        root = "ط-ع-م",
+        primaryMeaning = "food, taste, to feed",
+        extendedMeaning = "Food, taste, and feeding others.",
+        quranUsage = "'They give food (ta'am) despite loving it.' Ta'am is food. It'am is feeding.",
+        notes = "Feeding the hungry is highly rewarded."
+      ),
+      RootMeaningData(
+        root = "ش-ر-ب",
+        primaryMeaning = "drink, to drink",
+        extendedMeaning = "Drinking and beverages.",
+        quranUsage = "'Eat and drink (ishrabu).' Shurb is drinking. Sharab is drink.",
+        notes = "Paradise has rivers of various drinks."
+      ),
+      RootMeaningData(
+        root = "أ-ك-ل",
+        primaryMeaning = "eating, food, to consume",
+        extendedMeaning = "Eating and consuming. Includes consuming wealth (metaphorically).",
+        quranUsage = "'Do not consume (ta'kulu) one another's wealth unjustly.' Akl is eating.",
+        notes = "Consuming others' wealth wrongly is like eating forbidden food."
+      ),
+      RootMeaningData(
+        root = "ذ-ب-ح",
+        primaryMeaning = "slaughter, sacrifice",
+        extendedMeaning = "Ritual slaughter and sacrifice.",
+        quranUsage = "'So pray to your Lord and sacrifice (wanhar).' Dhabh is slaughter. Dhabiha is sacrifice.",
+        notes = "Proper slaughter (dhabh) makes meat halal."
+      ),
+      RootMeaningData(
+        root = "ح-ل-ل",
+        primaryMeaning = "lawful, to untie, to permit",
+        extendedMeaning = "Permissible, lawful, and untying/loosening.",
+        quranUsage = "'Made lawful (uhilla) for you are good foods.' Halal is lawful. Hill is untying.",
+        notes = "Halal encompasses all that is permissible in Islam."
+      ),
+      RootMeaningData(
+        root = "ح-ر-م",
+        primaryMeaning = "forbidden, sacred, to prohibit",
+        extendedMeaning = "Forbidden, sacred/inviolable, and prohibition.",
+        quranUsage = "'Forbidden (hurrimat) to you are dead animals.' Haram is forbidden. Harim is sanctuary.",
+        notes = "The same root gives 'forbidden' and 'sacred' - both are set apart."
+      ),
+
+      // === ADDITIONAL IMPORTANT ROOTS ===
+      RootMeaningData(
+        root = "ف-ر-ق",
+        primaryMeaning = "to separate, distinguish, difference",
+        extendedMeaning = "Separating, distinguishing truth from falsehood, and difference.",
+        quranUsage = "'The Criterion (al-Furqan) between truth and falsehood.' Farq is difference. Furqan is criterion.",
+        notes = "The Quran is Al-Furqan - it distinguishes truth from falsehood."
+      ),
+      RootMeaningData(
+        root = "ج-م-ع",
+        primaryMeaning = "to gather, collect, assemble",
+        extendedMeaning = "Gathering, collecting, uniting, and Friday (day of gathering).",
+        quranUsage = "'The Day of Assembly (jumu'ah).' Jam' is gathering. Jum'ah is Friday. Jami' is comprehensive.",
+        notes = "Jumu'ah prayer gathers the community weekly."
+      ),
+      RootMeaningData(
+        root = "و-ح-د",
+        primaryMeaning = "one, alone, to unify",
+        extendedMeaning = "Oneness, being alone/unique, and unification.",
+        quranUsage = "'Your God is One God (ilahun wahid).' Wahid is one. Tawhid is monotheism.",
+        notes = "Tawhid (monotheism) is the foundation of Islam."
+      ),
+      RootMeaningData(
+        root = "ش-ر-ك",
+        primaryMeaning = "to associate, partner, share",
+        extendedMeaning = "Partnership, association, and associating partners with Allah.",
+        quranUsage = "'Do not associate (tushrik) anything with Him.' Shirk is polytheism. Sharik is partner.",
+        notes = "Shirk (associating partners with Allah) is the only unforgivable sin if one dies upon it."
+      ),
+      RootMeaningData(
+        root = "ن-ف-س",
+        primaryMeaning = "soul, self, breath",
+        extendedMeaning = "Soul, self, breath, and the essence of a person.",
+        quranUsage = "'Every soul (nafs) will taste death.' Nafs is soul/self. Tanaffus is breathing.",
+        notes = "The nafs has stages: commanding to evil (ammara), self-reproaching (lawwama), and at peace (mutma'inna)."
+      ),
+      RootMeaningData(
+        root = "ر-و-ح",
+        primaryMeaning = "spirit, soul, wind, rest",
+        extendedMeaning = "Spirit, soul (higher aspect), wind/breeze, and rest/comfort.",
+        quranUsage = "'He breathed into him of His spirit (ruh).' Ruh is spirit. Rawh is rest/mercy.",
+        notes = "Ruh al-Qudus (Holy Spirit) is Jibril. The ruh is breathed into the fetus at 120 days."
+      ),
+      RootMeaningData(
+        root = "ق-ص-د",
+        primaryMeaning = "intention, to intend, moderate",
+        extendedMeaning = "Intention, purpose, and moderation in path.",
+        quranUsage = "'Upon Allah is the moderate way (qasd al-sabil).' Qasd is intention. Maqsud is intended.",
+        notes = "Actions are judged by intentions (niyyat)."
+      ),
+      RootMeaningData(
+        root = "ن-و-ي",
+        primaryMeaning = "intention, to intend",
+        extendedMeaning = "Intention and purpose behind actions.",
+        quranUsage = "Niyyah is intention. The Prophet said: 'Actions are by intentions.'",
+        notes = "Every act of worship requires proper intention (niyyah)."
+      ),
+      RootMeaningData(
+        root = "إ-خ-ل-ص",
+        primaryMeaning = "sincerity, purity, to purify",
+        extendedMeaning = "Sincerity, purifying intention for Allah alone.",
+        quranUsage = "'Sincere (mukhlisin) to Him in religion.' Ikhlas is sincerity. Mukhlis is sincere one.",
+        notes = "Surah Al-Ikhlas embodies pure monotheism."
+      ),
+      RootMeaningData(
+        root = "ن-ص-ح",
+        primaryMeaning = "sincere advice, to advise",
+        extendedMeaning = "Sincere counsel and well-wishing for others.",
+        quranUsage = "'I am a sincere adviser (nasih) to you.' Nasihah is sincere advice. Nasih is adviser.",
+        notes = "The religion is sincere advice (al-din al-nasihah)."
+      ),
+      RootMeaningData(
+        root = "أ-م-ر",
+        primaryMeaning = "command, matter, affair",
+        extendedMeaning = "Commanding, an affair/matter, and authority.",
+        quranUsage = "'To Allah belongs the command (amr).' Amr is command. Amir is commander.",
+        notes = "Amr bil-ma'ruf is commanding the good."
+      ),
+      RootMeaningData(
+        root = "ن-ه-ي",
+        primaryMeaning = "to forbid, prohibit, end",
+        extendedMeaning = "Forbidding, prohibiting, and reaching an end.",
+        quranUsage = "'Forbid (yanha) from wrongdoing.' Nahy is prohibition. Muntaha is ultimate end.",
+        notes = "Nahy 'an al-munkar is forbidding the wrong."
+      ),
+      RootMeaningData(
+        root = "ح-ق-ق",
+        primaryMeaning = "truth, right, reality",
+        extendedMeaning = "Truth, right (legal and moral), reality, and what is due.",
+        quranUsage = "'The truth (haqq) has come and falsehood has departed.' Haqq is truth/right. Haqiqa is reality.",
+        notes = "Al-Haqq (The Truth) is one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "ع-د-ل",
+        primaryMeaning = "justice, equity, to be fair",
+        extendedMeaning = "Justice, fairness, equity, and balance.",
+        quranUsage = "'Be just ('adilu); that is nearer to righteousness.' 'Adl is justice. 'Adil is just.",
+        notes = "Allah commands justice and excellence (ihsan)."
+      ),
+      RootMeaningData(
+        root = "ظ-ل-م",
+        primaryMeaning = "oppression, injustice, darkness",
+        extendedMeaning = "Wrongdoing, oppression, injustice, and darkness (absence of light of justice).",
+        quranUsage = "'Do not wrong (tazlimun) one another.' Zulm is oppression. Zalim is oppressor. Zulmat is darkness.",
+        notes = "Zulm includes wronging oneself, others, and (worst) wronging Allah through shirk."
+      ),
+      RootMeaningData(
+        root = "ف-س-د",
+        primaryMeaning = "corruption, to spoil",
+        extendedMeaning = "Corruption, spoiling, and causing mischief.",
+        quranUsage = "'Do not cause corruption (tufsidu) in the earth.' Fasad is corruption. Mufsid is corruptor.",
+        notes = "Corruption in the land is severely condemned."
+      ),
+      RootMeaningData(
+        root = "ص-ل-ح",
+        primaryMeaning = "righteousness, reform, peace",
+        extendedMeaning = "Righteousness, reform, reconciliation, and goodness.",
+        quranUsage = "'Those who believe and do righteous deeds (salihat).' Salih is righteous. Islah is reform.",
+        notes = "Righteousness (salah) is the opposite of corruption (fasad)."
+      ),
+
+      // === COLORS ===
+      RootMeaningData(
+        root = "ب-ي-ض",
+        primaryMeaning = "white, egg, to whiten",
+        extendedMeaning = "Whiteness, eggs (white things), and becoming white/bright.",
+        quranUsage = "'His hand emerged white (bayda').' Abyad is white. Bayd is eggs.",
+        notes = "Musa's hand turning white was a sign. White symbolizes purity."
+      ),
+      RootMeaningData(
+        root = "س-و-د",
+        primaryMeaning = "black, to blacken, master",
+        extendedMeaning = "Blackness, becoming black, and being a master/chief (sayyid).",
+        quranUsage = "'On the Day when faces will be white and faces will be black (taswaddu).' Aswad is black. Sayyid is master.",
+        notes = "Sayyid (master/chief) shares this root - perhaps from authority's gravity."
+      ),
+      RootMeaningData(
+        root = "ح-م-ر",
+        primaryMeaning = "red, donkey",
+        extendedMeaning = "Redness and donkeys (often reddish-brown).",
+        quranUsage = "'Mountains of various colors - white, red (humr), and black.' Ahmar is red. Himar is donkey.",
+        notes = "Red is mentioned in describing mountains and other natural phenomena."
+      ),
+      RootMeaningData(
+        root = "خ-ض-ر",
+        primaryMeaning = "green, verdant",
+        extendedMeaning = "Green color, verdure, and freshness.",
+        quranUsage = "'Reclining on green (khudur) cushions.' Akhdar is green. Khadir is verdant.",
+        notes = "Green is associated with Paradise and life. Al-Khidr's name means 'the green one.'"
+      ),
+      RootMeaningData(
+        root = "ص-ف-ر",
+        primaryMeaning = "yellow, to whistle",
+        extendedMeaning = "Yellow color, and whistling/empty sound.",
+        quranUsage = "'A yellow (safra') cow, bright in color.' Asfar is yellow. Safir is whistling.",
+        notes = "The cow in Surah Al-Baqarah was specifically bright yellow."
+      ),
+      RootMeaningData(
+        root = "ز-ر-ق",
+        primaryMeaning = "blue, to be blue-eyed",
+        extendedMeaning = "Blue color, especially blue eyes.",
+        quranUsage = "'We will gather the criminals that Day blue-eyed (zurqan).' Azraq is blue.",
+        notes = "Blue-eyed on Judgment Day indicates terror and thirst."
+      ),
+      RootMeaningData(
+        root = "ل-و-ن",
+        primaryMeaning = "color, kind, type",
+        extendedMeaning = "Color and variety/type.",
+        quranUsage = "'Of various colors (alwan).' Lawn is color. Mulawwan is colored/varied.",
+        notes = "Diversity of colors in creation is a sign of Allah."
+      ),
+
+      // === NUMBERS ===
+      RootMeaningData(
+        root = "و-ح-د",
+        primaryMeaning = "one, unique, alone",
+        extendedMeaning = "Oneness, uniqueness, and being alone.",
+        quranUsage = "'Your God is One (wahid) God.' Wahid is one. Ahad is uniquely one.",
+        notes = "Ahad emphasizes absolute uniqueness; Wahid emphasizes being single."
+      ),
+      RootMeaningData(
+        root = "ث-ن-ي",
+        primaryMeaning = "two, to double, fold",
+        extendedMeaning = "Two, doubling, folding, and repetition.",
+        quranUsage = "'Seven of the oft-repeated (mathani).' Ithnan is two. Mathani is repeated.",
+        notes = "Al-Fatiha is called 'Sab' al-Mathani' (Seven Oft-Repeated)."
+      ),
+      RootMeaningData(
+        root = "ث-ل-ث",
+        primaryMeaning = "three, third",
+        extendedMeaning = "Three and one-third.",
+        quranUsage = "'Do not say three (thalatha).' Thalatha is three. Thuluth is one-third.",
+        notes = "The Quran refutes the concept of trinity."
+      ),
+      RootMeaningData(
+        root = "ر-ب-ع",
+        primaryMeaning = "four, spring, square",
+        extendedMeaning = "Four, springtime, and a square/dwelling place.",
+        quranUsage = "'Four (arba'ah) months.' Arba'ah is four. Rabi' is spring.",
+        notes = "Four sacred months, four witnesses for certain cases."
+      ),
+      RootMeaningData(
+        root = "خ-م-س",
+        primaryMeaning = "five, fifth",
+        extendedMeaning = "Five and one-fifth.",
+        quranUsage = "'Five (khamsah) of them.' Khamsah is five. Khamis is Thursday (fifth day).",
+        notes = "Five daily prayers, five pillars of Islam."
+      ),
+      RootMeaningData(
+        root = "س-ت-ت",
+        primaryMeaning = "six",
+        extendedMeaning = "Six.",
+        quranUsage = "'Created the heavens and earth in six (sittah) days.' Sittah is six.",
+        notes = "Creation in six days demonstrates Allah's power and wisdom."
+      ),
+      RootMeaningData(
+        root = "س-ب-ع",
+        primaryMeaning = "seven, to satisfy",
+        extendedMeaning = "Seven, and being satisfied/full.",
+        quranUsage = "'Seven (sab') heavens.' Sab'ah is seven. Sab' also means wild beast.",
+        notes = "Seven heavens, seven earths, seven circuits of tawaf."
+      ),
+      RootMeaningData(
+        root = "ث-م-ن",
+        primaryMeaning = "eight, price, value",
+        extendedMeaning = "Eight and price/value.",
+        quranUsage = "'Eight (thamaniyah) pairs.' Thamaniyah is eight. Thaman is price.",
+        notes = "Eight angels carry the Throne on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ت-س-ع",
+        primaryMeaning = "nine",
+        extendedMeaning = "Nine.",
+        quranUsage = "'Nine (tis') clear signs.' Tis'ah is nine.",
+        notes = "Nine signs were given to Musa."
+      ),
+      RootMeaningData(
+        root = "ع-ش-ر",
+        primaryMeaning = "ten, to associate",
+        extendedMeaning = "Ten, and social interaction/companionship.",
+        quranUsage = "'Ten ('ashr) complete nights.' 'Ashrah is ten. 'Ushrah is companionship.",
+        notes = "The first ten days of Dhul Hijjah are blessed."
+      ),
+      RootMeaningData(
+        root = "م-ء-ة",
+        primaryMeaning = "hundred",
+        extendedMeaning = "One hundred.",
+        quranUsage = "'A hundred (mi'ah) lashes.' Mi'ah is hundred.",
+        notes = "Used in various legal punishments and stories."
+      ),
+      RootMeaningData(
+        root = "أ-ل-ف",
+        primaryMeaning = "thousand, to be familiar",
+        extendedMeaning = "Thousand, and familiarity/friendship.",
+        quranUsage = "'A thousand (alf) years.' Alf is thousand. Ulfah is familiarity.",
+        notes = "Laylat al-Qadr is better than a thousand months."
+      ),
+
+      // === DIRECTIONS ===
+      RootMeaningData(
+        root = "ش-ر-ق",
+        primaryMeaning = "east, sunrise, to rise",
+        extendedMeaning = "East direction, sunrise, and rising.",
+        quranUsage = "'Lord of the East (mashriq) and West.' Sharq is east. Shurooq is sunrise.",
+        notes = "The sun rises from the east - a daily sign."
+      ),
+      RootMeaningData(
+        root = "غ-ر-ب",
+        primaryMeaning = "west, sunset, strange",
+        extendedMeaning = "West direction, sunset, and being strange/foreign.",
+        quranUsage = "'Lord of the East and West (maghrib).' Gharb is west. Gharib is stranger.",
+        notes = "Islam began as something strange and will return to being strange."
+      ),
+      RootMeaningData(
+        root = "ش-م-ل",
+        primaryMeaning = "north, left, to include",
+        extendedMeaning = "North, left side, and encompassing/including.",
+        quranUsage = "'Those of the left (shimal).' Shimal is left/north. Shamil is comprehensive.",
+        notes = "Companions of the left are those destined for punishment."
+      ),
+      RootMeaningData(
+        root = "ي-م-ن",
+        primaryMeaning = "right, south, blessing",
+        extendedMeaning = "Right side, south (Yemen), blessing, and oath.",
+        quranUsage = "'Those of the right (yamin).' Yamin is right. Yumn is blessing. Yemen is south.",
+        notes = "Companions of the right are blessed. Oaths are sworn by the right hand."
+      ),
+      RootMeaningData(
+        root = "ف-و-ق",
+        primaryMeaning = "above, over, superior",
+        extendedMeaning = "Being above, superiority.",
+        quranUsage = "'Above (fawqa) them.' Fawq is above. Fawqi is upper.",
+        notes = "Allah is above His creation in status, not location."
+      ),
+      RootMeaningData(
+        root = "ت-ح-ت",
+        primaryMeaning = "below, under, beneath",
+        extendedMeaning = "Being below or underneath.",
+        quranUsage = "'Gardens beneath (tahta) which rivers flow.' Taht is below.",
+        notes = "Rivers flow beneath the gardens of Paradise."
+      ),
+      RootMeaningData(
+        root = "أ-م-م",
+        primaryMeaning = "front, before, mother, nation",
+        extendedMeaning = "In front, mother, nation, and leader (imam).",
+        quranUsage = "'Before (amama) them.' Amam is in front. Imam is leader.",
+        notes = "An imam leads from the front in prayer and guidance."
+      ),
+      RootMeaningData(
+        root = "خ-ل-ف",
+        primaryMeaning = "behind, after, successor",
+        extendedMeaning = "Behind, after, succeeding, and being different.",
+        quranUsage = "'Behind (khalfa) them.' Khalaf is successor. Khalifah is vicegerent.",
+        notes = "Humans are khalifah (successors/vicegerents) on earth."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ل",
+        primaryMeaning = "before, facing, to accept",
+        extendedMeaning = "Before in time, facing toward, and accepting.",
+        quranUsage = "'Before (qabla) this.' Qabl is before. Qiblah is direction faced.",
+        notes = "The Qiblah is the direction Muslims face in prayer."
+      ),
+      RootMeaningData(
+        root = "ب-ع-د",
+        primaryMeaning = "after, far, distance",
+        extendedMeaning = "After in time, far in distance.",
+        quranUsage = "'After (ba'da) that.' Ba'd is after. Bu'd is distance. Ba'id is far.",
+        notes = "Used for both temporal and spatial distance."
+      ),
+
+      // === WEATHER AND NATURAL PHENOMENA ===
+      RootMeaningData(
+        root = "م-ط-ر",
+        primaryMeaning = "rain",
+        extendedMeaning = "Rain, especially heavy or harmful rain.",
+        quranUsage = "'We rained (amtarna) upon them stones.' Matar is rain.",
+        notes = "Matar often refers to destructive rain, while ghayth is beneficial rain."
+      ),
+      RootMeaningData(
+        root = "غ-ي-ث",
+        primaryMeaning = "rain, relief, help",
+        extendedMeaning = "Beneficial rain that brings relief.",
+        quranUsage = "'He sends down the rain (ghayth).' Ghayth is saving rain.",
+        notes = "Ghayth implies rain that relieves drought - a mercy."
+      ),
+      RootMeaningData(
+        root = "ر-ع-د",
+        primaryMeaning = "thunder",
+        extendedMeaning = "Thunder and trembling.",
+        quranUsage = "'The thunder (ra'd) glorifies His praise.' Ra'd is thunder.",
+        notes = "Surah Ar-Ra'd - thunder glorifies Allah."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ق",
+        primaryMeaning = "lightning, to shine",
+        extendedMeaning = "Lightning and shining brightly.",
+        quranUsage = "'The lightning (barq) almost takes away their sight.' Barq is lightning.",
+        notes = "Lightning is a sign of Allah's power."
+      ),
+      RootMeaningData(
+        root = "س-ح-ب",
+        primaryMeaning = "cloud, to drag",
+        extendedMeaning = "Clouds and dragging/pulling.",
+        quranUsage = "'He drives the clouds (sahab).' Sahab is clouds.",
+        notes = "Allah drives the clouds to revive dead lands."
+      ),
+      RootMeaningData(
+        root = "ر-ي-ح",
+        primaryMeaning = "wind, spirit, rest",
+        extendedMeaning = "Wind, scent/spirit, and rest/relief.",
+        quranUsage = "'We sent the winds (riyah) as good tidings.' Rih is wind. Rawh is rest.",
+        notes = "Winds carry rain clouds - a mercy from Allah."
+      ),
+      RootMeaningData(
+        root = "ع-ص-ف",
+        primaryMeaning = "violent wind, chaff",
+        extendedMeaning = "Violent wind and empty husks/chaff.",
+        quranUsage = "'Like eaten chaff ('asf).' 'Asif is violent wind. 'Asf is chaff.",
+        notes = "Violent winds were sent as punishment to past nations."
+      ),
+      RootMeaningData(
+        root = "ص-ر-ص-ر",
+        primaryMeaning = "cold violent wind",
+        extendedMeaning = "Extremely cold, howling wind.",
+        quranUsage = "'A screaming wind (sarsar).' Sarsar is freezing violent wind.",
+        notes = "The 'Ad were destroyed by sarsar wind."
+      ),
+      RootMeaningData(
+        root = "ث-ل-ج",
+        primaryMeaning = "snow, ice",
+        extendedMeaning = "Snow and ice.",
+        quranUsage = "Thalj is snow/ice. Used in purification prayers.",
+        notes = "The Prophet prayed to be purified with water, snow, and ice."
+      ),
+      RootMeaningData(
+        root = "ب-ر-د",
+        primaryMeaning = "cold, hail, coolness",
+        extendedMeaning = "Cold temperature, hail, and coolness.",
+        quranUsage = "'Mountains of hail (barad).' Bard is cold. Barad is hail.",
+        notes = "Hail is stored in the heavens and sent down."
+      ),
+      RootMeaningData(
+        root = "ح-ر-ر",
+        primaryMeaning = "heat, free, silk",
+        extendedMeaning = "Heat, freedom, and silk (fine/smooth).",
+        quranUsage = "'The heat (harr) of Hell.' Harr is heat. Hurr is free. Harir is silk.",
+        notes = "The righteous will wear silk (harir) in Paradise."
+      ),
+      RootMeaningData(
+        root = "ز-ل-ز-ل",
+        primaryMeaning = "earthquake, to shake",
+        extendedMeaning = "Earthquake, violent shaking.",
+        quranUsage = "'When the earth is shaken (zulzilat).' Zalzalah is earthquake.",
+        notes = "Surah Az-Zalzalah describes the final earthquake."
+      ),
+
+      // === CLOTHING AND ADORNMENT ===
+      RootMeaningData(
+        root = "ل-ب-س",
+        primaryMeaning = "clothing, to wear, confusion",
+        extendedMeaning = "Wearing clothes, and mixing/confusing.",
+        quranUsage = "'Clothing (libas) of righteousness is best.' Libas is clothing. Labs is confusion.",
+        notes = "Righteousness is the best clothing for the soul."
+      ),
+      RootMeaningData(
+        root = "ث-و-ب",
+        primaryMeaning = "garment, to return, reward",
+        extendedMeaning = "Garment, returning, and reward.",
+        quranUsage = "'Purify your garments (thiyab).' Thawb is garment. Thawab is reward.",
+        notes = "Physical and spiritual purity are connected."
+      ),
+      RootMeaningData(
+        root = "ح-ل-ي",
+        primaryMeaning = "ornament, jewelry",
+        extendedMeaning = "Ornaments, jewelry, and adornment.",
+        quranUsage = "'Bracelets of gold (huliy).' Hilyah is ornament.",
+        notes = "Paradise dwellers will be adorned with gold and pearls."
+      ),
+      RootMeaningData(
+        root = "ز-ي-ن",
+        primaryMeaning = "adornment, beauty, to beautify",
+        extendedMeaning = "Adornment, beautification, and decoration.",
+        quranUsage = "'We adorned (zayyanna) the lower heaven with stars.' Zinah is adornment.",
+        notes = "Allah beautifies the sky with stars and hearts with faith."
+      ),
+      RootMeaningData(
+        root = "ت-ا-ج",
+        primaryMeaning = "crown",
+        extendedMeaning = "Crown and coronation.",
+        quranUsage = "Taj is crown. The believers will be crowned in Paradise.",
+        notes = "Crowns symbolize honor and authority."
+      ),
+      RootMeaningData(
+        root = "خ-ا-ت-م",
+        primaryMeaning = "seal, ring, last",
+        extendedMeaning = "Seal, signet ring, and being the last/final.",
+        quranUsage = "'Seal (khatam) of the prophets.' Khatam is seal/last. Khatim is ring.",
+        notes = "Muhammad is the Khatam (seal/last) of the prophets."
+      ),
+
+      // === BUILDINGS AND STRUCTURES ===
+      RootMeaningData(
+        root = "ب-ن-ي",
+        primaryMeaning = "building, to build, son",
+        extendedMeaning = "Building, construction, and children (who build the family).",
+        quranUsage = "'We built (banayna) above you seven.' Bina' is building. Ibn is son.",
+        notes = "Building and having children both involve construction and legacy."
+      ),
+      RootMeaningData(
+        root = "ب-ي-ت",
+        primaryMeaning = "house, to spend the night",
+        extendedMeaning = "House, dwelling, and spending the night.",
+        quranUsage = "'The Ancient House (al-Bayt al-'Atiq).' Bayt is house. Bayat is overnight stay.",
+        notes = "The Kaaba is called Bayt Allah (House of Allah)."
+      ),
+      RootMeaningData(
+        root = "د-ا-ر",
+        primaryMeaning = "abode, house, realm",
+        extendedMeaning = "Dwelling, abode, and realm/domain.",
+        quranUsage = "'The Abode (dar) of the Hereafter.' Dar is abode. Diyar is dwellings.",
+        notes = "Dar al-Islam (realm of Islam), Dar al-Akhirah (abode of Hereafter)."
+      ),
+      RootMeaningData(
+        root = "م-س-ج-د",
+        primaryMeaning = "mosque, place of prostration",
+        extendedMeaning = "Place of prostration, mosque.",
+        quranUsage = "'The Sacred Mosque (al-Masjid al-Haram).' Masjid is mosque.",
+        notes = "Derived from س-ج-د (prostration) - a mosque is where one prostrates."
+      ),
+      RootMeaningData(
+        root = "ق-ص-ر",
+        primaryMeaning = "palace, to shorten, limit",
+        extendedMeaning = "Palace, shortening, and limitation.",
+        quranUsage = "'Lofty palaces (qusur).' Qasr is palace. Qasr also means shortening prayer.",
+        notes = "Travelers can shorten (qasr) their prayers."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ج",
+        primaryMeaning = "tower, constellation, to appear",
+        extendedMeaning = "Tower, zodiac constellation, and appearing prominently.",
+        quranUsage = "'By the sky with its constellations (buruj).' Burj is tower/constellation.",
+        notes = "Surah Al-Buruj - the constellations/towers."
+      ),
+      RootMeaningData(
+        root = "س-و-ر",
+        primaryMeaning = "wall, chapter, to leap",
+        extendedMeaning = "Wall (surrounding), chapter of Quran, and leaping over.",
+        quranUsage = "'A wall (sur) between them.' Sur is wall. Surah is chapter.",
+        notes = "Each surah is like a walled enclosure of meaning."
+      ),
+      RootMeaningData(
+        root = "ب-ا-ب",
+        primaryMeaning = "door, gate, chapter",
+        extendedMeaning = "Door, gate, and a section/chapter.",
+        quranUsage = "'Enter the gate (bab) in prostration.' Bab is door/gate. Abwab is doors.",
+        notes = "Paradise has eight gates; Hell has seven."
+      ),
+      RootMeaningData(
+        root = "ج-س-ر",
+        primaryMeaning = "bridge",
+        extendedMeaning = "Bridge, and courage (bridging fear).",
+        quranUsage = "Jisr is bridge. Related to crossing over.",
+        notes = "The Sirat bridge crosses over Hell."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ر",
+        primaryMeaning = "grave, to bury",
+        extendedMeaning = "Grave, tomb, and burial.",
+        quranUsage = "'When the graves (qubur) are overturned.' Qabr is grave. Maqbarah is cemetery.",
+        notes = "The graves will release their contents on Judgment Day."
+      ),
+
+      // === WRITING AND KNOWLEDGE ===
+      RootMeaningData(
+        root = "ك-ت-ب",
+        primaryMeaning = "to write, book, prescribe",
+        extendedMeaning = "Writing, a book/scripture, and prescribing/decreeing.",
+        quranUsage = "'The Book (kitab) in which there is no doubt.' Kitab is book. Katib is scribe.",
+        notes = "Al-Kitab refers to the Quran and previous scriptures."
+      ),
+      RootMeaningData(
+        root = "ق-ل-م",
+        primaryMeaning = "pen",
+        extendedMeaning = "Pen, the instrument of writing.",
+        quranUsage = "'By the pen (qalam) and what they write.' Qalam is pen.",
+        notes = "Surah Al-Qalam - Allah swears by the pen. The first creation was the pen."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ف",
+        primaryMeaning = "page, scripture, newspaper",
+        extendedMeaning = "Pages, written sheets, and scriptures.",
+        quranUsage = "'In honored scriptures (suhuf).' Sahifah is page. Suhuf is scriptures.",
+        notes = "Suhuf Ibrahim - the scriptures of Ibrahim."
+      ),
+      RootMeaningData(
+        root = "ل-و-ح",
+        primaryMeaning = "tablet, board, to appear",
+        extendedMeaning = "Tablet, board, and becoming visible.",
+        quranUsage = "'In a Preserved Tablet (lawh mahfuz).' Lawh is tablet. Alwah is tablets.",
+        notes = "The Lawh al-Mahfuz contains all that was and will be."
+      ),
+      RootMeaningData(
+        root = "ح-ب-ر",
+        primaryMeaning = "ink, scholar, to gladden",
+        extendedMeaning = "Ink, religious scholar, and joy.",
+        quranUsage = "Hibr is ink. Ahbar are scholars (rabbis). Hubur is joy.",
+        notes = "Scholars are associated with ink - the tools of knowledge."
+      ),
+      RootMeaningData(
+        root = "ر-ق-م",
+        primaryMeaning = "writing, number, to mark",
+        extendedMeaning = "Writing, numbering, and marking.",
+        quranUsage = "'A written (marqum) register.' Raqm is number/writing.",
+        notes = "Our deeds are numbered and recorded precisely."
+      ),
+
+      // === WAR AND PEACE ===
+      RootMeaningData(
+        root = "ح-ر-ب",
+        primaryMeaning = "war, to fight",
+        extendedMeaning = "War, fighting, and hostility.",
+        quranUsage = "'Be informed of war (harb) from Allah.' Harb is war. Muharib is warrior.",
+        notes = "War against usury is mentioned - it's that serious."
+      ),
+      RootMeaningData(
+        root = "ق-ت-ل",
+        primaryMeaning = "to kill, fighting",
+        extendedMeaning = "Killing, fighting, and combat.",
+        quranUsage = "'Fight (qatilu) in the way of Allah.' Qatl is killing. Qital is fighting.",
+        notes = "Fighting is permitted in self-defense and to stop oppression."
+      ),
+      RootMeaningData(
+        root = "س-ل-م",
+        primaryMeaning = "peace, submission, safety",
+        extendedMeaning = "Peace, safety, submission, and soundness.",
+        quranUsage = "'Enter into peace (silm) completely.' Salam is peace. Islam is submission.",
+        notes = "The greeting of peace (salam) is from the root of Islam."
+      ),
+      RootMeaningData(
+        root = "ص-ل-ح",
+        primaryMeaning = "peace, reconciliation, reform",
+        extendedMeaning = "Making peace, reconciliation, and reform.",
+        quranUsage = "'Make peace (sulh) between them.' Sulh is peace treaty. Islah is reform.",
+        notes = "Reconciliation between believers is obligatory."
+      ),
+      RootMeaningData(
+        root = "ن-ص-ر",
+        primaryMeaning = "victory, help, support",
+        extendedMeaning = "Victory, divine help, and support.",
+        quranUsage = "'When Allah's help (nasr) comes.' Nasr is victory/help. Ansar are helpers.",
+        notes = "The Ansar were the helpers of Madinah who supported the Prophet."
+      ),
+      RootMeaningData(
+        root = "ف-ت-ح",
+        primaryMeaning = "to open, victory, conquest",
+        extendedMeaning = "Opening, victory, and beginning.",
+        quranUsage = "'Indeed We have given you a clear victory (fath).' Fath is opening/victory.",
+        notes = "Surah Al-Fath celebrates the Treaty of Hudaybiyyah as a victory."
+      ),
+      RootMeaningData(
+        root = "غ-ل-ب",
+        primaryMeaning = "to overcome, defeat",
+        extendedMeaning = "Overcoming, defeating, and prevailing.",
+        quranUsage = "'They will overcome (sayaghlibun).' Ghalaba is to overcome. Ghalib is victor.",
+        notes = "The Romans were defeated but would overcome - a Quranic prophecy fulfilled."
+      ),
+      RootMeaningData(
+        root = "ه-ز-م",
+        primaryMeaning = "defeat, to rout",
+        extendedMeaning = "Defeat, routing an army.",
+        quranUsage = "'They defeated (hazamu) them.' Hazimah is defeat.",
+        notes = "Armies are defeated by Allah's permission."
+      ),
+      RootMeaningData(
+        root = "س-ي-ف",
+        primaryMeaning = "sword",
+        extendedMeaning = "Sword.",
+        quranUsage = "Sayf is sword. Suyuf is swords.",
+        notes = "The sword represents authority and power."
+      ),
+      RootMeaningData(
+        root = "ر-م-ح",
+        primaryMeaning = "spear",
+        extendedMeaning = "Spear, lance.",
+        quranUsage = "Rumh is spear. Rimah is spears.",
+        notes = "Spears were common weapons in early Islamic battles."
+      ),
+      RootMeaningData(
+        root = "د-ر-ع",
+        primaryMeaning = "armor, shield",
+        extendedMeaning = "Armor, coat of mail.",
+        quranUsage = "'We taught him the making of armor (laboos).' Dir' is armor.",
+        notes = "Dawud was taught to make armor as a blessing."
+      ),
+      RootMeaningData(
+        root = "ج-ن-د",
+        primaryMeaning = "soldier, army",
+        extendedMeaning = "Soldiers, army, and troops.",
+        quranUsage = "'None knows the soldiers (junud) of your Lord except Him.' Jund is army. Junud is soldiers.",
+        notes = "Allah's armies include angels and forces of nature."
+      ),
+
+      // === TRADE AND COMMERCE ===
+      RootMeaningData(
+        root = "ب-ي-ع",
+        primaryMeaning = "sale, to sell, pledge",
+        extendedMeaning = "Selling, transaction, and pledge of allegiance.",
+        quranUsage = "'Allah has purchased from the believers.' Bay' is sale. Bay'ah is pledge.",
+        notes = "Trade is permitted; usury is forbidden."
+      ),
+      RootMeaningData(
+        root = "ش-ر-ي",
+        primaryMeaning = "to buy, purchase",
+        extendedMeaning = "Buying and purchasing.",
+        quranUsage = "'They sold (sharaw) him for a small price.' Shira' is buying. Ishtara is to purchase.",
+        notes = "Yusuf was sold for a few coins."
+      ),
+      RootMeaningData(
+        root = "ت-ج-ر",
+        primaryMeaning = "trade, commerce, merchant",
+        extendedMeaning = "Trade, commerce, and business.",
+        quranUsage = "'A trade (tijarah) that will never perish.' Tijarah is trade. Tajir is merchant.",
+        notes = "The best trade is with Allah - faith for Paradise."
+      ),
+      RootMeaningData(
+        root = "ر-ب-ح",
+        primaryMeaning = "profit, gain",
+        extendedMeaning = "Profit and gain from trade.",
+        quranUsage = "'Their trade did not profit (rabihat) them.' Ribh is profit.",
+        notes = "Those who trade guidance for misguidance lose their profit."
+      ),
+      RootMeaningData(
+        root = "خ-س-ر",
+        primaryMeaning = "loss, to lose",
+        extendedMeaning = "Loss in trade and general loss.",
+        quranUsage = "'Those are the losers (khasirun).' Khusr is loss. Khasir is loser.",
+        notes = "Surah Al-'Asr declares all humanity in loss except believers."
+      ),
+      RootMeaningData(
+        root = "ر-ب-و",
+        primaryMeaning = "usury, interest, to increase",
+        extendedMeaning = "Usury/interest, and increasing/growing.",
+        quranUsage = "'Allah destroys usury (riba).' Riba is usury. Rabwa is hill (raised land).",
+        notes = "Riba (usury/interest) is strictly forbidden."
+      ),
+      RootMeaningData(
+        root = "د-ي-ن",
+        primaryMeaning = "religion, debt, judgment",
+        extendedMeaning = "Religion, debt (what is owed), and recompense.",
+        quranUsage = "'Owner of the Day of Judgment (din).' Din is religion and recompense. Dayn is debt.",
+        notes = "Religion is a debt we owe to Allah; Judgment Day is when debts are settled."
+      ),
+      RootMeaningData(
+        root = "ق-ر-ض",
+        primaryMeaning = "loan, to lend",
+        extendedMeaning = "Loan, lending, and cutting off (a piece).",
+        quranUsage = "'Who will loan Allah a goodly loan (qard)?' Qard is loan.",
+        notes = "Giving to Allah is described as lending Him - guaranteed return."
+      ),
+      RootMeaningData(
+        root = "م-ت-ع",
+        primaryMeaning = "goods, enjoyment, provision",
+        extendedMeaning = "Goods, enjoyment, and temporary provision.",
+        quranUsage = "'A brief enjoyment (mata').' Mata' is goods/enjoyment. Tamattu' is enjoying.",
+        notes = "Worldly enjoyment is brief compared to the Hereafter."
+      ),
+      RootMeaningData(
+        root = "م-ا-ل",
+        primaryMeaning = "wealth, property, money",
+        extendedMeaning = "Wealth, property, and possessions.",
+        quranUsage = "'Wealth (mal) and children are the adornment of life.' Mal is wealth. Amwal is possessions.",
+        notes = "Wealth is a test - it must be earned and spent properly."
+      ),
+      RootMeaningData(
+        root = "ك-ن-ز",
+        primaryMeaning = "treasure, to hoard",
+        extendedMeaning = "Treasure, hoarding wealth.",
+        quranUsage = "'Those who hoard (yaknizun) gold and silver.' Kanz is treasure. Iknaz is hoarding.",
+        notes = "Hoarding wealth without paying zakat is condemned."
+      ),
+
+      // === MOVEMENT AND TRAVEL ===
+      RootMeaningData(
+        root = "م-ش-ي",
+        primaryMeaning = "to walk",
+        extendedMeaning = "Walking, going on foot.",
+        quranUsage = "'Walk (imshi) in the paths of the earth.' Mashi is walking. Mashsha' is one who walks much.",
+        notes = "Walking humbly is praised; walking arrogantly is condemned."
+      ),
+      RootMeaningData(
+        root = "س-ي-ر",
+        primaryMeaning = "to travel, journey, conduct",
+        extendedMeaning = "Traveling, journeying, and conduct/biography.",
+        quranUsage = "'Travel (siru) through the earth.' Sayr is travel. Sirah is biography.",
+        notes = "Traveling to reflect on past nations is encouraged."
+      ),
+      RootMeaningData(
+        root = "س-ف-ر",
+        primaryMeaning = "journey, to reveal, book",
+        extendedMeaning = "Journey, unveiling, and written book.",
+        quranUsage = "'Like a donkey carrying books (asfar).' Safar is journey. Sifr is book.",
+        notes = "Travel (safar) allows shortening prayers."
+      ),
+      RootMeaningData(
+        root = "ر-ح-ل",
+        primaryMeaning = "to depart, journey, saddle",
+        extendedMeaning = "Departing, traveling, and loading for journey.",
+        quranUsage = "'The journey (rihlah) of winter and summer.' Rihlah is journey. Rahil is departing.",
+        notes = "Quraysh's trade journeys to Yemen (winter) and Syria (summer)."
+      ),
+      RootMeaningData(
+        root = "ر-ك-ب",
+        primaryMeaning = "to ride, mount, embark",
+        extendedMeaning = "Riding, mounting animals or vehicles.",
+        quranUsage = "'You will surely ride (latarkabunna) stage after stage.' Rukub is riding. Markab is vehicle.",
+        notes = "Riding is a blessing - from animals to ships."
+      ),
+      RootMeaningData(
+        root = "ج-ر-ي",
+        primaryMeaning = "to flow, run, occur",
+        extendedMeaning = "Flowing, running, and happening.",
+        quranUsage = "'Rivers flowing (tajri) beneath them.' Jary is flowing. Jariyah is flowing/ongoing.",
+        notes = "Sadaqah jariyah - ongoing charity that keeps flowing."
+      ),
+      RootMeaningData(
+        root = "ط-و-ف",
+        primaryMeaning = "to circumambulate, go around",
+        extendedMeaning = "Going around, circumambulating, and wandering.",
+        quranUsage = "'Let them circumambulate (yattawwafu) the Ancient House.' Tawaf is circumambulation.",
+        notes = "Tawaf around the Kaaba is a pillar of Hajj."
+      ),
+      RootMeaningData(
+        root = "س-ع-ي",
+        primaryMeaning = "to strive, walk briskly, effort",
+        extendedMeaning = "Striving, walking briskly, and making effort.",
+        quranUsage = "'Running (sa'y) between Safa and Marwa.' Sa'y is striving/walking.",
+        notes = "Sa'y commemorates Hajar's search for water."
+      ),
+      RootMeaningData(
+        root = "ع-د-و",
+        primaryMeaning = "to run, enemy, transgress",
+        extendedMeaning = "Running fast, enmity, and transgression.",
+        quranUsage = "'Running (ya'duna) through the valley.' 'Aduw is enemy. 'Udwan is transgression.",
+        notes = "The same root gives running (speed) and enmity (running against)."
+      ),
+      RootMeaningData(
+        root = "ق-ع-د",
+        primaryMeaning = "to sit, stay behind",
+        extendedMeaning = "Sitting, remaining seated, and staying behind.",
+        quranUsage = "'Those who sat behind (qa'adun).' Qu'ud is sitting. Qa'id is one sitting.",
+        notes = "Those who stayed behind from battle without excuse are criticized."
+      ),
+      RootMeaningData(
+        root = "ن-و-م",
+        primaryMeaning = "sleep",
+        extendedMeaning = "Sleep and slumber.",
+        quranUsage = "'Neither drowsiness nor sleep (nawm) overtakes Him.' Nawm is sleep. Na'im is sleeper.",
+        notes = "Allah never sleeps - He is ever-watchful."
+      ),
+      RootMeaningData(
+        root = "ي-ق-ظ",
+        primaryMeaning = "wakefulness, to awaken",
+        extendedMeaning = "Being awake, alertness, and awakening.",
+        quranUsage = "'You would think them awake (ayqaz).' Yaqazah is wakefulness.",
+        notes = "The People of the Cave appeared awake while sleeping."
+      ),
+
+      // === EMOTIONS AND STATES ===
+      RootMeaningData(
+        root = "ف-ر-ح",
+        primaryMeaning = "joy, happiness, to rejoice",
+        extendedMeaning = "Joy, happiness, and rejoicing.",
+        quranUsage = "'Rejoicing (farihin) in what Allah gave them.' Farah is joy. Farih is joyful.",
+        notes = "Excessive joy in worldly things is warned against."
+      ),
+      RootMeaningData(
+        root = "ح-ز-ن",
+        primaryMeaning = "sadness, grief, to grieve",
+        extendedMeaning = "Sadness, grief, and sorrow.",
+        quranUsage = "'Do not grieve (tahzan).' Huzn is sadness. Hazin is sad.",
+        notes = "The Prophet was told not to grieve over those who reject faith."
+      ),
+      RootMeaningData(
+        root = "غ-ض-ب",
+        primaryMeaning = "anger, wrath",
+        extendedMeaning = "Anger and divine wrath.",
+        quranUsage = "'Those who earned Your anger (ghadab).' Ghadab is anger. Ghadib is angry.",
+        notes = "Divine anger is earned by knowing truth and rejecting it."
+      ),
+      RootMeaningData(
+        root = "ر-ض-ي",
+        primaryMeaning = "pleasure, satisfaction, contentment",
+        extendedMeaning = "Being pleased, satisfaction, and contentment.",
+        quranUsage = "'Allah is pleased (radiya) with them.' Rida is pleasure. Mardiy is pleasing.",
+        notes = "Allah's pleasure (ridwan) is the greatest reward."
+      ),
+      RootMeaningData(
+        root = "س-خ-ط",
+        primaryMeaning = "displeasure, anger",
+        extendedMeaning = "Displeasure, divine anger.",
+        quranUsage = "'They followed what displeased (askhata) Allah.' Sakhat is displeasure.",
+        notes = "Following desires leads to Allah's displeasure."
+      ),
+      RootMeaningData(
+        root = "ح-ب-ب",
+        primaryMeaning = "love, to love, seed",
+        extendedMeaning = "Love, affection, and seeds/grains.",
+        quranUsage = "'Allah loves (yuhibbu) the doers of good.' Hubb is love. Habib is beloved.",
+        notes = "Love of Allah and His messenger must exceed all other loves."
+      ),
+      RootMeaningData(
+        root = "ب-غ-ض",
+        primaryMeaning = "hatred, to hate",
+        extendedMeaning = "Hatred and dislike.",
+        quranUsage = "'Hatred (baghda') has appeared from their mouths.' Bughd is hatred.",
+        notes = "Hatred for Allah's sake (of evil) is part of faith."
+      ),
+      RootMeaningData(
+        root = "ك-ر-ه",
+        primaryMeaning = "dislike, to hate, coercion",
+        extendedMeaning = "Disliking, hating, and forcing.",
+        quranUsage = "'Perhaps you dislike (takrahu) something good for you.' Kurh is dislike. Ikrah is coercion.",
+        notes = "What we dislike may be good; what we love may be harmful."
+      ),
+      RootMeaningData(
+        root = "ش-و-ق",
+        primaryMeaning = "longing, yearning",
+        extendedMeaning = "Longing, yearning, and eager desire.",
+        quranUsage = "Shawq is longing. Mushtaq is one who yearns.",
+        notes = "Longing for Allah and Paradise motivates worship."
+      ),
+      RootMeaningData(
+        root = "ن-د-م",
+        primaryMeaning = "regret, remorse",
+        extendedMeaning = "Regret and remorse.",
+        quranUsage = "'They became regretful (nadimin).' Nadm is regret. Nadim is companion.",
+        notes = "Regret on Judgment Day will be too late."
+      ),
+      RootMeaningData(
+        root = "ع-ج-ب",
+        primaryMeaning = "wonder, amazement, vanity",
+        extendedMeaning = "Wonder, amazement, and self-admiration.",
+        quranUsage = "'Do you wonder ('ajibta)?' 'Ajab is wonder. 'Ujb is vanity.",
+        notes = "Wondering at Allah's signs leads to faith; self-admiration leads to arrogance."
+      ),
+
+      // === SENSES AND PERCEPTION ===
+      RootMeaningData(
+        root = "س-م-ع",
+        primaryMeaning = "hearing, to hear, obey",
+        extendedMeaning = "Hearing, listening, and obeying.",
+        quranUsage = "'We hear (sami'na) and we obey.' Sam' is hearing. Sami' is hearer.",
+        notes = "Al-Sami' (The All-Hearing) is one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "ب-ص-ر",
+        primaryMeaning = "sight, vision, insight",
+        extendedMeaning = "Seeing, vision, and spiritual insight.",
+        quranUsage = "'Sights (absar) cannot perceive Him.' Basar is sight. Basir is seeing.",
+        notes = "Al-Basir (The All-Seeing) is one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "ش-م-م",
+        primaryMeaning = "smell, to smell",
+        extendedMeaning = "Smelling, the sense of smell.",
+        quranUsage = "Shamm is smelling. The fragrance of Paradise can be smelled from afar.",
+        notes = "Paradise has indescribable fragrances."
+      ),
+      RootMeaningData(
+        root = "ذ-و-ق",
+        primaryMeaning = "taste, to taste, experience",
+        extendedMeaning = "Tasting and experiencing something.",
+        quranUsage = "'Taste (dhuqu) the punishment.' Dhawq is taste.",
+        notes = "Tasting implies direct, personal experience."
+      ),
+      RootMeaningData(
+        root = "ل-م-س",
+        primaryMeaning = "touch, to touch",
+        extendedMeaning = "Touching, feeling with hands.",
+        quranUsage = "'If they touched (lamasahu) it with their hands.' Lams is touch.",
+        notes = "Disbelievers would deny even if they could touch miracles."
+      ),
+      RootMeaningData(
+        root = "ح-س-س",
+        primaryMeaning = "sense, feel, perceive",
+        extendedMeaning = "Sensing, feeling, and perceiving.",
+        quranUsage = "'When Isa sensed (ahassa) disbelief from them.' Hiss is sense. Ihsas is perception.",
+        notes = "The prophets had keen spiritual perception."
+      ),
+
+      // === CELESTIAL BODIES ===
+      RootMeaningData(
+        root = "ش-م-س",
+        primaryMeaning = "sun",
+        extendedMeaning = "The sun.",
+        quranUsage = "'By the sun (shams) and its brightness.' Shams is sun.",
+        notes = "The sun is a sign of Allah - it rises and sets by His command."
+      ),
+      RootMeaningData(
+        root = "ق-م-ر",
+        primaryMeaning = "moon",
+        extendedMeaning = "The moon.",
+        quranUsage = "'By the moon (qamar) when it follows it.' Qamar is moon.",
+        notes = "Surah Al-Qamar recounts the splitting of the moon."
+      ),
+      RootMeaningData(
+        root = "ن-ج-م",
+        primaryMeaning = "star, plant, to appear",
+        extendedMeaning = "Star, plant emerging, and appearing gradually.",
+        quranUsage = "'By the star (najm) when it descends.' Najm is star/plant.",
+        notes = "Surah An-Najm - the star. Also means plants without stems."
+      ),
+      RootMeaningData(
+        root = "ك-و-ك-ب",
+        primaryMeaning = "planet, star",
+        extendedMeaning = "Planet or bright star.",
+        quranUsage = "'A brilliant star (kawkab).' Kawkab is planet/star. Kawakib are planets.",
+        notes = "Yusuf saw eleven kawkab (stars/planets) prostrating to him."
+      ),
+      RootMeaningData(
+        root = "ف-ل-ك",
+        primaryMeaning = "orbit, celestial sphere, ship",
+        extendedMeaning = "Orbit, sphere, and ship (which orbits the water).",
+        quranUsage = "'Each in an orbit (falak) swimming.' Falak is orbit/sphere.",
+        notes = "Celestial bodies swim in their orbits - Quranic precision."
+      ),
+      RootMeaningData(
+        root = "س-ب-ح",
+        primaryMeaning = "to swim, glorify",
+        extendedMeaning = "Swimming (in water or space), and glorifying Allah.",
+        quranUsage = "'Each swimming (yasbahuun) in an orbit.' Sibahah is swimming. Tasbih is glorification.",
+        notes = "Celestial bodies 'swim' in their orbits while glorifying Allah."
+      ),
+
+      // === HEALTH AND BODY ===
+      RootMeaningData(
+        root = "م-ر-ض",
+        primaryMeaning = "disease, illness, sickness",
+        extendedMeaning = "Physical illness and spiritual disease.",
+        quranUsage = "'In their hearts is disease (marad).' Marad is disease. Marid is sick.",
+        notes = "Hearts can be spiritually diseased with doubt or hypocrisy."
+      ),
+      RootMeaningData(
+        root = "ش-ف-ي",
+        primaryMeaning = "healing, cure",
+        extendedMeaning = "Healing and curing.",
+        quranUsage = "'And He heals (yashfi) me.' Shifa' is healing. Shafi is healer.",
+        notes = "Allah is Ash-Shafi (The Healer). The Quran is a healing for hearts."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ح",
+        primaryMeaning = "health, correct, authentic",
+        extendedMeaning = "Health, correctness, and authenticity.",
+        quranUsage = "Sihhah is health. Sahih is correct/authentic.",
+        notes = "Sahih hadith are authentic narrations."
+      ),
+      RootMeaningData(
+        root = "ع-م-ي",
+        primaryMeaning = "blindness, to be blind",
+        extendedMeaning = "Physical and spiritual blindness.",
+        quranUsage = "'Blind (a'ma) in this world, blind in the Hereafter.' 'Ama is blindness.",
+        notes = "Spiritual blindness is worse than physical blindness."
+      ),
+      RootMeaningData(
+        root = "ص-م-م",
+        primaryMeaning = "deafness, to be deaf",
+        extendedMeaning = "Physical and spiritual deafness.",
+        quranUsage = "'Deaf (summ), dumb, and blind.' Samam is deafness. Asamm is deaf.",
+        notes = "Those who refuse to hear truth are spiritually deaf."
+      ),
+      RootMeaningData(
+        root = "ب-ك-م",
+        primaryMeaning = "dumbness, mute",
+        extendedMeaning = "Being mute, unable to speak.",
+        quranUsage = "'Deaf, dumb (bukm), and blind.' Bakam is muteness. Abkam is mute.",
+        notes = "Those who won't speak truth are spiritually mute."
+      ),
+      RootMeaningData(
+        root = "ج-ر-ح",
+        primaryMeaning = "wound, to wound, to earn",
+        extendedMeaning = "Wound, injuring, and earning (acquiring).",
+        quranUsage = "'What you have earned (jarahtum) by day.' Jurh is wound. Iktisab is earning.",
+        notes = "Earning (good or bad) is like acquiring wounds on one's record."
+      ),
+      RootMeaningData(
+        root = "أ-ل-م",
+        primaryMeaning = "pain, suffering",
+        extendedMeaning = "Pain and suffering.",
+        quranUsage = "'A painful (alim) punishment.' Alam is pain. Alim is painful.",
+        notes = "The punishment of Hell is described as intensely painful."
+      ),
+      RootMeaningData(
+        root = "ج-و-ع",
+        primaryMeaning = "hunger",
+        extendedMeaning = "Hunger and starvation.",
+        quranUsage = "'He fed them against hunger (ju').' Ju' is hunger. Ja'i is hungry.",
+        notes = "Allah saved Quraysh from hunger through their trade."
+      ),
+      RootMeaningData(
+        root = "ع-ط-ش",
+        primaryMeaning = "thirst",
+        extendedMeaning = "Thirst.",
+        quranUsage = "'They will not suffer thirst ('atash).' 'Atash is thirst. 'Atshan is thirsty.",
+        notes = "The people of Paradise will never thirst."
+      ),
+
+      // === ADDITIONAL IMPORTANT ROOTS ===
+      RootMeaningData(
+        root = "ع-ر-ف",
+        primaryMeaning = "to know, recognize, custom",
+        extendedMeaning = "Knowing, recognizing, and custom/tradition.",
+        quranUsage = "'They recognize (ya'rifunahu) it as they recognize their sons.' Ma'rifah is knowledge. 'Urf is custom.",
+        notes = "Ma'ruf (the recognized good) comes from this root."
+      ),
+      RootMeaningData(
+        root = "ن-ك-ر",
+        primaryMeaning = "to deny, reject, abominable",
+        extendedMeaning = "Denying, rejecting, and what is abominable.",
+        quranUsage = "'Forbid the wrong (munkar).' Nukr is rejection. Munkar is wrong/evil.",
+        notes = "Munkar is the opposite of ma'ruf - the rejected evil."
+      ),
+      RootMeaningData(
+        root = "ح-س-ن",
+        primaryMeaning = "beauty, goodness, excellence",
+        extendedMeaning = "Beauty, goodness, and doing excellent.",
+        quranUsage = "'Allah commands justice and excellence (ihsan).' Husn is beauty. Ihsan is excellence.",
+        notes = "Ihsan is worship as if you see Allah, knowing He sees you."
+      ),
+      RootMeaningData(
+        root = "س-و-ء",
+        primaryMeaning = "evil, bad, harm",
+        extendedMeaning = "Evil, badness, and harm.",
+        quranUsage = "'Whoever does evil (su') will be recompensed.' Su' is evil. Sayyi'ah is bad deed.",
+        notes = "Evil deeds are recorded and will be recompensed."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ك",
+        primaryMeaning = "blessing, to bless, to kneel",
+        extendedMeaning = "Blessing, divine favor, and kneeling (camels).",
+        quranUsage = "'Blessed (mubarak) is He.' Barakah is blessing. Mubarak is blessed.",
+        notes = "Barakah is divine blessing that increases and benefits."
+      ),
+      RootMeaningData(
+        root = "ل-ع-ن",
+        primaryMeaning = "curse, to curse",
+        extendedMeaning = "Curse, being expelled from mercy.",
+        quranUsage = "'The curse (la'nah) of Allah upon the wrongdoers.' La'n is curse. Mal'un is cursed.",
+        notes = "Being cursed means being expelled from Allah's mercy."
+      ),
+      RootMeaningData(
+        root = "غ-ف-ر",
+        primaryMeaning = "forgiveness, to cover, helmet",
+        extendedMeaning = "Forgiving, covering sins, and helmet (which covers).",
+        quranUsage = "'He is the Forgiving (Ghafur).' Maghfirah is forgiveness. Ghafur is Most Forgiving.",
+        notes = "Forgiveness covers sins as a helmet covers the head."
+      ),
+      RootMeaningData(
+        root = "ع-ف-و",
+        primaryMeaning = "pardon, to erase, surplus",
+        extendedMeaning = "Pardoning, erasing sins, and surplus.",
+        quranUsage = "'He is Pardoning ('Afuw).' 'Afw is pardon. 'Afuw is Most Pardoning.",
+        notes = "'Afw erases sins completely, as if they never existed."
+      ),
+      RootMeaningData(
+        root = "ذ-ن-ب",
+        primaryMeaning = "sin, tail, consequence",
+        extendedMeaning = "Sin, and tail/consequence (sins follow like a tail).",
+        quranUsage = "'Forgive us our sins (dhunub).' Dhanb is sin. Dhunub is sins.",
+        notes = "Sins follow a person like a tail follows an animal."
+      ),
+      RootMeaningData(
+        root = "خ-ط-ء",
+        primaryMeaning = "mistake, error, sin",
+        extendedMeaning = "Error, missing the mark, and sin.",
+        quranUsage = "'Indeed it was a great sin (khit').' Khata' is mistake. Khati'ah is sin.",
+        notes = "Killing children was a grave sin (khit') of the pre-Islamic Arabs."
+      ),
+      RootMeaningData(
+        root = "إ-ث-م",
+        primaryMeaning = "sin, guilt, crime",
+        extendedMeaning = "Sin and guilt, especially deliberate sin.",
+        quranUsage = "'In them is great sin (ithm).' Ithm is sin. Athim is sinner.",
+        notes = "Ithm implies sin that leaves guilt on the soul."
+      ),
+      RootMeaningData(
+        root = "ف-ح-ش",
+        primaryMeaning = "obscenity, indecency",
+        extendedMeaning = "Obscene acts, indecency, and shameful deeds.",
+        quranUsage = "'Do not approach obscenities (fawahish).' Fahsha' is obscenity. Fahish is obscene.",
+        notes = "Fahishah often refers to sexual sins."
+      ),
+      RootMeaningData(
+        root = "ط-ه-ر",
+        primaryMeaning = "purity, to purify",
+        extendedMeaning = "Purity, cleanliness, and purification.",
+        quranUsage = "'Purified (mutahharah) pages.' Taharah is purity. Tahir is pure.",
+        notes = "Both physical and spiritual purity are emphasized."
+      ),
+      RootMeaningData(
+        root = "ن-ج-س",
+        primaryMeaning = "impurity, filth",
+        extendedMeaning = "Ritual impurity and filth.",
+        quranUsage = "'The polytheists are impure (najas).' Najas is impurity. Najis is impure.",
+        notes = "Spiritual impurity of shirk is worse than physical impurity."
+      ),
+      RootMeaningData(
+        root = "و-ض-ء",
+        primaryMeaning = "ablution, brightness",
+        extendedMeaning = "Ablution (wudu) and brightness/clarity.",
+        quranUsage = "'When you rise for prayer, wash your faces.' Wudu' is ablution. Wadi' is bright.",
+        notes = "Wudu brings both physical cleanliness and spiritual brightness."
+      ),
+      RootMeaningData(
+        root = "غ-س-ل",
+        primaryMeaning = "washing, ritual bath",
+        extendedMeaning = "Washing and ritual bathing (ghusl).",
+        quranUsage = "'If you are in a state of major impurity, purify yourselves.' Ghusl is ritual bath.",
+        notes = "Ghusl is required after certain states for prayer."
+      ),
+      RootMeaningData(
+        root = "س-ت-ر",
+        primaryMeaning = "covering, concealment, screen",
+        extendedMeaning = "Covering, concealing, and veiling.",
+        quranUsage = "'From behind a screen (hijab).' Sitr is covering. Satir is one who covers.",
+        notes = "Allah is Al-Satir - He covers the faults of His servants."
+      ),
+      RootMeaningData(
+        root = "ك-ش-ف",
+        primaryMeaning = "to reveal, uncover, remove",
+        extendedMeaning = "Revealing, uncovering, and removing (hardship).",
+        quranUsage = "'He removes (yakshifu) the hardship.' Kashf is uncovering. Inkishaf is revelation.",
+        notes = "Only Allah can truly remove hardship."
+      ),
+      RootMeaningData(
+        root = "ف-ض-ل",
+        primaryMeaning = "grace, favor, surplus",
+        extendedMeaning = "Divine grace, favor, and excellence.",
+        quranUsage = "'The grace (fadl) of Allah.' Fadl is grace. Fadilah is virtue.",
+        notes = "All good is from Allah's fadl (grace), not our deserving."
+      ),
+      RootMeaningData(
+        root = "م-ن-ن",
+        primaryMeaning = "favor, to bestow, to remind",
+        extendedMeaning = "Bestowing favor, and reminding of favors (negatively).",
+        quranUsage = "'Allah has bestowed favor (manna) upon the believers.' Mann is favor.",
+        notes = "Allah's mann is blessing; human mann (reminding of favors) is discouraged."
+      ),
+      RootMeaningData(
+        root = "ر-ز-ق",
+        primaryMeaning = "provision, sustenance",
+        extendedMeaning = "Provision, sustenance, and livelihood.",
+        quranUsage = "'Allah provides (yarzuqu) whom He wills.' Rizq is provision. Razzaq is Provider.",
+        notes = "Ar-Razzaq (The Provider) is one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "ك-ف-ي",
+        primaryMeaning = "sufficiency, to suffice",
+        extendedMeaning = "Being sufficient and making something enough.",
+        quranUsage = "'Is not Allah sufficient (kafi) for His servant?' Kifayah is sufficiency.",
+        notes = "Allah is sufficient for all our needs."
+      ),
+      RootMeaningData(
+        root = "غ-ن-ي",
+        primaryMeaning = "rich, self-sufficient",
+        extendedMeaning = "Wealth, richness, and being free from need.",
+        quranUsage = "'Allah is Free of need (Ghani).' Ghina is wealth. Ghani is rich.",
+        notes = "Al-Ghani - Allah is absolutely free of all need."
+      ),
+      RootMeaningData(
+        root = "ف-ق-ر",
+        primaryMeaning = "poverty, need",
+        extendedMeaning = "Poverty, neediness, and dependence.",
+        quranUsage = "'You are the poor (fuqara') in need of Allah.' Faqr is poverty. Faqir is poor.",
+        notes = "All creation is faqir (poor/needy) before Allah."
+      ),
+      RootMeaningData(
+        root = "س-أ-ل",
+        primaryMeaning = "to ask, question, request",
+        extendedMeaning = "Asking, questioning, and requesting.",
+        quranUsage = "'Ask (sal) Allah of His bounty.' Su'al is question. Sa'il is asker.",
+        notes = "Ask Allah - He is the only one who never tires of giving."
+      ),
+      RootMeaningData(
+        root = "د-ع-و",
+        primaryMeaning = "to call, invoke, pray",
+        extendedMeaning = "Calling, inviting, supplicating, and claiming.",
+        quranUsage = "'Call upon (ud'u) Me, I will respond.' Du'a is supplication. Da'wah is calling.",
+        notes = "Du'a is the essence of worship."
+      ),
+      RootMeaningData(
+        root = "ج-و-ب",
+        primaryMeaning = "to answer, respond, pierce",
+        extendedMeaning = "Answering, responding, and piercing through.",
+        quranUsage = "'I respond (ujibu) to the caller.' Ijabah is answering. Jawab is answer.",
+        notes = "Allah promises to answer those who call upon Him."
+      ),
+      RootMeaningData(
+        root = "و-ك-ل",
+        primaryMeaning = "trust, rely, entrust",
+        extendedMeaning = "Trusting, relying upon, and entrusting.",
+        quranUsage = "'Upon Allah rely (tawakkalu).' Tawakkul is reliance. Wakil is trustee.",
+        notes = "Al-Wakil - Allah is the ultimate Trustee."
+      ),
+      RootMeaningData(
+        root = "ح-ف-ظ",
+        primaryMeaning = "preserve, protect, memorize",
+        extendedMeaning = "Preserving, protecting, guarding, and memorizing.",
+        quranUsage = "'Indeed, We sent down the reminder and We will preserve (hafizun) it.' Hifz is memorization.",
+        notes = "Al-Hafiz - Allah preserves all things, especially His Book."
+      ),
+      RootMeaningData(
+        root = "و-ق-ي",
+        primaryMeaning = "protect, shield, piety",
+        extendedMeaning = "Protection, shielding, and piety (which protects from sin).",
+        quranUsage = "'Allah protects (yaqi) whom He wills.' Wiqayah is protection. Taqwa is piety.",
+        notes = "Taqwa protects the soul from Allah's punishment."
+      ),
+      RootMeaningData(
+        root = "ع-ص-م",
+        primaryMeaning = "protect, prevent, infallibility",
+        extendedMeaning = "Protection, prevention from sin, and infallibility.",
+        quranUsage = "'There is no protector ('asim) from Allah.' 'Ismah is protection. Ma'sum is protected.",
+        notes = "Prophets are ma'sum - protected from major sins."
+      ),
+      RootMeaningData(
+        root = "ن-ج-و",
+        primaryMeaning = "salvation, escape, rescue",
+        extendedMeaning = "Being saved, escaping danger, and rescue.",
+        quranUsage = "'We saved (najjayna) him and his family.' Najah is success. Najat is salvation.",
+        notes = "Only Allah can grant true salvation."
+      ),
+      RootMeaningData(
+        root = "ه-ل-ك",
+        primaryMeaning = "destruction, perishing",
+        extendedMeaning = "Destruction, perishing, and ruin.",
+        quranUsage = "'Every soul will perish (halikah).' Halak is destruction. Halaka is to perish.",
+        notes = "All creation perishes; only Allah's Face remains."
+      ),
+      RootMeaningData(
+        root = "ب-ق-ي",
+        primaryMeaning = "remain, last, eternal",
+        extendedMeaning = "Remaining, lasting, and being eternal.",
+        quranUsage = "'What is with Allah is lasting (baq).' Baqa' is permanence. Baqi is lasting.",
+        notes = "Only Allah is truly Al-Baqi - The Everlasting."
+      ),
+      RootMeaningData(
+        root = "ف-ن-ي",
+        primaryMeaning = "perish, cease to exist",
+        extendedMeaning = "Perishing, ceasing to exist, and annihilation.",
+        quranUsage = "'Everything upon it will perish (fan).' Fana' is annihilation.",
+        notes = "All creation is subject to fana' - only Allah is eternal."
+      ),
+      RootMeaningData(
+        root = "خ-ل-د",
+        primaryMeaning = "eternity, immortality",
+        extendedMeaning = "Eternity, immortality, and everlasting.",
+        quranUsage = "'Abiding therein eternally (khalidin).' Khuld is eternity. Khalid is eternal.",
+        notes = "Paradise and Hell are described as eternal abodes."
+      ),
+      RootMeaningData(
+        root = "ش-ه-د",
+        primaryMeaning = "witness, testify, martyrdom",
+        extendedMeaning = "Witnessing, testifying, and martyrdom.",
+        quranUsage = "'Allah witnesses (shahida) that there is no god but He.' Shahadah is testimony. Shahid is witness/martyr.",
+        notes = "The Shahadah is the testimony of faith. A shahid (martyr) witnesses truth with their life."
+      ),
+      RootMeaningData(
+        root = "ح-ض-ر",
+        primaryMeaning = "present, attend, settle",
+        extendedMeaning = "Being present, attending, and settling (in cities).",
+        quranUsage = "'When death approaches (hadara) one of you.' Hudur is presence. Hadir is present.",
+        notes = "Hadari (settled) vs. Badawi (bedouin) - urban vs. desert."
+      ),
+      RootMeaningData(
+        root = "غ-ي-ب",
+        primaryMeaning = "unseen, hidden, absent",
+        extendedMeaning = "The unseen realm, hidden, and absent.",
+        quranUsage = "'Who believe in the unseen (ghayb).' Ghayb is unseen. Gha'ib is absent.",
+        notes = "Belief in the ghayb (unseen) is a pillar of faith."
+      ),
+      RootMeaningData(
+        root = "ع-ل-ن",
+        primaryMeaning = "open, public, announce",
+        extendedMeaning = "Open, public, and announcing.",
+        quranUsage = "'What you reveal ('alaniyah) and what you conceal.' 'Alan is public. I'lan is announcement.",
+        notes = "Allah knows both the public and the hidden."
+      ),
+      RootMeaningData(
+        root = "س-ر-ر",
+        primaryMeaning = "secret, joy, navel",
+        extendedMeaning = "Secret, joy/happiness, and the innermost.",
+        quranUsage = "'He knows the secret (sirr) and what is more hidden.' Sirr is secret. Surur is joy.",
+        notes = "The secret and its joy are connected - hidden treasures bring joy."
+      ),
+
+      // === MATERIALS AND METALS ===
+      RootMeaningData(
+        root = "ذ-ه-ب",
+        primaryMeaning = "gold, to go",
+        extendedMeaning = "Gold, and going/departing.",
+        quranUsage = "'Bracelets of gold (dhahab).' Dhahab is gold. Dhahaba is to go.",
+        notes = "Gold adorns the people of Paradise. The connection to 'going' may be from gold's mobility in trade."
+      ),
+      RootMeaningData(
+        root = "ف-ض-ض",
+        primaryMeaning = "silver, to scatter",
+        extendedMeaning = "Silver, and scattering/dispersing.",
+        quranUsage = "'Vessels of silver (fiddah).' Fiddah is silver. Infadda is to scatter.",
+        notes = "Silver vessels serve drinks in Paradise."
+      ),
+      RootMeaningData(
+        root = "ح-د-د",
+        primaryMeaning = "iron, limit, boundary",
+        extendedMeaning = "Iron, limits/boundaries, and sharpness.",
+        quranUsage = "'We sent down iron (hadid).' Hadid is iron. Hadd is limit/boundary.",
+        notes = "Surah Al-Hadid - iron was sent down with great benefits and might."
+      ),
+      RootMeaningData(
+        root = "ن-ح-س",
+        primaryMeaning = "copper, brass, misfortune",
+        extendedMeaning = "Copper/brass, and ill omen or misfortune.",
+        quranUsage = "'Sent upon them a screaming wind in days of misfortune (nahisat).' Nuhas is copper.",
+        notes = "Copper and brass were important metals in ancient times."
+      ),
+      RootMeaningData(
+        root = "ر-ص-ص",
+        primaryMeaning = "lead, to compact",
+        extendedMeaning = "Lead (metal), and compacting/joining firmly.",
+        quranUsage = "'As if they were a compact structure (marsus).' Rasas is lead.",
+        notes = "Believers fighting in rows are like a solid, leaded structure."
+      ),
+      RootMeaningData(
+        root = "ح-ج-ر",
+        primaryMeaning = "stone, forbidden, mind",
+        extendedMeaning = "Stone, that which is forbidden/protected, and intellect.",
+        quranUsage = "'Stones (hijarah) prepared for the disbelievers.' Hajar is stone. Hijr is forbidden/sanctuary.",
+        notes = "The Hijr of Ismail is the semi-circular area by the Kaaba."
+      ),
+      RootMeaningData(
+        root = "ص-خ-ر",
+        primaryMeaning = "rock, boulder",
+        extendedMeaning = "Large rock or boulder.",
+        quranUsage = "'Even if it be inside a rock (sakhrah).' Sakhr is rock/boulder.",
+        notes = "Nothing is hidden from Allah, even inside solid rock."
+      ),
+      RootMeaningData(
+        root = "ط-ي-ن",
+        primaryMeaning = "clay, mud",
+        extendedMeaning = "Clay and mud.",
+        quranUsage = "'We created man from clay (tin).' Tin is clay. Tinat is clay/nature.",
+        notes = "Adam was created from clay - our origin is humble."
+      ),
+      RootMeaningData(
+        root = "ت-ر-ب",
+        primaryMeaning = "dust, earth, soil",
+        extendedMeaning = "Dust, soil, and earth.",
+        quranUsage = "'We created you from dust (turab).' Turab is dust/soil. Turbah is grave.",
+        notes = "From dust we came and to dust we return."
+      ),
+      RootMeaningData(
+        root = "ر-م-ل",
+        primaryMeaning = "sand",
+        extendedMeaning = "Sand.",
+        quranUsage = "'A heap of sand (ramilun) piled up.' Raml is sand.",
+        notes = "Mountains will become like scattered sand on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ز-ج-ج",
+        primaryMeaning = "glass",
+        extendedMeaning = "Glass.",
+        quranUsage = "'The glass (zujajah) as if it were a brilliant star.' Zujaj is glass.",
+        notes = "The famous Light Verse describes a lamp in glass."
+      ),
+      RootMeaningData(
+        root = "خ-ز-ف",
+        primaryMeaning = "pottery, clay vessel",
+        extendedMeaning = "Pottery and earthenware.",
+        quranUsage = "Khazaf is pottery/ceramics.",
+        notes = "Pottery-making is an ancient craft."
+      ),
+      RootMeaningData(
+        root = "خ-ش-ب",
+        primaryMeaning = "wood, timber",
+        extendedMeaning = "Wood and timber.",
+        quranUsage = "'As if they were pieces of wood (khushub).' Khashab is wood.",
+        notes = "Hypocrites are likened to propped-up pieces of wood."
+      ),
+      RootMeaningData(
+        root = "ق-ط-ن",
+        primaryMeaning = "cotton, to reside",
+        extendedMeaning = "Cotton, and residing/settling.",
+        quranUsage = "Qutn is cotton. Qatan is to reside.",
+        notes = "Cotton is a blessing for clothing."
+      ),
+      RootMeaningData(
+        root = "ص-و-ف",
+        primaryMeaning = "wool",
+        extendedMeaning = "Wool.",
+        quranUsage = "'Mountains will be like carded wool (suf).' Suf is wool. Sufi relates to wool-wearers.",
+        notes = "Mountains becoming like wool describes their destruction."
+      ),
+      RootMeaningData(
+        root = "ج-ل-د",
+        primaryMeaning = "skin, leather, to endure",
+        extendedMeaning = "Skin, leather, and patience/endurance.",
+        quranUsage = "'Their skins (julud) will testify.' Jild is skin. Jalad is endurance.",
+        notes = "On Judgment Day, skins will testify against their owners."
+      ),
+      RootMeaningData(
+        root = "ل-ؤ-ل-ؤ",
+        primaryMeaning = "pearl",
+        extendedMeaning = "Pearl.",
+        quranUsage = "'From them emerge pearls (lu'lu').' Lu'lu' is pearl.",
+        notes = "Pearls come from the sea - a sign of Allah's creation."
+      ),
+      RootMeaningData(
+        root = "م-ر-ج",
+        primaryMeaning = "coral, to mix, pasture",
+        extendedMeaning = "Coral, mixing, and letting loose to pasture.",
+        quranUsage = "'Pearls and coral (marjan).' Marjan is coral.",
+        notes = "Pearls and coral emerge from the meeting of two seas."
+      ),
+      RootMeaningData(
+        root = "ي-ا-ق",
+        primaryMeaning = "ruby, sapphire",
+        extendedMeaning = "Ruby and precious gems.",
+        quranUsage = "'Like rubies (yaqut) and coral.' Yaqut is ruby.",
+        notes = "The women of Paradise are compared to rubies and pearls."
+      ),
+
+      // === SOCIAL ROLES AND TITLES ===
+      RootMeaningData(
+        root = "م-ل-ك",
+        primaryMeaning = "king, to own, angel",
+        extendedMeaning = "Kingship, ownership, and angels.",
+        quranUsage = "'The King (Malik) of mankind.' Malik is king. Mulk is kingdom. Malak is angel.",
+        notes = "Allah is the true King. Angels (mala'ikah) are His servants."
+      ),
+      RootMeaningData(
+        root = "س-ل-ط",
+        primaryMeaning = "authority, power, sultan",
+        extendedMeaning = "Authority, power, and proof/evidence.",
+        quranUsage = "'We gave Musa clear authority (sultan).' Sultan is authority/proof.",
+        notes = "Sultan means both political authority and clear proof."
+      ),
+      RootMeaningData(
+        root = "أ-م-ر",
+        primaryMeaning = "command, prince, matter",
+        extendedMeaning = "Commanding, a prince/leader, and an affair.",
+        quranUsage = "'Obey Allah and obey the messenger and those in authority (uli al-amr).' Amir is prince.",
+        notes = "Amir al-Mu'minin means Commander of the Believers."
+      ),
+      RootMeaningData(
+        root = "و-ز-ر",
+        primaryMeaning = "minister, burden, sin",
+        extendedMeaning = "Minister/advisor, heavy burden, and sin.",
+        quranUsage = "'Appoint for me a minister (wazir) from my family.' Wazir is minister. Wizr is burden/sin.",
+        notes = "Harun was Musa's wazir. Everyone carries their own wizr (burden of sin)."
+      ),
+      RootMeaningData(
+        root = "ق-ا-ض",
+        primaryMeaning = "judge",
+        extendedMeaning = "Judge, one who decides.",
+        quranUsage = "'Allah judges (yaqdi) with truth.' Qadi is judge. Qada' is judgment.",
+        notes = "The Qadi issues rulings based on Islamic law."
+      ),
+      RootMeaningData(
+        root = "ش-ي-خ",
+        primaryMeaning = "elder, old man, scholar",
+        extendedMeaning = "Elder, old age, and respected scholar.",
+        quranUsage = "'Our father is an old man (shaykh).' Shaykh is elder/scholar.",
+        notes = "Shaykh denotes age, wisdom, and religious authority."
+      ),
+      RootMeaningData(
+        root = "غ-ل-م",
+        primaryMeaning = "boy, young man, servant",
+        extendedMeaning = "Boy, youth, and male servant.",
+        quranUsage = "'We gave him glad tidings of a boy (ghulam).' Ghulam is boy/youth.",
+        notes = "Ibrahim and Zakariyya were given glad tidings of sons."
+      ),
+      RootMeaningData(
+        root = "ج-ر-ي",
+        primaryMeaning = "girl, servant, flow",
+        extendedMeaning = "Young girl, female servant, and flowing.",
+        quranUsage = "'Youthful servants (ghilman) and houris.' Jariyah is girl/servant.",
+        notes = "Also means a flowing ship or ongoing charity."
+      ),
+      RootMeaningData(
+        root = "ع-ر-س",
+        primaryMeaning = "bride, wedding",
+        extendedMeaning = "Bride, wedding, and marriage celebration.",
+        quranUsage = "'Arus is bride. 'Urs is wedding.",
+        notes = "Marriage is a celebration and completion of faith."
+      ),
+      RootMeaningData(
+        root = "ض-ي-ف",
+        primaryMeaning = "guest",
+        extendedMeaning = "Guest and hospitality.",
+        quranUsage = "'Has the story of Ibrahim's honored guests (dayf) reached you?' Dayf is guest.",
+        notes = "Honoring guests is a prophetic tradition."
+      ),
+      RootMeaningData(
+        root = "ج-ا-ر",
+        primaryMeaning = "neighbor, to protect",
+        extendedMeaning = "Neighbor, and granting protection.",
+        quranUsage = "'Be good to the neighbor (jar).' Jar is neighbor. Ijarah is protection/rent.",
+        notes = "Rights of neighbors are heavily emphasized."
+      ),
+      RootMeaningData(
+        root = "ص-ا-ح-ب",
+        primaryMeaning = "companion, friend, owner",
+        extendedMeaning = "Companion, friend, and owner/possessor.",
+        quranUsage = "'The companion (sahib) of the fish.' Sahib is companion. Ashab are companions.",
+        notes = "Sahib can mean friend, companion, or owner of something."
+      ),
+      RootMeaningData(
+        root = "خ-ل-ل",
+        primaryMeaning = "friend, intimate, to penetrate",
+        extendedMeaning = "Close friend, intimacy, and penetrating.",
+        quranUsage = "'Allah took Ibrahim as a close friend (khalil).' Khalil is intimate friend.",
+        notes = "Ibrahim is Khalilullah - the intimate friend of Allah."
+      ),
+      RootMeaningData(
+        root = "ع-د-و",
+        primaryMeaning = "enemy, to transgress, run",
+        extendedMeaning = "Enemy, transgression, and running/haste.",
+        quranUsage = "'Satan is an enemy ('aduw) to you.' 'Aduw is enemy. 'Udwan is transgression.",
+        notes = "Satan is humanity's clear enemy."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ع",
+        primaryMeaning = "Pharaoh, branch, height",
+        extendedMeaning = "Pharaoh (title), branch, and being elevated.",
+        quranUsage = "'To Pharaoh (Fir'awn) and his chiefs.' Fir'awn is Pharaoh. Far' is branch.",
+        notes = "Pharaoh is the archetype of tyranny in the Quran."
+      ),
+      RootMeaningData(
+        root = "ق-ر-ن",
+        primaryMeaning = "generation, horn, companion",
+        extendedMeaning = "Generation/century, horn, and being paired.",
+        quranUsage = "'How many generations (qurun) We destroyed.' Qarn is generation. Qarin is companion.",
+        notes = "Each person has a qarin (companion) from the jinn."
+      ),
+
+      // === GEOGRAPHICAL FEATURES ===
+      RootMeaningData(
+        root = "و-د-ي",
+        primaryMeaning = "valley",
+        extendedMeaning = "Valley, riverbed.",
+        quranUsage = "'In the sacred valley (wadi) of Tuwa.' Wadi is valley.",
+        notes = "Musa was called in the valley of Tuwa."
+      ),
+      RootMeaningData(
+        root = "س-ه-ل",
+        primaryMeaning = "plain, easy",
+        extendedMeaning = "Plain/flat land, and ease.",
+        quranUsage = "'Carve out houses from the mountains.' Sahl is plain/easy.",
+        notes = "Allah makes difficult things easy (sahl)."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ر",
+        primaryMeaning = "desert",
+        extendedMeaning = "Desert, wilderness.",
+        quranUsage = "Sahra' is desert. The desert Arabs (A'rab) lived in the sahra'.",
+        notes = "The Arabian desert shaped early Islamic history."
+      ),
+      RootMeaningData(
+        root = "ج-ز-ر",
+        primaryMeaning = "island, to slaughter",
+        extendedMeaning = "Island, and slaughtering (animals).",
+        quranUsage = "Jazirah is island/peninsula. Arabia is 'Jazirat al-'Arab.'",
+        notes = "The Arabian Peninsula is called the Island of the Arabs."
+      ),
+      RootMeaningData(
+        root = "س-ا-ح-ل",
+        primaryMeaning = "coast, shore",
+        extendedMeaning = "Coastline, seashore.",
+        quranUsage = "'On the shore (sahil) of the sea.' Sahil is coast.",
+        notes = "Musa's basket was found on the shore."
+      ),
+      RootMeaningData(
+        root = "ع-ي-ن",
+        primaryMeaning = "spring, eye, essence",
+        extendedMeaning = "Water spring, eye, and the essence of something.",
+        quranUsage = "'Springs ('uyun) flowing.' 'Ayn is spring/eye.",
+        notes = "Paradise has springs of various drinks."
+      ),
+      RootMeaningData(
+        root = "ب-ء-ر",
+        primaryMeaning = "well",
+        extendedMeaning = "Well for water.",
+        quranUsage = "'A well (bi'r) abandoned.' Bi'r is well.",
+        notes = "The well of Zamzam is blessed."
+      ),
+      RootMeaningData(
+        root = "ك-ه-ف",
+        primaryMeaning = "cave",
+        extendedMeaning = "Cave.",
+        quranUsage = "'When the youths retreated to the cave (kahf).' Kahf is cave.",
+        notes = "Surah Al-Kahf tells of the sleepers in the cave."
+      ),
+      RootMeaningData(
+        root = "غ-ا-ر",
+        primaryMeaning = "cave, cavern",
+        extendedMeaning = "Cave, especially a small cave.",
+        quranUsage = "'When they were in the cave (ghar).' Ghar is cave.",
+        notes = "The Prophet and Abu Bakr hid in the Cave of Thawr."
+      ),
+      RootMeaningData(
+        root = "ط-و-ر",
+        primaryMeaning = "mountain, stage, manner",
+        extendedMeaning = "Mountain (especially Sinai), stage, and manner.",
+        quranUsage = "'By the Mount (Tur)!' Tur is Mount Sinai. Tawr is stage.",
+        notes = "Mount Tur/Sinai is where Musa received revelation."
+      ),
+
+      // === PARTS OF DAY AND TIME ===
+      RootMeaningData(
+        root = "ف-ج-ر",
+        primaryMeaning = "dawn, to break forth",
+        extendedMeaning = "Dawn, breaking forth, and wickedness (breaking moral bounds).",
+        quranUsage = "'By the dawn (fajr)!' Fajr is dawn. Fujur is wickedness.",
+        notes = "Fajr prayer is at dawn. The same root gives 'wickedness' (breaking limits)."
+      ),
+      RootMeaningData(
+        root = "ص-ب-ح",
+        primaryMeaning = "morning, to become",
+        extendedMeaning = "Morning, and becoming/entering a state.",
+        quranUsage = "'By the morning (subh)!' Subh is morning. Asbaha is to become.",
+        notes = "Subh and fajr both refer to early morning."
+      ),
+      RootMeaningData(
+        root = "ض-ح-ي",
+        primaryMeaning = "forenoon, sacrifice",
+        extendedMeaning = "Mid-morning, and the sacrifice (done at that time).",
+        quranUsage = "'By the morning brightness (duha)!' Duha is forenoon. Udhiyah is sacrifice.",
+        notes = "Surah Ad-Duha. Eid sacrifice is called Udhiyah (done in the duha time)."
+      ),
+      RootMeaningData(
+        root = "ظ-ه-ر",
+        primaryMeaning = "noon, back, apparent",
+        extendedMeaning = "Noon (when sun is at its zenith/back), back, and being apparent.",
+        quranUsage = "'At noon (zahirah).' Zuhr is noon prayer. Zahir is apparent.",
+        notes = "Zuhr prayer is when the sun passes its zenith."
+      ),
+      RootMeaningData(
+        root = "ع-ص-ر",
+        primaryMeaning = "afternoon, age, juice",
+        extendedMeaning = "Afternoon, time/era, and pressing (juice).",
+        quranUsage = "'By time ('asr)!' 'Asr is time/afternoon. Ma'sarah is press.",
+        notes = "Surah Al-'Asr swears by time. 'Asr prayer is in the afternoon."
+      ),
+      RootMeaningData(
+        root = "غ-ر-ب",
+        primaryMeaning = "sunset, west, strange",
+        extendedMeaning = "Sunset, the west, and being strange/foreign.",
+        quranUsage = "'Before sunset (ghurub).' Ghurub is setting. Maghrib is sunset/west.",
+        notes = "Maghrib prayer is at sunset."
+      ),
+      RootMeaningData(
+        root = "ع-ش-ء",
+        primaryMeaning = "evening, night",
+        extendedMeaning = "Evening, nightfall.",
+        quranUsage = "'In the evening ('isha').' 'Isha' is evening/night.",
+        notes = "'Isha' prayer is the night prayer."
+      ),
+      RootMeaningData(
+        root = "ل-ي-ل",
+        primaryMeaning = "night",
+        extendedMeaning = "Night, nighttime.",
+        quranUsage = "'By the night (layl) when it covers!' Layl is night. Laylah is a night.",
+        notes = "Laylat al-Qadr - the Night of Power."
+      ),
+      RootMeaningData(
+        root = "ن-ه-ر",
+        primaryMeaning = "day, river, to rebuke",
+        extendedMeaning = "Daytime, river, and rebuking.",
+        quranUsage = "'The night and the day (nahar).' Nahar is daytime. Nahr is river.",
+        notes = "Day and night alternate as signs of Allah."
+      ),
+      RootMeaningData(
+        root = "ي-و-م",
+        primaryMeaning = "day",
+        extendedMeaning = "Day, a specific day, era.",
+        quranUsage = "'The Day (yawm) of Judgment.' Yawm is day. Ayyam is days.",
+        notes = "Yawm al-Qiyamah is the Day of Resurrection."
+      ),
+      RootMeaningData(
+        root = "ش-ه-ر",
+        primaryMeaning = "month, to publicize",
+        extendedMeaning = "Month, and making known/famous.",
+        quranUsage = "'The month (shahr) of Ramadan.' Shahr is month. Mashhur is famous.",
+        notes = "The Islamic calendar has twelve months."
+      ),
+      RootMeaningData(
+        root = "س-ن-ه",
+        primaryMeaning = "year",
+        extendedMeaning = "Year.",
+        quranUsage = "'A thousand years (sanah).' Sanah is year. Sanawat is years.",
+        notes = "Nuh called his people for 950 years."
+      ),
+      RootMeaningData(
+        root = "ع-ا-م",
+        primaryMeaning = "year, general",
+        extendedMeaning = "Year, and being general/public.",
+        quranUsage = "'In a few years ('am).' 'Am is year. 'Amm is general.",
+        notes = "'Am al-Fil - the Year of the Elephant."
+      ),
+
+      // === ACTIONS AND VERBS ===
+      RootMeaningData(
+        root = "ف-ت-ح",
+        primaryMeaning = "to open, conquer, begin",
+        extendedMeaning = "Opening, conquering, and beginning.",
+        quranUsage = "'Indeed, We have opened (fatahna) for you a clear conquest.' Fath is opening/victory.",
+        notes = "Al-Fattah - The Opener - one of Allah's names."
+      ),
+      RootMeaningData(
+        root = "غ-ل-ق",
+        primaryMeaning = "to close, lock",
+        extendedMeaning = "Closing, locking, and shutting.",
+        quranUsage = "'She closed (ghallaqat) the doors.' Ghalq is closing. Mughallaq is locked.",
+        notes = "Contrast with ف-ت-ح (opening)."
+      ),
+      RootMeaningData(
+        root = "ك-س-ر",
+        primaryMeaning = "to break",
+        extendedMeaning = "Breaking, shattering.",
+        quranUsage = "'Ibrahim broke (kasara) the idols.' Kasr is breaking. Inkisar is being broken.",
+        notes = "Ibrahim broke the idols to prove their powerlessness."
+      ),
+      RootMeaningData(
+        root = "ج-م-ع",
+        primaryMeaning = "to gather, collect, unite",
+        extendedMeaning = "Gathering, collecting, and uniting.",
+        quranUsage = "'He gathered (jama'a) wealth.' Jam' is gathering. Jami' is comprehensive. Jumu'ah is Friday.",
+        notes = "Friday (Jumu'ah) is the day of gathering for prayer."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ق",
+        primaryMeaning = "to separate, distinguish",
+        extendedMeaning = "Separating, distinguishing, and dividing.",
+        quranUsage = "'We parted (faraqna) the sea.' Farq is separation. Furqan is criterion.",
+        notes = "The Quran is Al-Furqan - it distinguishes truth from falsehood."
+      ),
+      RootMeaningData(
+        root = "ب-د-ل",
+        primaryMeaning = "to change, substitute",
+        extendedMeaning = "Changing, substituting, and exchanging.",
+        quranUsage = "'We will change (nubaddilu) their skins.' Tabdil is change. Badal is substitute.",
+        notes = "Allah can change conditions and creations."
+      ),
+      RootMeaningData(
+        root = "ص-ن-ع",
+        primaryMeaning = "to make, manufacture, craft",
+        extendedMeaning = "Making, manufacturing, and craftsmanship.",
+        quranUsage = "'The making (sun') of Allah.' San'ah is craft. Sina'ah is industry.",
+        notes = "Allah's creation is perfect craftsmanship."
+      ),
+      RootMeaningData(
+        root = "ب-ن-ي",
+        primaryMeaning = "to build, construct",
+        extendedMeaning = "Building, construction, and structure.",
+        quranUsage = "'We built (banayna) above you seven strong.' Bina' is building.",
+        notes = "The seven heavens are built with power."
+      ),
+      RootMeaningData(
+        root = "ه-د-م",
+        primaryMeaning = "to demolish, destroy",
+        extendedMeaning = "Demolishing, tearing down.",
+        quranUsage = "'Destroyed (huddimat) would have been monasteries.' Hadm is demolition.",
+        notes = "Without Allah's protection, places of worship would be destroyed."
+      ),
+      RootMeaningData(
+        root = "ق-ط-ع",
+        primaryMeaning = "to cut, sever",
+        extendedMeaning = "Cutting, severing, and interrupting.",
+        quranUsage = "'Cut off (qata'a) the hands.' Qat' is cutting. Qati'ah is a piece.",
+        notes = "Severing ties of kinship is a major sin."
+      ),
+      RootMeaningData(
+        root = "و-ص-ل",
+        primaryMeaning = "to connect, join, arrive",
+        extendedMeaning = "Connecting, joining, and arriving.",
+        quranUsage = "'Those who join (yasilun) what Allah commanded to be joined.' Wasl is connection. Silah is maintaining ties.",
+        notes = "Silat ar-Rahim - maintaining family ties - is commanded."
+      ),
+      RootMeaningData(
+        root = "ر-ب-ط",
+        primaryMeaning = "to tie, bind, strengthen",
+        extendedMeaning = "Tying, binding, and strengthening.",
+        quranUsage = "'We strengthened (rabatna) her heart.' Rabt is tying. Ribat is bond/garrison.",
+        notes = "Allah ties and strengthens the hearts of believers."
+      ),
+      RootMeaningData(
+        root = "ح-ل-ل",
+        primaryMeaning = "to untie, permit, settle",
+        extendedMeaning = "Untying, permitting, and settling in a place.",
+        quranUsage = "'Made lawful (uhilla) for you.' Hill is untying. Halal is permitted.",
+        notes = "Halal is what is untied from prohibition."
+      ),
+      RootMeaningData(
+        root = "أ-خ-ذ",
+        primaryMeaning = "to take, seize",
+        extendedMeaning = "Taking, seizing, and grasping.",
+        quranUsage = "'Take (khudh) what We have given you with strength.' Akhdh is taking.",
+        notes = "Allah seizes the wrongdoers with His punishment."
+      ),
+      RootMeaningData(
+        root = "ع-ط-ي",
+        primaryMeaning = "to give, grant",
+        extendedMeaning = "Giving, granting, and bestowing.",
+        quranUsage = "'We have given you (a'taynaka) Al-Kawthar.' 'Ata' is giving. 'Atiyyah is gift.",
+        notes = "Allah is Al-Mu'ti - The Giver."
+      ),
+      RootMeaningData(
+        root = "م-ن-ع",
+        primaryMeaning = "to prevent, withhold",
+        extendedMeaning = "Preventing, withholding, and forbidding.",
+        quranUsage = "'What prevented (mana'a) you from prostrating?' Man' is prevention. Mani' is protector.",
+        notes = "Al-Mani' - The Preventer - protects from harm."
+      ),
+      RootMeaningData(
+        root = "ر-م-ي",
+        primaryMeaning = "to throw, cast",
+        extendedMeaning = "Throwing, casting, and shooting.",
+        quranUsage = "'You did not throw (ramayta) when you threw.' Ramy is throwing.",
+        notes = "Allah guided the Prophet's throw at Badr."
+      ),
+      RootMeaningData(
+        root = "ض-ر-ب",
+        primaryMeaning = "to strike, give example",
+        extendedMeaning = "Striking, giving examples, and traveling.",
+        quranUsage = "'Allah strikes (yadribu) examples for people.' Darb is striking. Mathal is example.",
+        notes = "The Quran strikes parables to explain truths."
+      ),
+      RootMeaningData(
+        root = "ل-م-س",
+        primaryMeaning = "to touch, seek",
+        extendedMeaning = "Touching, feeling, and seeking.",
+        quranUsage = "'We touched (lamasna) the heaven.' Lams is touch. Iltimas is seeking.",
+        notes = "The jinn sought to reach heaven but found it guarded."
+      ),
+      RootMeaningData(
+        root = "م-س-س",
+        primaryMeaning = "to touch, afflict",
+        extendedMeaning = "Touching, and being afflicted.",
+        quranUsage = "'If good touches (massathu) him.' Mass is touch/affliction.",
+        notes = "Used for both physical touch and being afflicted by conditions."
+      ),
+      RootMeaningData(
+        root = "ح-م-ل",
+        primaryMeaning = "to carry, bear, conceive",
+        extendedMeaning = "Carrying, bearing burdens, and pregnancy.",
+        quranUsage = "'We carried (hamalna) him on planks.' Haml is carrying. Hamil is carrier.",
+        notes = "Used for physical carrying and carrying sin or responsibility."
+      ),
+      RootMeaningData(
+        root = "ر-ف-ع",
+        primaryMeaning = "to raise, elevate",
+        extendedMeaning = "Raising, elevating, and lifting.",
+        quranUsage = "'We raised (rafa'na) him to a high station.' Raf' is raising. Rafi' is high.",
+        notes = "'Isa was raised to Allah. Good deeds raise one's rank."
+      ),
+      RootMeaningData(
+        root = "خ-ف-ض",
+        primaryMeaning = "to lower, humble",
+        extendedMeaning = "Lowering, humbling, and being gentle.",
+        quranUsage = "'Lower (ikhfid) your wing to the believers.' Khafd is lowering.",
+        notes = "Lowering one's wing means being humble and gentle."
+      ),
+      RootMeaningData(
+        root = "ط-ر-ح",
+        primaryMeaning = "to throw, cast away",
+        extendedMeaning = "Throwing down, casting away.",
+        quranUsage = "'Cast (itrahuh) Yusuf into the well.' Tarh is throwing/casting.",
+        notes = "Yusuf's brothers cast him into the well."
+      ),
+      RootMeaningData(
+        root = "ل-ق-ي",
+        primaryMeaning = "to meet, encounter, receive",
+        extendedMeaning = "Meeting, encountering, and receiving.",
+        quranUsage = "'Whoever hopes to meet (liqa') his Lord.' Liqa' is meeting. Laqiya is to meet.",
+        notes = "Meeting Allah is the ultimate encounter."
+      ),
+      RootMeaningData(
+        root = "و-ج-د",
+        primaryMeaning = "to find, feel",
+        extendedMeaning = "Finding, feeling emotion, and existence.",
+        quranUsage = "'He found (wajada) you lost and guided.' Wujud is finding/existence.",
+        notes = "Allah found the Prophet and guided him."
+      ),
+      RootMeaningData(
+        root = "ف-ق-د",
+        primaryMeaning = "to lose, miss",
+        extendedMeaning = "Losing, missing, and lacking.",
+        quranUsage = "'They said: We are missing (nafqidu) the king's cup.' Faqd is loss.",
+        notes = "Opposite of و-ج-د (finding)."
+      ),
+      RootMeaningData(
+        root = "ظ-ن-ن",
+        primaryMeaning = "to think, suppose, suspect",
+        extendedMeaning = "Thinking, supposing, and suspicion.",
+        quranUsage = "'They thought (zannu) they would never return.' Zann is thought/suspicion.",
+        notes = "Some zann is sin - suspecting others wrongly."
+      ),
+      RootMeaningData(
+        root = "ي-ق-ن",
+        primaryMeaning = "certainty, to be certain",
+        extendedMeaning = "Certainty, conviction, and being sure.",
+        quranUsage = "'Worship your Lord until certainty (yaqin) comes to you.' Yaqin is certainty.",
+        notes = "Yaqin is the highest level of knowledge - absolute certainty."
+      ),
+      RootMeaningData(
+        root = "ش-ك-ك",
+        primaryMeaning = "doubt, to doubt",
+        extendedMeaning = "Doubt, uncertainty, and skepticism.",
+        quranUsage = "'If you are in doubt (shakk).' Shakk is doubt.",
+        notes = "Doubt in faith is dangerous; seeking knowledge removes doubt."
+      ),
+      RootMeaningData(
+        root = "ذ-ك-ر",
+        primaryMeaning = "to remember, mention, male",
+        extendedMeaning = "Remembering, mentioning, and the male gender.",
+        quranUsage = "'Remember (udhkur) Me, I will remember you.' Dhikr is remembrance. Dhakar is male.",
+        notes = "Dhikr of Allah brings peace to hearts."
+      ),
+      RootMeaningData(
+        root = "ن-س-ي",
+        primaryMeaning = "to forget",
+        extendedMeaning = "Forgetting, neglecting.",
+        quranUsage = "'They forgot (nasu) Allah, so He forgot them.' Nisyan is forgetting.",
+        notes = "Forgetting Allah leads to being forgotten by Him."
+      ),
+      RootMeaningData(
+        root = "ع-ل-م",
+        primaryMeaning = "to know, teach",
+        extendedMeaning = "Knowing, teaching, and science.",
+        quranUsage = "'He taught ('allama) Adam the names.' 'Ilm is knowledge. 'Alim is knower.",
+        notes = "Al-'Alim - The All-Knowing - is Allah's name."
+      ),
+      RootMeaningData(
+        root = "ج-ه-ل",
+        primaryMeaning = "ignorance, not to know",
+        extendedMeaning = "Ignorance, not knowing, and acting ignorantly.",
+        quranUsage = "'Turn away from the ignorant (jahilin).' Jahl is ignorance. Jahil is ignorant.",
+        notes = "Pre-Islamic Arabia was called Jahiliyyah - the Age of Ignorance."
+      ),
+
+      // === PLANTS AND VEGETATION ===
+      RootMeaningData(
+        root = "ن-ب-ت",
+        primaryMeaning = "plant, to grow",
+        extendedMeaning = "Plant, vegetation, and growth.",
+        quranUsage = "'We caused to grow (anbatna) therein gardens.' Nabat is plant. Nabt is growth.",
+        notes = "Allah causes plants to grow from the earth as a sign."
+      ),
+      RootMeaningData(
+        root = "ز-ر-ع",
+        primaryMeaning = "crops, to plant, cultivation",
+        extendedMeaning = "Crops, planting, and agriculture.",
+        quranUsage = "'Is it you who cultivates (tazra'una) it?' Zar' is crops. Zira'ah is agriculture.",
+        notes = "Agriculture is a blessing - Allah causes growth, not humans."
+      ),
+      RootMeaningData(
+        root = "ح-ب-ب",
+        primaryMeaning = "grain, seed, love",
+        extendedMeaning = "Grain, seed, and love.",
+        quranUsage = "'The splitter of grain (habb) and seeds.' Habb is grain. Hubb is love.",
+        notes = "Grain sustains life; love sustains the heart."
+      ),
+      RootMeaningData(
+        root = "س-ن-ب-ل",
+        primaryMeaning = "ear of grain",
+        extendedMeaning = "Ear/spike of grain.",
+        quranUsage = "'Seven ears (sanabil) of grain.' Sunbulah is ear of grain.",
+        notes = "Seven ears in Yusuf's dream and the parable of charity."
+      ),
+      RootMeaningData(
+        root = "ن-خ-ل",
+        primaryMeaning = "palm tree, to sift",
+        extendedMeaning = "Date palm, and sifting.",
+        quranUsage = "'Lofty palm trees (nakhil).' Nakhl is palm trees. Nakhlah is a palm.",
+        notes = "Palm trees are mentioned frequently - their fruits sustain people."
+      ),
+      RootMeaningData(
+        root = "ع-ن-ب",
+        primaryMeaning = "grape",
+        extendedMeaning = "Grape.",
+        quranUsage = "'Gardens of grapes ('inab).' 'Inab is grapes.",
+        notes = "Grapes are among the blessings of Paradise."
+      ),
+      RootMeaningData(
+        root = "ت-ي-ن",
+        primaryMeaning = "fig",
+        extendedMeaning = "Fig.",
+        quranUsage = "'By the fig (tin) and the olive!' Tin is fig.",
+        notes = "Surah At-Tin swears by the fig and olive."
+      ),
+      RootMeaningData(
+        root = "ز-ي-ت",
+        primaryMeaning = "olive, oil",
+        extendedMeaning = "Olive and olive oil.",
+        quranUsage = "'A blessed tree, an olive (zaytunah).' Zayt is oil. Zaytun is olive.",
+        notes = "Olive oil is blessed - it lights lamps and is beneficial."
+      ),
+      RootMeaningData(
+        root = "ر-م-ن",
+        primaryMeaning = "pomegranate",
+        extendedMeaning = "Pomegranate.",
+        quranUsage = "'And pomegranates (rumman).' Rumman is pomegranate.",
+        notes = "Pomegranates are among the fruits of Paradise."
+      ),
+      RootMeaningData(
+        root = "م-و-ز",
+        primaryMeaning = "banana",
+        extendedMeaning = "Banana.",
+        quranUsage = "'And banana trees (talh) layered.' Mawz is banana (talh also means banana trees).",
+        notes = "Banana trees in Paradise with clustered fruits."
+      ),
+      RootMeaningData(
+        root = "س-د-ر",
+        primaryMeaning = "lote tree",
+        extendedMeaning = "Lote tree (a blessed tree).",
+        quranUsage = "'At the Lote Tree (sidrah) of the utmost boundary.' Sidr is lote tree.",
+        notes = "Sidrat al-Muntaha marks the boundary of creation."
+      ),
+      RootMeaningData(
+        root = "ش-و-ك",
+        primaryMeaning = "thorn, spike",
+        extendedMeaning = "Thorn, spike.",
+        quranUsage = "'No food except thorny plants (dari').' Shawk is thorn.",
+        notes = "The food of Hell includes thorny plants."
+      ),
+      RootMeaningData(
+        root = "ح-ش-ش",
+        primaryMeaning = "grass, herbs, dry vegetation",
+        extendedMeaning = "Grass, herbs, and dried plants.",
+        quranUsage = "'Then makes it dry stubble (hashim).' Hashish is grass/herbs.",
+        notes = "Life's cycle: green, then dry stubble."
+      ),
+      RootMeaningData(
+        root = "و-ر-ق",
+        primaryMeaning = "leaf, paper",
+        extendedMeaning = "Leaf, foliage, and paper.",
+        quranUsage = "'They began to cover themselves with leaves (waraq).' Waraq is leaves/paper.",
+        notes = "Adam and Hawwa covered themselves with Paradise leaves."
+      ),
+      RootMeaningData(
+        root = "ج-ذ-ع",
+        primaryMeaning = "trunk, stem",
+        extendedMeaning = "Trunk of a tree, stem.",
+        quranUsage = "'We will crucify you on the trunks (judhoo') of palm trees.' Jidh' is trunk.",
+        notes = "Pharaoh's magicians were threatened with crucifixion on palm trunks."
+      ),
+      RootMeaningData(
+        root = "ج-ذ-ر",
+        primaryMeaning = "root",
+        extendedMeaning = "Root of a plant.",
+        quranUsage = "'Its root (asluh) firm.' Jadhr is root. (Also: asl)",
+        notes = "A good word is like a good tree - firm roots and reaching branches."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ع",
+        primaryMeaning = "branch, Pharaoh",
+        extendedMeaning = "Branch, and being high/mighty (Pharaoh).",
+        quranUsage = "'Its branches (far') in the sky.' Far' is branch.",
+        notes = "The good tree has branches reaching the sky."
+      ),
+
+      // === MORE ANIMALS ===
+      RootMeaningData(
+        root = "أ-س-د",
+        primaryMeaning = "lion",
+        extendedMeaning = "Lion.",
+        quranUsage = "'As if they were fleeing from a lion (qaswarah/asad).' Asad is lion.",
+        notes = "Disbelievers flee from the message like prey from a lion."
+      ),
+      RootMeaningData(
+        root = "ذ-ء-ب",
+        primaryMeaning = "wolf",
+        extendedMeaning = "Wolf.",
+        quranUsage = "'A wolf (dhi'b) will eat him.' Dhi'b is wolf.",
+        notes = "Yusuf's brothers claimed a wolf ate him."
+      ),
+      RootMeaningData(
+        root = "ث-ع-ب",
+        primaryMeaning = "snake, serpent",
+        extendedMeaning = "Snake, large serpent.",
+        quranUsage = "'It became a serpent (thu'ban).' Thu'ban is large snake.",
+        notes = "Musa's staff became a great serpent."
+      ),
+      RootMeaningData(
+        root = "ح-ي-ي",
+        primaryMeaning = "snake, life, modesty",
+        extendedMeaning = "Snake (hayyah), life, and modesty.",
+        quranUsage = "'It became a snake (hayyah) moving.' Hayyah is snake. Hayah is life. Haya' is modesty.",
+        notes = "The same root connects life, snakes (life-like movement), and modesty."
+      ),
+      RootMeaningData(
+        root = "ض-ف-د-ع",
+        primaryMeaning = "frog",
+        extendedMeaning = "Frog.",
+        quranUsage = "'We sent upon them the flood, locusts, lice, frogs (dafadi').' Difda' is frog.",
+        notes = "Frogs were among the plagues sent to Pharaoh."
+      ),
+      RootMeaningData(
+        root = "ج-ر-د",
+        primaryMeaning = "locust, to strip",
+        extendedMeaning = "Locust, and stripping bare.",
+        quranUsage = "'We sent upon them locusts (jarad).' Jarad is locusts.",
+        notes = "Locusts stripped Egypt as a plague."
+      ),
+      RootMeaningData(
+        root = "ق-م-ل",
+        primaryMeaning = "lice",
+        extendedMeaning = "Lice.",
+        quranUsage = "'We sent upon them lice (qummal).' Qummal is lice.",
+        notes = "Lice were among Pharaoh's plagues."
+      ),
+      RootMeaningData(
+        root = "ب-ع-ض",
+        primaryMeaning = "mosquito, some",
+        extendedMeaning = "Mosquito, gnat, and some/part.",
+        quranUsage = "'Allah is not ashamed to strike an example of a mosquito (ba'udah).' Ba'udah is mosquito.",
+        notes = "Allah strikes examples even with the smallest creatures."
+      ),
+      RootMeaningData(
+        root = "ذ-ب-ب",
+        primaryMeaning = "fly",
+        extendedMeaning = "Fly (insect).",
+        quranUsage = "'Even if a fly (dhubab) should steal from them.' Dhubab is fly.",
+        notes = "Idols cannot retrieve what a fly takes - showing their weakness."
+      ),
+      RootMeaningData(
+        root = "غ-ر-ب",
+        primaryMeaning = "crow, raven, west",
+        extendedMeaning = "Crow/raven, and the west.",
+        quranUsage = "'Allah sent a crow (ghurab).' Ghurab is crow.",
+        notes = "A crow taught Qabil how to bury his brother."
+      ),
+      RootMeaningData(
+        root = "ه-د-ه-د",
+        primaryMeaning = "hoopoe",
+        extendedMeaning = "Hoopoe bird.",
+        quranUsage = "'He inspected the birds and said: Why do I not see the hoopoe (hudhud)?' Hudhud is hoopoe.",
+        notes = "The hoopoe brought Sulayman news of the Queen of Sheba."
+      ),
+      RootMeaningData(
+        root = "ص-ر-د",
+        primaryMeaning = "cold, a bird (shrike)",
+        extendedMeaning = "Cold, and a type of bird.",
+        quranUsage = "Surad is a type of bird (shrike).",
+        notes = "Various birds serve as signs in creation."
+      ),
+      RootMeaningData(
+        root = "ح-م-م",
+        primaryMeaning = "dove, pigeon, hot",
+        extendedMeaning = "Dove, and heat.",
+        quranUsage = "Hamamah is dove/pigeon. Hamim is hot water.",
+        notes = "Doves nested at the cave during the Hijrah."
+      ),
+      RootMeaningData(
+        root = "ب-غ-ل",
+        primaryMeaning = "mule",
+        extendedMeaning = "Mule.",
+        quranUsage = "'And horses and mules (bighal).' Baghl is mule.",
+        notes = "Mules are mentioned among riding animals."
+      ),
+      RootMeaningData(
+        root = "ح-م-ر",
+        primaryMeaning = "donkey, red",
+        extendedMeaning = "Donkey, and the color red.",
+        quranUsage = "'As if they were wild donkeys (humur).' Himar is donkey.",
+        notes = "Disbelievers flee like startled donkeys."
+      ),
+      RootMeaningData(
+        root = "خ-ر-ف",
+        primaryMeaning = "sheep, autumn",
+        extendedMeaning = "Sheep, and autumn/harvest.",
+        quranUsage = "Kharuf is sheep/lamb. Kharif is autumn.",
+        notes = "Sheep are among the livestock Allah created."
+      ),
+      RootMeaningData(
+        root = "م-ع-ز",
+        primaryMeaning = "goat",
+        extendedMeaning = "Goat.",
+        quranUsage = "'And of the goats (ma'z), two.' Ma'z is goat.",
+        notes = "Goats are mentioned among the eight pairs of livestock."
+      ),
+
+      // === HOUSEHOLD AND TOOLS ===
+      RootMeaningData(
+        root = "س-ر-ج",
+        primaryMeaning = "lamp, saddle",
+        extendedMeaning = "Lamp, and saddle for riding.",
+        quranUsage = "'And made the sun a lamp (sirajan).' Siraj is lamp.",
+        notes = "The sun is described as a brilliant lamp."
+      ),
+      RootMeaningData(
+        root = "م-ص-ب-ح",
+        primaryMeaning = "lamp",
+        extendedMeaning = "Lamp, lantern.",
+        quranUsage = "'The example of His light is like a niche with a lamp (misbah).' Misbah is lamp.",
+        notes = "The famous Light Verse uses misbah."
+      ),
+      RootMeaningData(
+        root = "ق-ن-د-ل",
+        primaryMeaning = "lamp, chandelier",
+        extendedMeaning = "Oil lamp, chandelier.",
+        quranUsage = "Qindil is lamp/chandelier.",
+        notes = "Lamps illuminate mosques and homes."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ش",
+        primaryMeaning = "bed, carpet, spread",
+        extendedMeaning = "Bedding, carpet, and spreading.",
+        quranUsage = "'Reclining on beds (furush) lined with brocade.' Firash is bed. Farsh is carpet.",
+        notes = "The earth is spread like a carpet for humanity."
+      ),
+      RootMeaningData(
+        root = "و-س-د",
+        primaryMeaning = "pillow, cushion",
+        extendedMeaning = "Pillow, cushion.",
+        quranUsage = "'Reclining on green cushions (rafraf).' Wisadah is pillow.",
+        notes = "Paradise has cushions for reclining."
+      ),
+      RootMeaningData(
+        root = "ك-أ-س",
+        primaryMeaning = "cup, goblet",
+        extendedMeaning = "Drinking cup, goblet.",
+        quranUsage = "'A cup (ka's) from a flowing spring.' Ka's is cup.",
+        notes = "Cups of pure drink circulate in Paradise."
+      ),
+      RootMeaningData(
+        root = "إ-ب-ر-ق",
+        primaryMeaning = "pitcher, jug",
+        extendedMeaning = "Pitcher, water jug.",
+        quranUsage = "'With pitchers (abariq) and cups.' Ibriq is pitcher.",
+        notes = "Pitchers serve drinks in Paradise."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ف",
+        primaryMeaning = "dish, plate, page",
+        extendedMeaning = "Dish, plate, and written page.",
+        quranUsage = "'Dishes (sihaf) of gold.' Sahfah is dish. Sahifah is page.",
+        notes = "Gold dishes serve food in Paradise."
+      ),
+      RootMeaningData(
+        root = "ق-د-ر",
+        primaryMeaning = "pot, power, measure",
+        extendedMeaning = "Cooking pot, power/ability, and measure.",
+        quranUsage = "'Pots (qudur) firmly anchored.' Qidr is pot. Qadr is measure/power.",
+        notes = "Laylat al-Qadr - Night of Power/Measure."
+      ),
+      RootMeaningData(
+        root = "ج-ف-ن",
+        primaryMeaning = "large bowl",
+        extendedMeaning = "Large serving bowl.",
+        quranUsage = "'Large bowls (jifan) like reservoirs.' Jafnah is large bowl.",
+        notes = "Sulayman had large bowls for feeding many people."
+      ),
+      RootMeaningData(
+        root = "س-ك-ن",
+        primaryMeaning = "knife, to dwell, calm",
+        extendedMeaning = "Knife, dwelling, and being calm/still.",
+        quranUsage = "'She gave each a knife (sikkin).' Sikkin is knife. Sakan is dwelling. Sakinah is tranquility.",
+        notes = "The women cut their hands when they saw Yusuf's beauty."
+      ),
+      RootMeaningData(
+        root = "ف-أ-س",
+        primaryMeaning = "axe",
+        extendedMeaning = "Axe, hatchet.",
+        quranUsage = "Fa's is axe. Ibrahim used it on the idols.",
+        notes = "Ibrahim broke idols, possibly with an axe."
+      ),
+      RootMeaningData(
+        root = "م-ن-ج-ل",
+        primaryMeaning = "sickle",
+        extendedMeaning = "Sickle for harvesting.",
+        quranUsage = "Minjal is sickle.",
+        notes = "Sickles harvest the crops Allah grows."
+      ),
+      RootMeaningData(
+        root = "م-ف-ت-ح",
+        primaryMeaning = "key",
+        extendedMeaning = "Key.",
+        quranUsage = "'To Him belong the keys (mafatih) of the heavens.' Miftah is key.",
+        notes = "Allah holds the keys to all treasures."
+      ),
+      RootMeaningData(
+        root = "ق-ف-ل",
+        primaryMeaning = "lock, to lock",
+        extendedMeaning = "Lock, locking.",
+        quranUsage = "'Or are there locks (aqfal) upon their hearts?' Qufl is lock.",
+        notes = "Hearts can be locked from understanding."
+      ),
+      RootMeaningData(
+        root = "ح-ب-ل",
+        primaryMeaning = "rope, cord",
+        extendedMeaning = "Rope, cord, and connection.",
+        quranUsage = "'Hold firmly to the rope (habl) of Allah.' Habl is rope.",
+        notes = "The Quran and faith are Allah's rope connecting us to Him."
+      ),
+      RootMeaningData(
+        root = "س-ل-س-ل",
+        primaryMeaning = "chain",
+        extendedMeaning = "Chain, series.",
+        quranUsage = "'A chain (silsilah) of seventy cubits.' Silsilah is chain.",
+        notes = "Chains bind the people of Hell."
+      ),
+      RootMeaningData(
+        root = "غ-ل-ل",
+        primaryMeaning = "shackle, to penetrate",
+        extendedMeaning = "Shackle, and penetrating through.",
+        quranUsage = "'Shackles (aghlal) on their necks.' Ghull is shackle/yoke.",
+        notes = "The Prophet removed the shackles of ignorance."
+      ),
+      RootMeaningData(
+        root = "ق-ي-د",
+        primaryMeaning = "chain, fetter, restrict",
+        extendedMeaning = "Chain, shackle, and restriction.",
+        quranUsage = "'In chains (asfad).' Qayd is fetter/restriction.",
+        notes = "The criminals will be bound in chains."
+      ),
+
+      // === ABSTRACT CONCEPTS ===
+      RootMeaningData(
+        root = "ع-ل-و",
+        primaryMeaning = "height, exaltation",
+        extendedMeaning = "Height, being high, and exaltation.",
+        quranUsage = "'Exalted ('aliy) is He, the Great.' 'Uluw is height. 'Ali is high.",
+        notes = "Al-'Ali (The Most High) and Al-Muta'ali (The Supremely Exalted)."
+      ),
+      RootMeaningData(
+        root = "س-ف-ل",
+        primaryMeaning = "lowness, below",
+        extendedMeaning = "Being low, the lower part.",
+        quranUsage = "'We returned him to the lowest (asfal) of the low.' Sufla is lower. Asfal is lowest.",
+        notes = "Humans can sink to the lowest of the low through disbelief."
+      ),
+      RootMeaningData(
+        root = "ك-ث-ر",
+        primaryMeaning = "abundance, many, much",
+        extendedMeaning = "Abundance, being many, and multiplying.",
+        quranUsage = "'We have given you abundance (kawthar).' Kathir is many. Kawthar is abundance.",
+        notes = "Surah Al-Kawthar - the river of abundance in Paradise."
+      ),
+      RootMeaningData(
+        root = "ق-ل-ل",
+        primaryMeaning = "few, little, scarcity",
+        extendedMeaning = "Being few, little, and scarcity.",
+        quranUsage = "'Except a few (qalil).' Qalil is few. Qillah is scarcity.",
+        notes = "Believers are often few compared to disbelievers."
+      ),
+      RootMeaningData(
+        root = "ك-ب-ر",
+        primaryMeaning = "greatness, large, old",
+        extendedMeaning = "Being great/large, growing old, and arrogance.",
+        quranUsage = "'Allahu Akbar - Allah is Greatest.' Kabir is great. Kibar is elders.",
+        notes = "Takbir (saying Allahu Akbar) glorifies Allah's greatness."
+      ),
+      RootMeaningData(
+        root = "ص-غ-ر",
+        primaryMeaning = "small, young, humiliation",
+        extendedMeaning = "Being small, young, and being humiliated.",
+        quranUsage = "'Small (saghir) or great.' Saghir is small. Saghar is humiliation.",
+        notes = "No deed is too small to be recorded."
+      ),
+      RootMeaningData(
+        root = "ق-و-ي",
+        primaryMeaning = "strength, power",
+        extendedMeaning = "Strength, power, and might.",
+        quranUsage = "'Indeed, Allah is Powerful (Qawiy).' Quwwah is strength. Qawiy is strong.",
+        notes = "Al-Qawiy (The All-Powerful) is Allah's name."
+      ),
+      RootMeaningData(
+        root = "ض-ع-ف",
+        primaryMeaning = "weakness, double",
+        extendedMeaning = "Weakness, and doubling.",
+        quranUsage = "'Man was created weak (da'if).' Da'f is weakness. Di'f is double.",
+        notes = "Humans are inherently weak and need Allah."
+      ),
+      RootMeaningData(
+        root = "س-ر-ع",
+        primaryMeaning = "speed, fast",
+        extendedMeaning = "Speed, being fast, and haste.",
+        quranUsage = "'Swift (sari') in reckoning.' Sur'ah is speed. Sari' is fast.",
+        notes = "Allah is swift in reckoning."
+      ),
+      RootMeaningData(
+        root = "ب-ط-ء",
+        primaryMeaning = "slowness, delay",
+        extendedMeaning = "Being slow, delay.",
+        quranUsage = "'Among you is he who lags behind (yubatti').' But' is slowness.",
+        notes = "Some lagged behind from battle."
+      ),
+      RootMeaningData(
+        root = "س-ه-ل",
+        primaryMeaning = "easy, plain",
+        extendedMeaning = "Being easy, and flat plain.",
+        quranUsage = "'We will ease (sayassiru) him toward ease.' Sahl is easy. Taysir is facilitation.",
+        notes = "Allah makes things easy for the righteous."
+      ),
+      RootMeaningData(
+        root = "ص-ع-ب",
+        primaryMeaning = "difficult, hard",
+        extendedMeaning = "Being difficult, hardship.",
+        quranUsage = "Sa'b is difficult. Allah does not burden souls beyond capacity.",
+        notes = "Difficulties are tests that can be overcome."
+      ),
+      RootMeaningData(
+        root = "ق-ر-ب",
+        primaryMeaning = "nearness, close",
+        extendedMeaning = "Being near, closeness, and offering.",
+        quranUsage = "'We are nearer (aqrab) to him than his jugular vein.' Qurb is nearness. Qurban is offering.",
+        notes = "Allah is nearer than we imagine."
+      ),
+      RootMeaningData(
+        root = "ب-ع-د",
+        primaryMeaning = "distance, far",
+        extendedMeaning = "Being far, distance.",
+        quranUsage = "'Away (bu'dan) with the wrongdoing people!' Bu'd is distance.",
+        notes = "Distance from Allah is spiritual destruction."
+      ),
+      RootMeaningData(
+        root = "ط-و-ل",
+        primaryMeaning = "length, long, favor",
+        extendedMeaning = "Length, being long, and bestowing favor.",
+        quranUsage = "'Owner of favor (tawl).' Tul is length. Tawil is long.",
+        notes = "Al-Tawl refers to Allah's abundant favor."
+      ),
+      RootMeaningData(
+        root = "ق-ص-ر",
+        primaryMeaning = "shortness, palace, limit",
+        extendedMeaning = "Being short, palace, and limiting/shortening.",
+        quranUsage = "'Shorten (taqsuru) the prayer.' Qasr is palace/shortening.",
+        notes = "Travelers can shorten their prayers."
+      ),
+      RootMeaningData(
+        root = "ع-ر-ض",
+        primaryMeaning = "width, to present",
+        extendedMeaning = "Width, presenting, and this world (transient).",
+        quranUsage = "'Its width ('ard) is the heavens and earth.' 'Ard is width. 'Arad is worldly gain.",
+        notes = "Paradise's width is like the heavens and earth."
+      ),
+      RootMeaningData(
+        root = "ع-م-ق",
+        primaryMeaning = "depth, deep",
+        extendedMeaning = "Depth, being deep.",
+        quranUsage = "'From every deep (amiq) mountain pass.' 'Umq is depth. 'Amiq is deep.",
+        notes = "Pilgrims come from every deep valley."
+      ),
+      RootMeaningData(
+        root = "ث-ق-ل",
+        primaryMeaning = "weight, heavy",
+        extendedMeaning = "Being heavy, weighty.",
+        quranUsage = "'If it be the weight (mithqal) of a mustard seed.' Thiql is weight. Thaqil is heavy.",
+        notes = "Even an atom's weight of good or evil is recorded."
+      ),
+      RootMeaningData(
+        root = "خ-ف-ف",
+        primaryMeaning = "lightness, light",
+        extendedMeaning = "Being light (in weight), and easing.",
+        quranUsage = "'Allah wants to lighten (yukhaffif) for you.' Khiffah is lightness.",
+        notes = "Allah lightens burdens for His servants."
+      ),
+      RootMeaningData(
+        root = "ح-ق-ر",
+        primaryMeaning = "contempt, despise",
+        extendedMeaning = "Being contemptible, despising.",
+        quranUsage = "Haqir is contemptible. Ihtiqar is despising.",
+        notes = "Looking down on others is a sign of arrogance."
+      ),
+      RootMeaningData(
+        root = "ع-ظ-م",
+        primaryMeaning = "greatness, bone, reverence",
+        extendedMeaning = "Being great, bones, and showing reverence.",
+        quranUsage = "'Allah is the Greatest (al-'Azim).' 'Azm is bone. Ta'zim is reverence.",
+        notes = "Al-'Azim - The Magnificent - is Allah's name."
+      ),
+
+      // === MORE THEOLOGICAL/RELIGIOUS TERMS ===
+      RootMeaningData(
+        root = "ج-ن-ن",
+        primaryMeaning = "jinn, garden, cover",
+        extendedMeaning = "Jinn, garden (covered by trees), and madness.",
+        quranUsage = "'We created jinn (jann) from smokeless fire.' Jinn are hidden beings. Jannah is garden.",
+        notes = "Jinn are unseen beings; Jannah is the covered/hidden garden."
+      ),
+      RootMeaningData(
+        root = "إ-ن-س",
+        primaryMeaning = "human, to be sociable",
+        extendedMeaning = "Human beings, and being sociable.",
+        quranUsage = "'We created jinn and mankind (ins).' Ins is humanity. Insan is human. Uns is familiarity.",
+        notes = "Humans are social creatures who find comfort in company."
+      ),
+      RootMeaningData(
+        root = "ش-ي-ط",
+        primaryMeaning = "Satan, to be far",
+        extendedMeaning = "Satan (the far one), and being remote from good.",
+        quranUsage = "'Satan (Shaytan) is your enemy.' Shaytan is Satan. Shayt is distance.",
+        notes = "Satan is far from Allah's mercy."
+      ),
+      RootMeaningData(
+        root = "إ-ب-ل-س",
+        primaryMeaning = "Iblis, despair",
+        extendedMeaning = "Iblis (the devil), and despair.",
+        quranUsage = "'Except Iblis; he refused.' Iblis is the devil's personal name.",
+        notes = "Iblis despaired of Allah's mercy through arrogance."
+      ),
+      RootMeaningData(
+        root = "و-س-و-س",
+        primaryMeaning = "whisper, tempt",
+        extendedMeaning = "Whispering evil suggestions.",
+        quranUsage = "'From the evil of the whisperer (waswas).' Waswasah is evil whispering.",
+        notes = "Satan whispers evil thoughts into hearts."
+      ),
+      RootMeaningData(
+        root = "ن-ف-خ",
+        primaryMeaning = "to blow, breath",
+        extendedMeaning = "Blowing, breathing into.",
+        quranUsage = "'We breathed (nafakhna) into him of Our spirit.' Nafkh is blowing.",
+        notes = "Allah breathed His spirit into Adam."
+      ),
+      RootMeaningData(
+        root = "س-و-ي",
+        primaryMeaning = "equal, fashion, level",
+        extendedMeaning = "Making equal, fashioning, and leveling.",
+        quranUsage = "'Who created and fashioned (sawwa).' Taswiyah is fashioning. Sawa' is equal.",
+        notes = "Allah fashions creation with perfect proportion."
+      ),
+      RootMeaningData(
+        root = "ف-ط-ر",
+        primaryMeaning = "create, originate, break fast",
+        extendedMeaning = "Original creation, natural disposition, and breaking fast.",
+        quranUsage = "'The natural disposition (fitrah) of Allah.' Fitr is breaking fast. Fitrah is innate nature.",
+        notes = "Every child is born on the fitrah (natural disposition to recognize Allah)."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ء",
+        primaryMeaning = "create, free from",
+        extendedMeaning = "Creating (from nothing), and being free/innocent.",
+        quranUsage = "'The Creator (Bari') of the heavens.' Al-Bari' is The Creator. Bara'ah is innocence.",
+        notes = "Al-Bari' creates without any prior model."
+      ),
+      RootMeaningData(
+        root = "ص-و-ر",
+        primaryMeaning = "form, image, shape",
+        extendedMeaning = "Form, image, and shaping.",
+        quranUsage = "'He formed (sawwara) you and perfected your forms.' Surah is form. Musawwir is Fashioner.",
+        notes = "Al-Musawwir (The Fashioner) gives each creation its unique form."
+      ),
+      RootMeaningData(
+        root = "ر-و-ح",
+        primaryMeaning = "spirit, soul, rest",
+        extendedMeaning = "Spirit, soul, and rest/comfort.",
+        quranUsage = "'They ask you about the spirit (ruh).' Ruh is spirit. Rawh is rest.",
+        notes = "The ruh is from Allah's command; its nature is known only to Him."
+      ),
+      RootMeaningData(
+        root = "ن-ف-س",
+        primaryMeaning = "self, soul, breath",
+        extendedMeaning = "Self, soul, and breath.",
+        quranUsage = "'Every soul (nafs) will taste death.' Nafs is self/soul. Nafas is breath.",
+        notes = "The nafs has levels: commanding evil, self-reproaching, at peace."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ض",
+        primaryMeaning = "grasp, contract, take",
+        extendedMeaning = "Grasping, contracting, and taking (the soul).",
+        quranUsage = "'Allah takes (yaqbidu) the souls at death.' Qabd is grasping. Qabdah is handful.",
+        notes = "The Angel of Death grasps souls at their appointed time."
+      ),
+      RootMeaningData(
+        root = "ب-س-ط",
+        primaryMeaning = "expand, spread, extend",
+        extendedMeaning = "Expanding, spreading out, and extending.",
+        quranUsage = "'Allah expands (yabsutu) provision.' Bast is expansion. Basit is extended.",
+        notes = "Allah contracts and expands provision as He wills."
+      ),
+      RootMeaningData(
+        root = "ح-ي-ي",
+        primaryMeaning = "life, to live, greet",
+        extendedMeaning = "Life, living, and greeting (wishing life).",
+        quranUsage = "'He gives life (yuhyi) and causes death.' Hayah is life. Tahiyyah is greeting.",
+        notes = "Al-Hayy (The Ever-Living) is one of Allah's greatest names."
+      ),
+      RootMeaningData(
+        root = "م-و-ت",
+        primaryMeaning = "death, to die",
+        extendedMeaning = "Death and dying.",
+        quranUsage = "'Every soul will taste death (mawt).' Mawt is death. Mayyit is dead.",
+        notes = "Death is certain; only its time is hidden."
+      ),
+      RootMeaningData(
+        root = "ح-ش-ر",
+        primaryMeaning = "gathering, resurrection",
+        extendedMeaning = "Gathering together, especially for judgment.",
+        quranUsage = "'The Day of Gathering (hashr).' Hashr is gathering.",
+        notes = "All creatures will be gathered for judgment."
+      ),
+      RootMeaningData(
+        root = "ن-ش-ر",
+        primaryMeaning = "spread, publish, resurrect",
+        extendedMeaning = "Spreading out, publishing, and resurrection.",
+        quranUsage = "'When the pages are spread out (nushirat).' Nashr is spreading. Nushur is resurrection.",
+        notes = "The scrolls of deeds will be spread open."
+      ),
+      RootMeaningData(
+        root = "ح-ي-ء",
+        primaryMeaning = "life, bring to life",
+        extendedMeaning = "Bringing to life, revival.",
+        quranUsage = "'He brings the dead to life (yuhyi).' Ihya' is bringing to life.",
+        notes = "Allah revives dead hearts and will revive dead bodies."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ر",
+        primaryMeaning = "grave, bury",
+        extendedMeaning = "Grave, burial.",
+        quranUsage = "'When the graves (qubur) are scattered.' Qabr is grave.",
+        notes = "The graves will release their contents on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ص-ر-ط",
+        primaryMeaning = "path, way",
+        extendedMeaning = "Clear path, straight way.",
+        quranUsage = "'Guide us to the straight path (sirat al-mustaqim).' Sirat is path.",
+        notes = "The Sirat is both the path of guidance and the bridge over Hell."
+      ),
+      RootMeaningData(
+        root = "م-ز-ن",
+        primaryMeaning = "balance, scales",
+        extendedMeaning = "Balance, scales for weighing.",
+        quranUsage = "'We will set up the scales (mawazin) of justice.' Mizan is scale/balance.",
+        notes = "Deeds will be weighed on precise scales."
+      ),
+
+      // === MARITIME AND WATER TERMS ===
+      RootMeaningData(
+        root = "س-ف-ن",
+        primaryMeaning = "ship, to peel",
+        extendedMeaning = "Ship, vessel, and peeling/scraping.",
+        quranUsage = "'We carried them in the laden ship (safinah).' Safinah is ship.",
+        notes = "Nuh's ship (safinah) saved the believers from the flood."
+      ),
+      RootMeaningData(
+        root = "ف-ل-ك",
+        primaryMeaning = "ship, orbit, sphere",
+        extendedMeaning = "Ship, celestial orbit, and sphere.",
+        quranUsage = "'And the ships (fulk) sailing through the sea.' Fulk is ship. Falak is orbit.",
+        notes = "Ships sailing and stars orbiting are both signs of Allah."
+      ),
+      RootMeaningData(
+        root = "ج-ر-ي",
+        primaryMeaning = "to flow, run, sail",
+        extendedMeaning = "Flowing, running, and sailing.",
+        quranUsage = "'Ships that sail (tajri) in the sea.' Jariyah is flowing/sailing.",
+        notes = "Rivers flow and ships sail by Allah's permission."
+      ),
+      RootMeaningData(
+        root = "م-و-ج",
+        primaryMeaning = "wave",
+        extendedMeaning = "Wave, surge.",
+        quranUsage = "'Waves (mawj) like mountains.' Mawj is wave.",
+        notes = "The flood came with mountain-like waves."
+      ),
+      RootMeaningData(
+        root = "غ-ر-ق",
+        primaryMeaning = "to drown, sink",
+        extendedMeaning = "Drowning, sinking.",
+        quranUsage = "'We drowned (aghraqna) those who denied.' Gharaq is drowning.",
+        notes = "Pharaoh and his army drowned in the sea."
+      ),
+      RootMeaningData(
+        root = "س-ب-ح",
+        primaryMeaning = "to swim, float, glorify",
+        extendedMeaning = "Swimming, floating, and glorifying Allah.",
+        quranUsage = "'Each floating (yasbahun) in an orbit.' Sibahah is swimming. Tasbih is glorification.",
+        notes = "Celestial bodies swim in their orbits while glorifying Allah."
+      ),
+      RootMeaningData(
+        root = "ر-س-و",
+        primaryMeaning = "to anchor, be firm",
+        extendedMeaning = "Anchoring, being firmly established.",
+        quranUsage = "'And it came to rest (istawat) on Mount Judi.' Rasa is to anchor. Rawasi are mountains (anchors).",
+        notes = "Mountains are like anchors for the earth."
+      ),
+      RootMeaningData(
+        root = "ش-ط-ء",
+        primaryMeaning = "shore, bank",
+        extendedMeaning = "Shore, riverbank, coast.",
+        quranUsage = "'On the right side (shati') of the mount.' Shati' is shore/bank.",
+        notes = "Musa was called from the shore of the valley."
+      ),
+      RootMeaningData(
+        root = "ي-م-م",
+        primaryMeaning = "sea, to intend",
+        extendedMeaning = "Sea, and intending/heading towards.",
+        quranUsage = "'We caused the sea (yamm) to engulf them.' Yamm is sea. Tayammum is dry ablution.",
+        notes = "Pharaoh was cast into the yamm (sea)."
+      ),
+      RootMeaningData(
+        root = "ل-ج-ج",
+        primaryMeaning = "deep sea, persist",
+        extendedMeaning = "Deep sea, and persisting stubbornly.",
+        quranUsage = "'Darkness in a deep sea (lujji).' Lujjah is deep sea.",
+        notes = "Disbelief is like being in deep, dark waters."
+      ),
+      RootMeaningData(
+        root = "ز-ب-د",
+        primaryMeaning = "foam, froth",
+        extendedMeaning = "Foam, froth, scum.",
+        quranUsage = "'As for the foam (zabad), it vanishes.' Zabad is foam.",
+        notes = "Falsehood is like foam - it appears but vanishes."
+      ),
+
+      // === SPEECH AND COMMUNICATION ===
+      RootMeaningData(
+        root = "ك-ل-م",
+        primaryMeaning = "speech, word, to speak",
+        extendedMeaning = "Speech, words, and speaking.",
+        quranUsage = "'Allah spoke (kallama) to Musa directly.' Kalam is speech. Kalimah is word.",
+        notes = "Musa is Kalimullah - the one Allah spoke to directly."
+      ),
+      RootMeaningData(
+        root = "ق-و-ل",
+        primaryMeaning = "to say, speech, statement",
+        extendedMeaning = "Saying, speech, and statement.",
+        quranUsage = "'Say (qul): He is Allah, One.' Qawl is saying. Maqulah is statement.",
+        notes = "Qul (Say) appears over 300 times as a command to the Prophet."
+      ),
+      RootMeaningData(
+        root = "ن-ط-ق",
+        primaryMeaning = "to speak, articulate",
+        extendedMeaning = "Speaking, articulating, logical speech.",
+        quranUsage = "'He does not speak (yantiq) from desire.' Nutq is speech. Mantiq is logic.",
+        notes = "The Prophet's speech is revelation, not personal desire."
+      ),
+      RootMeaningData(
+        root = "ل-ف-ظ",
+        primaryMeaning = "to utter, word",
+        extendedMeaning = "Uttering, pronouncing words.",
+        quranUsage = "'He does not utter (yalfizu) any word.' Lafz is utterance.",
+        notes = "Every word we utter is recorded by angels."
+      ),
+      RootMeaningData(
+        root = "ص-م-ت",
+        primaryMeaning = "silence, to be silent",
+        extendedMeaning = "Silence, being quiet.",
+        quranUsage = "Samt is silence. Samit is silent.",
+        notes = "Silence can be wisdom or can be sinful when truth must be spoken."
+      ),
+      RootMeaningData(
+        root = "ص-ر-خ",
+        primaryMeaning = "to scream, cry out",
+        extendedMeaning = "Screaming, crying for help.",
+        quranUsage = "'They will cry out (yastasrikhun) therein.' Surakh is scream.",
+        notes = "The people of Hell will scream for help."
+      ),
+      RootMeaningData(
+        root = "ن-د-ي",
+        primaryMeaning = "to call, assembly",
+        extendedMeaning = "Calling out, assembly, and club.",
+        quranUsage = "'Call (nadi) your associates.' Nida' is call. Nadi is assembly.",
+        notes = "Dar al-Nadwah was the assembly hall of Quraysh."
+      ),
+      RootMeaningData(
+        root = "ص-ي-ح",
+        primaryMeaning = "to shout, cry",
+        extendedMeaning = "Shouting, loud cry.",
+        quranUsage = "'A single shout (sayhah) seized them.' Sayhah is shout/blast.",
+        notes = "Many nations were destroyed by a single shout."
+      ),
+      RootMeaningData(
+        root = "ه-ت-ف",
+        primaryMeaning = "to call out, cheer",
+        extendedMeaning = "Calling out, cheering.",
+        quranUsage = "Hatif is one who calls. Hatf is calling out.",
+        notes = "The unseen caller guides or warns."
+      ),
+      RootMeaningData(
+        root = "ه-م-س",
+        primaryMeaning = "whisper, faint sound",
+        extendedMeaning = "Whispering, hushed sound.",
+        quranUsage = "'You will hear only whispers (hams).' Hams is whisper.",
+        notes = "On Judgment Day, voices will be hushed before Allah."
+      ),
+      RootMeaningData(
+        root = "س-ر-ر",
+        primaryMeaning = "secret, whisper",
+        extendedMeaning = "Secret talk, whispering.",
+        quranUsage = "'They conspired in secret (najwa).' Sirr is secret. Israr is confiding.",
+        notes = "Secret conversations should not be for sin."
+      ),
+      RootMeaningData(
+        root = "ج-ه-ر",
+        primaryMeaning = "to speak aloud, public",
+        extendedMeaning = "Speaking aloud, being public.",
+        quranUsage = "'Whether you speak aloud (tajhar).' Jahr is speaking aloud.",
+        notes = "Allah knows what is spoken aloud and what is hidden."
+      ),
+      RootMeaningData(
+        root = "خ-ف-ت",
+        primaryMeaning = "to lower voice, be soft",
+        extendedMeaning = "Lowering voice, speaking softly.",
+        quranUsage = "'Do not be loud in your prayer nor silent, but seek between.' Khaft is lowering voice.",
+        notes = "Moderation in voice during prayer is recommended."
+      ),
+      RootMeaningData(
+        root = "ل-غ-و",
+        primaryMeaning = "vain talk, nonsense",
+        extendedMeaning = "Vain, useless speech, and nullification.",
+        quranUsage = "'They turn away from vain talk (laghw).' Laghw is vain speech.",
+        notes = "Believers avoid laghw - idle, meaningless talk."
+      ),
+      RootMeaningData(
+        root = "ب-ي-ن",
+        primaryMeaning = "clear, between, explain",
+        extendedMeaning = "Being clear, between things, and explaining.",
+        quranUsage = "'A clear (mubin) Arabic tongue.' Bayan is explanation. Bayn is between.",
+        notes = "The Quran is a clear explanation of all things."
+      ),
+      RootMeaningData(
+        root = "ف-س-ر",
+        primaryMeaning = "to explain, interpret",
+        extendedMeaning = "Explaining, interpreting.",
+        quranUsage = "'We bring you the truth and the best explanation (tafsir).' Tafsir is explanation.",
+        notes = "Tafsir is the science of Quranic interpretation."
+      ),
+      RootMeaningData(
+        root = "أ-و-ل",
+        primaryMeaning = "interpretation, first, return",
+        extendedMeaning = "Interpretation, being first, and returning.",
+        quranUsage = "'None knows its interpretation (ta'wil) except Allah.' Ta'wil is deeper interpretation.",
+        notes = "Ta'wil goes deeper than tafsir into hidden meanings."
+      ),
+
+      // === MENTAL AND PSYCHOLOGICAL STATES ===
+      RootMeaningData(
+        root = "ع-ق-ل",
+        primaryMeaning = "reason, mind, intellect",
+        extendedMeaning = "Reason, intellect, and restraining.",
+        quranUsage = "'Do you not reason (ta'qilun)?' 'Aql is intellect. 'Aqil is rational.",
+        notes = "The Quran repeatedly appeals to human reason."
+      ),
+      RootMeaningData(
+        root = "ل-ب-ب",
+        primaryMeaning = "core, understanding, heart",
+        extendedMeaning = "Core, understanding, and pure intellect.",
+        quranUsage = "'A reminder for those of understanding (uli al-albab).' Lubb is core/intellect.",
+        notes = "Uli al-albab are people of deep understanding."
+      ),
+      RootMeaningData(
+        root = "ح-ل-م",
+        primaryMeaning = "forbearance, dream, puberty",
+        extendedMeaning = "Forbearance, dreams, and reaching maturity.",
+        quranUsage = "'When children reach puberty (hulm).' Hilm is forbearance. Hulm is dream.",
+        notes = "Al-Halim (The Forbearing) is Allah's name."
+      ),
+      RootMeaningData(
+        root = "س-ف-ه",
+        primaryMeaning = "foolishness, ignorance",
+        extendedMeaning = "Foolishness, lack of wisdom.",
+        quranUsage = "'The foolish (sufaha') among the people.' Safah is foolishness. Safih is fool.",
+        notes = "Fools waste their wealth and reject guidance."
+      ),
+      RootMeaningData(
+        root = "ج-ن-ن",
+        primaryMeaning = "madness, jinn, cover",
+        extendedMeaning = "Madness, jinn (hidden), and covering.",
+        quranUsage = "'They said: You are possessed (majnun)!' Junun is madness. Majnun is mad.",
+        notes = "Prophets were often accused of madness by their people."
+      ),
+      RootMeaningData(
+        root = "ر-ش-د",
+        primaryMeaning = "right guidance, maturity",
+        extendedMeaning = "Right guidance, maturity, and proper conduct.",
+        quranUsage = "'Perhaps my Lord will guide me to right conduct (rushd).' Rushd is right guidance.",
+        notes = "Ar-Rashid (The Guide to Right Path) is Allah's name."
+      ),
+      RootMeaningData(
+        root = "غ-ي-ي",
+        primaryMeaning = "misguidance, error",
+        extendedMeaning = "Misguidance, going astray.",
+        quranUsage = "'Those who have gone astray (dallin).' Ghayy is misguidance.",
+        notes = "Ghayy is the opposite of rushd (right guidance)."
+      ),
+      RootMeaningData(
+        root = "و-ه-م",
+        primaryMeaning = "illusion, imagination",
+        extendedMeaning = "Illusion, false imagination.",
+        quranUsage = "Wahm is illusion. Tawahhum is imagining falsely.",
+        notes = "False imagination leads people astray."
+      ),
+      RootMeaningData(
+        root = "ش-ع-ر",
+        primaryMeaning = "to feel, poetry, hair",
+        extendedMeaning = "Feeling, awareness, poetry, and hair.",
+        quranUsage = "'If only they were aware (yash'urun).' Shi'r is poetry. Sha'r is hair.",
+        notes = "Poets feel deeply; awareness is a form of feeling."
+      ),
+      RootMeaningData(
+        root = "ح-س-س",
+        primaryMeaning = "to sense, feel, perceive",
+        extendedMeaning = "Sensing, feeling, perceiving.",
+        quranUsage = "'When Isa sensed (ahassa) disbelief.' Hiss is sense. Ihsas is sensing.",
+        notes = "Prophets had keen spiritual perception."
+      ),
+      RootMeaningData(
+        root = "ظ-ن-ن",
+        primaryMeaning = "to think, suppose, suspect",
+        extendedMeaning = "Thinking, supposing, and suspicion.",
+        quranUsage = "'Avoid much suspicion (zann).' Zann is thought/suspicion.",
+        notes = "Some suspicion is sin - it leads to false accusation."
+      ),
+      RootMeaningData(
+        root = "ح-س-ب",
+        primaryMeaning = "to think, reckon, account",
+        extendedMeaning = "Thinking, reckoning, and accounting.",
+        quranUsage = "'Do they think (yahsabu) that they will be left?' Husban is reckoning.",
+        notes = "People wrongly think they won't be held accountable."
+      ),
+      RootMeaningData(
+        root = "خ-ي-ل",
+        primaryMeaning = "imagination, horse, pride",
+        extendedMeaning = "Imagination, horses, and pride.",
+        quranUsage = "'It seemed (yukhayyalu) to him from their magic.' Khayal is imagination. Khayl is horses.",
+        notes = "Magic creates illusions that seem real."
+      ),
+      RootMeaningData(
+        root = "غ-ف-ل",
+        primaryMeaning = "heedlessness, neglect",
+        extendedMeaning = "Heedlessness, neglecting, being unaware.",
+        quranUsage = "'They are heedless (ghafilun).' Ghaflah is heedlessness. Ghafil is heedless.",
+        notes = "Heedlessness of Allah's signs leads to destruction."
+      ),
+      RootMeaningData(
+        root = "س-ه-و",
+        primaryMeaning = "forgetfulness, distraction",
+        extendedMeaning = "Forgetfulness, distraction, negligence.",
+        quranUsage = "'Those who are heedless (sahun) of their prayer.' Sahw is forgetfulness.",
+        notes = "Being negligent about prayer is condemned."
+      ),
+      RootMeaningData(
+        root = "ذ-ه-ل",
+        primaryMeaning = "to forget, be distracted",
+        extendedMeaning = "Forgetting from distraction or shock.",
+        quranUsage = "'Every nursing mother will forget (tadhhal).' Dhuhul is distraction.",
+        notes = "The terror of Judgment Day will make mothers forget their infants."
+      ),
+
+      // === QUALITIES AND CHARACTERISTICS ===
+      RootMeaningData(
+        root = "ج-م-ل",
+        primaryMeaning = "beauty, camel, entirety",
+        extendedMeaning = "Beauty, camel, and completeness.",
+        quranUsage = "'Patience is beautiful (jamil).' Jamal is beauty. Jamal is camel.",
+        notes = "Beautiful patience (sabr jamil) is patience without complaint."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ح",
+        primaryMeaning = "ugliness, bad",
+        extendedMeaning = "Ugliness, badness.",
+        quranUsage = "'How evil (qubh) is that.' Qubh is ugliness. Qabih is ugly/bad.",
+        notes = "Moral ugliness is worse than physical ugliness."
+      ),
+      RootMeaningData(
+        root = "ط-ي-ب",
+        primaryMeaning = "good, pure, pleasant",
+        extendedMeaning = "Goodness, purity, and pleasantness.",
+        quranUsage = "'A good (tayyib) word.' Tayyib is good/pure. Tib is perfume.",
+        notes = "A good word is like a good tree with firm roots."
+      ),
+      RootMeaningData(
+        root = "خ-ب-ث",
+        primaryMeaning = "evil, impure, wicked",
+        extendedMeaning = "Evil, impurity, and wickedness.",
+        quranUsage = "'The evil (khabith) and the good.' Khabith is evil/impure.",
+        notes = "Khabith is the opposite of tayyib (good/pure)."
+      ),
+      RootMeaningData(
+        root = "ص-ف-و",
+        primaryMeaning = "pure, clear, chosen",
+        extendedMeaning = "Purity, clarity, and being chosen.",
+        quranUsage = "'Allah chose (istafa) Adam.' Safiy is pure. Mustafa is chosen.",
+        notes = "Al-Mustafa (The Chosen One) is the Prophet's title."
+      ),
+      RootMeaningData(
+        root = "ك-د-ر",
+        primaryMeaning = "murky, turbid",
+        extendedMeaning = "Murkiness, being unclear.",
+        quranUsage = "Kadar is murkiness. Kadira is to be turbid.",
+        notes = "The opposite of clarity and purity."
+      ),
+      RootMeaningData(
+        root = "ن-ق-ي",
+        primaryMeaning = "pure, clean",
+        extendedMeaning = "Purity, cleanliness.",
+        quranUsage = "Naqiy is pure. Tanqiyah is purification.",
+        notes = "Spiritual and physical purity go together."
+      ),
+      RootMeaningData(
+        root = "و-س-خ",
+        primaryMeaning = "dirty, filth",
+        extendedMeaning = "Dirt, filth.",
+        quranUsage = "Wasakh is dirt. Wasikh is dirty.",
+        notes = "Sin is spiritual dirt that needs cleansing."
+      ),
+      RootMeaningData(
+        root = "ص-ل-ب",
+        primaryMeaning = "hard, firm, crucify",
+        extendedMeaning = "Hardness, firmness, and crucifixion.",
+        quranUsage = "'I will crucify (la-usallibannakum) you.' Salb is crucifixion. Sulb is hard/loins.",
+        notes = "Pharaoh threatened to crucify those who believed."
+      ),
+      RootMeaningData(
+        root = "ل-ي-ن",
+        primaryMeaning = "soft, gentle, flexible",
+        extendedMeaning = "Softness, gentleness.",
+        quranUsage = "'We softened (alanna) iron for him.' Layin is soft. Layyina is to soften.",
+        notes = "Iron was softened for Dawud to make armor."
+      ),
+      RootMeaningData(
+        root = "ح-ا-د",
+        primaryMeaning = "sharp, hot, severe",
+        extendedMeaning = "Sharpness, severity.",
+        quranUsage = "'Sharp (hadid) in tongue.' Hadd is sharp. Haddah is sharpness.",
+        notes = "Sharp words can wound like sharp objects."
+      ),
+      RootMeaningData(
+        root = "ث-ق-ل",
+        primaryMeaning = "heavy, weighty",
+        extendedMeaning = "Heaviness, weightiness.",
+        quranUsage = "'We will cast upon you a heavy (thaqil) word.' Thaqil is heavy. Athqal is burdens.",
+        notes = "The Quran is a weighty word with heavy responsibility."
+      ),
+      RootMeaningData(
+        root = "ر-ق-ق",
+        primaryMeaning = "thin, delicate",
+        extendedMeaning = "Thinness, delicacy.",
+        quranUsage = "Raqiq is thin. Riqqah is softness of heart.",
+        notes = "A soft, thin heart is receptive to truth."
+      ),
+      RootMeaningData(
+        root = "غ-ل-ظ",
+        primaryMeaning = "thick, harsh, rough",
+        extendedMeaning = "Thickness, harshness.",
+        quranUsage = "'If you had been harsh (ghalizh).' Ghilzah is harshness. Ghaliz is harsh.",
+        notes = "The Prophet was not harsh - it would have driven people away."
+      ),
+      RootMeaningData(
+        root = "ر-ط-ب",
+        primaryMeaning = "moist, fresh, ripe dates",
+        extendedMeaning = "Moisture, freshness, and ripe dates.",
+        quranUsage = "'Fresh ripe dates (rutab) will fall upon you.' Rutab is ripe dates.",
+        notes = "Maryam was told to shake the palm for fresh dates."
+      ),
+      RootMeaningData(
+        root = "ي-ب-س",
+        primaryMeaning = "dry, withered",
+        extendedMeaning = "Dryness, being withered.",
+        quranUsage = "'Green or dry (yabis).' Yabis is dry. Yubs is dryness.",
+        notes = "Nothing green or dry escapes Allah's knowledge."
+      ),
+      RootMeaningData(
+        root = "ب-ا-ر-د",
+        primaryMeaning = "cold, cool",
+        extendedMeaning = "Coldness, coolness.",
+        quranUsage = "'We said: O fire, be coolness (bard).' Bard is cold/cool.",
+        notes = "Fire became cool and safe for Ibrahim."
+      ),
+      RootMeaningData(
+        root = "ح-ا-ر",
+        primaryMeaning = "hot, warm",
+        extendedMeaning = "Heat, warmth.",
+        quranUsage = "'A hot (har) wind.' Harr is heat. Har is hot.",
+        notes = "Hell's heat is beyond imagination."
+      ),
+
+      // === MORE BODY PARTS AND PHYSICAL ===
+      RootMeaningData(
+        root = "ج-ب-ه",
+        primaryMeaning = "forehead, face",
+        extendedMeaning = "Forehead, front of face.",
+        quranUsage = "'Seized by the foreheads (nawasi).' Jabhah is forehead.",
+        notes = "Prostration is done on the forehead."
+      ),
+      RootMeaningData(
+        root = "ج-ف-ن",
+        primaryMeaning = "eyelid",
+        extendedMeaning = "Eyelid.",
+        quranUsage = "Jafn is eyelid. Ajfan is eyelids.",
+        notes = "Sleep involves the closing of eyelids."
+      ),
+      RootMeaningData(
+        root = "ح-ا-ج-ب",
+        primaryMeaning = "eyebrow, barrier",
+        extendedMeaning = "Eyebrow, and barrier/screen.",
+        quranUsage = "Hajib is eyebrow/barrier. The eyebrow protects the eye.",
+        notes = "A barrier (hijab) screens and protects."
+      ),
+      RootMeaningData(
+        root = "ش-ف-ه",
+        primaryMeaning = "lip",
+        extendedMeaning = "Lip.",
+        quranUsage = "'Two lips (shafatayn).' Shafah is lip.",
+        notes = "Lips are among the blessings Allah has given."
+      ),
+      RootMeaningData(
+        root = "ل-ث-ه",
+        primaryMeaning = "gum (mouth)",
+        extendedMeaning = "Gums in the mouth.",
+        quranUsage = "Lithah is gum. Part of the mouth's structure.",
+        notes = "The teeth and gums are part of Allah's creation."
+      ),
+      RootMeaningData(
+        root = "س-ن-ن",
+        primaryMeaning = "tooth, law, way",
+        extendedMeaning = "Tooth, established way, and law.",
+        quranUsage = "'A tooth (sinn) for a tooth.' Sinn is tooth. Sunnah is way.",
+        notes = "Sunnah means established way - the Prophet's practice."
+      ),
+      RootMeaningData(
+        root = "ح-ن-ك",
+        primaryMeaning = "palate, jaw",
+        extendedMeaning = "Palate, upper jaw.",
+        quranUsage = "Hanak is palate. Related to the mouth.",
+        notes = "Part of the intricate design of the mouth."
+      ),
+      RootMeaningData(
+        root = "ح-ن-ج-ر",
+        primaryMeaning = "throat, larynx",
+        extendedMeaning = "Throat, voice box.",
+        quranUsage = "'When it reaches the throat (hanajir).' Hanjara is throat.",
+        notes = "At death, the soul rises to the throat."
+      ),
+      RootMeaningData(
+        root = "ع-ن-ق",
+        primaryMeaning = "neck",
+        extendedMeaning = "Neck.",
+        quranUsage = "'Shackles on their necks ('a'naq).' 'Unuq is neck.",
+        notes = "Shackles will be on the necks of criminals."
+      ),
+      RootMeaningData(
+        root = "ك-ت-ف",
+        primaryMeaning = "shoulder",
+        extendedMeaning = "Shoulder.",
+        quranUsage = "Katif is shoulder. Aktaf is shoulders.",
+        notes = "Shoulders bear burdens."
+      ),
+      RootMeaningData(
+        root = "ذ-ر-ع",
+        primaryMeaning = "arm, cubit, forearm",
+        extendedMeaning = "Arm, forearm, and cubit (unit of measure).",
+        quranUsage = "'A chain of seventy cubits (dhira').' Dhira' is arm/cubit.",
+        notes = "The cubit was measured by the forearm."
+      ),
+      RootMeaningData(
+        root = "م-ر-ف-ق",
+        primaryMeaning = "elbow, facility",
+        extendedMeaning = "Elbow, and useful facility.",
+        quranUsage = "'Your elbows (marafiq).' Mirfaq is elbow. Marfaq is facility.",
+        notes = "Elbows are washed in wudu."
+      ),
+      RootMeaningData(
+        root = "ك-ف-ف",
+        primaryMeaning = "palm, to refrain",
+        extendedMeaning = "Palm of hand, and refraining.",
+        quranUsage = "'Restrain (kuffu) your hands.' Kaff is palm. Kaff is to restrain.",
+        notes = "The palm is used in greeting and restraint."
+      ),
+      RootMeaningData(
+        root = "إ-ص-ب-ع",
+        primaryMeaning = "finger",
+        extendedMeaning = "Finger.",
+        quranUsage = "'They put their fingers (asabi') in their ears.' Isba' is finger.",
+        notes = "Covering ears with fingers symbolizes rejecting truth."
+      ),
+      RootMeaningData(
+        root = "ظ-ف-ر",
+        primaryMeaning = "nail, victory",
+        extendedMeaning = "Fingernail, and victory.",
+        quranUsage = "'Every animal with claws (zufur).' Zufr is nail/claw. Zafar is victory.",
+        notes = "Certain animals with claws were forbidden to Jews."
+      ),
+      RootMeaningData(
+        root = "ف-خ-ذ",
+        primaryMeaning = "thigh",
+        extendedMeaning = "Thigh.",
+        quranUsage = "Fakhidh is thigh. Related to the lower body.",
+        notes = "Part of the human body's structure."
+      ),
+      RootMeaningData(
+        root = "ر-ك-ب",
+        primaryMeaning = "knee, to ride",
+        extendedMeaning = "Knee, and riding.",
+        quranUsage = "'Crawling on their knees (juthiyyan).' Rukbah is knee. Rukub is riding.",
+        notes = "People will be on their knees on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "س-ا-ق",
+        primaryMeaning = "shin, leg, drive",
+        extendedMeaning = "Shin/leg, and driving.",
+        quranUsage = "'The day the shin (saq) will be uncovered.' Saq is shin/leg.",
+        notes = "A day of great severity is described."
+      ),
+      RootMeaningData(
+        root = "ك-ع-ب",
+        primaryMeaning = "ankle, cube, Kaaba",
+        extendedMeaning = "Ankle, cube shape, and the Kaaba.",
+        quranUsage = "'To the ankles (ka'bayn).' Ka'b is ankle. Ka'bah is cube-shaped.",
+        notes = "The Kaaba is cube-shaped. Feet are washed to the ankles."
+      ),
+      RootMeaningData(
+        root = "ع-ق-ب",
+        primaryMeaning = "heel, consequence, follow",
+        extendedMeaning = "Heel, consequence, and following after.",
+        quranUsage = "'They turned on their heels ('aqibayhim).' 'Aqib is heel. 'Aqibah is consequence.",
+        notes = "Turning on heels means retreating from truth."
+      ),
+
+      // === MORE WORSHIP AND RELIGIOUS PRACTICE ===
+      RootMeaningData(
+        root = "ت-ه-ج-د",
+        primaryMeaning = "night prayer, vigil",
+        extendedMeaning = "Night prayer, keeping vigil.",
+        quranUsage = "'And during the night pray (tahajjad).' Tahajjud is night prayer.",
+        notes = "Tahajjud is voluntary night prayer after sleeping."
+      ),
+      RootMeaningData(
+        root = "ق-ن-ت",
+        primaryMeaning = "devotion, obedience",
+        extendedMeaning = "Devout obedience, standing in prayer.",
+        quranUsage = "'Be devoutly obedient (qanitin).' Qunut is devotion/supplication.",
+        notes = "Qunut can also be a supplication in prayer."
+      ),
+      RootMeaningData(
+        root = "خ-ش-ع",
+        primaryMeaning = "humility, reverence",
+        extendedMeaning = "Deep humility, reverent fear.",
+        quranUsage = "'Successful are the believers who are humble (khashi'un).' Khushu' is humility.",
+        notes = "Khushu' in prayer means the heart is present and humble."
+      ),
+      RootMeaningData(
+        root = "خ-ض-ع",
+        primaryMeaning = "to submit, lower",
+        extendedMeaning = "Submission, lowering oneself.",
+        quranUsage = "'Their necks would be submitting (khadi'in).' Khudu' is submission.",
+        notes = "Lowering oneself in submission to Allah."
+      ),
+      RootMeaningData(
+        root = "ن-ذ-ر",
+        primaryMeaning = "vow, warning",
+        extendedMeaning = "Making a vow, and warning.",
+        quranUsage = "'I have vowed (nadhartu) to the Most Merciful.' Nadhr is vow. Nadhir is warner.",
+        notes = "Vows to Allah must be fulfilled. Prophets are warners."
+      ),
+      RootMeaningData(
+        root = "ي-م-ن",
+        primaryMeaning = "oath, right, blessing",
+        extendedMeaning = "Oath, right hand, and blessing.",
+        quranUsage = "'By the right hand (yamin).' Yamin is oath/right. Ayman is oaths.",
+        notes = "Oaths are sworn; the right side is blessed."
+      ),
+      RootMeaningData(
+        root = "ح-ل-ف",
+        primaryMeaning = "to swear, oath",
+        extendedMeaning = "Swearing an oath.",
+        quranUsage = "'They swear (yahlifun) by Allah.' Half is oath. Hilf is alliance.",
+        notes = "False oaths are a serious sin."
+      ),
+      RootMeaningData(
+        root = "ق-س-م",
+        primaryMeaning = "to swear, divide, share",
+        extendedMeaning = "Swearing, dividing, and sharing.",
+        quranUsage = "'I swear (uqsimu) by this city.' Qasam is oath. Qism is share.",
+        notes = "Allah swears by His creation to emphasize truths."
+      ),
+      RootMeaningData(
+        root = "ز-ك-و",
+        primaryMeaning = "purification, growth, zakat",
+        extendedMeaning = "Purification, growth, and obligatory charity.",
+        quranUsage = "'Give the purifying charity (zakat).' Zakah is purity/charity. Tazkiyah is purification.",
+        notes = "Zakat purifies wealth and helps it grow."
+      ),
+      RootMeaningData(
+        root = "ص-د-ق",
+        primaryMeaning = "charity, truth, sincerity",
+        extendedMeaning = "Voluntary charity, and truthfulness.",
+        quranUsage = "'The men and women who give charity (sadaqat).' Sadaqah is charity. Sidq is truth.",
+        notes = "Sadaqah comes from sidq - true generosity."
+      ),
+      RootMeaningData(
+        root = "إ-ن-ف-ق",
+        primaryMeaning = "to spend, expend",
+        extendedMeaning = "Spending, especially in charity.",
+        quranUsage = "'Spend (anfiqu) from what We have provided.' Infaq is spending. Nafaqah is expenditure.",
+        notes = "Spending in Allah's cause is highly rewarded."
+      ),
+      RootMeaningData(
+        root = "ع-ش-ر",
+        primaryMeaning = "tithe, tenth, ten",
+        extendedMeaning = "Tithe, tenth part.",
+        quranUsage = "'Ushr is tithe. Related to ten ('ashrah).",
+        notes = "A tithe is one-tenth of produce."
+      ),
+      RootMeaningData(
+        root = "ك-ف-ر",
+        primaryMeaning = "expiation, cover, disbelief",
+        extendedMeaning = "Expiation (covering sins), and disbelief.",
+        quranUsage = "'An expiation (kaffarah) for it.' Kaffarah is expiation. Kufr is disbelief.",
+        notes = "Kaffarah covers sins like kafir covers truth."
+      ),
+      RootMeaningData(
+        root = "ع-ت-ق",
+        primaryMeaning = "to free, emancipate",
+        extendedMeaning = "Freeing slaves, emancipation.",
+        quranUsage = "'Freeing ('itq) a slave.' 'Itq is emancipation. 'Atiq is freed.",
+        notes = "Freeing slaves is highly meritorious in Islam."
+      ),
+
+      // === LEGAL AND JUDICIAL TERMS ===
+      RootMeaningData(
+        root = "ح-ك-م",
+        primaryMeaning = "judgment, wisdom, rule",
+        extendedMeaning = "Judging, wisdom, and ruling.",
+        quranUsage = "'Judgment (hukm) belongs only to Allah.' Hukm is judgment. Hikmah is wisdom.",
+        notes = "Al-Hakam (The Judge) and Al-Hakim (The Wise) are Allah's names."
+      ),
+      RootMeaningData(
+        root = "ق-ض-ي",
+        primaryMeaning = "to decree, judge, fulfill",
+        extendedMeaning = "Decreeing, judging, and fulfilling.",
+        quranUsage = "'When He decrees (qada) a matter.' Qada' is decree. Qadi is judge.",
+        notes = "Allah's decree cannot be overturned."
+      ),
+      RootMeaningData(
+        root = "ف-ت-و",
+        primaryMeaning = "religious verdict, youth",
+        extendedMeaning = "Religious ruling, and youth.",
+        quranUsage = "'They ask you for a verdict (yastaftunaka).' Fatwa is verdict. Fata is youth.",
+        notes = "Muftis issue fatwas (religious verdicts)."
+      ),
+      RootMeaningData(
+        root = "ح-ل-ل",
+        primaryMeaning = "lawful, permit, untie",
+        extendedMeaning = "Making lawful, permitting.",
+        quranUsage = "'Made lawful (ahalla) for you.' Halal is lawful. Tahlil is making lawful.",
+        notes = "Halal is the opposite of haram."
+      ),
+      RootMeaningData(
+        root = "ح-ر-م",
+        primaryMeaning = "forbidden, sacred",
+        extendedMeaning = "Forbidding, making sacred.",
+        quranUsage = "'He has forbidden (harrama) it.' Haram is forbidden. Hurmah is sanctity.",
+        notes = "The same root gives 'forbidden' and 'sacred' - both are set apart."
+      ),
+      RootMeaningData(
+        root = "و-ج-ب",
+        primaryMeaning = "obligatory, necessary",
+        extendedMeaning = "Being obligatory, necessary, and falling due.",
+        quranUsage = "'When they fall (wajabat) on their sides.' Wajib is obligatory.",
+        notes = "Wajib acts are obligatory in Islamic law."
+      ),
+      RootMeaningData(
+        root = "س-ن-ن",
+        primaryMeaning = "established practice, law",
+        extendedMeaning = "Established way, practice, and law.",
+        quranUsage = "'The established way (sunnah) of Allah.' Sunnah is established practice.",
+        notes = "Sunnah refers to both Allah's way and the Prophet's practice."
+      ),
+      RootMeaningData(
+        root = "ب-د-ع",
+        primaryMeaning = "innovation, originate",
+        extendedMeaning = "Innovation, creating something new.",
+        quranUsage = "'Originator (Badi') of heavens and earth.' Bid'ah is innovation.",
+        notes = "Allah originates without precedent. Religious innovation (bid'ah) is cautioned against."
+      ),
+      RootMeaningData(
+        root = "ش-ه-د",
+        primaryMeaning = "witness, testify, martyr",
+        extendedMeaning = "Witnessing, testifying, and martyrdom.",
+        quranUsage = "'Be witnesses (shuhada').' Shahid is witness. Shahadah is testimony.",
+        notes = "Shahid means both witness and martyr."
+      ),
+      RootMeaningData(
+        root = "ب-ي-ن",
+        primaryMeaning = "evidence, clear proof",
+        extendedMeaning = "Clear evidence, proof.",
+        quranUsage = "'Clear evidence (bayyinah) has come to you.' Bayyinah is clear proof.",
+        notes = "Surah Al-Bayyinah - The Clear Evidence."
+      ),
+      RootMeaningData(
+        root = "ح-ج-ج",
+        primaryMeaning = "argument, proof, pilgrimage",
+        extendedMeaning = "Argument, proof, and pilgrimage.",
+        quranUsage = "'Do you argue (tuhajjunna) with us about Allah?' Hujjah is proof. Hajj is pilgrimage.",
+        notes = "Presenting a hujjah (proof) is part of discourse."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ه-ن",
+        primaryMeaning = "proof, evidence",
+        extendedMeaning = "Proof, clear evidence.",
+        quranUsage = "'Bring your proof (burhan).' Burhan is proof.",
+        notes = "Claims require burhan (proof)."
+      ),
+      RootMeaningData(
+        root = "د-ل-ل",
+        primaryMeaning = "proof, guide, indicate",
+        extendedMeaning = "Proof, guidance, and indication.",
+        quranUsage = "'A sign (dalil) guiding them.' Dalil is proof/guide. Dalalah is indication.",
+        notes = "Evidence (dalil) guides to truth."
+      ),
+      RootMeaningData(
+        root = "ع-ق-ب",
+        primaryMeaning = "punishment, consequence",
+        extendedMeaning = "Punishment, consequence, and following after.",
+        quranUsage = "'Severe in punishment ('iqab).' 'Uqubah is punishment. 'Aqibah is consequence.",
+        notes = "Every action has a consequence ('aqibah)."
+      ),
+      RootMeaningData(
+        root = "ج-ز-ء",
+        primaryMeaning = "recompense, reward",
+        extendedMeaning = "Recompense, reward or punishment.",
+        quranUsage = "'The recompense (jaza') of evil is evil like it.' Jaza' is recompense.",
+        notes = "Jaza' can be reward or punishment - fair recompense."
+      ),
+      RootMeaningData(
+        root = "ق-ص-ص",
+        primaryMeaning = "retaliation, narration, trace",
+        extendedMeaning = "Retaliation (equal punishment), and narration.",
+        quranUsage = "'In retaliation (qisas) there is life.' Qisas is retaliation. Qissah is story.",
+        notes = "Qisas ensures justice and deters crime."
+      ),
+      RootMeaningData(
+        root = "د-ي-ت",
+        primaryMeaning = "blood money, compensation",
+        extendedMeaning = "Blood money for manslaughter.",
+        quranUsage = "'Blood money (diyah) to his family.' Diyah is compensation.",
+        notes = "Diyah is paid for accidental killing."
+      ),
+
+      // === MORE NATURE AND ENVIRONMENT ===
+      RootMeaningData(
+        root = "س-م-ء",
+        primaryMeaning = "sky, heaven, rain",
+        extendedMeaning = "Sky, heaven, and what descends from it.",
+        quranUsage = "'We built above you seven strong (heavens).' Sama' is sky. Samawi is heavenly.",
+        notes = "Seven heavens are layered above us."
+      ),
+      RootMeaningData(
+        root = "أ-ف-ق",
+        primaryMeaning = "horizon",
+        extendedMeaning = "Horizon, region.",
+        quranUsage = "'On the clear horizon (ufuq).' Ufuq is horizon. Afaq are horizons/regions.",
+        notes = "The Prophet saw Jibril on the clear horizon."
+      ),
+      RootMeaningData(
+        root = "ف-ض-ء",
+        primaryMeaning = "space, open area",
+        extendedMeaning = "Space, open area.",
+        quranUsage = "Fada' is open space. The heavens are vast spaces.",
+        notes = "The universe's vastness is a sign."
+      ),
+      RootMeaningData(
+        root = "ج-و-و",
+        primaryMeaning = "atmosphere, air, interior",
+        extendedMeaning = "Atmosphere, air, and interior.",
+        quranUsage = "'Birds in the atmosphere (jaww) of the sky.' Jaww is atmosphere.",
+        notes = "Birds fly in the atmosphere by Allah's permission."
+      ),
+      RootMeaningData(
+        root = "ه-و-ء",
+        primaryMeaning = "air, atmosphere, desire",
+        extendedMeaning = "Air, empty space, and desire.",
+        quranUsage = "'Their hearts are empty (hawa').' Hawa' is air/void. Hawa is desire.",
+        notes = "Following desire (hawa) leads astray."
+      ),
+      RootMeaningData(
+        root = "غ-ب-ر",
+        primaryMeaning = "dust, past",
+        extendedMeaning = "Dust, and what has passed.",
+        quranUsage = "'Covered with dust (ghabarah).' Ghubar is dust.",
+        notes = "Faces will be covered with dust on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "د-خ-ن",
+        primaryMeaning = "smoke",
+        extendedMeaning = "Smoke.",
+        quranUsage = "'When the sky brings visible smoke (dukhan).' Dukhan is smoke.",
+        notes = "Surah Ad-Dukhan mentions smoke as a sign."
+      ),
+      RootMeaningData(
+        root = "ض-ب-ب",
+        primaryMeaning = "fog, mist",
+        extendedMeaning = "Fog, mist.",
+        quranUsage = "Dabab is fog/mist. Obscures vision like doubt obscures truth.",
+        notes = "Fog represents uncertainty and obscurity."
+      ),
+      RootMeaningData(
+        root = "ن-د-ي",
+        primaryMeaning = "dew, moisture",
+        extendedMeaning = "Dew, moisture.",
+        quranUsage = "Nada is dew. Morning moisture is a blessing.",
+        notes = "Dew refreshes the earth gently."
+      ),
+      RootMeaningData(
+        root = "ص-ق-ع",
+        primaryMeaning = "region, cold, frost",
+        extendedMeaning = "Region, and extreme cold.",
+        quranUsage = "Saq' is frost. Saqi' is cold region.",
+        notes = "Different regions have different climates."
+      ),
+      RootMeaningData(
+        root = "ظ-ل-ل",
+        primaryMeaning = "shade, shadow",
+        extendedMeaning = "Shade, shadow.",
+        quranUsage = "'We shaded (zallalna) you with clouds.' Zill is shade. Zilal are shadows.",
+        notes = "Allah shaded the Israelites with clouds in the desert."
+      ),
+      RootMeaningData(
+        root = "ف-ي-ء",
+        primaryMeaning = "shade, return, booty",
+        extendedMeaning = "Afternoon shade (returning), and war booty.",
+        quranUsage = "'Their shadows (afya') incline.' Fay' is shade that shifts. Fay' is also booty.",
+        notes = "Shadows return (shift) as the sun moves."
+      ),
+
+      // === MISCELLANEOUS IMPORTANT ROOTS ===
+      RootMeaningData(
+        root = "ك-و-ن",
+        primaryMeaning = "to be, exist, universe",
+        extendedMeaning = "Being, existence, and the universe.",
+        quranUsage = "'Be (kun) and it is.' Kawn is existence. Takwin is creation.",
+        notes = "Allah says 'Be' and it is - instant creation."
+      ),
+      RootMeaningData(
+        root = "و-ج-د",
+        primaryMeaning = "existence, to find",
+        extendedMeaning = "Existence, finding, and being.",
+        quranUsage = "'He found (wajada) you lost.' Wujud is existence.",
+        notes = "Allah's existence is necessary; all else is contingent."
+      ),
+      RootMeaningData(
+        root = "ع-د-م",
+        primaryMeaning = "nonexistence, lack",
+        extendedMeaning = "Nonexistence, nothingness.",
+        quranUsage = "'Adam is nonexistence. Before creation, there was nothing.",
+        notes = "Allah creates from nonexistence."
+      ),
+      RootMeaningData(
+        root = "ح-د-ث",
+        primaryMeaning = "to happen, new, speak",
+        extendedMeaning = "Happening, being new, and speaking.",
+        quranUsage = "'Perhaps Allah will bring about (yuhdith) a matter.' Hadith is new/speech.",
+        notes = "Hadith refers to the Prophet's sayings (new guidance)."
+      ),
+      RootMeaningData(
+        root = "ق-د-م",
+        primaryMeaning = "ancient, foot, advance",
+        extendedMeaning = "Being ancient, foot, and advancing.",
+        quranUsage = "'Foot (qadam) of truth.' Qadim is ancient. Qadam is foot.",
+        notes = "Allah is Al-Qadim - eternal without beginning."
+      ),
+      RootMeaningData(
+        root = "ج-د-د",
+        primaryMeaning = "new, renew, serious",
+        extendedMeaning = "Being new, renewing, and being serious.",
+        quranUsage = "'A new (jadid) creation.' Jadid is new. Tajdid is renewal.",
+        notes = "Allah can create anew - resurrection is a new creation."
+      ),
+      RootMeaningData(
+        root = "ب-ل-ي",
+        primaryMeaning = "old, worn, test",
+        extendedMeaning = "Being old/worn, and testing.",
+        quranUsage = "'When we are worn bones (baliy)?' Bala' is test. Baliy is worn.",
+        notes = "Life is a test (bala') that wears us down."
+      ),
+      RootMeaningData(
+        root = "غ-ي-ر",
+        primaryMeaning = "other, change",
+        extendedMeaning = "Other, different, and change.",
+        quranUsage = "'Other (ghayr) than Allah.' Ghayr is other. Taghyir is change.",
+        notes = "Everything other than Allah is creation."
+      ),
+      RootMeaningData(
+        root = "م-ث-ل",
+        primaryMeaning = "likeness, example, similar",
+        extendedMeaning = "Likeness, example, and similarity.",
+        quranUsage = "'Nothing is like (mithl) Him.' Mithl is likeness. Mathal is example.",
+        notes = "Nothing resembles Allah - He is unique."
+      ),
+      RootMeaningData(
+        root = "ش-ب-ه",
+        primaryMeaning = "resemblance, similar",
+        extendedMeaning = "Resemblance, similarity.",
+        quranUsage = "'It was made to appear (shubbiha) to them.' Shubhah is doubt/resemblance.",
+        notes = "Isa was not killed - it was made to appear so."
+      ),
+      RootMeaningData(
+        root = "ف-ر-د",
+        primaryMeaning = "single, alone, unique",
+        extendedMeaning = "Being single, alone, and unique.",
+        quranUsage = "'You have come to Us alone (furada).' Fard is single. Munfarid is alone.",
+        notes = "Each person will come alone on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ز-و-ج",
+        primaryMeaning = "pair, spouse, type",
+        extendedMeaning = "Pair, spouse, and type/kind.",
+        quranUsage = "'We created you in pairs (azwaj).' Zawj is pair/spouse.",
+        notes = "Creation in pairs is a universal sign."
+      ),
+      RootMeaningData(
+        root = "ش-ف-ع",
+        primaryMeaning = "intercession, even number, pair",
+        extendedMeaning = "Intercession, and being paired/even.",
+        quranUsage = "'Who can intercede (yashfa') except by His permission?' Shafa'ah is intercession.",
+        notes = "Intercession requires Allah's permission."
+      ),
+      RootMeaningData(
+        root = "و-ت-ر",
+        primaryMeaning = "odd, single, string",
+        extendedMeaning = "Being odd (number), single, and bowstring.",
+        quranUsage = "'By the odd (watr) and the even.' Witr is odd. Watar is string.",
+        notes = "Witr prayer has an odd number of units."
+      ),
+      RootMeaningData(
+        root = "ج-م-ع",
+        primaryMeaning = "gather, collect, combine",
+        extendedMeaning = "Gathering, collecting, and combining.",
+        quranUsage = "'When people are gathered (jumi'a).' Jam' is gathering. Majmu' is total.",
+        notes = "Yawm al-Jam' - the Day of Gathering."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ق",
+        primaryMeaning = "separate, divide, distinguish",
+        extendedMeaning = "Separating, dividing, and distinguishing.",
+        quranUsage = "'Those who divide (farraqu) their religion.' Tafriq is division.",
+        notes = "Dividing religion into sects is condemned."
+      ),
+      RootMeaningData(
+        root = "ص-ل-ي",
+        primaryMeaning = "burn, roast, enter fire",
+        extendedMeaning = "Burning, entering fire.",
+        quranUsage = "'They will burn (yaslaw) in the Fire.' Salla is to burn. Saly is roasting.",
+        notes = "Different from ص-ل-و (prayer) - this relates to fire."
+      ),
+      RootMeaningData(
+        root = "ح-ر-ق",
+        primaryMeaning = "burn, fire",
+        extendedMeaning = "Burning, setting fire.",
+        quranUsage = "'We said: Burn (harriqu) him!' Harq is burning. Hariq is fire.",
+        notes = "They tried to burn Ibrahim but fire became cool."
+      ),
+      RootMeaningData(
+        root = "ط-ف-ء",
+        primaryMeaning = "extinguish",
+        extendedMeaning = "Extinguishing fire.",
+        quranUsage = "'They want to extinguish (yutfi'u) Allah's light.' Itfa' is extinguishing.",
+        notes = "Allah's light cannot be extinguished."
+      ),
+      RootMeaningData(
+        root = "ن-و-ر",
+        primaryMeaning = "light, illuminate",
+        extendedMeaning = "Light, illumination, and enlightenment.",
+        quranUsage = "'Allah is the Light (Nur) of the heavens and earth.' Nur is light.",
+        notes = "Surah An-Nur contains the famous Light Verse."
+      ),
+      RootMeaningData(
+        root = "ض-و-ء",
+        primaryMeaning = "light, brightness",
+        extendedMeaning = "Light, radiance, brightness.",
+        quranUsage = "'The sun with brightness (diya').' Daw' is light. Diya' is radiance.",
+        notes = "The sun emits diya' (radiance), moon reflects nur (light)."
+      ),
+      RootMeaningData(
+        root = "ظ-ل-م",
+        primaryMeaning = "darkness, wrong, oppress",
+        extendedMeaning = "Darkness, wrongdoing, and oppression.",
+        quranUsage = "'Darkness (zulumat) upon darkness.' Zulm is wrong. Zulmah is darkness.",
+        notes = "Wrongdoing is spiritual darkness."
+      ),
+      RootMeaningData(
+        root = "س-و-د",
+        primaryMeaning = "black, master",
+        extendedMeaning = "Black color, and being a master.",
+        quranUsage = "'Faces will turn black (taswaddu).' Aswad is black. Sayyid is master.",
+        notes = "Faces blacken from shame and grief."
+      ),
+      RootMeaningData(
+        root = "ب-ي-ض",
+        primaryMeaning = "white, bright",
+        extendedMeaning = "White, brightness.",
+        quranUsage = "'Faces will turn white (tabyaddu).' Abyad is white. Bayad is whiteness.",
+        notes = "Faces brighten from joy and blessing."
+      ),
+
+      // === CRAFTS AND MANUFACTURING ===
+      RootMeaningData(
+        root = "ن-س-ج",
+        primaryMeaning = "weave, fabric",
+        extendedMeaning = "Weaving, fabric, textile.",
+        quranUsage = "Nasj is weaving. Nasij is woven fabric.",
+        notes = "Weaving is an ancient craft creating intricate patterns."
+      ),
+      RootMeaningData(
+        root = "غ-ز-ل",
+        primaryMeaning = "spin, thread",
+        extendedMeaning = "Spinning thread, courtship.",
+        quranUsage = "'Like her who unravels her spinning (ghazl).' Ghazl is spinning.",
+        notes = "Breaking oaths is like unraveling spun thread."
+      ),
+      RootMeaningData(
+        root = "خ-ي-ط",
+        primaryMeaning = "thread, sew",
+        extendedMeaning = "Thread, sewing, stitching.",
+        quranUsage = "'Until the white thread (khayt) is distinct from the black.' Khayt is thread.",
+        notes = "Dawn is when white and black threads of light are distinguishable."
+      ),
+      RootMeaningData(
+        root = "ح-ب-ك",
+        primaryMeaning = "weave tightly, firm",
+        extendedMeaning = "Tight weaving, firmness.",
+        quranUsage = "'The sky with its tight weaving (hubuk).' Hubuk is tight weaving.",
+        notes = "The sky is described as tightly woven/constructed."
+      ),
+      RootMeaningData(
+        root = "ص-ب-غ",
+        primaryMeaning = "dye, color, baptism",
+        extendedMeaning = "Dyeing, coloring, and baptism.",
+        quranUsage = "'The coloring (sibghah) of Allah.' Sibghah is dye/coloring.",
+        notes = "Islam is Allah's sibghah - His coloring of the soul."
+      ),
+      RootMeaningData(
+        root = "د-ب-غ",
+        primaryMeaning = "tan leather",
+        extendedMeaning = "Tanning hides, leather working.",
+        quranUsage = "Dabgh is tanning. Dabbagh is tanner.",
+        notes = "Leather tanning transforms raw hides."
+      ),
+      RootMeaningData(
+        root = "ح-د-د",
+        primaryMeaning = "blacksmith, iron, sharpen",
+        extendedMeaning = "Working with iron, sharpening, defining limits.",
+        quranUsage = "'We sent down iron (hadid).' Haddad is blacksmith.",
+        notes = "Blacksmiths shape iron with fire and hammer."
+      ),
+      RootMeaningData(
+        root = "ن-ج-ر",
+        primaryMeaning = "carpentry, wood",
+        extendedMeaning = "Carpentry, woodworking.",
+        quranUsage = "Najjar is carpenter. Najjarah is carpentry.",
+        notes = "Carpenters craft useful items from wood."
+      ),
+      RootMeaningData(
+        root = "ب-ن-ي",
+        primaryMeaning = "build, construct, mason",
+        extendedMeaning = "Building, construction, masonry.",
+        quranUsage = "'We built (banayna) above you seven.' Banna' is builder.",
+        notes = "Building requires skill and planning."
+      ),
+      RootMeaningData(
+        root = "ف-خ-ر",
+        primaryMeaning = "pottery, pride, boast",
+        extendedMeaning = "Pottery, ceramics, and pride.",
+        quranUsage = "'From clay like pottery (fakhkhar).' Fakhkhar is pottery. Fakhr is pride.",
+        notes = "Pottery is shaped from humble clay."
+      ),
+      RootMeaningData(
+        root = "ص-ه-ر",
+        primaryMeaning = "melt, smelt, in-law",
+        extendedMeaning = "Melting metal, smelting, and marriage relations.",
+        quranUsage = "'It will melt (yusharu) what is in their bellies.' Sahr is melting.",
+        notes = "In-laws (ashar) are bonded like melted metals."
+      ),
+      RootMeaningData(
+        root = "س-ب-ك",
+        primaryMeaning = "cast metal, mold",
+        extendedMeaning = "Casting metal, molding.",
+        quranUsage = "Sabk is casting. Masbuk is cast/molded.",
+        notes = "Molten metal is cast into shapes."
+      ),
+      RootMeaningData(
+        root = "ط-ر-ق",
+        primaryMeaning = "hammer, knock, path",
+        extendedMeaning = "Hammering, knocking, and path/way.",
+        quranUsage = "'By the sky and the night-comer (tariq).' Tariq is knocker/night-comer.",
+        notes = "The tariq (star) knocks at night's door."
+      ),
+
+      // === COOKING AND FOOD PREPARATION ===
+      RootMeaningData(
+        root = "ط-ب-خ",
+        primaryMeaning = "cook",
+        extendedMeaning = "Cooking, preparing food.",
+        quranUsage = "Tabkh is cooking. Tabbakh is cook.",
+        notes = "Cooking transforms raw ingredients."
+      ),
+      RootMeaningData(
+        root = "ش-و-ي",
+        primaryMeaning = "roast, grill",
+        extendedMeaning = "Roasting, grilling.",
+        quranUsage = "'A roasted (hanidh) calf.' Shawy is roasting.",
+        notes = "Ibrahim's guests were served roasted calf."
+      ),
+      RootMeaningData(
+        root = "غ-ل-ي",
+        primaryMeaning = "boil",
+        extendedMeaning = "Boiling.",
+        quranUsage = "'It will boil (taghli) in the bellies.' Ghalayan is boiling.",
+        notes = "Hell's drink boils in the stomachs."
+      ),
+      RootMeaningData(
+        root = "ح-م-ي",
+        primaryMeaning = "heat, protect",
+        extendedMeaning = "Heating, and protecting.",
+        quranUsage = "'It will be heated (yuhma) in the fire of Hell.' Hamy is heating. Himayah is protection.",
+        notes = "Gold and silver hoarded will be heated and used to brand."
+      ),
+      RootMeaningData(
+        root = "ب-ر-د",
+        primaryMeaning = "cool, cold",
+        extendedMeaning = "Cooling, coldness.",
+        quranUsage = "'Be coolness (bard) and safety.' Barid is cold.",
+        notes = "Fire became cool for Ibrahim."
+      ),
+      RootMeaningData(
+        root = "ع-ج-ن",
+        primaryMeaning = "knead dough",
+        extendedMeaning = "Kneading dough.",
+        quranUsage = "'Ajin is dough. 'Ajn is kneading.",
+        notes = "Bread-making begins with kneading dough."
+      ),
+      RootMeaningData(
+        root = "خ-ب-ز",
+        primaryMeaning = "bread, bake",
+        extendedMeaning = "Bread, baking.",
+        quranUsage = "'I saw myself carrying bread (khubz).' Khubz is bread.",
+        notes = "The king's baker dreamed of carrying bread."
+      ),
+      RootMeaningData(
+        root = "ط-ح-ن",
+        primaryMeaning = "grind, mill",
+        extendedMeaning = "Grinding grain, milling.",
+        quranUsage = "Tahn is grinding. Tahhan is miller.",
+        notes = "Grain is ground into flour for bread."
+      ),
+      RootMeaningData(
+        root = "ذ-ب-ح",
+        primaryMeaning = "slaughter, sacrifice",
+        extendedMeaning = "Ritual slaughter, sacrifice.",
+        quranUsage = "'A great sacrifice (dhibh).' Dhabh is slaughter. Dhabiha is sacrifice.",
+        notes = "Ibrahim was tested to sacrifice his son."
+      ),
+      RootMeaningData(
+        root = "ن-ح-ر",
+        primaryMeaning = "sacrifice camel, throat",
+        extendedMeaning = "Slaughtering camels, the throat area.",
+        quranUsage = "'Pray and sacrifice (wanhar).' Nahr is sacrificing camels.",
+        notes = "Camels are sacrificed by cutting the throat area."
+      ),
+      RootMeaningData(
+        root = "س-ق-ي",
+        primaryMeaning = "give drink, irrigate",
+        extendedMeaning = "Giving drink, watering, irrigation.",
+        quranUsage = "'We gave you drink (asqaynakum).' Saqy is giving drink. Saqi is cupbearer.",
+        notes = "Allah provides drink from clouds and springs."
+      ),
+      RootMeaningData(
+        root = "ع-ص-ر",
+        primaryMeaning = "press, squeeze, juice",
+        extendedMeaning = "Pressing, squeezing for juice.",
+        quranUsage = "'I saw myself pressing (a'siru) wine.' 'Asir is pressing.",
+        notes = "The king's cupbearer dreamed of pressing grapes."
+      ),
+      RootMeaningData(
+        root = "م-ز-ج",
+        primaryMeaning = "mix, blend",
+        extendedMeaning = "Mixing drinks, blending.",
+        quranUsage = "'A cup mixed (mizaj) with ginger.' Mazj is mixing.",
+        notes = "Paradise drinks are mixed with special flavors."
+      ),
+
+      // === HUNTING AND GATHERING ===
+      RootMeaningData(
+        root = "ص-ي-د",
+        primaryMeaning = "hunt, game",
+        extendedMeaning = "Hunting, game animals.",
+        quranUsage = "'When you have left ihram, then hunt (istadu).' Sayd is hunting/game.",
+        notes = "Hunting is forbidden during ihram pilgrimage state."
+      ),
+      RootMeaningData(
+        root = "ق-ن-ص",
+        primaryMeaning = "hunt, catch",
+        extendedMeaning = "Hunting, catching prey.",
+        quranUsage = "Qanas is hunting. Qannas is hunter.",
+        notes = "Skilled hunters catch elusive prey."
+      ),
+      RootMeaningData(
+        root = "ف-خ-خ",
+        primaryMeaning = "trap, snare",
+        extendedMeaning = "Trap, snare for catching.",
+        quranUsage = "Fakhkh is trap. Setting traps for game.",
+        notes = "Traps catch unwary prey."
+      ),
+      RootMeaningData(
+        root = "ش-ب-ك",
+        primaryMeaning = "net, network, interlock",
+        extendedMeaning = "Net, network, interlocking.",
+        quranUsage = "Shabakah is net. Tashabbuk is interlocking.",
+        notes = "Nets catch fish and birds."
+      ),
+      RootMeaningData(
+        root = "ج-ن-ي",
+        primaryMeaning = "harvest, pick fruit",
+        extendedMeaning = "Harvesting, picking fruits.",
+        quranUsage = "'Its harvest (janaha) is near.' Jany is picking fruit.",
+        notes = "Paradise fruits are easy to pick."
+      ),
+      RootMeaningData(
+        root = "ح-ص-د",
+        primaryMeaning = "harvest, reap",
+        extendedMeaning = "Harvesting crops, reaping.",
+        quranUsage = "'Except a little which you will store (tahsudun).' Hasad is harvest.",
+        notes = "Seven years of harvest stored for famine."
+      ),
+      RootMeaningData(
+        root = "د-ر-س",
+        primaryMeaning = "thresh, study, efface",
+        extendedMeaning = "Threshing grain, studying, and effacing.",
+        quranUsage = "'That you may study (tadrusu) it.' Dars is lesson. Idris relates to study.",
+        notes = "Threshing separates grain from chaff; studying separates knowledge."
+      ),
+      RootMeaningData(
+        root = "ذ-ر-ي",
+        primaryMeaning = "winnow, scatter",
+        extendedMeaning = "Winnowing grain, scattering.",
+        quranUsage = "'Scattering (dhariyat) winds.' Dharw is winnowing.",
+        notes = "Wind winnows and scatters."
+      ),
+
+      // === POSITIONS AND POSTURES ===
+      RootMeaningData(
+        root = "ق-ع-د",
+        primaryMeaning = "sit, stay",
+        extendedMeaning = "Sitting, staying, remaining behind.",
+        quranUsage = "'Those who sat (qa'adun) behind.' Qu'ud is sitting. Maq'ad is seat.",
+        notes = "Some stayed behind from battle without excuse."
+      ),
+      RootMeaningData(
+        root = "ج-ل-س",
+        primaryMeaning = "sit, session",
+        extendedMeaning = "Sitting, gathering, session.",
+        quranUsage = "'Make room in assemblies (majalis).' Julus is sitting. Majlis is assembly.",
+        notes = "Make room for others in gatherings."
+      ),
+      RootMeaningData(
+        root = "ض-ج-ع",
+        primaryMeaning = "lie down, recline",
+        extendedMeaning = "Lying down, reclining.",
+        quranUsage = "'Their sides forsake their beds (madaji').' Daj' is lying down. Madja' is bed.",
+        notes = "The righteous leave their beds for night prayer."
+      ),
+      RootMeaningData(
+        root = "ن-و-م",
+        primaryMeaning = "sleep",
+        extendedMeaning = "Sleep, slumber.",
+        quranUsage = "'Neither drowsiness nor sleep (nawm) overtakes Him.' Nawm is sleep.",
+        notes = "Allah never sleeps - He is ever-watchful."
+      ),
+      RootMeaningData(
+        root = "ر-ق-د",
+        primaryMeaning = "sleep, lie down",
+        extendedMeaning = "Sleeping, lying down.",
+        quranUsage = "'Who has raised us from our sleeping place (marqad)?' Ruqud is sleep.",
+        notes = "The dead will be raised from their sleeping places."
+      ),
+      RootMeaningData(
+        root = "س-ج-د",
+        primaryMeaning = "prostrate",
+        extendedMeaning = "Prostrating, bowing down in worship.",
+        quranUsage = "'Prostrate (usjud) and draw near.' Sujud is prostration. Masjid is place of prostration.",
+        notes = "Prostration is the closest a servant gets to Allah."
+      ),
+      RootMeaningData(
+        root = "ر-ك-ع",
+        primaryMeaning = "bow",
+        extendedMeaning = "Bowing, especially in prayer.",
+        quranUsage = "'Bow (irka'u) with those who bow.' Ruku' is bowing.",
+        notes = "Bowing in prayer shows humility."
+      ),
+      RootMeaningData(
+        root = "ق-و-م",
+        primaryMeaning = "stand, rise, establish",
+        extendedMeaning = "Standing, rising, and establishing.",
+        quranUsage = "'Establish (aqim) the prayer.' Qiyam is standing. Qawm is people.",
+        notes = "Standing in prayer and standing for justice."
+      ),
+      RootMeaningData(
+        root = "ج-ث-و",
+        primaryMeaning = "kneel, crouch",
+        extendedMeaning = "Kneeling, crouching on knees.",
+        quranUsage = "'Every nation kneeling (jathiyah).' Juthuuw is kneeling.",
+        notes = "Surah Al-Jathiyah - nations kneeling before judgment."
+      ),
+      RootMeaningData(
+        root = "ح-ب-و",
+        primaryMeaning = "crawl, creep",
+        extendedMeaning = "Crawling, creeping on belly.",
+        quranUsage = "'Some crawl (yamshi) on their bellies.' Habw is crawling.",
+        notes = "Some creatures crawl, some walk on two or four legs."
+      ),
+      RootMeaningData(
+        root = "ز-ح-ف",
+        primaryMeaning = "crawl, advance slowly",
+        extendedMeaning = "Crawling, advancing slowly like an army.",
+        quranUsage = "'When you meet those who disbelieve advancing (zahfan).' Zahf is crawling advance.",
+        notes = "Armies advance slowly like crawling."
+      ),
+
+      // === AGRICULTURE EXPANDED ===
+      RootMeaningData(
+        root = "ح-ر-ث",
+        primaryMeaning = "plow, till, cultivate",
+        extendedMeaning = "Plowing, tilling, cultivation.",
+        quranUsage = "'Whoever desires the harvest (harth) of the Hereafter.' Harth is tillage/harvest.",
+        notes = "Life is a field we cultivate for the Hereafter."
+      ),
+      RootMeaningData(
+        root = "ف-ل-ح",
+        primaryMeaning = "succeed, cultivate, farmer",
+        extendedMeaning = "Success, cultivation, and farming.",
+        quranUsage = "'Successful (aflaha) are the believers.' Falah is success. Fallah is farmer.",
+        notes = "The call to prayer says 'Come to success (falah).'"
+      ),
+      RootMeaningData(
+        root = "س-ق-ي",
+        primaryMeaning = "irrigate, water",
+        extendedMeaning = "Irrigation, watering crops.",
+        quranUsage = "'We water (nasqi) with it gardens.' Saqy is watering.",
+        notes = "Rain waters the earth for cultivation."
+      ),
+      RootMeaningData(
+        root = "غ-ر-س",
+        primaryMeaning = "plant, implant",
+        extendedMeaning = "Planting, implanting.",
+        quranUsage = "Ghars is planting. Ghirasah is cultivation.",
+        notes = "Planting seeds is an act of faith in future harvest."
+      ),
+      RootMeaningData(
+        root = "ب-ذ-ر",
+        primaryMeaning = "seed, scatter, waste",
+        extendedMeaning = "Seeds, scattering seed, and wasting.",
+        quranUsage = "'Do not waste (tubaddhir) wastefully.' Badhr is seed. Tabdhir is wasting.",
+        notes = "Don't scatter resources wastefully."
+      ),
+      RootMeaningData(
+        root = "ن-ب-ت",
+        primaryMeaning = "sprout, grow, plant",
+        extendedMeaning = "Sprouting, growing, vegetation.",
+        quranUsage = "'We cause to grow (nunbitu) gardens.' Nabat is plant. Nabt is growth.",
+        notes = "Allah causes plants to sprout from the earth."
+      ),
+      RootMeaningData(
+        root = "ي-ن-ع",
+        primaryMeaning = "ripen",
+        extendedMeaning = "Ripening of fruit.",
+        quranUsage = "'Look at its fruit when it ripens (yani').' Yan' is ripening.",
+        notes = "Fruit ripening is a sign of Allah's power."
+      ),
+      RootMeaningData(
+        root = "ق-ط-ف",
+        primaryMeaning = "pick, pluck",
+        extendedMeaning = "Picking fruit, plucking.",
+        quranUsage = "'Its clusters (qutuf) hanging low.' Qatf is picking. Qutuf are clusters.",
+        notes = "Paradise fruit hangs low for easy picking."
+      ),
+      RootMeaningData(
+        root = "ج-د-د",
+        primaryMeaning = "cut, new, serious",
+        extendedMeaning = "Cutting (harvest), being new, seriousness.",
+        quranUsage = "'Paths of different colors (judad).' Jadid is new. Jadd is seriousness.",
+        notes = "Harvesting cuts the old for new growth."
+      ),
+      RootMeaningData(
+        root = "ذ-ر-ع",
+        primaryMeaning = "sow, plant, arm",
+        extendedMeaning = "Sowing seeds, planting.",
+        quranUsage = "'Is it you who sow (tazra'un) it?' Zar' is sowing/crops.",
+        notes = "Humans sow but Allah causes growth."
+      ),
+
+      // === EMOTIONS EXPANDED ===
+      RootMeaningData(
+        root = "ر-ه-ب",
+        primaryMeaning = "fear, awe, monk",
+        extendedMeaning = "Fear, awe, and monasticism.",
+        quranUsage = "'They feared (yarhabun) none but Allah.' Rahbah is fear. Rahib is monk.",
+        notes = "Monks (ruhban) dedicate themselves from fear of Allah."
+      ),
+      RootMeaningData(
+        root = "و-ج-ل",
+        primaryMeaning = "fear, tremble",
+        extendedMeaning = "Fear that causes trembling.",
+        quranUsage = "'Their hearts tremble (wajilat) when Allah is mentioned.' Wajal is trembling fear.",
+        notes = "Hearts of believers tremble at Allah's mention."
+      ),
+      RootMeaningData(
+        root = "ف-ز-ع",
+        primaryMeaning = "terror, fright",
+        extendedMeaning = "Sudden terror, fright.",
+        quranUsage = "'The greatest terror (faza') will not grieve them.' Faza' is terror.",
+        notes = "Believers are safe from the terror of Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ر-ع-ب",
+        primaryMeaning = "terror, frighten",
+        extendedMeaning = "Terror, frightening.",
+        quranUsage = "'We will cast terror (ru'b) into their hearts.' Ru'b is terror.",
+        notes = "Allah cast terror into enemy hearts at Badr."
+      ),
+      RootMeaningData(
+        root = "ه-ل-ع",
+        primaryMeaning = "anxiety, impatience",
+        extendedMeaning = "Anxiety, impatience, fretfulness.",
+        quranUsage = "'Man was created anxious (halu'an).' Hala' is anxiety.",
+        notes = "Humans are naturally anxious except those who pray."
+      ),
+      RootMeaningData(
+        root = "ج-ز-ع",
+        primaryMeaning = "impatience, distress",
+        extendedMeaning = "Impatience, distress, anguish.",
+        quranUsage = "'When evil touches him, he is impatient (jazu'an).' Jaza' is impatience.",
+        notes = "Impatience is the opposite of sabr (patience)."
+      ),
+      RootMeaningData(
+        root = "ض-ج-ر",
+        primaryMeaning = "boredom, annoyance",
+        extendedMeaning = "Boredom, being annoyed.",
+        quranUsage = "Dajar is boredom. Patience prevents boredom in worship.",
+        notes = "The Prophet never showed boredom in worship."
+      ),
+      RootMeaningData(
+        root = "س-ء-م",
+        primaryMeaning = "weariness, boredom",
+        extendedMeaning = "Weariness, getting tired of something.",
+        quranUsage = "'Man does not weary (yas'am) of asking for good.' Sa'amah is weariness.",
+        notes = "Humans never tire of asking for good things."
+      ),
+      RootMeaningData(
+        root = "ط-م-ء-ن",
+        primaryMeaning = "tranquility, reassure",
+        extendedMeaning = "Tranquility, being reassured, peace of heart.",
+        quranUsage = "'Hearts find rest (tatma'innu) in remembrance of Allah.' Tuma'ninah is tranquility.",
+        notes = "True peace comes from remembering Allah."
+      ),
+      RootMeaningData(
+        root = "س-ك-ن",
+        primaryMeaning = "dwell, calm, tranquil",
+        extendedMeaning = "Dwelling, being calm, tranquility.",
+        quranUsage = "'He sent down tranquility (sakinah).' Sukun is calm. Sakinah is tranquility.",
+        notes = "Allah sends sakinah (divine tranquility) to believers."
+      ),
+      RootMeaningData(
+        root = "أ-ن-س",
+        primaryMeaning = "intimacy, friendliness",
+        extendedMeaning = "Intimacy, being sociable, comfort.",
+        quranUsage = "'Perhaps I will bring you a brand from it (for warmth/guidance).' Uns is intimacy.",
+        notes = "Humans (ins) are social and seek companionship."
+      ),
+      RootMeaningData(
+        root = "و-ح-ش",
+        primaryMeaning = "loneliness, wild",
+        extendedMeaning = "Loneliness, wildness, being untamed.",
+        quranUsage = "'Wild beasts (wuhush) are gathered.' Wahsh is wild beast. Wahshah is loneliness.",
+        notes = "Wild animals will be gathered on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "غ-ي-ظ",
+        primaryMeaning = "rage, fury, anger",
+        extendedMeaning = "Intense anger, fury, rage.",
+        quranUsage = "'Those who restrain their anger (ghayz).' Ghayz is rage.",
+        notes = "Controlling rage is praiseworthy."
+      ),
+      RootMeaningData(
+        root = "ح-ن-ق",
+        primaryMeaning = "intense anger, spite",
+        extendedMeaning = "Intense anger, spite, resentment.",
+        quranUsage = "Hanaq is intense anger. Hanaqa is to enrage.",
+        notes = "Spite and resentment poison the heart."
+      ),
+      RootMeaningData(
+        root = "س-خ-ر",
+        primaryMeaning = "mock, ridicule, subjugate",
+        extendedMeaning = "Mocking, ridiculing, and subjugating.",
+        quranUsage = "'Do not mock (taskhar) a people.' Sukhriyah is mockery. Taskhir is subjugation.",
+        notes = "Mocking others is forbidden. Allah subjugates creation for humans."
+      ),
+      RootMeaningData(
+        root = "ه-ز-ء",
+        primaryMeaning = "mock, jest",
+        extendedMeaning = "Mocking, jesting, making fun.",
+        quranUsage = "'They took them in mockery (huzuwan).' Istihza' is mockery.",
+        notes = "Taking Allah's signs as mockery is disbelief."
+      ),
+      RootMeaningData(
+        root = "ع-ج-ب",
+        primaryMeaning = "wonder, amazement",
+        extendedMeaning = "Wonder, amazement, self-admiration.",
+        quranUsage = "'Do you wonder ('ajibta)?' 'Ajab is wonder. 'Ujb is self-admiration.",
+        notes = "Wonder at Allah's signs is good; self-admiration is dangerous."
+      ),
+      RootMeaningData(
+        root = "د-ه-ش",
+        primaryMeaning = "astonishment, bewilderment",
+        extendedMeaning = "Astonishment, being bewildered.",
+        quranUsage = "Dahshah is astonishment. Madhush is astonished.",
+        notes = "The Day of Judgment will leave people astonished."
+      ),
+      RootMeaningData(
+        root = "ح-ي-ر",
+        primaryMeaning = "confusion, bewilderment",
+        extendedMeaning = "Confusion, being bewildered, perplexed.",
+        quranUsage = "'Confused (hayran) in the earth.' Hayrah is confusion. Ha'ir is confused.",
+        notes = "Without guidance, people wander confused."
+      ),
+
+      // === THINKING AND COGNITION ===
+      RootMeaningData(
+        root = "ف-ك-ر",
+        primaryMeaning = "think, reflect, ponder",
+        extendedMeaning = "Thinking, reflecting, pondering.",
+        quranUsage = "'Do they not reflect (yatafakkarun)?' Fikr is thought. Tafakkur is reflection.",
+        notes = "Reflection on creation strengthens faith."
+      ),
+      RootMeaningData(
+        root = "ت-د-ب-ر",
+        primaryMeaning = "ponder, reflect deeply",
+        extendedMeaning = "Deep reflection, contemplating consequences.",
+        quranUsage = "'Do they not ponder (yatadabbarun) the Quran?' Tadabbur is deep reflection.",
+        notes = "Tadabbur is reflecting on the Quran's meanings."
+      ),
+      RootMeaningData(
+        root = "ت-أ-م-ل",
+        primaryMeaning = "contemplate, meditate",
+        extendedMeaning = "Contemplation, meditation, hoping.",
+        quranUsage = "Ta'ammul is contemplation. Amma is to hope.",
+        notes = "Contemplation of creation reveals Allah's wisdom."
+      ),
+      RootMeaningData(
+        root = "ن-ظ-ر",
+        primaryMeaning = "look, see, consider",
+        extendedMeaning = "Looking, seeing, and considering.",
+        quranUsage = "'Do they not look (yanzurun) at the camels?' Nazar is looking. Nazariyyah is theory.",
+        notes = "Looking at creation leads to understanding."
+      ),
+      RootMeaningData(
+        root = "ب-ص-ر",
+        primaryMeaning = "see, perceive, insight",
+        extendedMeaning = "Seeing, perception, and insight.",
+        quranUsage = "'I call to Allah with insight (basirah).' Basar is sight. Basirah is insight.",
+        notes = "Physical sight leads to spiritual insight."
+      ),
+      RootMeaningData(
+        root = "ر-أ-ي",
+        primaryMeaning = "see, opinion, view",
+        extendedMeaning = "Seeing, opinion, and viewpoint.",
+        quranUsage = "'Have you seen (ara'ayta) he who denies?' Ra'y is opinion. Ru'yah is vision.",
+        notes = "The Prophet's visions were true revelations."
+      ),
+      RootMeaningData(
+        root = "ع-ر-ف",
+        primaryMeaning = "know, recognize, custom",
+        extendedMeaning = "Knowing, recognizing, and custom.",
+        quranUsage = "'They recognize (ya'rifunahu) it as their sons.' Ma'rifah is knowledge. 'Urf is custom.",
+        notes = "People of the Book recognized the Prophet as they recognized their own sons."
+      ),
+      RootMeaningData(
+        root = "ج-ه-ل",
+        primaryMeaning = "ignorance, not know",
+        extendedMeaning = "Ignorance, not knowing.",
+        quranUsage = "'Is it the judgment of ignorance (jahiliyyah) they seek?' Jahl is ignorance.",
+        notes = "The pre-Islamic era was the Age of Ignorance."
+      ),
+      RootMeaningData(
+        root = "ن-س-ي",
+        primaryMeaning = "forget",
+        extendedMeaning = "Forgetting, neglecting.",
+        quranUsage = "'They forgot (nasu) Allah, so He forgot them.' Nisyan is forgetting.",
+        notes = "Forgetting Allah leads to being forgotten."
+      ),
+      RootMeaningData(
+        root = "ذ-ك-ر",
+        primaryMeaning = "remember, mention, male",
+        extendedMeaning = "Remembering, mentioning, and male gender.",
+        quranUsage = "'Remember (udhkur) Me, I will remember you.' Dhikr is remembrance.",
+        notes = "Dhikr brings peace to the heart."
+      ),
+      RootMeaningData(
+        root = "ح-ف-ظ",
+        primaryMeaning = "memorize, preserve, guard",
+        extendedMeaning = "Memorizing, preserving, and guarding.",
+        quranUsage = "'Indeed, We will preserve (hafizun) it.' Hifz is memorization. Hafiz is guardian.",
+        notes = "Allah preserves the Quran from corruption."
+      ),
+      RootMeaningData(
+        root = "ف-ه-م",
+        primaryMeaning = "understand, comprehend",
+        extendedMeaning = "Understanding, comprehension.",
+        quranUsage = "'We gave Sulayman understanding (fahhamna).' Fahm is understanding.",
+        notes = "Sulayman was given special understanding of a case."
+      ),
+      RootMeaningData(
+        root = "د-ر-ي",
+        primaryMeaning = "know, be aware",
+        extendedMeaning = "Knowing, being aware.",
+        quranUsage = "'What will make you know (yudrika)?' Dirayah is knowledge. Idrak is perception.",
+        notes = "Full perception of some matters is beyond humans."
+      ),
+      RootMeaningData(
+        root = "ش-ع-ر",
+        primaryMeaning = "feel, perceive, poetry",
+        extendedMeaning = "Feeling, perceiving, and poetry.",
+        quranUsage = "'If only they perceived (yash'urun)!' Shu'ur is feeling. Shi'r is poetry.",
+        notes = "Poets feel deeply and express through verse."
+      ),
+      RootMeaningData(
+        root = "ح-د-س",
+        primaryMeaning = "guess, intuition",
+        extendedMeaning = "Guessing, intuition.",
+        quranUsage = "Hads is intuition. Hudus is guessing.",
+        notes = "Intuition can guide but must be verified."
+      ),
+
+      // === KINSHIP EXPANDED ===
+      RootMeaningData(
+        root = "ن-س-ب",
+        primaryMeaning = "lineage, genealogy, relate",
+        extendedMeaning = "Lineage, genealogy, and relating to.",
+        quranUsage = "'They made between Him and the jinn a lineage (nasab).' Nasab is lineage.",
+        notes = "False claims of lineage between Allah and jinn are rejected."
+      ),
+      RootMeaningData(
+        root = "س-ل-ل",
+        primaryMeaning = "lineage, extract, draw out",
+        extendedMeaning = "Lineage (drawn from ancestors), extracting.",
+        quranUsage = "'From an extract (sulalah) of clay.' Sulalah is extract/lineage.",
+        notes = "Humans are created from an extract of clay."
+      ),
+      RootMeaningData(
+        root = "ذ-ر-ر",
+        primaryMeaning = "offspring, descendants, atoms",
+        extendedMeaning = "Offspring, descendants, and tiny particles.",
+        quranUsage = "'Their offspring (dhurriyyah) after them.' Dhurriyyah is offspring. Dharrah is atom.",
+        notes = "Our offspring continue our legacy."
+      ),
+      RootMeaningData(
+        root = "ع-ق-ب",
+        primaryMeaning = "descendants, consequence, heel",
+        extendedMeaning = "Descendants, consequence, and heel.",
+        quranUsage = "'In his descendants ('aqibihi).' 'Aqib is descendant. 'Uqba is consequence.",
+        notes = "Ibrahim's message continued in his descendants."
+      ),
+      RootMeaningData(
+        root = "س-ل-ف",
+        primaryMeaning = "ancestors, predecessors",
+        extendedMeaning = "Ancestors, predecessors, what has passed.",
+        quranUsage = "'What has passed (salafa) is forgiven.' Salaf are predecessors.",
+        notes = "The righteous Salaf are the early generations of Muslims."
+      ),
+      RootMeaningData(
+        root = "خ-ل-ف",
+        primaryMeaning = "succeed, come after",
+        extendedMeaning = "Succeeding, coming after, being different.",
+        quranUsage = "'They succeeded (khalafa) them.' Khalaf are successors. Khalifah is vicegerent.",
+        notes = "Each generation succeeds the previous."
+      ),
+      RootMeaningData(
+        root = "و-ر-ث",
+        primaryMeaning = "inherit",
+        extendedMeaning = "Inheriting, heritage.",
+        quranUsage = "'Allah is the Inheritor (Warith).' Irth is inheritance. Mirath is heritage.",
+        notes = "Allah inherits the earth after all perish."
+      ),
+      RootMeaningData(
+        root = "ت-ر-ك",
+        primaryMeaning = "leave, abandon, bequeath",
+        extendedMeaning = "Leaving behind, abandoning, bequeathing.",
+        quranUsage = "'What your parents left (taraka).' Tarikah is estate.",
+        notes = "Inheritance is what the deceased leaves behind."
+      ),
+      RootMeaningData(
+        root = "ر-ح-م",
+        primaryMeaning = "womb, mercy, kinship",
+        extendedMeaning = "Womb, mercy, and blood relations.",
+        quranUsage = "'Fear Allah and the wombs (arham).' Rahim is womb. Rahmah is mercy.",
+        notes = "The womb (rahim) is the source of kinship (rahm) and mercy (rahmah)."
+      ),
+      RootMeaningData(
+        root = "ص-ه-ر",
+        primaryMeaning = "in-law, melt",
+        extendedMeaning = "Marriage relations, in-laws.",
+        quranUsage = "'He made relations by blood and marriage (sihr).' Sihr is in-law relations.",
+        notes = "Marriage creates bonds like blood relations."
+      ),
+      RootMeaningData(
+        root = "ح-م-و",
+        primaryMeaning = "father-in-law, protect",
+        extendedMeaning = "Father-in-law, and protection.",
+        quranUsage = "Hamu is father-in-law. Hama is protection.",
+        notes = "In-laws have rights and responsibilities."
+      ),
+      RootMeaningData(
+        root = "ك-ن-ن",
+        primaryMeaning = "daughter-in-law, protect",
+        extendedMeaning = "Daughter-in-law, protection, concealment.",
+        quranUsage = "Kannah is daughter-in-law. Kanna is to protect/conceal.",
+        notes = "Marriage creates new family bonds."
+      ),
+      RootMeaningData(
+        root = "ر-ب-ب",
+        primaryMeaning = "lord, raise, nurture",
+        extendedMeaning = "Lord, raising, nurturing children.",
+        quranUsage = "'My Lord (Rabbi) is Allah.' Rabb is Lord/Nurturer. Tarbiyah is upbringing.",
+        notes = "Allah is Rabb - He raises and nurtures all creation."
+      ),
+      RootMeaningData(
+        root = "ك-ف-ل",
+        primaryMeaning = "sponsor, guardian, guarantee",
+        extendedMeaning = "Sponsorship, guardianship, guaranteeing.",
+        quranUsage = "'Zakariyya took charge (kaffalaha) of her.' Kafalah is sponsorship.",
+        notes = "Zakariyya was Maryam's guardian."
+      ),
+      RootMeaningData(
+        root = "ر-ض-ع",
+        primaryMeaning = "breastfeed, suckle",
+        extendedMeaning = "Breastfeeding, suckling.",
+        quranUsage = "'Mothers breastfeed (yurdi'na) their children.' Rada'ah is breastfeeding.",
+        notes = "Breastfeeding creates milk-kinship (rada'ah)."
+      ),
+      RootMeaningData(
+        root = "ف-ط-م",
+        primaryMeaning = "wean",
+        extendedMeaning = "Weaning from breastfeeding.",
+        quranUsage = "'Weaning (fisal) in two years.' Fitam is weaning.",
+        notes = "Weaning completes after about two years."
+      ),
+
+      // === QUANTITIES AND MEASUREMENTS ===
+      RootMeaningData(
+        root = "ق-د-ر",
+        primaryMeaning = "measure, power, decree",
+        extendedMeaning = "Measuring, power, and divine decree.",
+        quranUsage = "'In due measure (qadar).' Qadr is measure/power. Taqdir is decree.",
+        notes = "Laylat al-Qadr - the Night of Decree/Power."
+      ),
+      RootMeaningData(
+        root = "ح-د-د",
+        primaryMeaning = "limit, boundary, define",
+        extendedMeaning = "Limits, boundaries, defining.",
+        quranUsage = "'These are the limits (hudud) of Allah.' Hadd is limit. Hudud are boundaries.",
+        notes = "Allah's limits must not be transgressed."
+      ),
+      RootMeaningData(
+        root = "ح-ص-ي",
+        primaryMeaning = "count, enumerate",
+        extendedMeaning = "Counting, enumerating.",
+        quranUsage = "'We have enumerated (ahsaynahu) everything.' Ihsa' is enumeration.",
+        notes = "Allah counts and records everything."
+      ),
+      RootMeaningData(
+        root = "ع-د-د",
+        primaryMeaning = "number, count, prepare",
+        extendedMeaning = "Number, counting, and preparing.",
+        quranUsage = "'A known number ('adad).' 'Adad is number. I'dad is preparation.",
+        notes = "Everything is in precise numbers with Allah."
+      ),
+      RootMeaningData(
+        root = "ك-ث-ر",
+        primaryMeaning = "many, abundant",
+        extendedMeaning = "Being many, abundance.",
+        quranUsage = "'We have given you abundance (kawthar).' Kathrah is abundance.",
+        notes = "Surah Al-Kawthar promises abundance."
+      ),
+      RootMeaningData(
+        root = "ق-ل-ل",
+        primaryMeaning = "few, little",
+        extendedMeaning = "Being few, scarcity.",
+        quranUsage = "'Except a few (qalil).' Qillah is scarcity.",
+        notes = "Believers are often few among the masses."
+      ),
+      RootMeaningData(
+        root = "ز-ي-د",
+        primaryMeaning = "increase, add",
+        extendedMeaning = "Increasing, adding more.",
+        quranUsage = "'We increased (zidnahum) them in guidance.' Ziyadah is increase.",
+        notes = "Allah increases guidance for the guided."
+      ),
+      RootMeaningData(
+        root = "ن-ق-ص",
+        primaryMeaning = "decrease, reduce, lack",
+        extendedMeaning = "Decreasing, reducing.",
+        quranUsage = "'We will reduce (nanqusu) it from its edges.' Naqs is decrease.",
+        notes = "The earth is gradually reduced at its edges."
+      ),
+      RootMeaningData(
+        root = "ك-م-ل",
+        primaryMeaning = "complete, perfect",
+        extendedMeaning = "Completion, perfection.",
+        quranUsage = "'Today I have completed (akmaltu) your religion.' Kamal is perfection.",
+        notes = "Islam was perfected and completed."
+      ),
+      RootMeaningData(
+        root = "ت-م-م",
+        primaryMeaning = "complete, finish",
+        extendedMeaning = "Completing, finishing.",
+        quranUsage = "'Complete (atimmu) the Hajj and Umrah.' Tamam is completion. Itmam is completing.",
+        notes = "Worship should be completed properly."
+      ),
+      RootMeaningData(
+        root = "ن-ص-ف",
+        primaryMeaning = "half, justice",
+        extendedMeaning = "Half, and giving justice (fairness).",
+        quranUsage = "'Half (nisf) of what they left.' Nisf is half. Insaf is fairness.",
+        notes = "Spouses inherit half in certain cases."
+      ),
+      RootMeaningData(
+        root = "ث-ل-ث",
+        primaryMeaning = "third, three",
+        extendedMeaning = "One-third, three.",
+        quranUsage = "'Two-thirds (thuluthayn) of what he left.' Thuluth is one-third.",
+        notes = "Inheritance has specific fractions."
+      ),
+      RootMeaningData(
+        root = "ر-ب-ع",
+        primaryMeaning = "fourth, four, spring",
+        extendedMeaning = "One-fourth, four, and springtime.",
+        quranUsage = "'One-fourth (rubu').' Rubu' is quarter. Rabi' is spring.",
+        notes = "Spouses inherit one-fourth in certain cases."
+      ),
+      RootMeaningData(
+        root = "س-د-س",
+        primaryMeaning = "sixth, six",
+        extendedMeaning = "One-sixth, six.",
+        quranUsage = "'One-sixth (sudus).' Sudus is one-sixth.",
+        notes = "Parents inherit one-sixth when there are children."
+      ),
+      RootMeaningData(
+        root = "ث-م-ن",
+        primaryMeaning = "eighth, eight, price",
+        extendedMeaning = "One-eighth, eight, and price.",
+        quranUsage = "'One-eighth (thumun).' Thumun is one-eighth. Thaman is price.",
+        notes = "Wives inherit one-eighth when there are children."
+      ),
+      RootMeaningData(
+        root = "ض-ع-ف",
+        primaryMeaning = "double, weak",
+        extendedMeaning = "Doubling, and weakness.",
+        quranUsage = "'Allah will multiply (yuda'if) it.' Di'f is double. Da'f is weakness.",
+        notes = "Good deeds are multiplied many times."
+      ),
+      RootMeaningData(
+        root = "م-ث-ل",
+        primaryMeaning = "like, similar, example",
+        extendedMeaning = "Likeness, similarity, and example.",
+        quranUsage = "'The likeness (mathal) of those who spend.' Mithl is like. Mathal is parable.",
+        notes = "The Quran uses parables (amthal) to explain."
+      ),
+
+      // === STATES OF MATTER AND CHANGE ===
+      RootMeaningData(
+        root = "ج-م-د",
+        primaryMeaning = "solid, frozen, still",
+        extendedMeaning = "Being solid, frozen, motionless.",
+        quranUsage = "'You see the mountains thinking them solid (jamidah).' Jumud is solidity.",
+        notes = "Mountains appear solid but will move on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "س-ي-ل",
+        primaryMeaning = "flow, liquid",
+        extendedMeaning = "Flowing, liquid state.",
+        quranUsage = "'A flood (sayl) came upon them.' Sayl is flood/flow. Sayil is flowing.",
+        notes = "The flood of 'Arim destroyed the dam."
+      ),
+      RootMeaningData(
+        root = "ذ-و-ب",
+        primaryMeaning = "melt, dissolve",
+        extendedMeaning = "Melting, dissolving.",
+        quranUsage = "'It will melt (yadhub).' Dhawban is melting.",
+        notes = "Boiling water causes things to melt."
+      ),
+      RootMeaningData(
+        root = "ب-خ-ر",
+        primaryMeaning = "evaporate, steam",
+        extendedMeaning = "Evaporation, steam.",
+        quranUsage = "Bukhar is steam/vapor. Water evaporates and rises.",
+        notes = "The water cycle involves evaporation."
+      ),
+      RootMeaningData(
+        root = "ت-ص-ع-د",
+        primaryMeaning = "ascend, rise up",
+        extendedMeaning = "Ascending, rising up.",
+        quranUsage = "'To Him ascends (yas'adu) the good word.' Su'ud is ascending.",
+        notes = "Good words and deeds ascend to Allah."
+      ),
+      RootMeaningData(
+        root = "ه-ب-ط",
+        primaryMeaning = "descend, go down",
+        extendedMeaning = "Descending, going down.",
+        quranUsage = "'Descend (ihbitu) from it.' Hubut is descent.",
+        notes = "Adam and Hawwa were told to descend from Paradise."
+      ),
+      RootMeaningData(
+        root = "ت-غ-ي-ر",
+        primaryMeaning = "change, alter",
+        extendedMeaning = "Changing, altering.",
+        quranUsage = "'Allah does not change (yughayyir) a people's condition.' Taghyir is change.",
+        notes = "Allah doesn't change a people until they change themselves."
+      ),
+      RootMeaningData(
+        root = "ث-ب-ت",
+        primaryMeaning = "firm, stable, confirm",
+        extendedMeaning = "Being firm, stable, and confirming.",
+        quranUsage = "'Allah keeps firm (yuthabbit) those who believe.' Thabat is firmness.",
+        notes = "Allah firms the believers with the firm word."
+      ),
+      RootMeaningData(
+        root = "ز-ل-ل",
+        primaryMeaning = "slip, slide, err",
+        extendedMeaning = "Slipping, sliding, making errors.",
+        quranUsage = "'Satan made them slip (azallahuma).' Zallah is slip/error.",
+        notes = "Satan caused Adam and Hawwa to slip."
+      ),
+      RootMeaningData(
+        root = "ح-ر-ك",
+        primaryMeaning = "move, motion",
+        extendedMeaning = "Movement, motion.",
+        quranUsage = "'Do not move (tuharrik) your tongue hastily.' Harakah is movement.",
+        notes = "The Prophet was told not to rush in reciting revelation."
+      ),
+      RootMeaningData(
+        root = "س-ك-ن",
+        primaryMeaning = "still, calm, dwell",
+        extendedMeaning = "Being still, calm, dwelling.",
+        quranUsage = "'The night to be still (sakanan).' Sukun is stillness.",
+        notes = "Night is for rest and stillness."
+      ),
+      RootMeaningData(
+        root = "د-و-ر",
+        primaryMeaning = "rotate, turn, house",
+        extendedMeaning = "Rotating, turning, and dwelling.",
+        quranUsage = "'Their eyes rotating (tadur).' Dawr is rotation. Dar is house.",
+        notes = "Eyes rotate from terror on Judgment Day."
+      ),
+      RootMeaningData(
+        root = "ق-ل-ب",
+        primaryMeaning = "turn, heart, overturn",
+        extendedMeaning = "Turning over, heart (which turns), and overturning.",
+        quranUsage = "'We will turn (nuqallib) their hearts.' Qalb is heart. Inqilab is revolution.",
+        notes = "The heart turns between states; Allah turns hearts."
+      ),
+
+      // === MORE RELIGIOUS CONCEPTS ===
+      RootMeaningData(
+        root = "ع-ب-د",
+        primaryMeaning = "worship, servant, slave",
+        extendedMeaning = "Worship, servitude, and being a servant.",
+        quranUsage = "'Worship (u'budu) Allah.' 'Ibadah is worship. 'Abd is servant.",
+        notes = "True freedom is being a servant only of Allah."
+      ),
+      RootMeaningData(
+        root = "ش-ر-ك",
+        primaryMeaning = "associate, partner, share",
+        extendedMeaning = "Associating partners, sharing.",
+        quranUsage = "'Do not associate (tushrik) anything with Allah.' Shirk is polytheism.",
+        notes = "Shirk is the greatest sin - associating partners with Allah."
+      ),
+      RootMeaningData(
+        root = "ك-ف-ر",
+        primaryMeaning = "disbelieve, cover, reject",
+        extendedMeaning = "Disbelief, covering truth, rejection.",
+        quranUsage = "'Those who disbelieve (kafaru).' Kufr is disbelief. Kafir is disbeliever.",
+        notes = "Kufr literally means covering the truth."
+      ),
+      RootMeaningData(
+        root = "ن-ف-ق",
+        primaryMeaning = "hypocrisy, spend, tunnel",
+        extendedMeaning = "Hypocrisy (two-facedness), spending, and tunnel.",
+        quranUsage = "'The hypocrites (munafiqun).' Nifaq is hypocrisy.",
+        notes = "Hypocrites have two faces - different inside and out."
+      ),
+      RootMeaningData(
+        root = "ز-ن-د-ق",
+        primaryMeaning = "heresy, atheism",
+        extendedMeaning = "Heresy, atheism, irreligion.",
+        quranUsage = "Zandaqah is heresy. Zindiq is heretic.",
+        notes = "Denying fundamental beliefs is zandaqah."
+      ),
+      RootMeaningData(
+        root = "إ-ل-ح-د",
+        primaryMeaning = "deviate, atheism",
+        extendedMeaning = "Deviation from truth, atheism.",
+        quranUsage = "'Those who deviate (yulhidun) in His names.' Ilhad is deviation/atheism.",
+        notes = "Ilhad is deviating from the truth about Allah."
+      ),
+      RootMeaningData(
+        root = "ض-ل-ل",
+        primaryMeaning = "stray, misguidance",
+        extendedMeaning = "Going astray, misguidance.",
+        quranUsage = "'Not those who went astray (dallin).' Dalal is misguidance. Dalil is proof.",
+        notes = "Al-Fatiha asks for protection from misguidance."
+      ),
+      RootMeaningData(
+        root = "غ-و-ي",
+        primaryMeaning = "deviate, seduce, error",
+        extendedMeaning = "Deviation, seduction into error.",
+        quranUsage = "'By Your might, I will mislead (la-ughwiyannahum) them.' Ghawayah is deviation.",
+        notes = "Satan vowed to mislead humanity."
+      ),
+      RootMeaningData(
+        root = "ف-ت-ن",
+        primaryMeaning = "trial, test, temptation",
+        extendedMeaning = "Trial, testing, and temptation.",
+        quranUsage = "'We tested (fatanna) them.' Fitnah is trial. Fattan is tempter.",
+        notes = "Life is full of trials (fitan) that test faith."
+      ),
+      RootMeaningData(
+        root = "ب-ل-و",
+        primaryMeaning = "test, afflict, wear",
+        extendedMeaning = "Testing, afflicting, and wearing out.",
+        quranUsage = "'We tested (balawna) them.' Bala' is trial. Ibtila' is testing.",
+        notes = "Tests reveal the true nature of faith."
+      ),
+      RootMeaningData(
+        root = "إ-م-ت-ح-ن",
+        primaryMeaning = "test, examine",
+        extendedMeaning = "Testing, examining.",
+        quranUsage = "'Allah tests (yamtahinu) your hearts.' Imtihan is examination.",
+        notes = "Allah tests hearts to reveal what's inside."
+      ),
+      RootMeaningData(
+        root = "ث-و-ب",
+        primaryMeaning = "reward, return, garment",
+        extendedMeaning = "Reward, returning, and garment.",
+        quranUsage = "'A great reward (thawab).' Thawab is reward. Thawb is garment.",
+        notes = "Good deeds earn thawab (reward)."
+      ),
+      RootMeaningData(
+        root = "أ-ج-ر",
+        primaryMeaning = "reward, wage, hire",
+        extendedMeaning = "Reward, wages, and hiring.",
+        quranUsage = "'Their reward (ajr) is with their Lord.' Ajr is reward. Ijara is hiring.",
+        notes = "Believers will receive their full reward."
+      ),
+      RootMeaningData(
+        root = "ف-و-ز",
+        primaryMeaning = "success, salvation",
+        extendedMeaning = "Success, triumph, salvation.",
+        quranUsage = "'That is the great success (fawz).' Fawz is success. Fa'iz is successful.",
+        notes = "True success is entering Paradise."
+      ),
+      RootMeaningData(
+        root = "خ-س-ر",
+        primaryMeaning = "loss, failure",
+        extendedMeaning = "Loss, failure, perdition.",
+        quranUsage = "'Those are the losers (khasirun).' Khusran is loss.",
+        notes = "Surah Al-'Asr says all are in loss except believers."
+      ),
+      RootMeaningData(
+        root = "ه-د-ي",
+        primaryMeaning = "guide, guidance, gift",
+        extendedMeaning = "Guiding, guidance, and gift.",
+        quranUsage = "'Guide us (ihdina) to the straight path.' Huda is guidance. Hadiyah is gift.",
+        notes = "Guidance is the greatest gift from Allah."
+      ),
+      RootMeaningData(
+        root = "ر-ش-د",
+        primaryMeaning = "right path, maturity",
+        extendedMeaning = "Right guidance, maturity, integrity.",
+        quranUsage = "'That they might be guided to the right (rushd).' Rushd is right guidance.",
+        notes = "Rashid means rightly guided."
+      ),
+
+      // === SOUNDS AND NOISES ===
+      RootMeaningData(
+        root = "ص-و-ت",
+        primaryMeaning = "sound, voice, vote",
+        extendedMeaning = "Sound, voice, and voting.",
+        quranUsage = "'Lower your voice (sawt).' Sawt is sound/voice.",
+        notes = "Lowering one's voice shows respect and humility."
+      ),
+      RootMeaningData(
+        root = "ن-ع-ق",
+        primaryMeaning = "croak, bleat, call",
+        extendedMeaning = "Animal sounds, croaking, bleating.",
+        quranUsage = "'Like one who calls (yan'iqu) to that which hears nothing.' Na'iq is one who calls.",
+        notes = "Calling disbelievers is like calling animals that don't understand."
+      ),
+      RootMeaningData(
+        root = "ص-ر-ر",
+        primaryMeaning = "squeak, creak, persist",
+        extendedMeaning = "Squeaking sound, and persisting.",
+        quranUsage = "'In a cry (sarrah).' Sarrah is cry/scream. Israr is persistence.",
+        notes = "The old woman cried out in amazement."
+      ),
+      RootMeaningData(
+        root = "ط-ن-ن",
+        primaryMeaning = "ring, buzz, resound",
+        extendedMeaning = "Ringing, buzzing sound.",
+        quranUsage = "Tanin is ringing/buzzing. The ears ring from loud sounds.",
+        notes = "The trumpet blast will ring throughout creation."
+      ),
+      RootMeaningData(
+        root = "د-و-ي",
+        primaryMeaning = "echo, resound",
+        extendedMeaning = "Echoing, resounding.",
+        quranUsage = "Dawiy is echo/resounding. Sounds echo in valleys.",
+        notes = "Voices echo and return - like deeds returning."
+      ),
+      RootMeaningData(
+        root = "ه-م-هم",
+        primaryMeaning = "murmur, mutter",
+        extendedMeaning = "Murmuring, muttering low sounds.",
+        quranUsage = "Hamhamah is murmuring. Low indistinct sounds.",
+        notes = "Plotting often involves murmuring."
+      ),
+      RootMeaningData(
+        root = "غ-م-غ-م",
+        primaryMeaning = "mumble, indistinct speech",
+        extendedMeaning = "Mumbling, unclear speech.",
+        quranUsage = "Ghamghamah is mumbling. Unclear, confused speech.",
+        notes = "Clear speech is better than mumbling."
+      ),
+      RootMeaningData(
+        root = "ز-ف-ر",
+        primaryMeaning = "sigh, exhale, groan",
+        extendedMeaning = "Sighing, exhaling, groaning.",
+        quranUsage = "'For them therein is sighing (zafir).' Zafir is sighing/groaning.",
+        notes = "The people of Hell sigh and groan."
+      ),
+      RootMeaningData(
+        root = "ش-ه-ق",
+        primaryMeaning = "inhale, gasp, bray",
+        extendedMeaning = "Inhaling, gasping, braying of donkey.",
+        quranUsage = "'For them therein is inhaling (shahiq).' Shahiq is gasping/inhaling.",
+        notes = "The people of Hell gasp for breath."
+      ),
+      RootMeaningData(
+        root = "ن-ح-ب",
+        primaryMeaning = "sob, weep, vow",
+        extendedMeaning = "Sobbing, weeping loudly.",
+        quranUsage = "'Some fulfilled their vow (nahb).' Nahib is sobbing. Nahb is vow fulfilled.",
+        notes = "Some believers fulfilled their pledge through martyrdom."
+      ),
+      RootMeaningData(
+        root = "ب-ك-ي",
+        primaryMeaning = "weep, cry",
+        extendedMeaning = "Weeping, crying.",
+        quranUsage = "'They fall down weeping (bukiyyan).' Buka' is weeping.",
+        notes = "The righteous weep when they hear Allah's words."
+      ),
+      RootMeaningData(
+        root = "ض-ح-ك",
+        primaryMeaning = "laugh, smile",
+        extendedMeaning = "Laughing, smiling.",
+        quranUsage = "'She laughed (dahikat).' Dahk is laughter.",
+        notes = "Sarah laughed when given news of a son in old age."
+      ),
+      RootMeaningData(
+        root = "ق-ه-ق-ه",
+        primaryMeaning = "loud laughter",
+        extendedMeaning = "Loud, boisterous laughter.",
+        quranUsage = "Qahqahah is loud laughter.",
+        notes = "Excessive loud laughter is discouraged."
+      ),
+      RootMeaningData(
+        root = "ت-ب-س-م",
+        primaryMeaning = "smile",
+        extendedMeaning = "Smiling.",
+        quranUsage = "'He smiled (tabassama) laughing.' Tabassama is to smile.",
+        notes = "Sulayman smiled at the ant's words."
+      ),
+
+      // === TEXTURES AND SURFACES ===
+      RootMeaningData(
+        root = "ن-ع-م",
+        primaryMeaning = "soft, smooth, blessing",
+        extendedMeaning = "Softness, smoothness, and blessings.",
+        quranUsage = "'In soft (na'im) life.' Na'im is soft/blissful. Ni'mah is blessing.",
+        notes = "Paradise life is soft, smooth, and blissful."
+      ),
+      RootMeaningData(
+        root = "خ-ش-ن",
+        primaryMeaning = "rough, coarse",
+        extendedMeaning = "Roughness, coarseness.",
+        quranUsage = "Khushuunah is roughness. Khashin is rough.",
+        notes = "Rough cloth was worn by the ascetic."
+      ),
+      RootMeaningData(
+        root = "م-ل-س",
+        primaryMeaning = "smooth, slippery",
+        extendedMeaning = "Smoothness, being slippery.",
+        quranUsage = "Amlas is smooth. Muluusah is smoothness.",
+        notes = "Some surfaces are smooth and slippery."
+      ),
+      RootMeaningData(
+        root = "و-ع-ر",
+        primaryMeaning = "rough terrain, difficult",
+        extendedMeaning = "Rough, uneven terrain, difficulty.",
+        quranUsage = "Wa'r is rough terrain. Wu'urah is roughness.",
+        notes = "Difficult paths require perseverance."
+      ),
+      RootMeaningData(
+        root = "ص-ق-ل",
+        primaryMeaning = "polish, burnish",
+        extendedMeaning = "Polishing, making smooth and shiny.",
+        quranUsage = "Saqal is to polish. Masqul is polished.",
+        notes = "Hearts are polished through remembrance."
+      ),
+      RootMeaningData(
+        root = "ص-د-ء",
+        primaryMeaning = "rust, tarnish",
+        extendedMeaning = "Rust, tarnishing.",
+        quranUsage = "'Rust (ran) has covered their hearts.' Sada' is rust.",
+        notes = "Sin causes hearts to rust and tarnish."
+      ),
+      RootMeaningData(
+        root = "ل-م-ع",
+        primaryMeaning = "shine, glitter, flash",
+        extendedMeaning = "Shining, glittering.",
+        quranUsage = "Lam' is shining. Lami' is shiny.",
+        notes = "Truth shines and falsehood fades."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ق",
+        primaryMeaning = "shine, lightning, gleam",
+        extendedMeaning = "Shining like lightning, gleaming.",
+        quranUsage = "'When vision is dazzled (bariqa).' Bariq is shining.",
+        notes = "Eyes will be dazzled on Judgment Day."
+      ),
+
+      // === SHAPES AND FORMS ===
+      RootMeaningData(
+        root = "د-و-ر",
+        primaryMeaning = "circle, round, rotate",
+        extendedMeaning = "Circle, roundness, rotation.",
+        quranUsage = "'Their eyes rotating (tadur).' Dawrah is circle. Mudawwar is round.",
+        notes = "Orbits are circular; history cycles."
+      ),
+      RootMeaningData(
+        root = "م-ر-ب-ع",
+        primaryMeaning = "square, four-sided",
+        extendedMeaning = "Square, quadrilateral.",
+        quranUsage = "Murabba' is square. Related to four (arba'ah).",
+        notes = "The Kaaba is roughly cube-shaped."
+      ),
+      RootMeaningData(
+        root = "م-ث-ل-ث",
+        primaryMeaning = "triangle, three-sided",
+        extendedMeaning = "Triangle, three-sided shape.",
+        quranUsage = "Muthallath is triangle. Related to three (thalathah).",
+        notes = "Triangular shapes appear in nature."
+      ),
+      RootMeaningData(
+        root = "ط-و-ل",
+        primaryMeaning = "long, length",
+        extendedMeaning = "Length, being long.",
+        quranUsage = "'A long (tawil) period.' Tul is length. Tawil is long.",
+        notes = "Some surahs are long (tiwal)."
+      ),
+      RootMeaningData(
+        root = "ق-ص-ر",
+        primaryMeaning = "short, shorten, palace",
+        extendedMeaning = "Shortness, being short.",
+        quranUsage = "'Shorten (taqsuru) the prayer.' Qasir is short.",
+        notes = "Prayers can be shortened during travel."
+      ),
+      RootMeaningData(
+        root = "ع-ر-ض",
+        primaryMeaning = "wide, width, present",
+        extendedMeaning = "Width, being wide.",
+        quranUsage = "'Its width ('ard) is the heavens.' 'Arid is wide.",
+        notes = "Paradise is as wide as the heavens and earth."
+      ),
+      RootMeaningData(
+        root = "ض-ي-ق",
+        primaryMeaning = "narrow, tight, distress",
+        extendedMeaning = "Narrowness, tightness, and distress.",
+        quranUsage = "'His chest becomes tight (dayiq).' Diq is narrowness.",
+        notes = "Disbelief makes the chest tight; faith expands it."
+      ),
+      RootMeaningData(
+        root = "و-س-ع",
+        primaryMeaning = "wide, spacious, encompass",
+        extendedMeaning = "Wideness, spaciousness, encompassing.",
+        quranUsage = "'Allah is Vast (Wasi').' Si'ah is spaciousness.",
+        notes = "Al-Wasi' (The Vast) - Allah's mercy encompasses all."
+      ),
+      RootMeaningData(
+        root = "ع-م-ق",
+        primaryMeaning = "deep, depth",
+        extendedMeaning = "Depth, being deep.",
+        quranUsage = "'From every deep (amiq) pass.' 'Umq is depth.",
+        notes = "Pilgrims come from every distant, deep valley."
+      ),
+      RootMeaningData(
+        root = "س-ط-ح",
+        primaryMeaning = "flat, surface, spread",
+        extendedMeaning = "Flat surface, spreading out.",
+        quranUsage = "'How it was spread out (sutihat).' Sath is surface.",
+        notes = "The earth was spread out as a surface."
+      ),
+      RootMeaningData(
+        root = "ح-د-ب",
+        primaryMeaning = "hump, convex, slope",
+        extendedMeaning = "Hump, convexity, sloping.",
+        quranUsage = "'From every elevation (hadab).' Hadab is elevation/slope.",
+        notes = "People will come from every hill and slope."
+      ),
+      RootMeaningData(
+        root = "ق-ع-ر",
+        primaryMeaning = "bottom, depth, hollow",
+        extendedMeaning = "Bottom, depths, hollow.",
+        quranUsage = "'To the bottom (qa'r) of the pit.' Qa'r is bottom.",
+        notes = "Hell has deep bottoms."
+      ),
+      RootMeaningData(
+        root = "ذ-ر-و",
+        primaryMeaning = "peak, summit, top",
+        extendedMeaning = "Peak, summit, highest point.",
+        quranUsage = "Dhirwah is peak. The highest point.",
+        notes = "Mountains have peaks that reach the sky."
+      ),
+
+      // === MORE ACTION VERBS ===
+      RootMeaningData(
+        root = "ف-ع-ل",
+        primaryMeaning = "do, act, deed",
+        extendedMeaning = "Doing, acting, and deeds.",
+        quranUsage = "'Allah does (yaf'al) what He wills.' Fi'l is deed. Fa'il is doer.",
+        notes = "Every deed will be accounted for."
+      ),
+      RootMeaningData(
+        root = "ع-م-ل",
+        primaryMeaning = "work, act, deed",
+        extendedMeaning = "Working, acting, and deeds.",
+        quranUsage = "'Those who believe and do good deeds ('amilu).' 'Amal is work/deed.",
+        notes = "Faith must be combined with good deeds."
+      ),
+      RootMeaningData(
+        root = "ص-ن-ع",
+        primaryMeaning = "make, craft, manufacture",
+        extendedMeaning = "Making, crafting, manufacturing.",
+        quranUsage = "'The making (sun') of Allah.' San'ah is craft.",
+        notes = "Allah's craftsmanship is perfect."
+      ),
+      RootMeaningData(
+        root = "ج-ع-ل",
+        primaryMeaning = "make, appoint, place",
+        extendedMeaning = "Making, appointing, placing.",
+        quranUsage = "'We made (ja'alna) you into nations.' Ja'l is making/appointing.",
+        notes = "Allah appoints and places everything with wisdom."
+      ),
+      RootMeaningData(
+        root = "خ-ل-ق",
+        primaryMeaning = "create, character",
+        extendedMeaning = "Creating, character, nature.",
+        quranUsage = "'He who created (khalaqa) you.' Khalq is creation. Khuluq is character.",
+        notes = "Allah creates and shapes moral character."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ء",
+        primaryMeaning = "create, originate, innocent",
+        extendedMeaning = "Creating from nothing, being innocent.",
+        quranUsage = "'The Originator (Bari').' Bara'ah is innocence.",
+        notes = "Al-Bari' creates without prior model."
+      ),
+      RootMeaningData(
+        root = "ذ-ر-ء",
+        primaryMeaning = "create, scatter, multiply",
+        extendedMeaning = "Creating and scattering, multiplying.",
+        quranUsage = "'He scattered (dhara'a) in it creatures.' Dhar' is scattering/creating.",
+        notes = "Allah scattered diverse creatures across the earth."
+      ),
+      RootMeaningData(
+        root = "أ-ت-ي",
+        primaryMeaning = "come, bring, give",
+        extendedMeaning = "Coming, bringing, giving.",
+        quranUsage = "'The command of Allah will come (ata).' Ityan is coming.",
+        notes = "The Hour will surely come."
+      ),
+      RootMeaningData(
+        root = "ج-ي-ء",
+        primaryMeaning = "come, arrive",
+        extendedMeaning = "Coming, arriving.",
+        quranUsage = "'When the help of Allah comes (ja'a).' Maji' is coming.",
+        notes = "Victory comes from Allah alone."
+      ),
+      RootMeaningData(
+        root = "ذ-ه-ب",
+        primaryMeaning = "go, depart, gold",
+        extendedMeaning = "Going, departing, and gold.",
+        quranUsage = "'They went (dhahabu) away.' Dhahab is gold/going.",
+        notes = "The brothers went away after selling Yusuf."
+      ),
+      RootMeaningData(
+        root = "ر-ج-ع",
+        primaryMeaning = "return, come back",
+        extendedMeaning = "Returning, coming back.",
+        quranUsage = "'To Allah is the return (ruju').' Ruju' is return.",
+        notes = "All return to Allah for judgment."
+      ),
+      RootMeaningData(
+        root = "و-ل-ي",
+        primaryMeaning = "turn, follow, guardian",
+        extendedMeaning = "Turning, following, and guardianship.",
+        quranUsage = "'Allah is the Guardian (Wali).' Wilayah is guardianship.",
+        notes = "Al-Wali - Allah is the Guardian of believers."
+      ),
+      RootMeaningData(
+        root = "ت-ب-ع",
+        primaryMeaning = "follow, succeed",
+        extendedMeaning = "Following, succeeding.",
+        quranUsage = "'Follow (ittabi') the best of what was revealed.' Tabi' is follower.",
+        notes = "Following the Prophet's way is essential."
+      ),
+      RootMeaningData(
+        root = "ق-د-م",
+        primaryMeaning = "advance, precede, foot",
+        extendedMeaning = "Advancing, preceding, and foot.",
+        quranUsage = "'What your hands have put forward (qaddamat).' Taqaddama is to advance.",
+        notes = "Deeds precede us to the Hereafter."
+      ),
+      RootMeaningData(
+        root = "أ-خ-ر",
+        primaryMeaning = "delay, postpone, last",
+        extendedMeaning = "Delaying, postponing, being last.",
+        quranUsage = "'What you delayed (akhkharta).' Ta'khir is delay.",
+        notes = "Allah forgives past and future sins."
+      ),
+      RootMeaningData(
+        root = "س-ب-ق",
+        primaryMeaning = "precede, race, surpass",
+        extendedMeaning = "Preceding, racing, surpassing.",
+        quranUsage = "'Race (sabiqu) toward forgiveness.' Sabq is precedence.",
+        notes = "Race toward good deeds before death."
+      ),
+      RootMeaningData(
+        root = "ل-ح-ق",
+        primaryMeaning = "catch up, join, follow",
+        extendedMeaning = "Catching up, joining, following.",
+        quranUsage = "'Those who have not yet joined (yalhaquu) them.' Luhooq is catching up.",
+        notes = "Later generations will join the earlier ones."
+      ),
+      RootMeaningData(
+        root = "و-ص-ل",
+        primaryMeaning = "connect, arrive, join",
+        extendedMeaning = "Connecting, arriving, joining.",
+        quranUsage = "'Join (tasilu) what Allah commanded to be joined.' Silah is connection.",
+        notes = "Maintaining family ties (silah) is obligatory."
+      ),
+      RootMeaningData(
+        root = "ف-ص-ل",
+        primaryMeaning = "separate, detail, decide",
+        extendedMeaning = "Separating, detailing, deciding.",
+        quranUsage = "'A decisive (fasl) word.' Fasl is separation/decision. Tafsil is detail.",
+        notes = "The Quran distinguishes truth from falsehood."
+      ),
+      RootMeaningData(
+        root = "ق-ط-ع",
+        primaryMeaning = "cut, sever, cross",
+        extendedMeaning = "Cutting, severing, crossing.",
+        quranUsage = "'Cut off (qata'a) the way.' Qat' is cutting. Munqati' is interrupted.",
+        notes = "Highway robbery (cutting roads) is severely punished."
+      ),
+      RootMeaningData(
+        root = "ش-ق-ق",
+        primaryMeaning = "split, divide, oppose",
+        extendedMeaning = "Splitting, dividing, opposing.",
+        quranUsage = "'We split (shaqaqna) the earth.' Shaqq is splitting. Shiqaq is discord.",
+        notes = "Allah splits the earth for plants to grow."
+      ),
+      RootMeaningData(
+        root = "ف-ل-ق",
+        primaryMeaning = "split, cleave, dawn",
+        extendedMeaning = "Splitting, cleaving, daybreak.",
+        quranUsage = "'Splitter (Faliq) of the seed.' Falaq is daybreak/splitting.",
+        notes = "Surah Al-Falaq - The Daybreak. Seeds split to grow."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ج",
+        primaryMeaning = "open, relieve, gap",
+        extendedMeaning = "Opening, relief, gap.",
+        quranUsage = "'We opened (farrajna) it.' Faraj is relief. Farj is opening/gap.",
+        notes = "Allah provides relief from every difficulty."
+      ),
+      RootMeaningData(
+        root = "س-د-د",
+        primaryMeaning = "close, block, correct",
+        extendedMeaning = "Closing, blocking, being correct.",
+        quranUsage = "'A barrier (sadd) behind them.' Sadd is barrier. Sadid is correct.",
+        notes = "Barriers block and correct speech hits the mark."
+      ),
+      RootMeaningData(
+        root = "ح-ج-ب",
+        primaryMeaning = "veil, screen, prevent",
+        extendedMeaning = "Veiling, screening, preventing.",
+        quranUsage = "'They are screened (mahjubun).' Hijab is veil/screen.",
+        notes = "The wicked will be screened from seeing Allah."
+      ),
+      RootMeaningData(
+        root = "ك-ش-ف",
+        primaryMeaning = "uncover, reveal, remove",
+        extendedMeaning = "Uncovering, revealing, removing.",
+        quranUsage = "'If We remove (kashafna) the punishment.' Kashf is uncovering.",
+        notes = "Only Allah can remove affliction."
+      ),
+      RootMeaningData(
+        root = "س-ت-ر",
+        primaryMeaning = "cover, conceal, screen",
+        extendedMeaning = "Covering, concealing, screening.",
+        quranUsage = "'Allah is Concealer (Satir).' Sitr is covering.",
+        notes = "Allah conceals the faults of His servants."
+      ),
+      RootMeaningData(
+        root = "ع-ر-ي",
+        primaryMeaning = "bare, naked, strip",
+        extendedMeaning = "Being bare, naked, stripped.",
+        quranUsage = "'That your nakedness ('awrah) be not exposed.' 'Uryan is naked.",
+        notes = "Covering nakedness is obligatory."
+      ),
+      RootMeaningData(
+        root = "ك-س-و",
+        primaryMeaning = "clothe, dress",
+        extendedMeaning = "Clothing, dressing.",
+        quranUsage = "'We clothed (kasawna) the bones with flesh.' Kiswa is clothing.",
+        notes = "Allah clothed bones with flesh in creation."
+      ),
+      RootMeaningData(
+        root = "ل-ب-س",
+        primaryMeaning = "wear, clothe, confuse",
+        extendedMeaning = "Wearing, clothing, and confusing.",
+        quranUsage = "'Do not confuse (talbisu) truth with falsehood.' Libs is wearing. Labs is confusion.",
+        notes = "Don't dress truth in the garb of falsehood."
+      ),
+      RootMeaningData(
+        root = "ن-ز-ع",
+        primaryMeaning = "remove, extract, pluck",
+        extendedMeaning = "Removing, extracting, plucking out.",
+        quranUsage = "'He removed (naza'a) from them their clothing.' Naz' is removing.",
+        notes = "Satan stripped Adam and Hawwa of Paradise clothing."
+      ),
+      RootMeaningData(
+        root = "ج-ذ-ب",
+        primaryMeaning = "pull, attract, draw",
+        extendedMeaning = "Pulling, attracting, drawing toward.",
+        quranUsage = "Jadhb is pulling. Jadhibah is attraction.",
+        notes = "Hearts are attracted to truth."
+      ),
+      RootMeaningData(
+        root = "د-ف-ع",
+        primaryMeaning = "push, repel, prevent",
+        extendedMeaning = "Pushing, repelling, preventing.",
+        quranUsage = "'Allah repels (yadfa'u) by some people.' Daf' is pushing/repelling.",
+        notes = "Allah uses some people to repel corruption from others."
+      ),
+      RootMeaningData(
+        root = "ش-د-د",
+        primaryMeaning = "strengthen, tighten, intense",
+        extendedMeaning = "Strengthening, tightening, intensity.",
+        quranUsage = "'We strengthened (shadadna) their hearts.' Shadid is intense/severe.",
+        notes = "Allah strengthened the hearts of the People of the Cave."
+      ),
+      RootMeaningData(
+        root = "ر-خ-و",
+        primaryMeaning = "loosen, relax, soft",
+        extendedMeaning = "Loosening, relaxing, being soft.",
+        quranUsage = "Rukhawah is looseness. Rakhi is loose/relaxed.",
+        notes = "After hardship comes ease and relaxation."
+      ),
+      RootMeaningData(
+        root = "م-د-د",
+        primaryMeaning = "extend, stretch, supply",
+        extendedMeaning = "Extending, stretching, supplying.",
+        quranUsage = "'We extended (madadna) the earth.' Madd is extension. Madad is supply.",
+        notes = "Allah spread out the earth and supplies provision."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ض",
+        primaryMeaning = "grasp, contract, seize",
+        extendedMeaning = "Grasping, contracting, seizing.",
+        quranUsage = "'The earth entirely in His grasp (qabdatihi).' Qabd is grasping.",
+        notes = "The entire earth will be in Allah's grasp."
+      ),
+      RootMeaningData(
+        root = "ب-س-ط",
+        primaryMeaning = "spread, extend, expand",
+        extendedMeaning = "Spreading, extending, expanding.",
+        quranUsage = "'Allah expands (yabsutu) provision.' Bast is expansion.",
+        notes = "Allah contracts and expands as He wills."
+      ),
+
+      // === SOCIAL AND COMMUNITY ===
+      RootMeaningData(
+        root = "ج-م-ع",
+        primaryMeaning = "gather, unite, Friday",
+        extendedMeaning = "Gathering, uniting, and Friday.",
+        quranUsage = "'The Day of Gathering (jam').' Jumu'ah is Friday. Jama'ah is congregation.",
+        notes = "Friday is the day of congregational gathering."
+      ),
+      RootMeaningData(
+        root = "ف-ر-ق",
+        primaryMeaning = "divide, separate, group",
+        extendedMeaning = "Dividing, separating, and a group.",
+        quranUsage = "'Do not be of those who divided (farraqu).' Firqah is group/sect.",
+        notes = "Dividing religion into sects is condemned."
+      ),
+      RootMeaningData(
+        root = "ح-ز-ب",
+        primaryMeaning = "party, faction, portion",
+        extendedMeaning = "Party, faction, and portion.",
+        quranUsage = "'The party (hizb) of Allah.' Hizb is party. Ahzab are factions.",
+        notes = "The party of Allah will be successful."
+      ),
+      RootMeaningData(
+        root = "ش-ي-ع",
+        primaryMeaning = "sect, follower, spread",
+        extendedMeaning = "Sect, followers, and spreading.",
+        quranUsage = "'Into sects (shiya').' Shi'ah is sect/party. Ishaah is spreading.",
+        notes = "Humanity divided into different groups."
+      ),
+      RootMeaningData(
+        root = "ق-و-م",
+        primaryMeaning = "people, nation, stand",
+        extendedMeaning = "People, nation, and standing.",
+        quranUsage = "'O my people (qawm)!' Qawm is people/nation.",
+        notes = "Each prophet addressed his own people."
+      ),
+      RootMeaningData(
+        root = "أ-م-م",
+        primaryMeaning = "nation, community, mother",
+        extendedMeaning = "Nation, community, and mother.",
+        quranUsage = "'You are the best nation (ummah).' Ummah is nation. Umm is mother.",
+        notes = "The Muslim ummah is one global community."
+      ),
+      RootMeaningData(
+        root = "ش-ع-ب",
+        primaryMeaning = "people, branch, divide",
+        extendedMeaning = "People, branch, and dividing.",
+        quranUsage = "'We made you into peoples (shu'ub) and tribes.' Sha'b is people.",
+        notes = "Diversity of peoples is for knowing each other."
+      ),
+      RootMeaningData(
+        root = "ق-ب-ل",
+        primaryMeaning = "tribe, accept, before",
+        extendedMeaning = "Tribe, acceptance, and before.",
+        quranUsage = "'Peoples and tribes (qaba'il).' Qabilah is tribe. Qabul is acceptance.",
+        notes = "Tribes identify lineage but don't determine worth."
+      ),
+      RootMeaningData(
+        root = "ع-ش-ر",
+        primaryMeaning = "associate, ten, clan",
+        extendedMeaning = "Associating, companionship, and clan.",
+        quranUsage = "'Warn your closest clan ('ashirah).' 'Ashirah is clan. Mu'asharah is companionship.",
+        notes = "The Prophet first warned his closest relatives."
+      ),
+      RootMeaningData(
+        root = "أ-ه-ل",
+        primaryMeaning = "family, people, worthy",
+        extendedMeaning = "Family, people of, and being worthy.",
+        quranUsage = "'People (ahl) of the Book.' Ahl is family/people. Ahliyyah is worthiness.",
+        notes = "Ahl al-Kitab are Jews and Christians."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ب",
+        primaryMeaning = "companion, accompany",
+        extendedMeaning = "Companionship, accompanying.",
+        quranUsage = "'His companion (sahib) said to him.' Sahib is companion. Suhbah is companionship.",
+        notes = "The Prophet's companions are called Sahabah."
+      ),
+      RootMeaningData(
+        root = "ر-ف-ق",
+        primaryMeaning = "companion, gentle, elbow",
+        extendedMeaning = "Companion, gentleness, and elbow.",
+        quranUsage = "'Good companions (rafiq).' Rifq is gentleness. Rafiq is companion.",
+        notes = "The Prophet will be with the prophets as rafiq."
+      ),
+      RootMeaningData(
+        root = "ج-و-ر",
+        primaryMeaning = "neighbor, injustice, deviate",
+        extendedMeaning = "Neighbor, injustice, and deviation.",
+        quranUsage = "'The neighbor (jar).' Jar is neighbor. Jawr is injustice.",
+        notes = "Neighbors have great rights in Islam."
+      ),
+      RootMeaningData(
+        root = "ق-ر-ب",
+        primaryMeaning = "near, relative, offering",
+        extendedMeaning = "Nearness, relatives, and offering.",
+        quranUsage = "'Relatives (aqribun).' Qarib is near/relative. Qurban is offering.",
+        notes = "Kindness to relatives is emphasized."
+      ),
+      RootMeaningData(
+        root = "ب-ع-د",
+        primaryMeaning = "far, distant, after",
+        extendedMeaning = "Being far, distant.",
+        quranUsage = "'Far removed (ba'idan).' Bu'd is distance. Ba'id is far.",
+        notes = "Being far from Allah is spiritual destruction."
+      ),
+      RootMeaningData(
+        root = "غ-ر-ب",
+        primaryMeaning = "stranger, west, strange",
+        extendedMeaning = "Being strange, foreign, and the west.",
+        quranUsage = "Gharib is stranger. Ghurbah is being foreign.",
+        notes = "Islam began strange and will return strange."
+      ),
+
+      // === ETHICAL AND MORAL CONCEPTS ===
+      RootMeaningData(
+        root = "ح-س-ن",
+        primaryMeaning = "good, beautiful, excellence",
+        extendedMeaning = "Goodness, beauty, and excellence.",
+        quranUsage = "'Allah commands justice and excellence (ihsan).' Husn is beauty. Hasanah is good deed.",
+        notes = "Ihsan is worshipping as if you see Allah."
+      ),
+      RootMeaningData(
+        root = "س-و-ء",
+        primaryMeaning = "evil, bad, harm",
+        extendedMeaning = "Evil, badness, and harm.",
+        quranUsage = "'Whoever does evil (su').' Sayyi'ah is bad deed. Su' is evil.",
+        notes = "Evil deeds harm the doer first."
+      ),
+      RootMeaningData(
+        root = "ب-ر-ر",
+        primaryMeaning = "righteousness, piety, land",
+        extendedMeaning = "Righteousness, piety, and dry land.",
+        quranUsage = "'Righteousness (birr) is not...' Birr is righteousness. Barr is land/righteous.",
+        notes = "True birr is comprehensive righteousness."
+      ),
+      RootMeaningData(
+        root = "ف-ج-ر",
+        primaryMeaning = "wickedness, dawn, burst",
+        extendedMeaning = "Wickedness, dawn, and bursting forth.",
+        quranUsage = "'The wicked (fujjar).' Fujur is wickedness. Fajr is dawn.",
+        notes = "The wicked and the righteous have different fates."
+      ),
+      RootMeaningData(
+        root = "ت-ق-و",
+        primaryMeaning = "piety, fear, protect",
+        extendedMeaning = "Piety, God-consciousness, protection.",
+        quranUsage = "'Those who have piety (taqwa).' Taqwa is God-consciousness. Muttaqi is pious.",
+        notes = "Taqwa is the best provision for the journey."
+      ),
+      RootMeaningData(
+        root = "و-ر-ع",
+        primaryMeaning = "piety, scrupulousness",
+        extendedMeaning = "Piety, being scrupulous about religion.",
+        quranUsage = "Wara' is scrupulous piety. Avoiding doubtful matters.",
+        notes = "Wara' is leaving what is doubtful."
+      ),
+      RootMeaningData(
+        root = "ز-ه-د",
+        primaryMeaning = "asceticism, renunciation",
+        extendedMeaning = "Asceticism, renouncing worldly pleasures.",
+        quranUsage = "'They sold him for a small price, showing no interest (zahidin).' Zuhd is asceticism.",
+        notes = "Zuhd is not wanting what you don't have."
+      ),
+      RootMeaningData(
+        root = "ط-م-ع",
+        primaryMeaning = "greed, covet, hope",
+        extendedMeaning = "Greed, coveting, eager hope.",
+        quranUsage = "'They hope (yatma'un) in His mercy.' Tama' is greed/hope.",
+        notes = "Greed for worldly things is blameworthy; hope in Allah's mercy is praiseworthy."
+      ),
+      RootMeaningData(
+        root = "ش-ح-ح",
+        primaryMeaning = "stinginess, miserliness",
+        extendedMeaning = "Stinginess, miserliness.",
+        quranUsage = "'Whoever is protected from the stinginess (shuhh) of his soul.' Shuhh is miserliness.",
+        notes = "Stinginess of the soul must be overcome."
+      ),
+      RootMeaningData(
+        root = "ج-و-د",
+        primaryMeaning = "generosity, excellence",
+        extendedMeaning = "Generosity, excellence, quality.",
+        quranUsage = "Jud is generosity. Jawad is generous. Jayyid is excellent.",
+        notes = "The Prophet was the most generous of people."
+      ),
+      RootMeaningData(
+        root = "ب-ذ-ل",
+        primaryMeaning = "give freely, expend",
+        extendedMeaning = "Giving freely, expending without hesitation.",
+        quranUsage = "Badhl is giving freely. Badhil is one who gives.",
+        notes = "Giving freely in Allah's cause is rewarded."
+      ),
+      RootMeaningData(
+        root = "ع-ف-و",
+        primaryMeaning = "pardon, forgive, excess",
+        extendedMeaning = "Pardoning, forgiving, and excess.",
+        quranUsage = "'Pardon (a'fu) them.' 'Afw is pardon. 'Afuw is Most Pardoning.",
+        notes = "Pardoning erases sins as if they never existed."
+      ),
+      RootMeaningData(
+        root = "ص-ف-ح",
+        primaryMeaning = "forgive, turn away, page",
+        extendedMeaning = "Forgiving by turning away from offense.",
+        quranUsage = "'Turn away (safh) graciously.' Safh is gracious forgiveness.",
+        notes = "Gracious forgiveness ignores the offense entirely."
+      ),
+      RootMeaningData(
+        root = "ح-ق-د",
+        primaryMeaning = "grudge, rancor",
+        extendedMeaning = "Holding grudges, rancor.",
+        quranUsage = "Hiqd is grudge. Haqud is one who holds grudges.",
+        notes = "Believers have no grudges against fellow believers."
+      ),
+      RootMeaningData(
+        root = "ح-س-د",
+        primaryMeaning = "envy, jealousy",
+        extendedMeaning = "Envy, jealousy, wishing others lose blessings.",
+        quranUsage = "'From the evil of an envier (hasid) when he envies.' Hasad is envy.",
+        notes = "Surah Al-Falaq seeks refuge from envy."
+      ),
+      RootMeaningData(
+        root = "غ-ب-ط",
+        primaryMeaning = "good envy, admiration",
+        extendedMeaning = "Wishing for the same blessing without wanting others to lose it.",
+        quranUsage = "Ghibtah is positive envy/admiration.",
+        notes = "Ghibtah is permissible - admiring without malice."
+      ),
+      RootMeaningData(
+        root = "ك-ذ-ب",
+        primaryMeaning = "lie, deny, falsify",
+        extendedMeaning = "Lying, denying, falsifying.",
+        quranUsage = "'Those who lie (kadhabu).' Kidhb is lying. Kadhib is liar.",
+        notes = "Lying is one of the worst sins."
+      ),
+      RootMeaningData(
+        root = "ص-د-ق",
+        primaryMeaning = "truth, sincere, confirm",
+        extendedMeaning = "Truth, sincerity, and confirmation.",
+        quranUsage = "'The truthful (sadiqun).' Sidq is truth. Siddiq is most truthful.",
+        notes = "Abu Bakr was called As-Siddiq for his truthfulness."
+      ),
+      RootMeaningData(
+        root = "خ-و-ن",
+        primaryMeaning = "betray, treachery",
+        extendedMeaning = "Betrayal, treachery.",
+        quranUsage = "'Do not betray (takhun) Allah and the Messenger.' Khiyanah is betrayal.",
+        notes = "Betraying trusts is a sign of hypocrisy."
+      ),
+      RootMeaningData(
+        root = "و-ف-ي",
+        primaryMeaning = "fulfill, loyal, complete",
+        extendedMeaning = "Fulfilling promises, loyalty.",
+        quranUsage = "'Fulfill (awfu) the covenant.' Wafa' is fulfillment. Wafi is loyal.",
+        notes = "Allah always fulfills His promises."
+      ),
+      RootMeaningData(
+        root = "غ-د-ر",
+        primaryMeaning = "treachery, betray",
+        extendedMeaning = "Treachery, betraying agreements.",
+        quranUsage = "'If you fear treachery (khiyanah) from a people.' Ghadr is treachery.",
+        notes = "Breaking treaties is a form of treachery."
+      ),
+      RootMeaningData(
+        root = "أ-م-ن",
+        primaryMeaning = "trust, security, faith",
+        extendedMeaning = "Trust, security, and faith.",
+        quranUsage = "'Those who believe (amanu).' Aman is security. Amanah is trust.",
+        notes = "Iman (faith) brings inner security."
+      ),
+
+      // === NATURAL PHENOMENA EXPANDED ===
+      RootMeaningData(
+        root = "ف-ي-ض",
+        primaryMeaning = "overflow, flood, abundance",
+        extendedMeaning = "Overflowing, flooding, abundance.",
+        quranUsage = "'Their eyes overflow (tafidu) with tears.' Fayd is overflow.",
+        notes = "Eyes overflow with tears from emotion."
+      ),
+      RootMeaningData(
+        root = "ج-ف-ف",
+        primaryMeaning = "dry up, wither",
+        extendedMeaning = "Drying up, withering.",
+        quranUsage = "Jafaf is dryness. Jaffah is to dry up.",
+        notes = "Rivers and plants can dry up."
+      ),
+      RootMeaningData(
+        root = "ي-ب-س",
+        primaryMeaning = "dry, withered",
+        extendedMeaning = "Being dry, withered.",
+        quranUsage = "'Green or dry (yabis).' Yabis is dry.",
+        notes = "Everything green eventually dries."
+      ),
+      RootMeaningData(
+        root = "ر-ط-ب",
+        primaryMeaning = "moist, fresh, ripe",
+        extendedMeaning = "Moisture, freshness.",
+        quranUsage = "'Fresh dates (rutab).' Rutubah is moisture.",
+        notes = "Fresh dates were given to Maryam."
+      ),
+      RootMeaningData(
+        root = "ن-د-ي",
+        primaryMeaning = "moist, dew, generous",
+        extendedMeaning = "Moisture, dew, and generosity.",
+        quranUsage = "Nada is dew/moisture. Nadiy is generous.",
+        notes = "Morning dew refreshes the earth."
+      ),
+      RootMeaningData(
+        root = "ث-ل-ج",
+        primaryMeaning = "snow, ice, cool",
+        extendedMeaning = "Snow, ice.",
+        quranUsage = "Thalj is snow. The Prophet prayed to be purified with snow.",
+        notes = "Snow is pure and purifying."
+      ),
+      RootMeaningData(
+        root = "ج-م-د",
+        primaryMeaning = "freeze, solid, still",
+        extendedMeaning = "Freezing, being solid.",
+        quranUsage = "'You see the mountains thinking them solid (jamidah).' Jumud is solidity.",
+        notes = "Mountains seem solid but will move."
+      ),
+      RootMeaningData(
+        root = "ذ-و-ب",
+        primaryMeaning = "melt, dissolve",
+        extendedMeaning = "Melting, dissolving.",
+        quranUsage = "'It will melt (yadhub).' Dhawaban is melting.",
+        notes = "Hell's heat melts everything."
+      ),
+      RootMeaningData(
+        root = "ف-و-ر",
+        primaryMeaning = "boil, erupt, immediate",
+        extendedMeaning = "Boiling, erupting, immediately.",
+        quranUsage = "'When Hell boils over (farat).' Fawran is immediately. Fawr is boiling.",
+        notes = "Hell boils and erupts with fury."
+      ),
+      RootMeaningData(
+        root = "ه-ي-ج",
+        primaryMeaning = "stir up, excite, wither",
+        extendedMeaning = "Stirring up, exciting, and withering.",
+        quranUsage = "'Then it withers (yahij).' Hayj is excitement. Hayyaj is one who stirs.",
+        notes = "Plants grow green then wither to yellow."
+      ),
+      RootMeaningData(
+        root = "ص-ف-ر",
+        primaryMeaning = "yellow, empty, whistle",
+        extendedMeaning = "Yellowness, emptiness.",
+        quranUsage = "'You see it turn yellow (musfarran).' Safar is yellow. Safir is whistle.",
+        notes = "Vegetation turns yellow before dying."
+      ),
+      RootMeaningData(
+        root = "خ-ض-ر",
+        primaryMeaning = "green, verdant",
+        extendedMeaning = "Greenness, verdure.",
+        quranUsage = "'Green (khudr) garments.' Khadir is green/verdant.",
+        notes = "Green symbolizes life and Paradise."
+      ),
+      RootMeaningData(
+        root = "ن-ض-ر",
+        primaryMeaning = "bloom, flourish, radiant",
+        extendedMeaning = "Blooming, flourishing, radiance.",
+        quranUsage = "'Radiant (nadirah) faces.' Nadrah is radiance/bloom.",
+        notes = "Faces of the blessed will be radiant."
+      ),
+      RootMeaningData(
+        root = "ذ-ب-ل",
+        primaryMeaning = "wilt, wither, fade",
+        extendedMeaning = "Wilting, withering, fading.",
+        quranUsage = "Dhubul is wilting. Dhabala is to wilt.",
+        notes = "Flowers wilt; worldly beauty fades."
+      ),
+
+      // === MORE ABSTRACT AND PHILOSOPHICAL ===
+      RootMeaningData(
+        root = "ح-ق-ق",
+        primaryMeaning = "truth, reality, right",
+        extendedMeaning = "Truth, reality, and rights.",
+        quranUsage = "'The truth (haqq) has come.' Haqq is truth. Haqiqah is reality.",
+        notes = "Al-Haqq (The Truth) is Allah's name."
+      ),
+      RootMeaningData(
+        root = "ب-ط-ل",
+        primaryMeaning = "false, vain, nullify",
+        extendedMeaning = "Falsehood, vanity, nullification.",
+        quranUsage = "'Falsehood (batil) has vanished.' Batil is false. Ibtal is nullification.",
+        notes = "Falsehood is inherently perishable."
+      ),
+      RootMeaningData(
+        root = "ص-ح-ح",
+        primaryMeaning = "correct, healthy, authentic",
+        extendedMeaning = "Correctness, health, authenticity.",
+        quranUsage = "Sahih is correct/authentic. Sihhah is health.",
+        notes = "Sahih hadiths are authentically verified."
+      ),
+      RootMeaningData(
+        root = "خ-ط-ء",
+        primaryMeaning = "mistake, error, sin",
+        extendedMeaning = "Mistake, error, and sin.",
+        quranUsage = "'A great sin (khit').' Khata' is mistake. Khati'ah is sin.",
+        notes = "Mistakes can be forgiven; deliberate sins require repentance."
+      ),
+      RootMeaningData(
+        root = "ص-و-ب",
+        primaryMeaning = "correct, right, pour",
+        extendedMeaning = "Correctness, being right.",
+        quranUsage = "Sawab is correctness. Musib is one who is right.",
+        notes = "Seeking the correct opinion is important."
+      ),
+      RootMeaningData(
+        root = "ع-و-ج",
+        primaryMeaning = "crooked, bent, deviation",
+        extendedMeaning = "Crookedness, deviation from straight.",
+        quranUsage = "'No crookedness ('iwaj) in it.' 'Iwaj is crookedness.",
+        notes = "The straight path has no crookedness."
+      ),
+      RootMeaningData(
+        root = "ق-و-م",
+        primaryMeaning = "straight, upright, stand",
+        extendedMeaning = "Straightness, being upright.",
+        quranUsage = "'The straight (mustaqim) path.' Qawam is uprightness. Istiqamah is steadfastness.",
+        notes = "The straight path is the path of Islam."
+      ),
+      RootMeaningData(
+        root = "م-ي-ل",
+        primaryMeaning = "incline, lean, deviate",
+        extendedMeaning = "Inclining, leaning, deviation.",
+        quranUsage = "'Those who follow desires want you to incline (tamilu).' Mayl is inclination.",
+        notes = "Inclining toward falsehood leads astray."
+      ),
+      RootMeaningData(
+        root = "ع-د-ل",
+        primaryMeaning = "justice, balance, equal",
+        extendedMeaning = "Justice, balance, and equality.",
+        quranUsage = "'Be just ('adilu).' 'Adl is justice. 'Adil is just.",
+        notes = "Justice is commanded even toward enemies."
+      ),
+      RootMeaningData(
+        root = "ج-و-ر",
+        primaryMeaning = "injustice, tyranny, neighbor",
+        extendedMeaning = "Injustice, tyranny.",
+        quranUsage = "'Your Lord is not unjust (jawr).' Jawr is injustice.",
+        notes = "Allah is never unjust to His servants."
+      ),
+      RootMeaningData(
+        root = "ظ-ل-م",
+        primaryMeaning = "wrong, oppress, darkness",
+        extendedMeaning = "Wrongdoing, oppression, darkness.",
+        quranUsage = "'Do not wrong (tazlimun) one another.' Zulm is oppression.",
+        notes = "Zulm is putting something in the wrong place."
+      ),
+      RootMeaningData(
+        root = "ق-س-ط",
+        primaryMeaning = "equity, justice, portion",
+        extendedMeaning = "Equity, fairness, proper portion.",
+        quranUsage = "'Allah loves those who are equitable (muqsitin).' Qist is equity.",
+        notes = "Al-Muqsit (The Equitable) is Allah's name."
+      ),
+      RootMeaningData(
+        root = "و-ز-ن",
+        primaryMeaning = "weigh, balance, measure",
+        extendedMeaning = "Weighing, balance, measurement.",
+        quranUsage = "'Give full measure and weigh (zinu) with justice.' Wazn is weight. Mizan is scale.",
+        notes = "Fair weights and measures are obligatory."
+      ),
+      RootMeaningData(
+        root = "ك-ي-ل",
+        primaryMeaning = "measure, volume",
+        extendedMeaning = "Measuring by volume.",
+        quranUsage = "'Give full measure (kayl).' Kayl is measure. Mikyal is measuring vessel.",
+        notes = "Cheating in measure is a grave sin."
+      ),
+      RootMeaningData(
+        root = "ط-ف-ف",
+        primaryMeaning = "give less, cheat",
+        extendedMeaning = "Giving less than due, cheating in measure.",
+        quranUsage = "'Woe to those who give less (mutaffifin).' Tatfif is cheating in measure.",
+        notes = "Surah Al-Mutaffifin condemns cheating merchants."
       )
     )
 

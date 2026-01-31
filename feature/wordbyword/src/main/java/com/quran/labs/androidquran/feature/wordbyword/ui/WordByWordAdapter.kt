@@ -15,6 +15,7 @@ import com.google.android.flexbox.FlexboxLayout
 import com.quran.data.model.SuraAyah
 import com.quran.data.model.WordTranslation
 import com.quran.labs.androidquran.feature.wordbyword.R
+import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
 
 class WordByWordAdapter(
@@ -44,6 +45,11 @@ class WordByWordAdapter(
   private var suraHeaderColor: Int = 0
   private var ayahSelectionColor: Int = 0
 
+  // Memorization mode fields
+  private var memorizationConfig: MemorizationConfig? = null
+  private var isMemorizationActive: Boolean = false
+  private val wordCardViews: MutableList<WordCardView> = mutableListOf()
+
   private val defaultClickListener = View.OnClickListener { handleClick(it) }
   private val defaultLongClickListener = View.OnLongClickListener { selectVerseRows(it) }
 
@@ -58,7 +64,8 @@ class WordByWordAdapter(
     nightMode: Boolean,
     showTranslit: Boolean,
     arabicFont: Typeface?,
-    spanApplier: ((SpannableString) -> Unit)?
+    spanApplier: ((SpannableString) -> Unit)?,
+    memorizationConfig: MemorizationConfig? = null
   ) {
     this.arabicTextSize = arabicSize
     this.translationTextSize = translationSize
@@ -66,6 +73,7 @@ class WordByWordAdapter(
     this.showTransliteration = showTranslit
     this.arabicTypeface = arabicFont
     this.uthmaniSpanApplier = spanApplier
+    this.memorizationConfig = memorizationConfig
 
     if (isNightMode) {
       textColor = Color.WHITE
@@ -95,6 +103,17 @@ class WordByWordAdapter(
     highlightedAyahId = 0
     highlightedRowCount = 0
     highlightedStartPosition = -1
+  }
+
+  fun activateMemorization() {
+    isMemorizationActive = true
+    wordCardViews.forEach { it.hide() }
+  }
+
+  fun resetMemorization() {
+    isMemorizationActive = false
+    wordCardViews.forEach { it.reveal() }
+    wordCardViews.clear()
   }
 
   private fun highlightAyah(ayahId: Int, notify: Boolean) {
@@ -198,7 +217,6 @@ class WordByWordAdapter(
         holder.wordsContainer?.removeAllViews()
         for (word in row.words) {
           val wordCard = WordCardView(context)
-          wordCard.setWord(word)
           wordCard.setNightMode(isNightMode)
           wordCard.setShowTransliteration(showTransliteration)
           wordCard.setArabicTypeface(arabicTypeface)
@@ -206,9 +224,30 @@ class WordByWordAdapter(
           wordCard.setTranslationTextSize(translationTextSize)
           wordCard.isClickable = true
           wordCard.isFocusable = true
-          wordCard.setOnClickListener {
-            onWordClickListener?.onWordClicked(word)
+
+          // Memorization setup
+          val config = memorizationConfig
+          if (config != null && config.hasContentToHide) {
+            wordCard.setMemorizationConfig(config.hideArabic, config.hideTranslation)
+            wordCardViews.add(wordCard)
+            wordCard.setWord(word)
+            if (isMemorizationActive) {
+              wordCard.hide()
+            }
+            wordCard.setOnClickListener {
+              if (isMemorizationActive) {
+                wordCard.toggleReveal()
+              } else {
+                onWordClickListener?.onWordClicked(word)
+              }
+            }
+          } else {
+            wordCard.setWord(word)
+            wordCard.setOnClickListener {
+              onWordClickListener?.onWordClicked(word)
+            }
           }
+
           holder.wordsContainer?.addView(wordCard)
         }
       }

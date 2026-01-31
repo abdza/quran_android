@@ -15,11 +15,14 @@ import com.quran.data.model.SuraAyah
 import com.quran.data.model.WordTranslation
 import com.quran.data.model.selection.AyahSelection
 import com.quran.labs.androidquran.feature.wordbyword.R
+import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
 import com.quran.labs.androidquran.feature.wordbyword.presenter.WordByWordPresenter
 import com.quran.reading.common.ReadingEventPresenter
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 abstract class WordByWordFragment : Fragment(),
@@ -46,10 +49,12 @@ abstract class WordByWordFragment : Fragment(),
   private var translationTextSize: Float = 14f
   private var arabicTypeface: Typeface? = null
   private var uthmaniSpanApplier: ((SpannableString) -> Unit)? = null
+  private var memorizationJob: Job? = null
 
   protected abstract fun getSuraName(sura: Int): String
   protected abstract fun onPageClicked()
   protected abstract fun getQuranSettings(): WordByWordSettings
+  protected abstract fun getMemorizationConfig(): MemorizationConfig
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -96,6 +101,7 @@ abstract class WordByWordFragment : Fragment(),
   }
 
   override fun onPause() {
+    memorizationJob?.cancel()
     presenter.unbind(this)
     super.onPause()
   }
@@ -109,6 +115,7 @@ abstract class WordByWordFragment : Fragment(),
       translationTextSize = settings.translationTextSize
       arabicTypeface = settings.arabicTypeface
       uthmaniSpanApplier = settings.uthmaniSpanApplier
+      val memorizationConfig = getMemorizationConfig()
 
       // Update background color based on night mode
       val backgroundColor = if (isNightMode) {
@@ -125,7 +132,8 @@ abstract class WordByWordFragment : Fragment(),
         isNightMode,
         showTransliteration,
         arabicTypeface,
-        uthmaniSpanApplier
+        uthmaniSpanApplier,
+        memorizationConfig
       )
       refresh()
     }
@@ -138,9 +146,22 @@ abstract class WordByWordFragment : Fragment(),
   }
 
   override fun setWords(page: Int, rows: List<WordByWordDisplayRow>) {
+    adapter.resetMemorization()
     adapter.setData(rows)
     adapter.notifyDataSetChanged()
     updateScrollPosition()
+
+    // Start memorization timer
+    val config = getMemorizationConfig()
+    if (config.hasContentToHide) {
+      memorizationJob?.cancel()
+      memorizationJob = scope.launch {
+        delay(config.delaySeconds * 1000L)
+        if (isAdded) {
+          adapter.activateMemorization()
+        }
+      }
+    }
   }
 
   override fun updateScrollPosition() {

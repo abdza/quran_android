@@ -95,6 +95,12 @@ object Constants {
   const val PREF_SHOW_TRANSLITERATION = "showTransliteration"
   const val PREF_SHOW_ETYMOLOGY = "showEtymology"
 
+  // Memorization Mode
+  const val PREF_MEMORIZATION_MODE_ENABLED = "memorizationModeEnabled"
+  const val PREF_MEMORIZATION_HIDE_ARABIC = "memorizationHideArabic"
+  const val PREF_MEMORIZATION_HIDE_TRANSLATION = "memorizationHideTranslation"
+  const val PREF_MEMORIZATION_DELAY_SECONDS = "memorizationDelaySeconds"
+
   // Themes
   const val THEME_LIGHT = "light"
   const val THEME_DARK = "dark"

@@ -8,6 +8,7 @@ import android.text.SpannableString
 import android.view.View
 import com.quran.data.core.QuranInfo
 import com.quran.labs.androidquran.data.QuranDisplayData
+import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
 import com.quran.labs.androidquran.feature.wordbyword.presenter.WordByWordPresenter
 import com.quran.labs.androidquran.feature.wordbyword.ui.WordByWordFragment as BaseWordByWordFragment
 import com.quran.labs.androidquran.ui.PagerActivity
@@ -78,6 +79,15 @@ class WordByWordFragment : BaseWordByWordFragment() {
       override val arabicTypeface: Typeface = arabicTypeface
       override val uthmaniSpanApplier: ((SpannableString) -> Unit) = spanApplier
     }
+  }
+
+  override fun getMemorizationConfig(): MemorizationConfig {
+    return MemorizationConfig(
+      enabled = quranSettings.isMemorizationModeEnabled,
+      hideArabic = quranSettings.shouldHideArabicInMemorization(),
+      hideTranslation = quranSettings.shouldHideTranslationInMemorization(),
+      delaySeconds = quranSettings.memorizationDelaySeconds
+    )
   }
 
   companion object {

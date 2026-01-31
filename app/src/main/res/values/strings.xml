@@ -167,6 +167,16 @@
   <string name="prefs_word_by_word_summary">View each Arabic word with its meaning</string>
   <string name="prefs_show_transliteration_title">Show Transliteration</string>
   <string name="prefs_show_transliteration_summary">Display pronunciation guide for each word</string>
+  <!-- Memorization Mode -->
+  <string name="prefs_memorization_category">Memorization Mode</string>
+  <string name="prefs_memorization_enabled_title">Enable Memorization Mode</string>
+  <string name="prefs_memorization_enabled_summary">Hide words after a delay to test memorization</string>
+  <string name="prefs_memorization_hide_arabic_title">Hide Arabic</string>
+  <string name="prefs_memorization_hide_arabic_summary">Hide Arabic text when memorization activates</string>
+  <string name="prefs_memorization_hide_translation_title">Hide Translation</string>
+  <string name="prefs_memorization_hide_translation_summary">Hide translation text when memorization activates</string>
+  <string name="prefs_memorization_delay_title">Delay (seconds)</string>
+  <string name="prefs_memorization_delay_summary">Time before hiding content</string>
   <string name="prefs_category_display_settings">Display Settings</string>
   <string name="prefs_use_arabic_title">Arabic mode (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Use Arabic for application interface</string>

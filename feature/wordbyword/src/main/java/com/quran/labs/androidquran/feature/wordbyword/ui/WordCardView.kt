@@ -25,6 +25,12 @@ class WordCardView @JvmOverloads constructor(
   private var showTransliteration: Boolean = true
   private var arabicTypeface: Typeface? = null
 
+  // Memorization mode fields
+  private var currentWord: WordTranslation? = null
+  private var isRevealed: Boolean = true
+  private var hideArabic: Boolean = false
+  private var hideTranslation: Boolean = false
+
   init {
     LayoutInflater.from(context).inflate(R.layout.word_card_view, this, true)
     arabicText = findViewById(R.id.arabic_text)
@@ -33,11 +39,26 @@ class WordCardView @JvmOverloads constructor(
   }
 
   fun setWord(word: WordTranslation) {
-    arabicText.text = word.arabicText
-    translationText.text = word.translation
+    currentWord = word
+
+    if (isRevealed || !hideArabic) {
+      arabicText.text = word.arabicText
+    } else {
+      arabicText.text = HIDDEN_PLACEHOLDER
+    }
+
+    if (isRevealed || !hideTranslation) {
+      translationText.text = word.translation
+    } else {
+      translationText.text = HIDDEN_PLACEHOLDER
+    }
 
     if (showTransliteration && word.transliteration != null) {
-      transliterationText.text = word.transliteration
+      if (isRevealed || !hideTranslation) {
+        transliterationText.text = word.transliteration
+      } else {
+        transliterationText.text = HIDDEN_PLACEHOLDER
+      }
       transliterationText.visibility = View.VISIBLE
     } else {
       transliterationText.visibility = View.GONE
@@ -86,5 +107,35 @@ class WordCardView @JvmOverloads constructor(
       transliterationText.setTextColor(ContextCompat.getColor(context, R.color.word_card_transliteration_text))
       translationText.setTextColor(ContextCompat.getColor(context, R.color.word_card_translation_text))
     }
+  }
+
+  // Memorization mode methods
+  fun setMemorizationConfig(hideArabic: Boolean, hideTranslation: Boolean) {
+    this.hideArabic = hideArabic
+    this.hideTranslation = hideTranslation
+  }
+
+  fun hide() {
+    isRevealed = false
+    currentWord?.let { setWord(it) }
+  }
+
+  fun reveal() {
+    isRevealed = true
+    currentWord?.let { setWord(it) }
+  }
+
+  fun toggleReveal() {
+    if (isRevealed) {
+      hide()
+    } else {
+      reveal()
+    }
+  }
+
+  fun isHidden(): Boolean = !isRevealed
+
+  companion object {
+    private const val HIDDEN_PLACEHOLDER = "\u2022\u2022\u2022"
   }
 }

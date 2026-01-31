@@ -440,4 +440,43 @@ public class QuranSettings {
   public void setShowEtymology(boolean show) {
     prefs.edit().putBoolean(Constants.PREF_SHOW_ETYMOLOGY, show).apply();
   }
+
+  // Memorization Mode settings
+  public boolean isMemorizationModeEnabled() {
+    return prefs.getBoolean(Constants.PREF_MEMORIZATION_MODE_ENABLED, false);
+  }
+
+  public void setMemorizationModeEnabled(boolean enabled) {
+    prefs.edit().putBoolean(Constants.PREF_MEMORIZATION_MODE_ENABLED, enabled).apply();
+  }
+
+  public boolean shouldHideArabicInMemorization() {
+    return prefs.getBoolean(Constants.PREF_MEMORIZATION_HIDE_ARABIC, false);
+  }
+
+  public void setHideArabicInMemorization(boolean hide) {
+    prefs.edit().putBoolean(Constants.PREF_MEMORIZATION_HIDE_ARABIC, hide).apply();
+  }
+
+  public boolean shouldHideTranslationInMemorization() {
+    return prefs.getBoolean(Constants.PREF_MEMORIZATION_HIDE_TRANSLATION, true);
+  }
+
+  public void setHideTranslationInMemorization(boolean hide) {
+    prefs.edit().putBoolean(Constants.PREF_MEMORIZATION_HIDE_TRANSLATION, hide).apply();
+  }
+
+  public int getMemorizationDelaySeconds() {
+    // ListPreference stores as String, so we parse it
+    String value = prefs.getString(Constants.PREF_MEMORIZATION_DELAY_SECONDS, "5");
+    try {
+      return Integer.parseInt(value);
+    } catch (NumberFormatException e) {
+      return 5;
+    }
+  }
+
+  public void setMemorizationDelaySeconds(int seconds) {
+    prefs.edit().putString(Constants.PREF_MEMORIZATION_DELAY_SECONDS, String.valueOf(seconds)).apply();
+  }
 }
