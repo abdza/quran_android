@@ -1,11 +1,13 @@
 package com.quran.labs.androidquran.feature.wordbyword.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.text.SpannableString
 import android.text.Spanned
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -49,9 +51,22 @@ class WordByWordAdapter(
   private var memorizationConfig: MemorizationConfig? = null
   private var isMemorizationActive: Boolean = false
   private val wordCardViews: MutableList<WordCardView> = mutableListOf()
+  private val ayahWordCards: MutableMap<Int, MutableList<WordCardView>> = mutableMapOf()
+  private var temporarilyRevealedAyahId: Int = 0
 
   private val defaultClickListener = View.OnClickListener { handleClick(it) }
-  private val defaultLongClickListener = View.OnLongClickListener { selectVerseRows(it) }
+  private val defaultLongClickListener = View.OnLongClickListener { view ->
+    val position = recyclerView.getChildAdapterPosition(view)
+    if (position != RecyclerView.NO_POSITION) {
+      val row = data[position]
+      // In memorization mode, only reveal the ayah - don't select it
+      if (isMemorizationActive) {
+        temporarilyRevealAyah(row.ayahId)
+        return@OnLongClickListener true
+      }
+    }
+    selectVerseRows(view)
+  }
 
   fun setData(rows: List<WordByWordDisplayRow>) {
     data.clear()
@@ -114,7 +129,28 @@ class WordByWordAdapter(
     isMemorizationActive = false
     wordCardViews.forEach { it.reveal() }
     wordCardViews.clear()
+    ayahWordCards.clear()
+    temporarilyRevealedAyahId = 0
   }
+
+  fun temporarilyRevealAyah(ayahId: Int) {
+    if (isMemorizationActive && ayahId != temporarilyRevealedAyahId) {
+      // Hide previously revealed ayah
+      hideTemporarilyRevealedAyah()
+      // Reveal new ayah
+      temporarilyRevealedAyahId = ayahId
+      ayahWordCards[ayahId]?.forEach { it.reveal() }
+    }
+  }
+
+  fun hideTemporarilyRevealedAyah() {
+    if (temporarilyRevealedAyahId != 0) {
+      ayahWordCards[temporarilyRevealedAyahId]?.forEach { it.hide() }
+      temporarilyRevealedAyahId = 0
+    }
+  }
+
+  fun isMemorizationModeActive(): Boolean = isMemorizationActive
 
   private fun highlightAyah(ayahId: Int, notify: Boolean) {
     if (ayahId != highlightedAyahId) {
@@ -144,9 +180,9 @@ class WordByWordAdapter(
       val row = data[position]
       if (row.ayahId != highlightedAyahId) {
         onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah))
-        return
       }
     }
+    // Always show toolbar/menu on tap
     onClickListener.onClick(view)
   }
 
@@ -230,8 +266,10 @@ class WordByWordAdapter(
           if (config != null && config.hasContentToHide) {
             wordCard.setMemorizationConfig(config.hideArabic, config.hideTranslation)
             wordCardViews.add(wordCard)
+            // Track word cards by ayah for temporary reveal feature
+            ayahWordCards.getOrPut(row.ayahId) { mutableListOf() }.add(wordCard)
             wordCard.setWord(word)
-            if (isMemorizationActive) {
+            if (isMemorizationActive && row.ayahId != temporarilyRevealedAyahId) {
               wordCard.hide()
             }
             wordCard.setOnClickListener {
@@ -259,6 +297,24 @@ class WordByWordAdapter(
     updateHighlight(row, holder)
     holder.itemView.setOnClickListener(defaultClickListener)
     holder.itemView.setOnLongClickListener(defaultLongClickListener)
+    // Touch listener to detect when user releases after long press (for memorization reveal)
+    holder.itemView.setOnTouchListener(createTouchListenerForRow(row))
+  }
+
+  @SuppressLint("ClickableViewAccessibility")
+  private fun createTouchListenerForRow(row: WordByWordDisplayRow): View.OnTouchListener {
+    return View.OnTouchListener { _, event ->
+      when (event.action) {
+        MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+          // Hide temporarily revealed ayah when user releases
+          if (isMemorizationActive && temporarilyRevealedAyahId == row.ayahId) {
+            hideTemporarilyRevealedAyah()
+          }
+        }
+      }
+      // Return false to allow click/long click listeners to work
+      false
+    }
   }
 
   private fun updateHighlight(row: WordByWordDisplayRow, holder: RowViewHolder) {
