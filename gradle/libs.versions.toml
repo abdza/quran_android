@@ -2,11 +2,11 @@
 agp = "8.13.2"
 junit = "1.3.0"
 kotlin = "2.3.0"
-ksp = "2.3.4"
+ksp = "2.3.5"
 
 # required within the Gradle convention plugins - not unused
-composeBomVersion = "2026.01.00"
-media3ExoplayerVersion = "1.9.0"
+composeBomVersion = "2026.01.01"
+media3ExoplayerVersion = "1.9.1"
 okhttpBomVersion = "5.3.2"
 firebaseBomVersion = "34.8.0"
 
@@ -14,7 +14,7 @@ firebaseBomVersion = "34.8.0"
 coroutinesVersion = "1.10.2"
 crashlytics = "3.0.6"
 dnsjavaVersion = "2.1.9"
-errorprone = "4.4.0"
+errorprone = "5.0.0"
 metro = "0.10.1"
 errorproneCoreVersion = "2.46.0"
 googleServices = "4.4.4"
@@ -30,10 +30,10 @@ timberVersion = "5.0.1"
 
 # androidx library versions
 androidxAppcompatVersion = "1.7.1"
-androidxActivityComposeVersion = "1.12.2"
+androidxActivityComposeVersion = "1.12.3"
 androidxAnnotationVersion = "1.9.1"
 androidxCoreVersion = "1.17.0"
-androidxNavigationVersion = "2.9.6"
+androidxNavigationVersion = "2.9.7"
 androidxDynamicAnimationVersion = "1.1.0"
 androidxFragmentVersion = "1.8.9"
 androidxJunitExtVersion = "1.3.0"
@@ -42,9 +42,9 @@ androidxMediaVersion = "1.7.1"
 androidxPreferencesVersion = "1.2.1"
 androidxRecyclerViewVersion = "1.4.0"
 androidxSwipeRefreshVersion = "1.2.0"
-androidxPagingVersion = "3.3.6"
-androidxPagingComposeVersion = "3.3.6"
-androidxWorkManagerVersion = "2.11.0"
+androidxPagingVersion = "3.4.0"
+androidxPagingComposeVersion = "3.4.0"
+androidxWorkManagerVersion = "2.11.1"
 androidxWindowManager = "1.5.1"
 
 # ui libraries
@@ -61,7 +61,7 @@ molecule = "2.2.0"
 # recitations
 grpcOkhttpVersion = "1.78.0"
 googleAuthVersion = "1.42.1"
-googleCloudSpeechVersion = "4.77.0"
+googleCloudSpeechVersion = "4.78.0"
 
 # testing
 junitVersion = "4.13.2"
