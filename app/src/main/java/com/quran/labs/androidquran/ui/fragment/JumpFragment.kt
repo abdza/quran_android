@@ -15,10 +15,12 @@ import android.view.ViewGroup
 import android.view.WindowManager.LayoutParams
 import android.view.inputmethod.EditorInfo
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
+import kotlin.random.Random
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AlertDialog.Builder
 import androidx.fragment.app.DialogFragment
@@ -83,6 +85,16 @@ class JumpFragment : DialogFragment() {
       } else {
         false
       }
+    }
+
+    // Random page button
+    val randomButton = layout.findViewById<Button>(R.id.random_page_button)
+    randomButton.setOnClickListener {
+      val randomPage = Random.nextInt(1, quranInfo.numberOfPages + 1)
+      val sura = quranInfo.getSuraOnPage(randomPage)
+      val ayah = quranInfo.getFirstAyahOnPage(randomPage)
+      dismiss()
+      (activity as? JumpDestination)?.jumpToAndHighlight(randomPage, sura, ayah)
     }
 
     pageInput.addTextChangedListener(object : TextWatcher {
