@@ -53,6 +53,7 @@ class WordByWordAdapter(
   private val wordCardViews: MutableList<WordCardView> = mutableListOf()
   private val ayahWordCards: MutableMap<Int, MutableList<WordCardView>> = mutableMapOf()
   private var temporarilyRevealedAyahId: Int = 0
+  private var temporarilyRevealedWordCard: WordCardView? = null
 
   private val defaultClickListener = View.OnClickListener { handleClick(it) }
   private val defaultLongClickListener = View.OnLongClickListener { view ->
@@ -131,6 +132,7 @@ class WordByWordAdapter(
     wordCardViews.clear()
     ayahWordCards.clear()
     temporarilyRevealedAyahId = 0
+    temporarilyRevealedWordCard = null
   }
 
   fun temporarilyRevealAyah(ayahId: Int) {
@@ -279,6 +281,16 @@ class WordByWordAdapter(
                 onWordClickListener?.onWordClicked(word)
               }
             }
+            // Long press on word to temporarily reveal until release
+            wordCard.setOnLongClickListener {
+              if (isMemorizationActive && wordCard.isHidden()) {
+                temporarilyRevealedWordCard = wordCard
+                wordCard.temporarilyReveal()
+              }
+              true
+            }
+            // Touch listener to hide word when user releases long press
+            wordCard.setOnTouchListener(createTouchListenerForWordCard(wordCard))
           } else {
             wordCard.setWord(word)
             wordCard.setOnClickListener {
@@ -309,6 +321,23 @@ class WordByWordAdapter(
           // Hide temporarily revealed ayah when user releases
           if (isMemorizationActive && temporarilyRevealedAyahId == row.ayahId) {
             hideTemporarilyRevealedAyah()
+          }
+        }
+      }
+      // Return false to allow click/long click listeners to work
+      false
+    }
+  }
+
+  @SuppressLint("ClickableViewAccessibility")
+  private fun createTouchListenerForWordCard(wordCard: WordCardView): View.OnTouchListener {
+    return View.OnTouchListener { _, event ->
+      when (event.action) {
+        MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+          // Hide temporarily revealed word when user releases long press
+          if (isMemorizationActive && temporarilyRevealedWordCard == wordCard) {
+            wordCard.hideTemporarilyRevealed()
+            temporarilyRevealedWordCard = null
           }
         }
       }

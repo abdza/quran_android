@@ -30,6 +30,7 @@ class WordCardView @JvmOverloads constructor(
   private var isRevealed: Boolean = true
   private var hideArabic: Boolean = false
   private var hideTranslation: Boolean = false
+  private var isTemporarilyRevealed: Boolean = false
 
   init {
     LayoutInflater.from(context).inflate(R.layout.word_card_view, this, true)
@@ -132,6 +133,24 @@ class WordCardView @JvmOverloads constructor(
       reveal()
     }
   }
+
+  fun temporarilyReveal() {
+    if (!isRevealed) {
+      isTemporarilyRevealed = true
+      isRevealed = true
+      currentWord?.let { setWord(it) }
+    }
+  }
+
+  fun hideTemporarilyRevealed() {
+    if (isTemporarilyRevealed) {
+      isTemporarilyRevealed = false
+      isRevealed = false
+      currentWord?.let { setWord(it) }
+    }
+  }
+
+  fun isTemporarilyRevealedState(): Boolean = isTemporarilyRevealed
 
   fun isHidden(): Boolean = !isRevealed
 
