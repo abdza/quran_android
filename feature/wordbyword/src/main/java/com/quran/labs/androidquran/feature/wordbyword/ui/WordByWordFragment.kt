@@ -7,6 +7,7 @@ import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,7 @@ abstract class WordByWordFragment : Fragment(),
   private lateinit var recyclerView: RecyclerView
   private lateinit var adapter: WordByWordAdapter
   private lateinit var layoutManager: LinearLayoutManager
+  protected lateinit var translationSpinnerContainer: FrameLayout
 
   abstract val quranInfo: QuranInfo
   abstract val presenter: WordByWordPresenter
@@ -55,6 +57,8 @@ abstract class WordByWordFragment : Fragment(),
   protected abstract fun onPageClicked()
   protected abstract fun getQuranSettings(): WordByWordSettings
   protected abstract fun getMemorizationConfig(): MemorizationConfig
+  protected abstract fun showAyahTranslation(): Boolean
+  protected abstract suspend fun getAyahTranslations(sura: Int, ayah: Int): List<WordByWordDisplayRow.TranslationText>
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -71,6 +75,7 @@ abstract class WordByWordFragment : Fragment(),
   ): View? {
     val view = inflater.inflate(R.layout.word_by_word_fragment, container, false)
     recyclerView = view.findViewById(R.id.recycler_view)
+    translationSpinnerContainer = view.findViewById(R.id.translation_spinner_container)
     layoutManager = LinearLayoutManager(context)
     recyclerView.layoutManager = layoutManager
     adapter = WordByWordAdapter(
@@ -81,8 +86,11 @@ abstract class WordByWordFragment : Fragment(),
       this
     )
     recyclerView.adapter = adapter
+    setupTranslationSpinner()
     return view
   }
+
+  protected abstract fun setupTranslationSpinner()
 
   override fun onAttach(context: Context) {
     super.onAttach(context)
@@ -141,7 +149,11 @@ abstract class WordByWordFragment : Fragment(),
 
   fun refresh() {
     scope.launch {
-      presenter.refresh(::getSuraName)
+      presenter.refresh(
+        getSuraName = ::getSuraName,
+        showAyahTranslation = showAyahTranslation(),
+        getAyahTranslations = ::getAyahTranslations
+      )
     }
   }
 

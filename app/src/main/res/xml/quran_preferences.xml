@@ -161,6 +161,15 @@
     <CheckBoxPreference
         android:defaultValue="false"
         android:dependency="@string/prefs_word_by_word_enabled"
+        android:key="@string/prefs_word_by_word_show_ayah_translation_key"
+        android:persistent="true"
+        android:summary="@string/prefs_word_by_word_show_ayah_translation_summary"
+        android:title="@string/prefs_word_by_word_show_ayah_translation_title"
+        app:iconSpaceReserved="false"/>
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_memorization_enabled_key"
         android:persistent="true"
         android:summary="@string/prefs_memorization_enabled_summary"

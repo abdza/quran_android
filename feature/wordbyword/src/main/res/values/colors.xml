@@ -28,4 +28,12 @@
     <color name="word_by_word_basmallah_text_night">#E0E0E0</color>
     <color name="word_by_word_selection_highlight">#E8F5E9</color>
     <color name="word_by_word_selection_highlight_night">#1B5E20</color>
+
+    <!-- Translation Row Colors -->
+    <color name="word_by_word_translation_background">#F5F5F5</color>
+    <color name="word_by_word_translation_background_night">#1A1A1A</color>
+    <color name="word_by_word_translation_text">#424242</color>
+    <color name="word_by_word_translation_text_night">#BDBDBD</color>
+    <color name="word_by_word_translator_name">#1B5E20</color>
+    <color name="word_by_word_translator_name_night">#81C784</color>
 </resources>

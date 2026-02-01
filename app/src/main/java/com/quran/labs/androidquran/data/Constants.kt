@@ -94,6 +94,7 @@ object Constants {
   const val PREF_WORD_BY_WORD_ENABLED = "wordByWordEnabled"
   const val PREF_SHOW_TRANSLITERATION = "showTransliteration"
   const val PREF_SHOW_ETYMOLOGY = "showEtymology"
+  const val PREF_WORD_BY_WORD_SHOW_AYAH_TRANSLATION = "wordByWordShowAyahTranslation"
 
   // Memorization Mode
   const val PREF_MEMORIZATION_MODE_ENABLED = "memorizationModeEnabled"

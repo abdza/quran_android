@@ -27,7 +27,11 @@ class WordByWordPresenter @Inject constructor(
     }
   }
 
-  suspend fun refresh(getSuraName: (Int) -> String) {
+  suspend fun refresh(
+    getSuraName: (Int) -> String,
+    showAyahTranslation: Boolean = false,
+    getAyahTranslations: (suspend (Int, Int) -> List<WordByWordDisplayRow.TranslationText>)? = null
+  ) {
     val page = pages.firstOrNull() ?: return
     val verseRange = quranInfo.getVerseRangeForPage(page)
     if (verseRange.versesInRange <= 0) return
@@ -39,13 +43,15 @@ class WordByWordPresenter @Inject constructor(
       )
     }
 
-    val displayRows = buildDisplayRows(wordData, getSuraName)
+    val displayRows = buildDisplayRows(wordData, getSuraName, showAyahTranslation, getAyahTranslations)
     wordByWordScreen?.setWords(page, displayRows)
   }
 
-  private fun buildDisplayRows(
+  private suspend fun buildDisplayRows(
     wordData: List<WordByWordAyahInfo>,
-    getSuraName: (Int) -> String
+    getSuraName: (Int) -> String,
+    showAyahTranslation: Boolean,
+    getAyahTranslations: (suspend (Int, Int) -> List<WordByWordDisplayRow.TranslationText>)?
   ): List<WordByWordDisplayRow> {
     val rows = mutableListOf<WordByWordDisplayRow>()
     var lastSura = -1
@@ -99,6 +105,21 @@ class WordByWordPresenter @Inject constructor(
             words = ayahInfo.words
           )
         )
+      }
+
+      // Add translation row if enabled
+      if (showAyahTranslation && getAyahTranslations != null) {
+        val translations = getAyahTranslations(sura, ayah)
+        if (translations.isNotEmpty()) {
+          rows.add(
+            WordByWordDisplayRow.TranslationRow(
+              sura = sura,
+              ayah = ayah,
+              ayahId = ayahId,
+              translations = translations
+            )
+          )
+        }
       }
 
       // Add spacer

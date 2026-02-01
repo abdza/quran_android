@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -205,6 +206,7 @@ class WordByWordAdapter(
       is WordByWordDisplayRow.Basmallah -> WordByWordDisplayRow.Type.BASMALLAH
       is WordByWordDisplayRow.VerseHeader -> WordByWordDisplayRow.Type.VERSE_HEADER
       is WordByWordDisplayRow.WordsRow -> WordByWordDisplayRow.Type.WORDS_ROW
+      is WordByWordDisplayRow.TranslationRow -> WordByWordDisplayRow.Type.TRANSLATION_ROW
       is WordByWordDisplayRow.Spacer -> WordByWordDisplayRow.Type.SPACER
     }
   }
@@ -215,6 +217,7 @@ class WordByWordAdapter(
       WordByWordDisplayRow.Type.BASMALLAH -> R.layout.word_by_word_basmallah
       WordByWordDisplayRow.Type.VERSE_HEADER -> R.layout.word_by_word_verse_header
       WordByWordDisplayRow.Type.WORDS_ROW -> R.layout.word_by_word_words_row
+      WordByWordDisplayRow.Type.TRANSLATION_ROW -> R.layout.word_by_word_translation_row
       WordByWordDisplayRow.Type.SPACER -> R.layout.word_by_word_spacer
       else -> throw IllegalArgumentException("Unknown view type: $viewType")
     }
@@ -301,6 +304,47 @@ class WordByWordAdapter(
           holder.wordsContainer?.addView(wordCard)
         }
       }
+      is WordByWordDisplayRow.TranslationRow -> {
+        holder.translationContainer?.removeAllViews()
+        val translationTextColor = if (isNightMode) {
+          ContextCompat.getColor(context, R.color.word_by_word_translation_text_night)
+        } else {
+          ContextCompat.getColor(context, R.color.word_by_word_translation_text)
+        }
+        val translatorNameColor = if (isNightMode) {
+          ContextCompat.getColor(context, R.color.word_by_word_translator_name_night)
+        } else {
+          ContextCompat.getColor(context, R.color.word_by_word_translator_name)
+        }
+        val backgroundColor = if (isNightMode) {
+          ContextCompat.getColor(context, R.color.word_by_word_translation_background_night)
+        } else {
+          ContextCompat.getColor(context, R.color.word_by_word_translation_background)
+        }
+        holder.translationContainer?.setBackgroundColor(backgroundColor)
+
+        for ((index, translation) in row.translations.withIndex()) {
+          // Add translator name if multiple translations
+          if (row.translations.size > 1) {
+            val translatorView = TextView(context).apply {
+              text = translation.translatorName
+              textSize = translationTextSize * 0.85f
+              setTextColor(translatorNameColor)
+              setPadding(0, if (index > 0) 16 else 0, 0, 4)
+            }
+            holder.translationContainer?.addView(translatorView)
+          }
+
+          // Add translation text
+          val textView = TextView(context).apply {
+            text = translation.text
+            textSize = translationTextSize
+            setTextColor(translationTextColor)
+            setPadding(0, 0, 0, 8)
+          }
+          holder.translationContainer?.addView(textView)
+        }
+      }
       is WordByWordDisplayRow.Spacer -> {
         // No binding needed for spacer
       }
@@ -362,6 +406,7 @@ class WordByWordAdapter(
     val text: TextView? = wrapperView.findViewById(R.id.text)
     val verseNumber: TextView? = wrapperView.findViewById(R.id.verse_number)
     val wordsContainer: FlexboxLayout? = wrapperView.findViewById(R.id.words_container)
+    val translationContainer: LinearLayout? = wrapperView.findViewById(R.id.translation_container)
   }
 
   interface OnVerseSelectedListener {

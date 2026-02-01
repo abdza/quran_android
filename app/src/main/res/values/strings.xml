@@ -168,6 +168,8 @@
   <string name="prefs_word_by_word_summary">View each Arabic word with its meaning</string>
   <string name="prefs_show_transliteration_title">Show Transliteration</string>
   <string name="prefs_show_transliteration_summary">Display pronunciation guide for each word</string>
+  <string name="prefs_word_by_word_show_ayah_translation_title">Show Ayah Translation</string>
+  <string name="prefs_word_by_word_show_ayah_translation_summary">Display the full ayah translation after each verse</string>
   <!-- Memorization Mode -->
   <string name="prefs_memorization_category">Memorization Mode</string>
   <string name="prefs_memorization_enabled_title">Enable Memorization Mode</string>

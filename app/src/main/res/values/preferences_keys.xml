@@ -39,6 +39,7 @@
   <string translatable="false" name="prefs_reading_category_key">readingCategoryKey</string>
   <string translatable="false" name="prefs_word_by_word_enabled">wordByWordEnabled</string>
   <string translatable="false" name="prefs_show_transliteration">showTransliteration</string>
+  <string translatable="false" name="prefs_word_by_word_show_ayah_translation_key">wordByWordShowAyahTranslation</string>
   <string translatable="false" name="prefs_memorization_enabled_key">memorizationModeEnabled</string>
   <string translatable="false" name="prefs_memorization_hide_arabic_key">memorizationHideArabic</string>
   <string translatable="false" name="prefs_memorization_hide_translation_key">memorizationHideTranslation</string>

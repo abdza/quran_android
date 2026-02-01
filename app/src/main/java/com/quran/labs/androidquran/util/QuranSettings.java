@@ -441,6 +441,14 @@ public class QuranSettings {
     prefs.edit().putBoolean(Constants.PREF_SHOW_ETYMOLOGY, show).apply();
   }
 
+  public boolean showAyahTranslationInWordByWord() {
+    return prefs.getBoolean(Constants.PREF_WORD_BY_WORD_SHOW_AYAH_TRANSLATION, false);
+  }
+
+  public void setShowAyahTranslationInWordByWord(boolean show) {
+    prefs.edit().putBoolean(Constants.PREF_WORD_BY_WORD_SHOW_AYAH_TRANSLATION, show).apply();
+  }
+
   // Memorization Mode settings
   public boolean isMemorizationModeEnabled() {
     return prefs.getBoolean(Constants.PREF_MEMORIZATION_MODE_ENABLED, false);
