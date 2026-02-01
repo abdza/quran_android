@@ -16,19 +16,14 @@ import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
 import com.quran.labs.androidquran.feature.wordbyword.presenter.WordByWordPresenter
 import com.quran.labs.androidquran.feature.wordbyword.ui.WordByWordFragment as BaseWordByWordFragment
 import com.quran.labs.androidquran.model.translation.TranslationModel
-import com.quran.labs.androidquran.presenter.translationlist.TranslationListPresenter
 import com.quran.labs.androidquran.ui.PagerActivity
 import com.quran.labs.androidquran.ui.helpers.UthmaniSpan
-import com.quran.labs.androidquran.ui.util.TranslationsSpinnerAdapter
 import com.quran.labs.androidquran.ui.util.TypefaceManager
 import com.quran.labs.androidquran.util.QuranSettings
-import com.quran.labs.androidquran.view.QuranSpinner
-import com.quran.mobile.translation.model.LocalTranslation
 import com.quran.reading.common.ReadingEventPresenter
 import dev.zacsweers.metro.HasMemberInjections
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -43,15 +38,10 @@ class WordByWordFragment : BaseWordByWordFragment() {
   @Inject lateinit var _readingEventPresenter: ReadingEventPresenter
   @Inject lateinit var translationModel: TranslationModel
   @Inject lateinit var translationsDBAdapter: TranslationsDBAdapter
-  @Inject lateinit var translationListPresenter: TranslationListPresenter
 
   override val quranInfo: QuranInfo get() = _quranInfo
   override val presenter: WordByWordPresenter get() = _presenter
   override val readingEventPresenter: ReadingEventPresenter get() = _readingEventPresenter
-
-  private var translationSpinner: QuranSpinner? = null
-  private var translationAdapter: TranslationsSpinnerAdapter? = null
-  private var translationJob: Job? = null
 
   override fun onAttach(context: Context) {
     super.onAttach(context)
@@ -112,70 +102,9 @@ class WordByWordFragment : BaseWordByWordFragment() {
   }
 
   override fun setupTranslationSpinner() {
-    // Only show spinner if ayah translation is enabled
-    if (!quranSettings.showAyahTranslationInWordByWord()) {
-      translationSpinnerContainer.visibility = View.GONE
-      return
-    }
-
-    // Create the spinner
-    translationSpinner = QuranSpinner(requireContext(), null).apply {
-      layoutParams = android.widget.FrameLayout.LayoutParams(
-        android.widget.FrameLayout.LayoutParams.MATCH_PARENT,
-        android.widget.FrameLayout.LayoutParams.WRAP_CONTENT
-      )
-      val padding = resources.getDimensionPixelSize(R.dimen.translation_left_right_margin)
-      setPadding(padding, padding / 2, padding, padding / 2)
-    }
-    translationSpinnerContainer.addView(translationSpinner)
-    translationSpinnerContainer.visibility = View.VISIBLE
-
-    // Register for translation updates
-    translationJob = translationListPresenter.registerForTranslations { _, translations ->
-      onTranslationsUpdated(translations)
-    }
-  }
-
-  private fun onTranslationsUpdated(translations: List<LocalTranslation>) {
-    if (translations.isEmpty()) {
-      translationSpinnerContainer.visibility = View.GONE
-      return
-    }
-
-    val activeTranslationsFilesNames = quranSettings.activeTranslations.ifEmpty {
-      // If no explicit selection, select all as default
-      translations.map { it.filename }.toSet()
-    }
-
-    val adapter = translationAdapter
-    if (adapter == null) {
-      translationAdapter = TranslationsSpinnerAdapter(
-        activity,
-        R.layout.translation_ab_spinner_item,
-        translations.map { it.resolveTranslatorName() }.toTypedArray(),
-        translations,
-        activeTranslationsFilesNames
-      ) { selectedItems: Set<String?>? ->
-        quranSettings.activeTranslations = selectedItems
-        // Refresh the view when translation selection changes
-        refresh()
-      }
-      translationSpinner?.adapter = translationAdapter
-    } else {
-      adapter.updateItems(
-        translations.map { it.resolveTranslatorName() }.toTypedArray(),
-        translations,
-        activeTranslationsFilesNames
-      )
-    }
-  }
-
-  override fun onDestroyView() {
-    translationJob?.cancel()
-    translationJob = null
-    translationSpinner = null
-    translationAdapter = null
-    super.onDestroyView()
+    // Translation spinner is now handled by PagerActivity's ActionBar
+    // (same as normal translation mode)
+    translationSpinnerContainer.visibility = View.GONE
   }
 
   override fun showAyahTranslation(): Boolean {

@@ -555,7 +555,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
           }
         }
 
-        if (!showingTranslation) {
+        if (!showingTranslation && !pagerAdapter.isShowingWordByWord) {
           updateActionBarTitle(page)
         } else {
           refreshActionBarSpinner()
@@ -1307,7 +1307,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       viewPager.currentItem = position
     }
     supportInvalidateOptionsMenu()
-    updateActionBarTitle(page)
+    updateActionBarSpinner()
   }
 
   fun startTranslationManager() {
@@ -1326,6 +1326,8 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         if (f is TranslationFragment) {
           f.refresh()
         } else if (f is TabletFragment) {
+          f.refresh()
+        } else if (f is WordByWordFragment) {
           f.refresh()
         }
       }
