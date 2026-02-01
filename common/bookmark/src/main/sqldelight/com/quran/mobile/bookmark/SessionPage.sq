@@ -1,0 +1,22 @@
+import kotlin.Int;
+
+CREATE TABLE IF NOT EXISTS session_pages(
+  _ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  page INTEGER AS Int NOT NULL,
+  session_start INTEGER NOT NULL UNIQUE,
+  ended_at INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL
+);
+
+upsertSessionPage:
+  INSERT OR REPLACE INTO session_pages(page, session_start, ended_at) VALUES(?, ?, ?);
+
+cleanupOldSessions:
+  DELETE FROM session_pages WHERE _ID NOT IN(
+    SELECT _ID FROM session_pages ORDER BY ended_at DESC LIMIT ?
+  );
+
+getLastSessions:
+  SELECT _ID, page, session_start, ended_at FROM session_pages ORDER BY ended_at DESC LIMIT ?;
+
+removeAllSessions:
+  DELETE FROM session_pages;

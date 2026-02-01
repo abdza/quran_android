@@ -2,6 +2,7 @@ package com.quran.mobile.bookmark.mapper
 
 import com.quran.data.model.bookmark.Bookmark
 import com.quran.data.model.bookmark.RecentPage
+import com.quran.data.model.bookmark.SessionPage
 import com.quran.data.model.bookmark.Tag
 
 object Mappers {
@@ -26,4 +27,7 @@ object Mappers {
 
   val tagMapper: ((id: Long, name: String, addedDate: Long) -> Tag) =
     { id, name, _ -> Tag(id, name) }
+
+  val sessionPageMapper: ((id: Long, page: Int, sessionStart: Long, endedAt: Long) -> SessionPage) =
+    { id, page, sessionStart, endedAt -> SessionPage(id, page, sessionStart, endedAt) }
 }

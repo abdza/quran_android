@@ -2,6 +2,7 @@ package com.quran.labs.androidquran.feature.reading.presenter
 
 import com.quran.data.di.ActivityScope
 import com.quran.labs.androidquran.model.bookmark.RecentPageModel
+import com.quran.labs.androidquran.model.session.ReadingSessionManager
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -12,7 +13,10 @@ import kotlin.math.max
 import kotlin.math.min
 
 @ActivityScope
-class RecentPagePresenter @Inject constructor(private val model: RecentPageModel) {
+class RecentPagePresenter @Inject constructor(
+  private val model: RecentPageModel,
+  private val sessionManager: ReadingSessionManager
+) {
   private val scope = MainScope()
   private var currentJob: Job? = null
 
@@ -29,6 +33,7 @@ class RecentPagePresenter @Inject constructor(private val model: RecentPageModel
 
   private fun onPageChanged(page: Int) {
     model.updateLatestPage(page)
+    sessionManager.updateCurrentPage(page)
     recentPage = when (val current = recentPage) {
       RecentPage.NoPage -> RecentPage.Page(page, page, page)
       is RecentPage.Page -> current.withUpdatedPage(page)
@@ -40,6 +45,7 @@ class RecentPagePresenter @Inject constructor(private val model: RecentPageModel
   }
 
   fun bind(pageFlow: Flow<Int>) {
+    sessionManager.startSession()
     recentPage = RecentPage.NoPage
     currentJob = pageFlow
       .onEach { onPageChanged(it) }
@@ -49,6 +55,7 @@ class RecentPagePresenter @Inject constructor(private val model: RecentPageModel
   fun unbind() {
     currentJob?.cancel()
     saveAndReset()
+    sessionManager.endSession()
   }
 
   private fun saveAndReset() {

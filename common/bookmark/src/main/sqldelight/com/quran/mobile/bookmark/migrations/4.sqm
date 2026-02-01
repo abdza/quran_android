@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS session_pages(
+  _ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  page INTEGER NOT NULL,
+  ended_at INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL
+);

@@ -7,6 +7,7 @@ import com.quran.data.di.AppScope
 import com.quran.data.model.SuraAyah
 import com.quran.data.model.bookmark.Bookmark
 import com.quran.data.model.bookmark.RecentPage
+import com.quran.data.model.bookmark.SessionPage
 import com.quran.labs.androidquran.BookmarksDatabase
 import com.quran.mobile.bookmark.mapper.Mappers
 import com.quran.mobile.bookmark.mapper.convergeCommonlyTagged
@@ -26,6 +27,7 @@ class BookmarksDaoImpl @Inject constructor(
   private val bookmarkQueries = bookmarksDatabase.bookmarkQueries
   private val lastPageQueries = bookmarksDatabase.lastPageQueries
   private val bookmarkTagQueries = bookmarksDatabase.bookmarkTagQueries
+  private val sessionPageQueries = bookmarksDatabase.sessionPageQueries
 
   private val internalChanges = MutableStateFlow<Long?>(null)
   override val changes: Flow<Long> = internalChanges.filterNotNull()
@@ -167,7 +169,23 @@ class BookmarksDaoImpl @Inject constructor(
     lastPageQueries.addLastPage(page, maxPages)
   }
 
+  override suspend fun lastSessions(limit: Int): List<SessionPage> {
+    return withContext(Dispatchers.IO) {
+      sessionPageQueries.getLastSessions(limit.toLong(), Mappers.sessionPageMapper)
+        .executeAsList()
+    }
+  }
+
+  override suspend fun saveSessionPage(page: Int, sessionStart: Long) {
+    withContext(Dispatchers.IO) {
+      val endedAt = System.currentTimeMillis() / 1000
+      sessionPageQueries.upsertSessionPage(page, sessionStart, endedAt)
+      sessionPageQueries.cleanupOldSessions(MAX_SESSIONS.toLong())
+    }
+  }
+
   companion object {
     private const val MAX_RECENT_PAGES = 3
+    private const val MAX_SESSIONS = 5
   }
 }

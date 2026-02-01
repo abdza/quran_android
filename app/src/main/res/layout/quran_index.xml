@@ -28,6 +28,8 @@
         style="@style/ToolBarArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <include layout="@layout/session_buttons_bar" />
   </LinearLayout>
 
   <com.quran.labs.androidquran.view.QuranViewPager

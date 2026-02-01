@@ -12,6 +12,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.HorizontalScrollView
+import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -28,6 +31,7 @@ import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager.widget.ViewPager
 import com.quran.labs.androidquran.AboutUsActivity
 import com.quran.labs.androidquran.HelpActivity
@@ -37,8 +41,11 @@ import com.quran.labs.androidquran.R
 import com.quran.labs.androidquran.SearchActivity
 import com.quran.labs.androidquran.ShortcutsActivity
 import com.quran.labs.androidquran.data.Constants
+import com.quran.labs.androidquran.data.QuranDisplayData
 import com.quran.labs.androidquran.model.bookmark.RecentPageModel
+import com.quran.labs.androidquran.model.session.ReadingSessionManager
 import com.quran.labs.androidquran.presenter.data.QuranIndexEventLogger
+import com.quran.data.model.bookmark.SessionPage
 import com.quran.labs.androidquran.presenter.translation.TranslationManagerPresenter
 import com.quran.labs.androidquran.service.AudioService
 import com.quran.labs.androidquran.ui.fragment.AddTagDialog
@@ -62,6 +69,9 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import kotlin.math.abs
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 /**
  * The home screen activity for the app. Displays a toolbar and 3 fragments:
@@ -105,8 +115,15 @@ class QuranActivity : AppCompatActivity(),
   lateinit var quranIndexEventLogger: QuranIndexEventLogger
   @Inject
   lateinit var extraScreens: Set<@JvmSuppressWildcards ExtraScreenProvider>
+  @Inject
+  lateinit var sessionManager: ReadingSessionManager
+  @Inject
+  lateinit var quranDisplayData: QuranDisplayData
 
   private var jumpToPageOnResume: Int? = null
+  private var sessionButtonsContainer: LinearLayout? = null
+  private var sessionButtonsScroll: HorizontalScrollView? = null
+  private var sessionJob: Job? = null
 
   public override fun onCreate(savedInstanceState: Bundle?) {
     enableEdgeToEdge()
@@ -122,6 +139,9 @@ class QuranActivity : AppCompatActivity(),
     registerBackPressedCallbacks()
     setContentView(R.layout.quran_index)
     isRtl = isRtl()
+
+    sessionButtonsScroll = findViewById(R.id.session_buttons_scroll)
+    sessionButtonsContainer = findViewById(R.id.session_buttons_container)
 
     val root = findViewById<ViewGroup>(R.id.root)
     ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
@@ -212,11 +232,20 @@ class QuranActivity : AppCompatActivity(),
               }
       )
     }
+
+    sessionJob = lifecycleScope.launch {
+      sessionManager.lastSessions.collect { sessions ->
+        updateSessionButtons(sessions)
+      }
+    }
+    sessionManager.refreshSessions()
+
     isPaused = false
   }
 
   override fun onPause() {
     compositeDisposable.clear()
+    sessionJob?.cancel()
     isPaused = true
     super.onPause()
   }
@@ -499,6 +528,41 @@ class QuranActivity : AppCompatActivity(),
     val fm = supportFragmentManager
     val dialog = AddTagDialog()
     dialog.show(fm, AddTagDialog.TAG)
+  }
+
+  private fun updateSessionButtons(sessions: List<SessionPage>) {
+    val container = sessionButtonsContainer ?: return
+    val scrollView = sessionButtonsScroll ?: return
+
+    container.removeAllViews()
+
+    // Filter out invalid pages (page must be > 0)
+    val validSessions = sessions.filter { it.page > 0 }
+
+    if (validSessions.isEmpty()) {
+      scrollView.visibility = View.GONE
+      return
+    }
+
+    scrollView.visibility = View.VISIBLE
+
+    for (session in validSessions) {
+      val page = session.page
+      val suraName = quranDisplayData.getSuraNameFromPage(this, page, false)
+      val buttonText = getString(R.string.session_page_format, suraName, page)
+
+      val button = Button(this, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+        text = buttonText
+        setOnClickListener { jumpTo(page) }
+        layoutParams = LinearLayout.LayoutParams(
+          LinearLayout.LayoutParams.WRAP_CONTENT,
+          LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+          marginEnd = resources.getDimensionPixelSize(R.dimen.session_button_margin)
+        }
+      }
+      container.addView(button)
+    }
   }
 
   private inner class PagerAdapter(fm: FragmentManager) :

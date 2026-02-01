@@ -1,0 +1,9 @@
+-- Drop the old session_pages table and recreate with session_start column
+DROP TABLE IF EXISTS session_pages;
+
+CREATE TABLE IF NOT EXISTS session_pages(
+  _ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  page INTEGER NOT NULL,
+  session_start INTEGER NOT NULL UNIQUE,
+  ended_at INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL
+);

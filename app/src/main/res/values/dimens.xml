@@ -32,6 +32,9 @@
   <!-- page selector -->
   <dimen name="page_margin">6dp</dimen>
 
+  <!-- session buttons -->
+  <dimen name="session_button_margin">8dp</dimen>
+
   <!-- translation and tafseer screen -->
   <dimen name="arabic_text_line_spacing_multiplier">1.2</dimen>
   <dimen name="arabic_text_line_spacing_extra">0dp</dimen>

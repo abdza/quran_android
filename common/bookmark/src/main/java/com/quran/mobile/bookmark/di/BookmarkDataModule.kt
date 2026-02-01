@@ -10,6 +10,7 @@ import com.quran.data.di.AppScope
 import com.quran.labs.androidquran.BookmarksDatabase
 import com.quran.mobile.bookmark.Bookmarks
 import com.quran.mobile.bookmark.Last_pages
+import com.quran.mobile.bookmark.Session_pages
 import com.quran.mobile.di.qualifier.ApplicationContext
 import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
@@ -41,7 +42,8 @@ class BookmarkDataModule {
     return BookmarksDatabase(
       driver,
       Bookmarks.Adapter(IntColumnAdapter, IntColumnAdapter, IntColumnAdapter),
-      Last_pages.Adapter(IntColumnAdapter)
+      Last_pages.Adapter(IntColumnAdapter),
+      Session_pages.Adapter(IntColumnAdapter)
     )
   }
 }
