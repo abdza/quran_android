@@ -1,0 +1,7 @@
+# Copy this file to gradle.properties and fill in your values
+# DO NOT commit gradle.properties with real passwords!
+
+STORE_FILE=/path/to/your.keystore
+STORE_PASSWORD=your_store_password
+KEY_ALIAS=your_key_alias
+KEY_PASSWORD=your_key_password

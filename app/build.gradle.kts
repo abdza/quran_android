@@ -62,6 +62,9 @@ android {
     create("madani") {
       applicationId = "com.quran.labs.androidquran"
     }
+    create("tadabbur") {
+      applicationId = "com.kakikoding.tadabbur"
+    }
   }
 
   buildTypes {

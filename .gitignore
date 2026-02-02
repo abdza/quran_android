@@ -25,3 +25,16 @@ extras
 app/google-services.json
 *_PLAN.md
 CLAUDE.md
+
+# Signing config (contains passwords)
+app/gradle.properties
+
+# Keystore files
+*.keystore
+*.jks
+
+# Play Store assets (optional - remove if you want to track these)
+store_assets/screenshots/
+
+# Scratchpad
+scratchpad/
