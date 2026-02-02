@@ -158,6 +158,22 @@
         android:title="@string/prefs_show_transliteration_title"
         app:iconSpaceReserved="false"/>
 
+    <com.quran.labs.androidquran.ui.preference.SeekBarAyahTextSizePreference
+        android:defaultValue="15"
+        android:dependency="@string/prefs_word_by_word_enabled"
+        android:key="@string/prefs_wbw_arabic_text_size"
+        android:max="40"
+        android:persistent="true"
+        android:title="@string/prefs_wbw_arabic_text_size_title"/>
+
+    <com.quran.labs.androidquran.ui.preference.SeekBarTranslationTextSizePreference
+        android:defaultValue="15"
+        android:dependency="@string/prefs_word_by_word_enabled"
+        android:key="@string/prefs_wbw_translation_text_size"
+        android:max="40"
+        android:persistent="true"
+        android:title="@string/prefs_wbw_translation_text_size_title"/>
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:dependency="@string/prefs_word_by_word_enabled"

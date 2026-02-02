@@ -44,6 +44,8 @@
   <string translatable="false" name="prefs_memorization_hide_arabic_key">memorizationHideArabic</string>
   <string translatable="false" name="prefs_memorization_hide_translation_key">memorizationHideTranslation</string>
   <string translatable="false" name="prefs_memorization_delay_key">memorizationDelaySeconds</string>
+  <string translatable="false" name="prefs_wbw_arabic_text_size">wbwArabicTextSize</string>
+  <string translatable="false" name="prefs_wbw_translation_text_size">wbwTranslationTextSize</string>
 
   <!-- Preference but value controlled by AppCompat or the OS -->
   <string translatable="false" name="use_arabic_names">useArabicNames</string>

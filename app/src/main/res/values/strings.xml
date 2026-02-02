@@ -169,6 +169,8 @@
   <string name="prefs_word_by_word_summary">View each Arabic word with its meaning</string>
   <string name="prefs_show_transliteration_title">Show Transliteration</string>
   <string name="prefs_show_transliteration_summary">Display pronunciation guide for each word</string>
+  <string name="prefs_wbw_arabic_text_size_title">Word by Word Arabic Text Size</string>
+  <string name="prefs_wbw_translation_text_size_title">Word by Word Translation Text Size</string>
   <string name="prefs_word_by_word_show_ayah_translation_title">Show Ayah Translation</string>
   <string name="prefs_word_by_word_show_ayah_translation_summary">Display the full ayah translation after each verse</string>
   <!-- Memorization Mode -->

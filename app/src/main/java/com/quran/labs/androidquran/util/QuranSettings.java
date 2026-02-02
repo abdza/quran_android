@@ -449,6 +449,14 @@ public class QuranSettings {
     prefs.edit().putBoolean(Constants.PREF_WORD_BY_WORD_SHOW_AYAH_TRANSLATION, show).apply();
   }
 
+  public int getWbwArabicTextSize() {
+    return prefs.getInt(Constants.PREF_WBW_ARABIC_TEXT_SIZE, Constants.DEFAULT_TEXT_SIZE);
+  }
+
+  public int getWbwTranslationTextSize() {
+    return prefs.getInt(Constants.PREF_WBW_TRANSLATION_TEXT_SIZE, Constants.DEFAULT_TEXT_SIZE);
+  }
+
   // Memorization Mode settings
   public boolean isMemorizationModeEnabled() {
     return prefs.getBoolean(Constants.PREF_MEMORIZATION_MODE_ENABLED, false);

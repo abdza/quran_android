@@ -96,6 +96,10 @@ object Constants {
   const val PREF_SHOW_ETYMOLOGY = "showEtymology"
   const val PREF_WORD_BY_WORD_SHOW_AYAH_TRANSLATION = "wordByWordShowAyahTranslation"
 
+  // Word by Word Text Sizes
+  const val PREF_WBW_ARABIC_TEXT_SIZE = "wbwArabicTextSize"
+  const val PREF_WBW_TRANSLATION_TEXT_SIZE = "wbwTranslationTextSize"
+
   // Memorization Mode
   const val PREF_MEMORIZATION_MODE_ENABLED = "memorizationModeEnabled"
   const val PREF_MEMORIZATION_HIDE_ARABIC = "memorizationHideArabic"
