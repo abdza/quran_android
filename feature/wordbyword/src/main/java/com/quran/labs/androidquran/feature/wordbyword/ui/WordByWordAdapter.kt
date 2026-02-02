@@ -5,7 +5,13 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.text.SpannableString
+import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.SuperscriptSpan
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -47,6 +53,10 @@ class WordByWordAdapter(
   private var arabicTextColor: Int = Color.BLACK
   private var suraHeaderColor: Int = 0
   private var ayahSelectionColor: Int = 0
+  private var footnoteColor: Int = 0
+
+  // Track expanded footnotes: key = (sura, ayah, translationIndex), value = list of expanded footnote numbers
+  private val expandedFootnotes: MutableMap<Triple<Int, Int, Int>, MutableList<Int>> = mutableMapOf()
 
   // Memorization mode fields
   private var memorizationConfig: MemorizationConfig? = null
@@ -73,6 +83,7 @@ class WordByWordAdapter(
   fun setData(rows: List<WordByWordDisplayRow>) {
     data.clear()
     data.addAll(rows)
+    expandedFootnotes.clear()
   }
 
   fun refresh(
@@ -97,11 +108,13 @@ class WordByWordAdapter(
       arabicTextColor = ContextCompat.getColor(context, R.color.word_card_arabic_text_night)
       suraHeaderColor = ContextCompat.getColor(context, R.color.word_by_word_header_background_night)
       ayahSelectionColor = ContextCompat.getColor(context, R.color.word_by_word_selection_highlight_night)
+      footnoteColor = ContextCompat.getColor(context, R.color.word_by_word_footnote_night)
     } else {
       textColor = Color.BLACK
       arabicTextColor = ContextCompat.getColor(context, R.color.word_card_arabic_text)
       suraHeaderColor = ContextCompat.getColor(context, R.color.word_by_word_header_background)
       ayahSelectionColor = ContextCompat.getColor(context, R.color.word_by_word_selection_highlight)
+      footnoteColor = ContextCompat.getColor(context, R.color.word_by_word_footnote)
     }
 
     if (data.isNotEmpty()) {
@@ -335,12 +348,22 @@ class WordByWordAdapter(
             holder.translationContainer?.addView(translatorView)
           }
 
-          // Add translation text
+          // Add translation text with footnote support
           val textView = TextView(context).apply {
-            text = translation.text
+            val displayText = if (translation.footnotes.isNotEmpty()) {
+              val key = Triple(row.sura, row.ayah, index)
+              val expanded = expandedFootnotes[key] ?: emptyList()
+              processFootnotes(translation.text, translation.footnotes, expanded, position, index)
+            } else {
+              SpannableString(translation.text)
+            }
+            text = displayText
             textSize = translationTextSize
             setTextColor(translationTextColor)
             setPadding(0, 0, 0, 8)
+            if (translation.footnotes.isNotEmpty()) {
+              movementMethod = LinkMovementMethod.getInstance()
+            }
           }
           holder.translationContainer?.addView(textView)
         }
@@ -401,6 +424,72 @@ class WordByWordAdapter(
   }
 
   override fun getItemCount(): Int = data.size
+
+  private fun processFootnotes(
+    text: String,
+    footnotes: List<IntRange>,
+    expandedFootnoteNumbers: List<Int>,
+    position: Int,
+    translationIndex: Int
+  ): CharSequence {
+    if (footnotes.isEmpty()) return text
+
+    val spannableBuilder = SpannableStringBuilder(text)
+    val sortedRanges = footnotes.sortedByDescending { it.last }
+
+    sortedRanges.forEachIndexed { index, range ->
+      val footnoteNumber = sortedRanges.size - index
+      if (footnoteNumber !in expandedFootnoteNumbers) {
+        // Collapsed: replace footnote text with superscript number
+        val numberText = getLocalizedNumber(footnoteNumber)
+        val spannable = SpannableString(numberText)
+        spannable.setSpan(SuperscriptSpan(), 0, numberText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(RelativeSizeSpan(0.7f), 0, numberText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(
+          FootnoteClickSpan(position, translationIndex, footnoteNumber),
+          0, numberText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannable.setSpan(ForegroundColorSpan(footnoteColor), 0, numberText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableBuilder.replace(range.first, range.last + 1, spannable)
+      } else {
+        // Expanded: show footnote text with different styling
+        val span = RelativeSizeSpan(0.85f)
+        val colorSpan = ForegroundColorSpan(footnoteColor)
+        spannableBuilder.setSpan(span, range.first, range.last + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableBuilder.setSpan(colorSpan, range.first, range.last + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+      }
+    }
+
+    return spannableBuilder
+  }
+
+  private fun expandFootnote(position: Int, translationIndex: Int, footnoteNumber: Int) {
+    if (position in 0 until data.size) {
+      val row = data[position]
+      if (row is WordByWordDisplayRow.TranslationRow) {
+        val key = Triple(row.sura, row.ayah, translationIndex)
+        val expanded = expandedFootnotes.getOrPut(key) { mutableListOf() }
+        if (footnoteNumber !in expanded) {
+          expanded.add(footnoteNumber)
+          notifyItemChanged(position)
+        }
+      }
+    }
+  }
+
+  private fun getLocalizedNumber(number: Int): String {
+    return number.toString()
+  }
+
+  private inner class FootnoteClickSpan(
+    private val position: Int,
+    private val translationIndex: Int,
+    private val footnoteNumber: Int
+  ) : ClickableSpan() {
+    override fun onClick(widget: View) {
+      expandFootnote(position, translationIndex, footnoteNumber)
+    }
+  }
 
   inner class RowViewHolder(val wrapperView: View) : RecyclerView.ViewHolder(wrapperView) {
     val text: TextView? = wrapperView.findViewById(R.id.text)

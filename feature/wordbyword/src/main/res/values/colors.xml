@@ -36,4 +36,8 @@
     <color name="word_by_word_translation_text_night">#BDBDBD</color>
     <color name="word_by_word_translator_name">#1B5E20</color>
     <color name="word_by_word_translator_name_night">#81C784</color>
+
+    <!-- Footnote Colors -->
+    <color name="word_by_word_footnote">#1976D2</color>
+    <color name="word_by_word_footnote_night">#64B5F6</color>
 </resources>

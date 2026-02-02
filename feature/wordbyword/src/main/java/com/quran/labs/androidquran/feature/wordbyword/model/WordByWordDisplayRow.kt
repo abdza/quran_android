@@ -42,7 +42,8 @@ sealed class WordByWordDisplayRow {
 
   data class TranslationText(
     val translatorName: String,
-    val text: String
+    val text: String,
+    val footnotes: List<IntRange> = emptyList()
   )
 
   data class Spacer(

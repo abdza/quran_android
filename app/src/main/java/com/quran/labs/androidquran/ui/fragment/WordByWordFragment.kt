@@ -141,10 +141,14 @@ class WordByWordFragment : BaseWordByWordFragment() {
           val texts = translationModel.getTranslationFromDatabase(verseRange, translation.filename)
           Timber.d("WordByWord: Got ${texts.size} texts for ${translation.filename}")
           if (texts.isNotEmpty()) {
+            val text = texts.first().text
+            // Parse footnotes from translation text (same regex as TranslationUtil)
+            val footnotes = FOOTNOTE_REGEX.findAll(text).map { it.range }.toList()
             result.add(
               WordByWordDisplayRow.TranslationText(
                 translatorName = translation.name,
-                text = texts.first().text
+                text = text,
+                footnotes = footnotes
               )
             )
           }
@@ -159,6 +163,7 @@ class WordByWordFragment : BaseWordByWordFragment() {
 
   companion object {
     private const val PAGE_NUMBER_EXTRA = "pageNumber"
+    private val FOOTNOTE_REGEX = """\[\[[\s\S]*?]]""".toRegex()
 
     fun newInstance(page: Int): WordByWordFragment {
       val fragment = WordByWordFragment()
