@@ -435,7 +435,7 @@ internal class TranslationAdapter(
     val spannable = SpannableString(text)
     spannable.setSpan(SuperscriptSpan(), 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     spannable.setSpan(RelativeSizeSpan(0.7f), 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-    spannable.setSpan(ExpandFootnoteSpan(number, ::expandFootnote), 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+    spannable.setSpan(ExpandFootnoteSpan(number, ::toggleFootnote), 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     spannable.setSpan(ForegroundColorSpan(inlineAyahColor), 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     return spannable
   }
@@ -443,21 +443,28 @@ internal class TranslationAdapter(
   private fun expandedFootnote(
     spannableStringBuilder: SpannableStringBuilder,
     start: Int,
-    end: Int
+    end: Int,
+    number: Int
   ): SpannableStringBuilder {
     val span = RelativeSizeSpan(0.7f)
     val colorSpan = ForegroundColorSpan(footnoteColor)
+    val clickSpan = ExpandFootnoteSpan(number, ::toggleFootnote)
     spannableStringBuilder.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     spannableStringBuilder.setSpan(colorSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+    spannableStringBuilder.setSpan(clickSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     return spannableStringBuilder
   }
 
-  private fun expandFootnote(view: View, number: Int) {
+  private fun toggleFootnote(view: View, number: Int) {
     val position = recyclerView.getChildAdapterPosition(view)
     if (position != RecyclerView.NO_POSITION) {
       val data = data[position]
       val expanded = expandedFootnotes[data.ayahInfo] ?: listOf()
-      expandedFootnotes[data.ayahInfo] = expanded + number
+      expandedFootnotes[data.ayahInfo] = if (number in expanded) {
+        expanded - number
+      } else {
+        expanded + number
+      }
       notifyItemChanged(position)
     }
   }

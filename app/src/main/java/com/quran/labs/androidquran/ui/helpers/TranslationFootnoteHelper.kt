@@ -11,7 +11,7 @@ object TranslationFootnoteHelper {
     spannableStringBuilder: SpannableStringBuilder,
     expandedFootnotes: List<Int>,
     collapsedFootnoteSpannableStyler: ((Int) -> SpannableString),
-    expandedFootnoteSpannableStyler: ((SpannableStringBuilder, Int, Int) -> SpannableStringBuilder)
+    expandedFootnoteSpannableStyler: ((SpannableStringBuilder, Int, Int, Int) -> SpannableStringBuilder)
   ): CharSequence {
     return if (data != null) {
       val ranges = footnotes.sortedByDescending { it.last }
@@ -24,7 +24,7 @@ object TranslationFootnoteHelper {
             collapsedFootnoteSpannableStyler(number)
           )
         } else {
-          expandedFootnoteSpannableStyler(builder, range.first, range.last + 1)
+          expandedFootnoteSpannableStyler(builder, range.first, range.last + 1, number)
         }
       }
     } else {

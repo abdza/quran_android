@@ -24,18 +24,44 @@ class WordByWordDatabaseProvider @Inject constructor(
   private var cachedDatabase: WordByWordDatabase? = null
 
   private suspend fun ensureWordByWordDatabase(): Boolean {
-    return if (databasePath.exists()) {
-      true
-    } else {
-      withContext(Dispatchers.IO) {
-        runCatching {
-          quranFileManager.copyFromAssetsRelative(
-            databaseName,
-            databaseName,
-            quranFileManager.databaseDirectory()
-          )
-        }.isSuccess
+    return withContext(Dispatchers.IO) {
+      // Check if database exists and has the required tables
+      if (databasePath.exists()) {
+        if (isDatabaseValid()) {
+          return@withContext true
+        } else {
+          // Database is corrupted or missing tables, delete and re-copy
+          databasePath.delete()
+        }
       }
+
+      // Copy from assets
+      runCatching {
+        quranFileManager.copyFromAssetsRelative(
+          databaseName,
+          databaseName,
+          quranFileManager.databaseDirectory()
+        )
+      }.isSuccess
+    }
+  }
+
+  private fun isDatabaseValid(): Boolean {
+    return try {
+      val db = SQLiteDatabase.openDatabase(
+        databasePath.absolutePath,
+        null,
+        SQLiteDatabase.OPEN_READONLY
+      )
+      db.use { database ->
+        val cursor = database.rawQuery(
+          "SELECT name FROM sqlite_master WHERE type='table' AND name='word_translations'",
+          null
+        )
+        cursor.use { it.count > 0 }
+      }
+    } catch (e: Exception) {
+      false
     }
   }
 

@@ -80,7 +80,7 @@ class ShareUtil @Inject internal constructor(private val quranDisplayData: Quran
             spannableStringBuilder,
             listOf(),
             { _ -> SpannableString("") },
-            { builder, _, _ -> builder }
+            { builder, _, _, _ -> builder }
           )
           append(spannableStringBuilder)
         }

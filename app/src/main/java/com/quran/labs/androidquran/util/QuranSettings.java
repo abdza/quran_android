@@ -426,7 +426,7 @@ public class QuranSettings {
   }
 
   public boolean showTransliteration() {
-    return prefs.getBoolean(Constants.PREF_SHOW_TRANSLITERATION, true);
+    return prefs.getBoolean(Constants.PREF_SHOW_TRANSLITERATION, false);
   }
 
   public void setShowTransliteration(boolean show) {
@@ -467,7 +467,7 @@ public class QuranSettings {
   }
 
   public boolean shouldHideArabicInMemorization() {
-    return prefs.getBoolean(Constants.PREF_MEMORIZATION_HIDE_ARABIC, false);
+    return prefs.getBoolean(Constants.PREF_MEMORIZATION_HIDE_ARABIC, true);
   }
 
   public void setHideArabicInMemorization(boolean hide) {
@@ -475,7 +475,7 @@ public class QuranSettings {
   }
 
   public boolean shouldHideTranslationInMemorization() {
-    return prefs.getBoolean(Constants.PREF_MEMORIZATION_HIDE_TRANSLATION, true);
+    return prefs.getBoolean(Constants.PREF_MEMORIZATION_HIDE_TRANSLATION, false);
   }
 
   public void setHideTranslationInMemorization(boolean hide) {

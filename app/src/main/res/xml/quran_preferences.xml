@@ -150,7 +150,7 @@
         app:iconSpaceReserved="false"/>
 
     <CheckBoxPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_show_transliteration"
         android:persistent="true"
@@ -193,7 +193,7 @@
         app:iconSpaceReserved="false"/>
 
     <CheckBoxPreference
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:dependency="@string/prefs_memorization_enabled_key"
         android:key="@string/prefs_memorization_hide_arabic_key"
         android:persistent="true"
@@ -202,7 +202,7 @@
         app:iconSpaceReserved="false"/>
 
     <CheckBoxPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:dependency="@string/prefs_memorization_enabled_key"
         android:key="@string/prefs_memorization_hide_translation_key"
         android:persistent="true"

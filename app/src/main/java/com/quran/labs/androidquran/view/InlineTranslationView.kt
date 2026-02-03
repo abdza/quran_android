@@ -161,7 +161,8 @@ class InlineTranslationView @JvmOverloads constructor(
   private fun expandedFootnote(
     spannableStringBuilder: SpannableStringBuilder,
     start: Int,
-    end: Int
+    end: Int,
+    number: Int
   ): SpannableStringBuilder {
     return spannableStringBuilder
   }

@@ -452,27 +452,31 @@ class WordByWordAdapter(
         spannable.setSpan(ForegroundColorSpan(footnoteColor), 0, numberText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableBuilder.replace(range.first, range.last + 1, spannable)
       } else {
-        // Expanded: show footnote text with different styling
+        // Expanded: show footnote text with different styling, clickable to collapse
         val span = RelativeSizeSpan(0.85f)
         val colorSpan = ForegroundColorSpan(footnoteColor)
+        val clickSpan = FootnoteClickSpan(position, translationIndex, footnoteNumber)
         spannableBuilder.setSpan(span, range.first, range.last + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableBuilder.setSpan(colorSpan, range.first, range.last + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableBuilder.setSpan(clickSpan, range.first, range.last + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
       }
     }
 
     return spannableBuilder
   }
 
-  private fun expandFootnote(position: Int, translationIndex: Int, footnoteNumber: Int) {
+  private fun toggleFootnote(position: Int, translationIndex: Int, footnoteNumber: Int) {
     if (position in 0 until data.size) {
       val row = data[position]
       if (row is WordByWordDisplayRow.TranslationRow) {
         val key = Triple(row.sura, row.ayah, translationIndex)
         val expanded = expandedFootnotes.getOrPut(key) { mutableListOf() }
-        if (footnoteNumber !in expanded) {
+        if (footnoteNumber in expanded) {
+          expanded.remove(footnoteNumber)
+        } else {
           expanded.add(footnoteNumber)
-          notifyItemChanged(position)
         }
+        notifyItemChanged(position)
       }
     }
   }
@@ -487,7 +491,7 @@ class WordByWordAdapter(
     private val footnoteNumber: Int
   ) : ClickableSpan() {
     override fun onClick(widget: View) {
-      expandFootnote(position, translationIndex, footnoteNumber)
+      toggleFootnote(position, translationIndex, footnoteNumber)
     }
   }
 

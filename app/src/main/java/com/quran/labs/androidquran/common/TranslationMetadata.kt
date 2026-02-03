@@ -20,7 +20,7 @@ data class TranslationMetadata(
     spannableStringBuilder: SpannableStringBuilder,
     expandedFootnotes: List<Int>,
     collapsedFootnoteSpannableStyler: ((Int) -> SpannableString),
-    expandedFootnoteSpannableStyler: ((SpannableStringBuilder, Int, Int) -> SpannableStringBuilder)
+    expandedFootnoteSpannableStyler: ((SpannableStringBuilder, Int, Int, Int) -> SpannableStringBuilder)
   ): CharSequence {
     return TranslationFootnoteHelper.footnoteCognizantText(
       text,
