@@ -551,9 +551,14 @@ class QuranActivity : AppCompatActivity(),
       val suraName = quranDisplayData.getSuraNameFromPage(this, page, false)
       val buttonText = getString(R.string.session_page_format, suraName, page)
 
-      val button = Button(this, null, com.google.android.material.R.attr.materialButtonOutlinedStyle).apply {
+      val button = Button(this).apply {
         text = buttonText
         setOnClickListener { jumpTo(page) }
+        setBackgroundResource(R.drawable.session_button_background)
+        val horizontalPadding = resources.getDimensionPixelSize(R.dimen.session_button_padding_horizontal)
+        val verticalPadding = resources.getDimensionPixelSize(R.dimen.session_button_padding_vertical)
+        setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding)
+        isAllCaps = false
         layoutParams = LinearLayout.LayoutParams(
           LinearLayout.LayoutParams.WRAP_CONTENT,
           LinearLayout.LayoutParams.WRAP_CONTENT
