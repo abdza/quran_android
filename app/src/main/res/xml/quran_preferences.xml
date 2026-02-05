@@ -143,15 +143,6 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="@string/prefs_word_by_word_enabled"
-        android:persistent="true"
-        android:summary="@string/prefs_word_by_word_summary"
-        android:title="@string/prefs_word_by_word_title"
-        app:iconSpaceReserved="false"/>
-
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_show_transliteration"
         android:persistent="true"
         android:summary="@string/prefs_show_transliteration_summary"
@@ -160,7 +151,6 @@
 
     <com.quran.labs.androidquran.ui.preference.SeekBarAyahTextSizePreference
         android:defaultValue="15"
-        android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_wbw_arabic_text_size"
         android:max="40"
         android:persistent="true"
@@ -168,7 +158,6 @@
 
     <com.quran.labs.androidquran.ui.preference.SeekBarTranslationTextSizePreference
         android:defaultValue="15"
-        android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_wbw_translation_text_size"
         android:max="40"
         android:persistent="true"
@@ -176,7 +165,6 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_word_by_word_show_ayah_translation_key"
         android:persistent="true"
         android:summary="@string/prefs_word_by_word_show_ayah_translation_summary"
@@ -185,7 +173,6 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:dependency="@string/prefs_word_by_word_enabled"
         android:key="@string/prefs_memorization_enabled_key"
         android:persistent="true"
         android:summary="@string/prefs_memorization_enabled_summary"
