@@ -156,5 +156,6 @@ class WordCardView @JvmOverloads constructor(
 
   companion object {
     private const val HIDDEN_PLACEHOLDER = "\u2022\u2022\u2022"
+    private const val SMALL_HIGH_ROUNDED_ZERO = "\u06DF"
   }
 }

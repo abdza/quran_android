@@ -71,7 +71,7 @@ class WordByWordFragment : BaseWordByWordFragment() {
     val showTransliteration = quranSettings.showTransliteration()
     val arabicTextSize = quranSettings.wbwArabicTextSize.toFloat()
     val translationTextSize = quranSettings.wbwTranslationTextSize.toFloat()
-    val arabicTypeface = TypefaceManager.getUthmaniTypeface(context)
+    val arabicTypeface = TypefaceManager.getTafseerTypeface(context)
 
     val spanApplier: (SpannableString) -> Unit = { spannableString ->
       spannableString.setSpan(
