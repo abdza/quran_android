@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.HorizontalDivider
@@ -20,6 +21,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -105,6 +107,29 @@ private fun NoteCard(
   onDelete: () -> Unit,
   onViewReplies: () -> Unit
 ) {
+  var showDeleteConfirmation by remember { mutableStateOf(false) }
+
+  if (showDeleteConfirmation) {
+    AlertDialog(
+      onDismissRequest = { showDeleteConfirmation = false },
+      title = { Text(stringResource(R.string.delete_note_confirm_title)) },
+      text = { Text(stringResource(R.string.delete_note_confirm_message)) },
+      confirmButton = {
+        TextButton(onClick = {
+          showDeleteConfirmation = false
+          onDelete()
+        }) {
+          Text(stringResource(R.string.confirm))
+        }
+      },
+      dismissButton = {
+        TextButton(onClick = { showDeleteConfirmation = false }) {
+          Text(stringResource(R.string.cancel))
+        }
+      }
+    )
+  }
+
   Card(
     modifier = Modifier
       .fillMaxWidth()
@@ -157,7 +182,7 @@ private fun NoteCard(
           )
         }
 
-        IconButton(onClick = onDelete) {
+        IconButton(onClick = { showDeleteConfirmation = true }) {
           Icon(
             painter = painterResource(R.drawable.ic_delete),
             contentDescription = stringResource(R.string.delete_note),

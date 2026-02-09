@@ -1227,6 +1227,10 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       onSessionEnd()
       finish()
       return true
+    } else if (itemId == R.id.notes) {
+      val intent = Intent(this, com.quran.mobile.feature.notes.NotesActivity::class.java)
+      startActivity(intent)
+      return true
     } else if (itemId == R.id.jump) {
       val fm = supportFragmentManager
       val jumpDialog = JumpFragment()

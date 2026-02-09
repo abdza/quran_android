@@ -24,4 +24,7 @@
   <string name="search_notes">Search notes…</string>
   <string name="share_note">Share</string>
   <string name="back_to_notes">Back to notes</string>
+  <string name="delete_note_confirm_title">Delete Note</string>
+  <string name="delete_note_confirm_message">Are you sure you want to delete this note? This action cannot be undone.</string>
+  <string name="confirm">Delete</string>
 </resources>

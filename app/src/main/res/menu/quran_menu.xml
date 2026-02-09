@@ -17,6 +17,9 @@
           android:icon="@drawable/ic_word_by_word"
           android:title="@string/menu_word_by_word"
           app:showAsAction="ifRoom" />
+    <item android:id="@+id/notes"
+          android:title="@string/menu_notes"
+          app:showAsAction="never" />
     <item android:id="@+id/search"
           android:icon="@drawable/ic_ab_search"
           android:title="@string/menu_search"

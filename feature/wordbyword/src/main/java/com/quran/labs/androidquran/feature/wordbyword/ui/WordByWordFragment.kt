@@ -212,6 +212,12 @@ abstract class WordByWordFragment : Fragment(),
     }
   }
 
+  override fun onVerseDeselected() {
+    if (isVisible) {
+      readingEventPresenter.onAyahSelection(AyahSelection.None)
+    }
+  }
+
   override fun onSaveInstanceState(outState: Bundle) {
     scrollPosition = layoutManager.findFirstCompletelyVisibleItemPosition()
     outState.putInt(SI_SCROLL_POSITION, scrollPosition)

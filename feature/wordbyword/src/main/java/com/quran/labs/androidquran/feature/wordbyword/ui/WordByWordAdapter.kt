@@ -66,6 +66,9 @@ class WordByWordAdapter(
   private var temporarilyRevealedAyahId: Int = 0
   private var temporarilyRevealedWordCard: WordCardView? = null
 
+  private var lastHighlightedClickTime: Long = 0
+  private val DOUBLE_TAP_TIMEOUT = 300L
+
   private val defaultClickListener = View.OnClickListener { handleClick(it) }
   private val defaultLongClickListener = View.OnLongClickListener { view ->
     val position = recyclerView.getChildAdapterPosition(view)
@@ -195,9 +198,18 @@ class WordByWordAdapter(
     if (position != RecyclerView.NO_POSITION) {
       val row = data[position]
       if (row.ayahId != highlightedAyahId) {
+        lastHighlightedClickTime = 0
         onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah), view)
         return
       }
+      // Double-tap on highlighted ayah deselects it
+      val now = System.currentTimeMillis()
+      if (now - lastHighlightedClickTime < DOUBLE_TAP_TIMEOUT) {
+        lastHighlightedClickTime = 0
+        onVerseSelectedListener.onVerseDeselected()
+        return
+      }
+      lastHighlightedClickTime = now
     }
     // Only toggle action bar when not selecting a new verse
     onClickListener.onClick(view)
@@ -505,6 +517,7 @@ class WordByWordAdapter(
 
   interface OnVerseSelectedListener {
     fun onVerseSelected(suraAyah: SuraAyah, view: View)
+    fun onVerseDeselected()
   }
 
   interface OnWordClickListener {

@@ -36,7 +36,9 @@ import androidx.compose.ui.unit.dp
 import com.quran.data.model.note.NoteLabel
 import com.quran.data.model.note.NoteWithLabels
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringArrayResource
 import com.quran.mobile.feature.notes.R
+import com.quran.mobile.common.ui.core.R as UiCoreR
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -122,6 +124,8 @@ private fun NotesListCard(
   onClick: () -> Unit
 ) {
   val note = noteWithLabels.note
+  val suraNames = stringArrayResource(UiCoreR.array.sura_names)
+  val suraName = if (note.sura in 1..suraNames.size) suraNames[note.sura - 1] else ""
   Card(
     modifier = Modifier
       .fillMaxWidth()
@@ -129,7 +133,7 @@ private fun NotesListCard(
   ) {
     Column(modifier = Modifier.padding(12.dp)) {
       Text(
-        text = "${note.sura}:${note.ayah}",
+        text = "$suraName, ${note.sura}:${note.ayah}",
         style = MaterialTheme.typography.labelMedium,
         color = MaterialTheme.colorScheme.primary
       )
@@ -227,13 +231,15 @@ private fun SuraFilterDropdown(
   onSuraSelected: (Int?) -> Unit
 ) {
   var expanded by remember { mutableStateOf(false) }
+  val suraNames = stringArrayResource(UiCoreR.array.sura_names)
 
   FilterChip(
     selected = selectedSura != null,
     onClick = { expanded = true },
     label = {
       Text(
-        if (selectedSura != null) stringResource(R.string.sura_number, selectedSura)
+        if (selectedSura != null && selectedSura in 1..suraNames.size)
+          "${suraNames[selectedSura - 1]}, $selectedSura"
         else stringResource(R.string.filter_by_surah)
       )
     }
@@ -249,7 +255,7 @@ private fun SuraFilterDropdown(
     )
     (1..114).forEach { sura ->
       DropdownMenuItem(
-        text = { Text(stringResource(R.string.sura_number, sura)) },
+        text = { Text("${suraNames[sura - 1]}, $sura") },
         onClick = {
           onSuraSelected(sura)
           expanded = false

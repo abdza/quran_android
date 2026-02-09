@@ -334,11 +334,6 @@ class QuranActivity : AppCompatActivity(),
         )
     )
 
-    // Add additional injected screens (if any)
-    extraScreens
-      .sortedBy { it.order }
-      .forEach { menu.add(Menu.NONE, it.id, Menu.NONE, it.titleResId) }
-
     return true
   }
 
@@ -358,6 +353,9 @@ class QuranActivity : AppCompatActivity(),
       }
       R.id.jump -> {
         gotoPageDialog()
+      }
+      R.id.notes -> {
+        startActivity(Intent(this, com.quran.mobile.feature.notes.NotesActivity::class.java))
       }
       R.id.other_apps -> {
         val intent = Intent(Intent.ACTION_VIEW)

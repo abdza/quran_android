@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.HorizontalDivider
@@ -23,13 +24,19 @@ import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.quran.data.model.note.NoteWithLabels
 import com.quran.labs.androidquran.common.ui.core.QuranIcons
+import androidx.compose.ui.res.stringArrayResource
 import com.quran.mobile.feature.notes.R
+import com.quran.mobile.common.ui.core.R as UiCoreR
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -45,6 +52,30 @@ fun NoteDetailScreen(
   modifier: Modifier = Modifier
 ) {
   val note = noteWithLabels.note
+  val suraNames = stringArrayResource(UiCoreR.array.sura_names)
+  val suraName = if (note.sura in 1..suraNames.size) suraNames[note.sura - 1] else ""
+  var showDeleteConfirmation by remember { mutableStateOf(false) }
+
+  if (showDeleteConfirmation) {
+    AlertDialog(
+      onDismissRequest = { showDeleteConfirmation = false },
+      title = { Text(stringResource(R.string.delete_note_confirm_title)) },
+      text = { Text(stringResource(R.string.delete_note_confirm_message)) },
+      confirmButton = {
+        TextButton(onClick = {
+          showDeleteConfirmation = false
+          onDelete()
+        }) {
+          Text(stringResource(R.string.confirm))
+        }
+      },
+      dismissButton = {
+        TextButton(onClick = { showDeleteConfirmation = false }) {
+          Text(stringResource(R.string.cancel))
+        }
+      }
+    )
+  }
 
   LazyColumn(modifier = modifier.padding(16.dp)) {
     item {
@@ -65,7 +96,7 @@ fun NoteDetailScreen(
 
       // Ayah reference
       Text(
-        text = "${note.sura}:${note.ayah}",
+        text = "$suraName, ${note.sura}:${note.ayah}",
         style = MaterialTheme.typography.titleMedium,
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.clickable { onAyahClicked(note.sura, note.ayah) }
@@ -105,7 +136,7 @@ fun NoteDetailScreen(
         OutlinedButton(onClick = onEdit) {
           Text(stringResource(R.string.edit_note))
         }
-        OutlinedButton(onClick = onDelete) {
+        OutlinedButton(onClick = { showDeleteConfirmation = true }) {
           Text(stringResource(R.string.delete_note))
         }
         if (onShare != null) {
