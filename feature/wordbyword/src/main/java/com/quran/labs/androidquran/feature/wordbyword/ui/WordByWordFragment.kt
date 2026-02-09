@@ -15,6 +15,7 @@ import com.quran.data.core.QuranInfo
 import com.quran.data.model.SuraAyah
 import com.quran.data.model.WordTranslation
 import com.quran.data.model.selection.AyahSelection
+import com.quran.data.model.selection.SelectionIndicator
 import com.quran.labs.androidquran.feature.wordbyword.R
 import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
@@ -24,6 +25,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 abstract class WordByWordFragment : Fragment(),
@@ -52,6 +55,7 @@ abstract class WordByWordFragment : Fragment(),
   private var arabicTypeface: Typeface? = null
   private var uthmaniSpanApplier: ((SpannableString) -> Unit)? = null
   private var memorizationJob: Job? = null
+  private var ayahSelectionJob: Job? = null
 
   protected abstract fun getSuraName(sura: Int): String
   protected abstract fun onPageClicked()
@@ -106,9 +110,26 @@ abstract class WordByWordFragment : Fragment(),
     super.onResume()
     presenter.bind(this)
     updateView()
+
+    ayahSelectionJob = readingEventPresenter.ayahSelectionFlow
+      .onEach { ayahSelection ->
+        when (ayahSelection) {
+          is AyahSelection.Ayah -> {
+            val suraAyah = ayahSelection.suraAyah
+            highlightAyah(suraAyah.sura, suraAyah.ayah)
+          }
+          is AyahSelection.AyahRange -> {
+            val suraAyah = ayahSelection.startSuraAyah
+            highlightAyah(suraAyah.sura, suraAyah.ayah)
+          }
+          AyahSelection.None -> unhighlight()
+        }
+      }
+      .launchIn(scope)
   }
 
   override fun onPause() {
+    ayahSelectionJob?.cancel()
     memorizationJob?.cancel()
     presenter.unbind(this)
     super.onPause()
@@ -180,17 +201,15 @@ abstract class WordByWordFragment : Fragment(),
     layoutManager.scrollToPosition(scrollPosition)
   }
 
-  override fun onVerseSelected(suraAyah: SuraAyah) {
+  override fun onVerseSelected(suraAyah: SuraAyah, view: View) {
     if (isVisible) {
-      val toolbarPosition = getToolbarPosition(suraAyah.sura, suraAyah.ayah)
+      val location = IntArray(2)
+      view.getLocationOnScreen(location)
+      val x = location[0] + view.width / 2f
+      val y = location[1].toFloat()
+      val toolbarPosition = SelectionIndicator.SelectedPointPosition(x, y)
       readingEventPresenter.onAyahSelection(AyahSelection.Ayah(suraAyah, toolbarPosition))
     }
-  }
-
-  private fun getToolbarPosition(sura: Int, ayah: Int): com.quran.data.model.selection.SelectionIndicator {
-    // For now, return a simple selection indicator
-    // This could be enhanced to calculate the actual position for the toolbar
-    return com.quran.data.model.selection.SelectionIndicator.None
   }
 
   override fun onSaveInstanceState(outState: Bundle) {

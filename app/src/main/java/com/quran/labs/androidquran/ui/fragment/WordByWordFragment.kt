@@ -8,7 +8,10 @@ import android.text.SpannableString
 import android.view.View
 import com.quran.data.core.QuranInfo
 import com.quran.data.model.VerseRange
+import com.quran.data.model.selection.SelectionIndicator
 import com.quran.labs.androidquran.R
+import com.quran.labs.androidquran.common.QuranAyahInfo
+import com.quran.labs.androidquran.common.TranslationMetadata
 import com.quran.labs.androidquran.data.QuranDisplayData
 import com.quran.labs.androidquran.database.TranslationsDBAdapter
 import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
@@ -17,19 +20,23 @@ import com.quran.labs.androidquran.feature.wordbyword.presenter.WordByWordPresen
 import com.quran.labs.androidquran.feature.wordbyword.ui.WordByWordFragment as BaseWordByWordFragment
 import com.quran.labs.androidquran.model.translation.TranslationModel
 import com.quran.labs.androidquran.ui.PagerActivity
+import com.quran.labs.androidquran.ui.helpers.AyahTracker
+import com.quran.labs.androidquran.ui.helpers.QuranPage
 import com.quran.labs.androidquran.ui.helpers.UthmaniSpan
 import com.quran.labs.androidquran.ui.util.TypefaceManager
 import com.quran.labs.androidquran.util.QuranSettings
+import com.quran.mobile.translation.model.LocalTranslation
 import com.quran.reading.common.ReadingEventPresenter
 import dev.zacsweers.metro.HasMemberInjections
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 @HasMemberInjections
-class WordByWordFragment : BaseWordByWordFragment() {
+class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
 
   @Inject lateinit var quranDisplayData: QuranDisplayData
   @Inject lateinit var quranSettings: QuranSettings
@@ -158,6 +165,81 @@ class WordByWordFragment : BaseWordByWordFragment() {
       }
       Timber.d("WordByWord: Returning ${result.size} translations for $sura:$ayah")
       result
+    }
+  }
+
+  // QuranPage implementation
+  override fun getAyahTracker(): AyahTracker = this
+
+  // AyahTracker implementation
+  override fun getToolBarPosition(sura: Int, ayah: Int): SelectionIndicator {
+    return SelectionIndicator.None
+  }
+
+  override fun getQuranAyahInfo(sura: Int, ayah: Int): QuranAyahInfo? {
+    return try {
+      val (arabicText, translations) = runBlocking(Dispatchers.IO) {
+        val verseRange = VerseRange(sura, ayah, sura, ayah, 1)
+
+        // Fetch Arabic text
+        val arabic = try {
+          val arabicVerses = translationModel.getArabicFromDatabase(verseRange)
+          arabicVerses.firstOrNull()?.text
+        } catch (e: Exception) {
+          Timber.e(e, "Error fetching Arabic text for sharing")
+          null
+        }
+
+        // Fetch translations
+        val allTranslations = translationsDBAdapter.getTranslations().first()
+        val activeTranslations = quranSettings.activeTranslations
+        val activeTranslationList = if (activeTranslations.isEmpty()) {
+          allTranslations.sortedBy { it.displayOrder }
+        } else {
+          allTranslations.filter { activeTranslations.contains(it.filename) }
+            .sortedBy { it.displayOrder }
+        }
+
+        val translationMetadata = activeTranslationList.mapNotNull { translation ->
+          try {
+            val texts = translationModel.getTranslationFromDatabase(
+              verseRange, translation.filename
+            )
+            if (texts.isNotEmpty()) {
+              TranslationMetadata(sura, ayah, texts.first().text)
+            } else null
+          } catch (e: Exception) {
+            Timber.e(e, "Error fetching translation for sharing")
+            null
+          }
+        }
+
+        Pair(arabic, translationMetadata)
+      }
+      val ayahId = _quranInfo.getAyahId(sura, ayah)
+      QuranAyahInfo(sura, ayah, arabicText, translations, ayahId)
+    } catch (e: Exception) {
+      Timber.e(e, "Error building QuranAyahInfo for sharing")
+      null
+    }
+  }
+
+  override fun getLocalTranslations(): Array<LocalTranslation>? {
+    return try {
+      val allTranslations = runBlocking(Dispatchers.IO) {
+        translationsDBAdapter.getTranslations().first()
+      }
+      val activeTranslations = quranSettings.activeTranslations
+      val result = if (activeTranslations.isEmpty()) {
+        allTranslations.sortedBy { it.displayOrder }
+      } else {
+        allTranslations.filter { activeTranslations.contains(it.filename) }
+          .sortedBy { it.displayOrder }
+      }
+      result.toTypedArray()
+    } catch (e: Exception) {
+      Timber.e(e, "Error getting local translations")
+      null
     }
   }
 

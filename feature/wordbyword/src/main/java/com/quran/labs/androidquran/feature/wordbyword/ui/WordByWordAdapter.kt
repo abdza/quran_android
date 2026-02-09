@@ -195,10 +195,11 @@ class WordByWordAdapter(
     if (position != RecyclerView.NO_POSITION) {
       val row = data[position]
       if (row.ayahId != highlightedAyahId) {
-        onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah))
+        onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah), view)
+        return
       }
     }
-    // Always show toolbar/menu on tap
+    // Only toggle action bar when not selecting a new verse
     onClickListener.onClick(view)
   }
 
@@ -207,7 +208,7 @@ class WordByWordAdapter(
     if (position != RecyclerView.NO_POSITION) {
       val row = data[position]
       highlightAyah(row.ayahId, true)
-      onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah))
+      onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah), view)
       return true
     }
     return false
@@ -503,7 +504,7 @@ class WordByWordAdapter(
   }
 
   interface OnVerseSelectedListener {
-    fun onVerseSelected(suraAyah: SuraAyah)
+    fun onVerseSelected(suraAyah: SuraAyah, view: View)
   }
 
   interface OnWordClickListener {

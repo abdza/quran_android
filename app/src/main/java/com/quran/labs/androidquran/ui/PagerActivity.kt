@@ -1854,7 +1854,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     }
 
     val translationNames = lastActivatedLocalTranslations
-    if (showingTranslation && translationNames.isNotEmpty()) {
+    if ((showingTranslation || pagerAdapter.isShowingWordByWord) && translationNames.isNotEmpty()) {
       // temporarily required so "lastSelectedTranslationAyah" isn't null
       // the real solution is to move this sharing logic out of PagerActivity
       // in the future and avoid this back and forth with the translation fragment.
