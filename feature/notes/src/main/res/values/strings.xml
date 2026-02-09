@@ -23,4 +23,5 @@
   <string name="no_notes">No notes yet</string>
   <string name="search_notes">Search notes…</string>
   <string name="share_note">Share</string>
+  <string name="back_to_notes">Back to notes</string>
 </resources>

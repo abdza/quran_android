@@ -10,21 +10,25 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.quran.data.model.note.NoteWithLabels
+import com.quran.labs.androidquran.common.ui.core.QuranIcons
 import com.quran.mobile.feature.notes.R
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -44,6 +48,21 @@ fun NoteDetailScreen(
 
   LazyColumn(modifier = modifier.padding(16.dp)) {
     item {
+      // Back button
+      TextButton(onClick = onBack) {
+        Icon(
+          imageVector = QuranIcons.ArrowBack,
+          contentDescription = null,
+          modifier = Modifier.size(18.dp)
+        )
+        Text(
+          text = stringResource(R.string.back_to_notes),
+          modifier = Modifier.padding(start = 4.dp)
+        )
+      }
+
+      Spacer(modifier = Modifier.height(8.dp))
+
       // Ayah reference
       Text(
         text = "${note.sura}:${note.ayah}",
