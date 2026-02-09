@@ -16,12 +16,16 @@ fun SelectionIndicator.toInternalPosition(
   return when (this) {
     None, SelectionIndicator.ScrollOnly -> null
     is SelectedItemPosition -> toInternalPosition(width, height, toolBarWidth, toolBarHeight)
-    is SelectedPointPosition -> SelectionIndicatorPosition(
-      this.x + this.xScroll,
-      this.y + this.yScroll,
-      0f,
-      SelectedAyahPlacementType.TOP
-    )
+    is SelectedPointPosition -> {
+      var x = this.x + this.xScroll
+      val y = this.y + this.yScroll
+      // Clamp toolbar to fit within parent width
+      if (x + toolBarWidth > width) {
+        x = (width - toolBarWidth).toFloat()
+      }
+      if (x < 0f) x = 0f
+      SelectionIndicatorPosition(x, y, this.x + this.xScroll - x, SelectedAyahPlacementType.TOP)
+    }
   }
 }
 

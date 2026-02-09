@@ -1816,6 +1816,8 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       } else if (itemId == com.quran.labs.androidquran.common.toolbar.R.id.cab_translate_ayah) {
         sliderPage =
           slidingPagerAdapter.getPagePosition(SlidingPagerAdapter.TRANSLATION_PAGE)
+      } else if (itemId == com.quran.labs.androidquran.common.toolbar.R.id.cab_note_ayah) {
+        sliderPage = slidingPagerAdapter.getPagePosition(SlidingPagerAdapter.NOTES_PAGE)
       } else if (itemId == com.quran.labs.androidquran.common.toolbar.R.id.cab_play_from_here) {
         quranEventLogger.logAudioPlayback(
           QuranEventLogger.AudioPlaybackSource.AYAH,

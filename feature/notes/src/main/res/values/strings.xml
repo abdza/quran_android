@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="notes_title">Notes</string>
+  <string name="add_note">Add Note</string>
+  <string name="edit_note">Edit Note</string>
+  <string name="note_placeholder">Write your note here…</string>
+  <string name="add_reply">Add Reply</string>
+  <string name="delete_note">Delete</string>
+  <string name="note_saved">Note saved</string>
+  <string name="save">Save</string>
+  <string name="cancel">Cancel</string>
+  <string name="label_thought">Thought</string>
+  <string name="label_question">Question</string>
+  <string name="label_reflection">Reflection</string>
+  <string name="label_reminder">Reminder</string>
+  <string name="add_label">+ Label</string>
+  <string name="replies_count">%d replies</string>
+  <string name="filter_by_label">Label</string>
+  <string name="filter_by_surah">Surah</string>
+  <string name="all_labels">All Labels</string>
+  <string name="all_surahs">All Surahs</string>
+  <string name="sura_number">Surah %d</string>
+  <string name="no_notes">No notes yet</string>
+  <string name="search_notes">Search notes…</string>
+  <string name="share_note">Share</string>
+</resources>

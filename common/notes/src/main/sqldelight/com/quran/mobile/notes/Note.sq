@@ -1,0 +1,150 @@
+import kotlin.Int;
+
+CREATE TABLE IF NOT EXISTS notes(
+  _ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  sura INTEGER AS Int NOT NULL,
+  ayah INTEGER AS Int NOT NULL,
+  page INTEGER AS Int NOT NULL,
+  text TEXT NOT NULL,
+  parent_note_id INTEGER REFERENCES notes(_ID) ON DELETE CASCADE,
+  created_date INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL,
+  updated_date INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS notes_sura_ayah_index ON notes(sura, ayah);
+CREATE INDEX IF NOT EXISTS notes_parent_index ON notes(parent_note_id);
+
+addNote:
+  INSERT INTO notes(sura, ayah, page, text, parent_note_id) VALUES(?, ?, ?, ?, ?);
+
+updateNote:
+  UPDATE notes SET text = ?, updated_date = strftime('%s', 'now') WHERE _ID = ?;
+
+deleteNote:
+  DELETE FROM notes WHERE _ID = ?;
+
+getNoteById:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes._ID = ?;
+
+getAllNotesByUpdated:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.parent_note_id IS NULL
+  ORDER BY notes.updated_date DESC;
+
+getNotesBySuraAyah:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.sura = ? AND notes.ayah = ? AND notes.parent_note_id IS NULL
+  ORDER BY notes.updated_date DESC;
+
+getNotesBySura:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.sura = ? AND notes.parent_note_id IS NULL
+  ORDER BY notes.updated_date DESC;
+
+getNotesByLabel:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes
+    INNER JOIN note_label_map AS filter_map ON notes._ID = filter_map.note_id AND filter_map.label_id = ?
+    LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.parent_note_id IS NULL
+  ORDER BY notes.updated_date DESC;
+
+getChildNotes:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.parent_note_id = ?
+  ORDER BY notes.created_date ASC;
+
+searchNotes:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.parent_note_id IS NULL AND notes.text LIKE '%' || ? || '%'
+  ORDER BY notes.updated_date DESC;
+
+getChildCount:
+  SELECT COUNT(*) FROM notes WHERE parent_note_id = ?;
+
+lastInsertedId:
+  SELECT last_insert_rowid();

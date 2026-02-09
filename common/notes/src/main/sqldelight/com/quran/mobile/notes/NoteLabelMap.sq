@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS note_label_map(
+  _ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  note_id INTEGER NOT NULL,
+  label_id INTEGER NOT NULL,
+  added_date INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS
+  note_label_map_index ON note_label_map(note_id, label_id);
+
+getLabelsForNote:
+  SELECT label_id FROM note_label_map WHERE note_id = ? ORDER BY label_id ASC;
+
+addNoteLabel:
+  INSERT OR REPLACE INTO note_label_map(note_id, label_id) VALUES(?, ?);
+
+deleteLabelsForNote:
+  DELETE FROM note_label_map WHERE note_id = ?;
+
+deleteByLabelId:
+  DELETE FROM note_label_map WHERE label_id = ?;

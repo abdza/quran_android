@@ -16,6 +16,7 @@ import com.quran.labs.androidquran.util.QuranSettings
 import com.quran.labs.androidquran.util.SettingsImpl
 import com.quran.mobile.di.ExtraPreferencesProvider
 import com.quran.mobile.di.ExtraScreenProvider
+import com.quran.mobile.feature.notes.NotesScreenProvider
 import com.quran.mobile.di.qualifier.ApplicationContext
 import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ElementsIntoSet
@@ -106,6 +107,6 @@ object ApplicationModule {
   @Provides
   @ElementsIntoSet
   fun provideExtraScreens(): Set<ExtraScreenProvider> {
-    return emptySet()
+    return setOf(NotesScreenProvider)
   }
 }

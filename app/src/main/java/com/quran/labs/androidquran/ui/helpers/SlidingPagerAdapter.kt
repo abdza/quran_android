@@ -50,5 +50,6 @@ class SlidingPagerAdapter(
     const val TRANSLATION_PAGE = 1
     const val AUDIO_PAGE = 2
     const val TRANSCRIPT_PAGE = 3
+    const val NOTES_PAGE = 3
   }
 }

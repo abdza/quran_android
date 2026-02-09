@@ -24,6 +24,9 @@
     <item android:id="@+id/cab_translate_ayah"
           android:icon="@drawable/ic_translation"
           android:title="@string/translation_ayah" />
+    <item android:id="@+id/cab_note_ayah"
+          android:icon="@drawable/ic_note"
+          android:title="@string/note_ayah" />
     <item android:id="@+id/cab_play_from_here"
           android:icon="@drawable/ic_play"
           android:title="@string/play_from_here" />

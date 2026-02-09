@@ -205,7 +205,7 @@ abstract class WordByWordFragment : Fragment(),
     if (isVisible) {
       val location = IntArray(2)
       view.getLocationOnScreen(location)
-      val x = location[0] + view.width / 2f
+      val x = location[0].toFloat()
       val y = location[1].toFloat()
       val toolbarPosition = SelectionIndicator.SelectedPointPosition(x, y)
       readingEventPresenter.onAyahSelection(AyahSelection.Ayah(suraAyah, toolbarPosition))

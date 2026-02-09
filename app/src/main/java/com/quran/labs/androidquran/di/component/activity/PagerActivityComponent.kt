@@ -10,6 +10,8 @@ import com.quran.labs.androidquran.ui.fragment.TagBookmarkFragment
 import com.quran.labs.androidquran.ui.helpers.AyahSelectedListener
 import com.quran.mobile.di.QuranReadingActivityComponent
 import com.quran.mobile.feature.audiobar.AudioBarWrapper
+import com.quran.mobile.feature.notes.AyahNoteFragment
+import com.quran.mobile.feature.notes.di.NotesFragmentInjector
 import com.quran.mobile.feature.qarilist.QariListWrapper
 import com.quran.page.common.toolbar.AyahToolBar
 import dev.zacsweers.metro.GraphExtension
@@ -17,7 +19,7 @@ import dev.zacsweers.metro.Provides
 
 @QuranScope
 @GraphExtension(QuranReadingScope::class)
-interface PagerActivityComponent : QuranReadingActivityComponent {
+interface PagerActivityComponent : QuranReadingActivityComponent, NotesFragmentInjector {
   // subcomponents
   fun quranPageComponentFactory(): QuranPageComponent.Factory
 
@@ -30,6 +32,7 @@ interface PagerActivityComponent : QuranReadingActivityComponent {
 
   fun inject(qariListWrapper: QariListWrapper)
   fun inject(audioBarWrapper: AudioBarWrapper)
+  override fun inject(ayahNoteFragment: AyahNoteFragment)
 
   @GraphExtension.Factory
   interface Factory {

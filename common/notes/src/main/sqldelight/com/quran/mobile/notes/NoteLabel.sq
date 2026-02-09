@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS note_labels(
+  _ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE,
+  is_predefined INTEGER NOT NULL DEFAULT 0,
+  added_date INTEGER DEFAULT (strftime('%s', 'now')) NOT NULL
+);
+
+addLabel:
+  INSERT INTO note_labels(name, is_predefined) VALUES(?, ?);
+
+addLabelIfNotExists:
+  INSERT OR IGNORE INTO note_labels(name, is_predefined) VALUES(?, ?);
+
+updateLabel:
+  UPDATE note_labels SET name = ? WHERE _ID = ?;
+
+deleteLabel:
+  DELETE FROM note_labels WHERE _ID = ?;
+
+getAllLabels:
+  SELECT _ID, name, is_predefined, added_date FROM note_labels ORDER BY is_predefined DESC, name ASC;
+
+getLabelByName:
+  SELECT _ID, name, is_predefined, added_date FROM note_labels WHERE name = ?;
+
+lastInsertedId:
+  SELECT last_insert_rowid();

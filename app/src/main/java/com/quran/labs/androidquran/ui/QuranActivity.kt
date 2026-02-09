@@ -54,6 +54,7 @@ import com.quran.labs.androidquran.ui.fragment.BookmarksFragment
 import com.quran.labs.androidquran.ui.fragment.JumpFragment
 import com.quran.labs.androidquran.ui.fragment.JuzListFragment
 import com.quran.labs.androidquran.ui.fragment.SuraListFragment
+import com.quran.mobile.feature.notes.NotesListFragment
 import com.quran.labs.androidquran.ui.fragment.TagBookmarkDialog
 import com.quran.labs.androidquran.ui.fragment.TagBookmarkDialog.OnBookmarkTagsUpdateListener
 import com.quran.labs.androidquran.ui.helpers.JumpDestination
@@ -166,7 +167,7 @@ class QuranActivity : AppCompatActivity(),
     ab?.setTitle(R.string.app_name)
 
     val pager = findViewById<ViewPager>(R.id.index_pager)
-    pager.offscreenPageLimit = 3
+    pager.offscreenPageLimit = 4
     val pagerAdapter = PagerAdapter(supportFragmentManager)
     pager.adapter = pagerAdapter
     val indicator = findViewById<SlidingTabLayout>(R.id.indicator)
@@ -573,29 +574,27 @@ class QuranActivity : AppCompatActivity(),
   private inner class PagerAdapter(fm: FragmentManager) :
       FragmentPagerAdapter(fm) {
 
-    override fun getCount() = 3
+    private val tabCount = 4
+
+    override fun getCount() = tabCount
 
     override fun getItem(position: Int): Fragment {
       var pos = position
       if (isRtl) {
-        pos = abs(position - 2)
+        pos = abs(position - (tabCount - 1))
       }
       return when (pos) {
         SURA_LIST -> SuraListFragment.newInstance()
         JUZ2_LIST -> JuzListFragment.newInstance()
         BOOKMARKS_LIST -> BookmarksFragment.newInstance()
+        NOTES_LIST -> NotesListFragment.newInstance()
         else -> BookmarksFragment.newInstance()
       }
     }
 
     override fun getItemId(position: Int): Long {
-      val pos = if (isRtl) abs(position - 2) else position
-      return when (pos) {
-        SURA_LIST -> SURA_LIST.toLong()
-        JUZ2_LIST -> JUZ2_LIST.toLong()
-        BOOKMARKS_LIST -> BOOKMARKS_LIST.toLong()
-        else -> BOOKMARKS_LIST.toLong()
-      }
+      val pos = if (isRtl) abs(position - (tabCount - 1)) else position
+      return pos.toLong()
     }
 
     override fun getPageTitle(position: Int): CharSequence {
@@ -608,9 +607,11 @@ class QuranActivity : AppCompatActivity(),
     private val TITLES = intArrayOf(
         R.string.quran_sura,
         R.string.quran_juz2,
-        R.string.menu_bookmarks
+        R.string.menu_bookmarks,
+        R.string.menu_notes
     )
     private val ARABIC_TITLES = intArrayOf(
+        R.string.menu_notes,
         R.string.menu_bookmarks,
         R.string.quran_juz2,
         R.string.quran_sura
@@ -620,6 +621,7 @@ class QuranActivity : AppCompatActivity(),
     private const val SURA_LIST = 0
     private const val JUZ2_LIST = 1
     private const val BOOKMARKS_LIST = 2
+    private const val NOTES_LIST = 3
     private var updatedTranslations = false
   }
 }

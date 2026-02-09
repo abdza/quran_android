@@ -179,7 +179,9 @@ class AyahToolBar @JvmOverloads constructor(
 
   private fun getMenuItemView(item: MenuItem): View {
     return ImageButton(context).apply {
-      setImageDrawable(item.icon)
+      val icon = item.icon?.mutate()
+      icon?.setTintList(null)
+      setImageDrawable(icon)
       setBackgroundResource(R.drawable.toolbar_button)
       id = item.itemId
       layoutParams = LayoutParams(itemWidth, LayoutParams.MATCH_PARENT)
@@ -191,7 +193,13 @@ class AyahToolBar @JvmOverloads constructor(
   // relying on getWidth() may give us the width of a shorter
   // submenu instead of the actual menu
   private val toolBarWidth: Int
-    get() = menu.size() * itemWidth
+    get() {
+      var count = 0
+      for (i in 0 until menu.size()) {
+        if (menu.getItem(i).isVisible) count++
+      }
+      return count * itemWidth
+    }
 
   fun setBookmarked(bookmarked: Boolean) {
     val bookmarkItem = menu.findItem(R.id.cab_bookmark_ayah)
