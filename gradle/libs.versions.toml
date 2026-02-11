@@ -44,6 +44,7 @@ androidxRecyclerViewVersion = "1.4.0"
 androidxSwipeRefreshVersion = "1.2.0"
 androidxPagingVersion = "3.4.0"
 androidxPagingComposeVersion = "3.4.0"
+androidxDocumentFileVersion = "1.1.0"
 androidxWorkManagerVersion = "2.11.1"
 androidxWindowManager = "1.5.1"
 
@@ -88,6 +89,7 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 # androidx
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompatVersion" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCoreVersion" }
+androidx-documentfile = { module = "androidx.documentfile:documentfile", version.ref = "androidxDocumentFileVersion" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivityComposeVersion" }
 androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "androidxAnnotationVersion" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragmentVersion" }

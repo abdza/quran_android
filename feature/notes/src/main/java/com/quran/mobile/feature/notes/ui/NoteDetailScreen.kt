@@ -18,8 +18,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -79,21 +79,6 @@ fun NoteDetailScreen(
 
   LazyColumn(modifier = modifier.padding(16.dp)) {
     item {
-      // Back button
-      TextButton(onClick = onBack) {
-        Icon(
-          imageVector = QuranIcons.ArrowBack,
-          contentDescription = null,
-          modifier = Modifier.size(18.dp)
-        )
-        Text(
-          text = stringResource(R.string.back_to_notes),
-          modifier = Modifier.padding(start = 4.dp)
-        )
-      }
-
-      Spacer(modifier = Modifier.height(8.dp))
-
       // Ayah reference
       Text(
         text = "$suraName, ${note.sura}:${note.ayah}",
@@ -131,17 +116,29 @@ fun NoteDetailScreen(
       // Actions
       Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
       ) {
-        OutlinedButton(onClick = onEdit) {
-          Text(stringResource(R.string.edit_note))
+        IconButton(onClick = onEdit) {
+          Icon(
+            QuranIcons.Edit,
+            contentDescription = stringResource(R.string.edit_note),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
+          )
         }
-        OutlinedButton(onClick = { showDeleteConfirmation = true }) {
-          Text(stringResource(R.string.delete_note))
+        IconButton(onClick = { showDeleteConfirmation = true }) {
+          Icon(
+            QuranIcons.Delete,
+            contentDescription = stringResource(R.string.delete_note),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
+          )
         }
         if (onShare != null) {
-          OutlinedButton(onClick = onShare) {
-            Text(stringResource(R.string.share_note))
+          IconButton(onClick = onShare) {
+            Icon(
+              QuranIcons.Share,
+              contentDescription = stringResource(R.string.share_note),
+              tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
           }
         }
       }

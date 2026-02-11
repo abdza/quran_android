@@ -14,6 +14,7 @@ dependencies {
 
   implementation(libs.androidx.annotation)
   implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.documentfile)
   implementation(libs.androidx.fragment.ktx)
 
   // compose

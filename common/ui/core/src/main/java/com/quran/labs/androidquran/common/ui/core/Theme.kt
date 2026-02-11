@@ -80,15 +80,19 @@ object QuranIcons {
   val Chat: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Chat
   val Check: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Check
   val Close: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Close
+  val Delete: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Delete
+  val Edit: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Edit
   val ExpandMore: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.ExpandMore
   val FastForward: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.FastForward
   val FastRewind: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.FastRewind
   val MenuBook: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.MenuBook
+  val MoreVert: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.MoreVert
   val Mic: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Mic
   val Pause: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Pause
   val PlayArrow: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.PlayArrow
   val Repeat: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Repeat
   val Settings: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Settings
+  val Share: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Share
   val Speed: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Speed
   val Stop: ImageVector get() = com.quran.labs.androidquran.common.ui.core.icons.Stop
 }
