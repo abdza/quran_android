@@ -233,6 +233,19 @@ abstract class WordByWordFragment : Fragment(),
     adapter.unhighlight()
   }
 
+  fun highlightAudioAyah(sura: Int, ayah: Int) {
+    val ayahId = quranInfo.getAyahId(sura, ayah)
+    adapter.setAudioHighlightedAyah(ayahId)
+    val position = adapter.getPositionForAyah(ayahId)
+    if (position >= 0) {
+      layoutManager.scrollToPositionWithOffset(position, 0)
+    }
+  }
+
+  fun unhighlightAudio() {
+    adapter.unhighlightAudio()
+  }
+
   override fun onWordClicked(word: WordTranslation) {
     showWordDetail(word)
   }

@@ -17,6 +17,9 @@ import com.quran.labs.androidquran.database.TranslationsDBAdapter
 import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
 import com.quran.labs.androidquran.feature.wordbyword.presenter.WordByWordPresenter
+import com.quran.labs.androidquran.common.audio.model.playback.AudioStatus
+import com.quran.labs.androidquran.common.audio.model.playback.currentPlaybackAyah
+import com.quran.labs.androidquran.common.audio.repository.AudioStatusRepository
 import com.quran.labs.androidquran.feature.wordbyword.ui.WordByWordFragment as BaseWordByWordFragment
 import com.quran.labs.androidquran.model.translation.TranslationModel
 import com.quran.labs.androidquran.ui.PagerActivity
@@ -30,7 +33,11 @@ import com.quran.reading.common.ReadingEventPresenter
 import dev.zacsweers.metro.HasMemberInjections
 import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -44,11 +51,15 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
   @Inject lateinit var _presenter: WordByWordPresenter
   @Inject lateinit var _readingEventPresenter: ReadingEventPresenter
   @Inject lateinit var translationModel: TranslationModel
+  @Inject lateinit var audioStatusRepository: AudioStatusRepository
   @Inject lateinit var translationsDBAdapter: TranslationsDBAdapter
 
   override val quranInfo: QuranInfo get() = _quranInfo
   override val presenter: WordByWordPresenter get() = _presenter
   override val readingEventPresenter: ReadingEventPresenter get() = _readingEventPresenter
+
+  private var audioPlaybackJob: Job? = null
+  private val audioScope = MainScope()
 
   override fun onAttach(context: Context) {
     super.onAttach(context)
@@ -61,6 +72,25 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
         .generate(pages)
         .inject(this)
     }
+  }
+
+  override fun onResume() {
+    super.onResume()
+    audioPlaybackJob = audioStatusRepository.audioPlaybackFlow
+      .onEach { audioStatus ->
+        val playbackAyah = audioStatus.currentPlaybackAyah()
+        if (playbackAyah != null) {
+          highlightAudioAyah(playbackAyah.sura, playbackAyah.ayah)
+        } else {
+          unhighlightAudio()
+        }
+      }
+      .launchIn(audioScope)
+  }
+
+  override fun onPause() {
+    audioPlaybackJob?.cancel()
+    super.onPause()
   }
 
   override fun getSuraName(sura: Int): String {

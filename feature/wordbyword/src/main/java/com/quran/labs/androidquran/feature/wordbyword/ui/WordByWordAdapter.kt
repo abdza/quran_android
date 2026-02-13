@@ -49,10 +49,15 @@ class WordByWordAdapter(
   private var highlightedStartPosition: Int = -1
   private var highlightedRowCount: Int = 0
 
+  private var audioHighlightedAyahId: Int = 0
+  private var audioHighlightedStartPosition: Int = -1
+  private var audioHighlightedRowCount: Int = 0
+
   private var textColor: Int = Color.BLACK
   private var arabicTextColor: Int = Color.BLACK
   private var suraHeaderColor: Int = 0
   private var ayahSelectionColor: Int = 0
+  private var audioHighlightColor: Int = 0
   private var footnoteColor: Int = 0
 
   // Track expanded footnotes: key = (sura, ayah, translationIndex), value = list of expanded footnote numbers
@@ -111,12 +116,14 @@ class WordByWordAdapter(
       arabicTextColor = ContextCompat.getColor(context, R.color.word_card_arabic_text_night)
       suraHeaderColor = ContextCompat.getColor(context, R.color.word_by_word_header_background_night)
       ayahSelectionColor = ContextCompat.getColor(context, R.color.word_by_word_selection_highlight_night)
+      audioHighlightColor = ContextCompat.getColor(context, R.color.word_by_word_audio_highlight_night)
       footnoteColor = ContextCompat.getColor(context, R.color.word_by_word_footnote_night)
     } else {
       textColor = Color.BLACK
       arabicTextColor = ContextCompat.getColor(context, R.color.word_card_arabic_text)
       suraHeaderColor = ContextCompat.getColor(context, R.color.word_by_word_header_background)
       ayahSelectionColor = ContextCompat.getColor(context, R.color.word_by_word_selection_highlight)
+      audioHighlightColor = ContextCompat.getColor(context, R.color.word_by_word_audio_highlight)
       footnoteColor = ContextCompat.getColor(context, R.color.word_by_word_footnote)
     }
 
@@ -136,6 +143,39 @@ class WordByWordAdapter(
     highlightedAyahId = 0
     highlightedRowCount = 0
     highlightedStartPosition = -1
+  }
+
+  fun setAudioHighlightedAyah(ayahId: Int) {
+    if (ayahId != audioHighlightedAyahId) {
+      val previousStart = audioHighlightedStartPosition
+      val previousCount = audioHighlightedRowCount
+
+      val matches = data.withIndex().filter { it.value.ayahId == ayahId }
+      audioHighlightedStartPosition = matches.firstOrNull()?.index ?: -1
+      audioHighlightedRowCount = matches.size
+
+      if (previousCount > 0 && previousStart >= 0) {
+        notifyItemRangeChanged(previousStart, previousCount)
+      }
+      if (audioHighlightedRowCount > 0 && audioHighlightedStartPosition >= 0) {
+        notifyItemRangeChanged(audioHighlightedStartPosition, audioHighlightedRowCount)
+      }
+
+      audioHighlightedAyahId = ayahId
+    }
+  }
+
+  fun unhighlightAudio() {
+    if (audioHighlightedAyahId > 0 && audioHighlightedRowCount > 0) {
+      notifyItemRangeChanged(audioHighlightedStartPosition, audioHighlightedRowCount)
+    }
+    audioHighlightedAyahId = 0
+    audioHighlightedRowCount = 0
+    audioHighlightedStartPosition = -1
+  }
+
+  fun getPositionForAyah(ayahId: Int): Int {
+    return data.indexOfFirst { it.ayahId == ayahId }
   }
 
   fun activateMemorization() {
@@ -427,12 +467,16 @@ class WordByWordAdapter(
   }
 
   private fun updateHighlight(row: WordByWordDisplayRow, holder: RowViewHolder) {
-    val isHighlighted = row.ayahId == highlightedAyahId
     if (row !is WordByWordDisplayRow.SuraHeader &&
       row !is WordByWordDisplayRow.Basmallah &&
       row !is WordByWordDisplayRow.Spacer
     ) {
-      holder.itemView.setBackgroundColor(if (isHighlighted) ayahSelectionColor else 0)
+      val color = when {
+        row.ayahId == audioHighlightedAyahId -> audioHighlightColor
+        row.ayahId == highlightedAyahId -> ayahSelectionColor
+        else -> 0
+      }
+      holder.itemView.setBackgroundColor(color)
     }
   }
 
