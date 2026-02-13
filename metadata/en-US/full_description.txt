@@ -1,1 +1,13 @@
-<p><i>Quran for Android</i> is a free Quran application for Android devices. It features crystal clear Madani compliant images, gapless audio playback, ayah bookmarking, tagging, and sharing, search, night-mode, and much more.</p>
+<p><b>Tadabbur</b> is a Quran application for Android focused on word-by-word learning and understanding, built on top of Quran for Android.</p>
+
+<p><b>Features:</b></p>
+<ul>
+<li><b>Word-by-Word Display</b> - See the translation and transliteration of each word directly on the Quran page</li>
+<li><b>Root Word Details</b> - Explore root words and their meanings for deeper linguistic understanding</li>
+<li><b>Audio Ayah Highlighting</b> - Current ayah highlights and auto-scrolls during audio recitation in word-by-word view</li>
+<li><b>Notes</b> - Add personal notes and reflections on any ayah, organize with labels, reply to notes, and search across all your notes</li>
+<li><b>Notes Export/Import</b> - Export notes as markdown and import them back, compatible with cloud storage</li>
+<li><b>Enhanced Navigation</b> - Improved ayat navigation with previous/next buttons</li>
+</ul>
+
+<p>Also includes all features from Quran for Android: crystal clear Madani compliant images, gapless audio playback, ayah bookmarking, tagging, sharing, search, night mode, and more.</p>
