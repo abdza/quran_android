@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="18sp"
+        android:textSize="27sp"
         android:textColor="@color/word_card_arabic_text"
         tools:text="رَحْمَة" />
 
@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1.5"
-        android:textSize="14sp"
+        android:textSize="21sp"
         android:textColor="@color/word_card_translation_text"
         android:layout_marginStart="12dp"
         tools:text="mercy" />
@@ -31,7 +31,7 @@
         android:id="@+id/related_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:textSize="18sp"
         android:textColor="@color/word_card_transliteration_text"
         android:layout_marginStart="8dp"
         tools:text="2:157" />
