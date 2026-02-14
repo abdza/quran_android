@@ -10,6 +10,7 @@ interface NotesDao {
 
   // notes CRUD
   suspend fun addNote(sura: Int, ayah: Int, page: Int, text: String, parentNoteId: Long? = null): Long
+  suspend fun addNoteWithDates(sura: Int, ayah: Int, page: Int, text: String, parentNoteId: Long? = null, createdDate: Long, updatedDate: Long): Long
   suspend fun updateNote(noteId: Long, text: String)
   suspend fun deleteNote(noteId: Long)
   suspend fun getNoteById(noteId: Long): NoteWithLabels?

@@ -128,7 +128,11 @@ object NotesExportImport {
         }
 
         val page = quranInfo.getPageFromSuraAyah(section.sura, section.ayah)
-        val noteId = notesDao.addNote(section.sura, section.ayah, page, noteText)
+        val noteId = if (parsedNote.createdDate != null && parsedNote.updatedDate != null) {
+          notesDao.addNoteWithDates(section.sura, section.ayah, page, noteText, null, parsedNote.createdDate, parsedNote.updatedDate)
+        } else {
+          notesDao.addNote(section.sura, section.ayah, page, noteText)
+        }
 
         val labelIds = resolveLabelIds(parsedNote.labels, allLabels, notesDao)
         if (labelIds.isNotEmpty()) {
@@ -138,7 +142,11 @@ object NotesExportImport {
         for (reply in parsedNote.replies) {
           val replyText = reply.text.trim()
           if (replyText.isEmpty()) continue
-          val replyId = notesDao.addNote(section.sura, section.ayah, page, replyText, noteId)
+          val replyId = if (reply.createdDate != null && reply.updatedDate != null) {
+            notesDao.addNoteWithDates(section.sura, section.ayah, page, replyText, noteId, reply.createdDate, reply.updatedDate)
+          } else {
+            notesDao.addNote(section.sura, section.ayah, page, replyText, noteId)
+          }
           val replyLabelIds = resolveLabelIds(reply.labels, allLabels, notesDao)
           if (replyLabelIds.isNotEmpty()) {
             notesDao.setLabelsForNote(replyId, replyLabelIds)
@@ -172,8 +180,8 @@ object NotesExportImport {
   }
 
   private data class ParsedSection(val sura: Int, val ayah: Int, val notes: List<ParsedNote>)
-  private data class ParsedNote(val text: String, val labels: List<String>, val replies: List<ParsedReply>)
-  private data class ParsedReply(val text: String, val labels: List<String>)
+  private data class ParsedNote(val text: String, val labels: List<String>, val replies: List<ParsedReply>, val createdDate: Long? = null, val updatedDate: Long? = null)
+  private data class ParsedReply(val text: String, val labels: List<String>, val createdDate: Long? = null, val updatedDate: Long? = null)
 
   private fun parseAllSections(content: String): List<ParsedSection> {
     val lines = content.lines()
@@ -187,10 +195,14 @@ object NotesExportImport {
     var noteLabels = mutableListOf<String>()
     var noteTextLines = mutableListOf<String>()
     var noteReplies = mutableListOf<ParsedReply>()
+    var noteCreatedDate: Long? = null
+    var noteUpdatedDate: Long? = null
     var inNote = false
 
     var replyLabels = mutableListOf<String>()
     var replyTextLines = mutableListOf<String>()
+    var replyCreatedDate: Long? = null
+    var replyUpdatedDate: Long? = null
     var inReply = false
 
     for (line in lines) {
@@ -198,10 +210,10 @@ object NotesExportImport {
         line.startsWith("## ") && !line.startsWith("### ") -> {
           // New ayah section - flush previous
           if (inReply && replyTextLines.isNotEmpty()) {
-            noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels))
+            noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels, replyCreatedDate, replyUpdatedDate))
           }
           if (inNote && noteTextLines.isNotEmpty()) {
-            currentNotes.add(ParsedNote(cleanText(noteTextLines), noteLabels, noteReplies))
+            currentNotes.add(ParsedNote(cleanText(noteTextLines), noteLabels, noteReplies, noteCreatedDate, noteUpdatedDate))
           }
           if (inSection && currentNotes.isNotEmpty()) {
             sections.add(ParsedSection(currentSura, currentAyah, currentNotes))
@@ -221,24 +233,28 @@ object NotesExportImport {
         }
         line.startsWith("### Note") -> {
           if (inReply && replyTextLines.isNotEmpty()) {
-            noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels))
+            noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels, replyCreatedDate, replyUpdatedDate))
           }
           if (inNote && noteTextLines.isNotEmpty()) {
-            currentNotes.add(ParsedNote(cleanText(noteTextLines), noteLabels, noteReplies))
+            currentNotes.add(ParsedNote(cleanText(noteTextLines), noteLabels, noteReplies, noteCreatedDate, noteUpdatedDate))
           }
           inNote = true
           inReply = false
           noteLabels = mutableListOf()
           noteTextLines = mutableListOf()
           noteReplies = mutableListOf()
+          noteCreatedDate = null
+          noteUpdatedDate = null
         }
         line.startsWith("#### Reply") -> {
           if (inReply && replyTextLines.isNotEmpty()) {
-            noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels))
+            noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels, replyCreatedDate, replyUpdatedDate))
           }
           inReply = true
           replyLabels = mutableListOf()
           replyTextLines = mutableListOf()
+          replyCreatedDate = null
+          replyUpdatedDate = null
         }
         line.startsWith("---") -> {
           // separator, handled by "## " header
@@ -251,8 +267,13 @@ object NotesExportImport {
           val parsed = labelsStr.split(",").map { it.trim() }.filter { it.isNotEmpty() }
           if (inReply) replyLabels.addAll(parsed) else noteLabels.addAll(parsed)
         }
-        line.startsWith("**Created:**") || line.startsWith("**Updated:**") -> {
-          // skip metadata
+        line.startsWith("**Created:**") -> {
+          val parsed = parseDateFromLine(line.removePrefix("**Created:**").trim())
+          if (inReply) replyCreatedDate = parsed else noteCreatedDate = parsed
+        }
+        line.startsWith("**Updated:**") -> {
+          val parsed = parseDateFromLine(line.removePrefix("**Updated:**").trim())
+          if (inReply) replyUpdatedDate = parsed else noteUpdatedDate = parsed
         }
         else -> {
           if (inReply) replyTextLines.add(line)
@@ -263,16 +284,24 @@ object NotesExportImport {
 
     // Flush remaining
     if (inReply && replyTextLines.isNotEmpty()) {
-      noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels))
+      noteReplies.add(ParsedReply(cleanText(replyTextLines), replyLabels, replyCreatedDate, replyUpdatedDate))
     }
     if (inNote && noteTextLines.isNotEmpty()) {
-      currentNotes.add(ParsedNote(cleanText(noteTextLines), noteLabels, noteReplies))
+      currentNotes.add(ParsedNote(cleanText(noteTextLines), noteLabels, noteReplies, noteCreatedDate, noteUpdatedDate))
     }
     if (inSection && currentNotes.isNotEmpty()) {
       sections.add(ParsedSection(currentSura, currentAyah, currentNotes))
     }
 
     return sections
+  }
+
+  private fun parseDateFromLine(dateStr: String): Long? {
+    return try {
+      dateFormat.parse(dateStr)?.time?.let { it / 1000 }
+    } catch (e: Exception) {
+      null
+    }
   }
 
   private fun cleanText(lines: List<String>): String {

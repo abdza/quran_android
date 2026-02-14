@@ -17,6 +17,9 @@ CREATE INDEX IF NOT EXISTS notes_parent_index ON notes(parent_note_id);
 addNote:
   INSERT INTO notes(sura, ayah, page, text, parent_note_id) VALUES(?, ?, ?, ?, ?);
 
+addNoteWithDates:
+  INSERT INTO notes(sura, ayah, page, text, parent_note_id, created_date, updated_date) VALUES(?, ?, ?, ?, ?, ?, ?);
+
 updateNote:
   UPDATE notes SET text = ?, updated_date = strftime('%s', 'now') WHERE _ID = ?;
 

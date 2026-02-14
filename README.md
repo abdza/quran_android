@@ -21,8 +21,8 @@ Tadabbur is a fork of [Quran for Android](https://github.com/quran/quran_android
 - **Word-by-Word Display** - See the translation and transliteration of each word directly on the Quran page
 - **Root Word Details** - Explore the root words and their meanings for deeper linguistic understanding
 - **Enhanced Navigation** - Improved ayat navigation with nicer previous/next ayat buttons
-- **Notes** - Add personal notes and reflections on any ayah, organize with labels, reply to notes, and search across all your notes
-- **Notes Export/Import** - Export all notes as a readable markdown file and import them back, compatible with Google Drive and other cloud storage
+- **Notes** - Add personal notes and reflections on any ayah, organize with labels, reply to notes, and search across all your notes. Created and updated timestamps are tracked and displayed.
+- **Notes Export/Import** - Export all notes as a readable markdown file and import them back, with created/updated dates preserved. Compatible with Google Drive and other cloud storage.
 - **Audio Ayah Highlighting** - Current ayah highlights in blue and auto-scrolls during audio recitation in word-by-word view
 
 ### Video Tutorial

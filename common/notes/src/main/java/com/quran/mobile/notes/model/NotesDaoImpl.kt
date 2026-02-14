@@ -43,6 +43,17 @@ class NotesDaoImpl @Inject constructor(
     }
   }
 
+  override suspend fun addNoteWithDates(sura: Int, ayah: Int, page: Int, text: String, parentNoteId: Long?, createdDate: Long, updatedDate: Long): Long {
+    return withContext(Dispatchers.IO) {
+      noteQueries.transactionWithResult {
+        noteQueries.addNoteWithDates(sura, ayah, page, text, parentNoteId, createdDate, updatedDate)
+        noteQueries.lastInsertedId().executeAsOne()
+      }.also {
+        internalChanges.value = System.currentTimeMillis()
+      }
+    }
+  }
+
   override suspend fun updateNote(noteId: Long, text: String) {
     withContext(Dispatchers.IO) {
       noteQueries.updateNote(text, noteId)

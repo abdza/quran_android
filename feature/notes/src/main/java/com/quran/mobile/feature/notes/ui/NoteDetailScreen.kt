@@ -95,6 +95,21 @@ fun NoteDetailScreen(
         style = MaterialTheme.typography.bodyLarge
       )
 
+      // Dates
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(
+        text = "Created: ${formatDate(note.createdDate)}",
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+      )
+      if (note.updatedDate != note.createdDate) {
+        Text(
+          text = "Updated: ${formatDate(note.updatedDate)}",
+          style = MaterialTheme.typography.labelSmall,
+          color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+      }
+
       // Labels
       if (noteWithLabels.labels.isNotEmpty()) {
         Spacer(modifier = Modifier.height(12.dp))
@@ -186,6 +201,11 @@ fun NoteDetailScreen(
       }
     }
   }
+}
+
+private fun formatDate(epochSeconds: Long): String {
+  val sdf = java.text.SimpleDateFormat("dd MMM yyyy, HH:mm", java.util.Locale.getDefault())
+  return sdf.format(java.util.Date(epochSeconds * 1000))
 }
 
 private fun formatRelativeTime(epochSeconds: Long): String {
