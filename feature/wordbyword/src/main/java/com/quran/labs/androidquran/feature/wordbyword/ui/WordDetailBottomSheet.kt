@@ -27,6 +27,8 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
   private var isNightMode: Boolean = false
   private var suraName: String? = null
   private var dataSource: WordTranslationDataSource? = null
+  private var arabicTextSize: Float = 0f
+  private var translationTextSize: Float = 0f
 
   private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -83,6 +85,17 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
       getString(R.string.word_detail_location_format, currentWord.sura, currentWord.ayah, currentWord.wordPosition)
     }
     locationView.text = locationText
+
+    // Apply font sizes from settings
+    if (arabicTextSize > 0f) {
+      arabicWordView.textSize = arabicTextSize * 2f
+      transliterationView.textSize = arabicTextSize * 0.9f
+    }
+    if (translationTextSize > 0f) {
+      translationView.textSize = translationTextSize * 1.5f
+      view.findViewById<TextView>(R.id.etymology).textSize = translationTextSize
+      view.findViewById<TextView>(R.id.location).textSize = translationTextSize * 0.9f
+    }
 
     // Apply night mode colors
     if (isNightMode) {
@@ -148,6 +161,15 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
       extendedMeaningView.visibility = View.VISIBLE
     }
 
+    // Apply font sizes to root meaning views
+    if (translationTextSize > 0f) {
+      primaryMeaningView.textSize = translationTextSize * 1.2f
+      view.findViewById<TextView>(R.id.primary_meaning_label).textSize = translationTextSize * 0.8f
+      view.findViewById<TextView>(R.id.quran_usage_label).textSize = translationTextSize * 0.8f
+      view.findViewById<TextView>(R.id.quran_usage).textSize = translationTextSize
+      view.findViewById<TextView>(R.id.extended_meaning).textSize = translationTextSize
+    }
+
     // Apply night mode colors to new views
     if (isNightMode) {
       val nightTextColor = ContextCompat.getColor(context, R.color.word_card_translation_text_night)
@@ -196,6 +218,14 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
         arabicTypeface?.let { arabicView.typeface = it }
         translationItemView.text = related.translation
         locationItemView.text = getString(R.string.word_detail_related_word_location, related.sura, related.ayah)
+
+        if (arabicTextSize > 0f) {
+          arabicView.textSize = arabicTextSize * 1.5f
+        }
+        if (translationTextSize > 0f) {
+          translationItemView.textSize = translationTextSize
+          locationItemView.textSize = translationTextSize * 0.85f
+        }
 
         if (isNightMode) {
           arabicView.setTextColor(ContextCompat.getColor(requireContext(), R.color.word_card_arabic_text_night))
@@ -260,6 +290,11 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
     this.dataSource = source
   }
 
+  fun setTextSizes(arabicSize: Float, translationSize: Float) {
+    this.arabicTextSize = arabicSize
+    this.translationTextSize = translationSize
+  }
+
   companion object {
     const val TAG = "WordDetailBottomSheet"
 
@@ -268,7 +303,9 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
       arabicTypeface: Typeface? = null,
       isNightMode: Boolean = false,
       suraName: String? = null,
-      dataSource: WordTranslationDataSource? = null
+      dataSource: WordTranslationDataSource? = null,
+      arabicTextSize: Float = 0f,
+      translationTextSize: Float = 0f
     ): WordDetailBottomSheet {
       return WordDetailBottomSheet().apply {
         setWord(word)
@@ -276,6 +313,7 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
         setNightMode(isNightMode)
         setSuraName(suraName)
         setDataSource(dataSource)
+        setTextSizes(arabicTextSize, translationTextSize)
       }
     }
   }

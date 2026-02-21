@@ -178,6 +178,12 @@ class WordByWordAdapter(
     return data.indexOfFirst { it.ayahId == ayahId }
   }
 
+  fun getHighlightedPositionRange(): Pair<Int, Int>? {
+    return if (highlightedAyahId != 0 && highlightedStartPosition >= 0 && highlightedRowCount > 0) {
+      Pair(highlightedStartPosition, highlightedStartPosition + highlightedRowCount - 1)
+    } else null
+  }
+
   fun activateMemorization() {
     isMemorizationActive = true
     wordCardViews.forEach { it.hide() }
@@ -237,19 +243,28 @@ class WordByWordAdapter(
     val position = recyclerView.getChildAdapterPosition(view)
     if (position != RecyclerView.NO_POSITION) {
       val row = data[position]
-      if (row.ayahId != highlightedAyahId) {
-        lastHighlightedClickTime = 0
-        onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah), view)
-        return
+      if (!isMemorizationActive) {
+        // In normal mode: single click deselects current selection (whether same or different row)
+        if (highlightedAyahId != 0) {
+          onVerseSelectedListener.onVerseDeselected()
+          return
+        }
+      } else {
+        // In memorization mode: single click selects ayah as before
+        if (row.ayahId != highlightedAyahId) {
+          lastHighlightedClickTime = 0
+          onVerseSelectedListener.onVerseSelected(SuraAyah(row.sura, row.ayah), view)
+          return
+        }
+        // Double-tap on highlighted ayah deselects it
+        val now = System.currentTimeMillis()
+        if (now - lastHighlightedClickTime < DOUBLE_TAP_TIMEOUT) {
+          lastHighlightedClickTime = 0
+          onVerseSelectedListener.onVerseDeselected()
+          return
+        }
+        lastHighlightedClickTime = now
       }
-      // Double-tap on highlighted ayah deselects it
-      val now = System.currentTimeMillis()
-      if (now - lastHighlightedClickTime < DOUBLE_TAP_TIMEOUT) {
-        lastHighlightedClickTime = 0
-        onVerseSelectedListener.onVerseDeselected()
-        return
-      }
-      lastHighlightedClickTime = now
     }
     // Only toggle action bar when not selecting a new verse
     onClickListener.onClick(view)

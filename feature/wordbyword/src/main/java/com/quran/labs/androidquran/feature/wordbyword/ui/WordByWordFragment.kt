@@ -90,6 +90,16 @@ abstract class WordByWordFragment : Fragment(),
       this
     )
     recyclerView.adapter = adapter
+    recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+      override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
+        val range = adapter.getHighlightedPositionRange() ?: return
+        val first = layoutManager.findFirstVisibleItemPosition()
+        val last = layoutManager.findLastVisibleItemPosition()
+        if (range.second < first || range.first > last) {
+          onVerseDeselected()
+        }
+      }
+    })
     setupTranslationSpinner()
     return view
   }
@@ -256,7 +266,9 @@ abstract class WordByWordFragment : Fragment(),
       arabicTypeface = arabicTypeface,
       isNightMode = isNightMode,
       suraName = getSuraName(word.sura),
-      dataSource = presenter.getDataSource()
+      dataSource = presenter.getDataSource(),
+      arabicTextSize = arabicTextSize,
+      translationTextSize = translationTextSize
     )
     bottomSheet.show(childFragmentManager, WordDetailBottomSheet.TAG)
   }
