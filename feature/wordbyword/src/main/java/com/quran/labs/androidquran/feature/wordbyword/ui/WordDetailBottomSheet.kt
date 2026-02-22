@@ -86,15 +86,15 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
     }
     locationView.text = locationText
 
-    // Apply font sizes from settings
+    // Apply font sizes from WBW settings
     if (arabicTextSize > 0f) {
-      arabicWordView.textSize = arabicTextSize * 2f
-      transliterationView.textSize = arabicTextSize * 0.9f
+      arabicWordView.textSize = arabicTextSize * 1.5f
+      transliterationView.textSize = translationTextSize
     }
     if (translationTextSize > 0f) {
-      translationView.textSize = translationTextSize * 1.5f
+      translationView.textSize = translationTextSize
       view.findViewById<TextView>(R.id.etymology).textSize = translationTextSize
-      view.findViewById<TextView>(R.id.location).textSize = translationTextSize * 0.9f
+      view.findViewById<TextView>(R.id.location).textSize = translationTextSize * 0.85f
     }
 
     // Apply night mode colors
@@ -163,7 +163,7 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
 
     // Apply font sizes to root meaning views
     if (translationTextSize > 0f) {
-      primaryMeaningView.textSize = translationTextSize * 1.2f
+      primaryMeaningView.textSize = translationTextSize
       view.findViewById<TextView>(R.id.primary_meaning_label).textSize = translationTextSize * 0.8f
       view.findViewById<TextView>(R.id.quran_usage_label).textSize = translationTextSize * 0.8f
       view.findViewById<TextView>(R.id.quran_usage).textSize = translationTextSize
@@ -220,7 +220,7 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
         locationItemView.text = getString(R.string.word_detail_related_word_location, related.sura, related.ayah)
 
         if (arabicTextSize > 0f) {
-          arabicView.textSize = arabicTextSize * 1.5f
+          arabicView.textSize = arabicTextSize
         }
         if (translationTextSize > 0f) {
           translationItemView.textSize = translationTextSize
