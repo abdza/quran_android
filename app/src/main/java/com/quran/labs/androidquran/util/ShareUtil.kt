@@ -52,7 +52,8 @@ class ShareUtil @Inject internal constructor(private val quranDisplayData: Quran
   fun getShareText(
     context: Context,
     ayahInfo: QuranAyahInfo,
-    translationNames: Array<LocalTranslation>
+    translationNames: Array<LocalTranslation>,
+    notesText: String? = null
   ): String {
     return buildString {
       ayahInfo.arabicText?.let {
@@ -89,6 +90,10 @@ class ShareUtil @Inject internal constructor(private val quranDisplayData: Quran
         append("\n")
         append("-")
         append(quranDisplayData.getSuraAyahString(context, ayahInfo.sura, ayahInfo.ayah, R.string.sura_ayah_notification_str))
+      }
+      if (!notesText.isNullOrEmpty()) {
+        append("\n\n---\n")
+        append(notesText)
       }
     }
   }

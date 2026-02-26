@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.quran.data.core.QuranInfo
+import com.quran.data.dao.NotesDao
 import com.quran.data.model.SuraAyah
+import com.quran.data.model.note.NoteWithLabels
 import com.quran.data.model.selection.AyahSelection
 import com.quran.labs.androidquran.common.QuranAyahInfo
 import com.quran.labs.androidquran.data.QuranDisplayData
@@ -29,9 +31,11 @@ import com.quran.labs.androidquran.view.QuranTranslationPageLayout
 import com.quran.mobile.translation.model.LocalTranslation
 import com.quran.reading.common.ReadingEventPresenter
 import dev.zacsweers.metro.Inject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class TranslationFragment : Fragment(), AyahInteractionHandler, QuranPage,
   TranslationPresenter.TranslationScreen, PageController {
@@ -49,6 +53,7 @@ class TranslationFragment : Fragment(), AyahInteractionHandler, QuranPage,
   @Inject lateinit var ayahTrackerPresenter: AyahTrackerPresenter
   @Inject lateinit var ayahSelectedListener: AyahSelectedListener
   @Inject lateinit var readingEventPresenter: ReadingEventPresenter
+  @Inject lateinit var notesDao: NotesDao
 
   private val scope = MainScope()
 
@@ -134,7 +139,23 @@ class TranslationFragment : Fragment(), AyahInteractionHandler, QuranPage,
     translations: Array<LocalTranslation>,
     verses: List<QuranAyahInfo>
   ) {
-    translationView.setVerses(quranDisplayData, translations, verses)
+    if (quranSettings.showNotesInTranslation()) {
+      scope.launch {
+        val pageNotes = notesDao.notesByPage(page)
+        val notesMap = HashMap<String, MutableList<CharSequence>>()
+        for (noteWithLabels in pageNotes) {
+          val key = "${noteWithLabels.note.sura}:${noteWithLabels.note.ayah}"
+          val children = notesDao.childNotes(noteWithLabels.note.id)
+          val formatted = formatNoteText(noteWithLabels, children)
+          notesMap.getOrPut(key) { mutableListOf() }.add(formatted)
+        }
+        withContext(Dispatchers.Main) {
+          translationView.setVerses(quranDisplayData, translations, verses, notesMap)
+        }
+      }
+    } else {
+      translationView.setVerses(quranDisplayData, translations, verses)
+    }
   }
 
   override fun updateScrollPosition() {
@@ -191,6 +212,20 @@ class TranslationFragment : Fragment(), AyahInteractionHandler, QuranPage,
   override fun endAyahMode() {
     if (isVisible) {
       ayahTrackerPresenter.endAyahMode()
+    }
+  }
+
+  private fun formatNoteText(noteWithLabels: NoteWithLabels, children: List<NoteWithLabels>): String {
+    return buildString {
+      append(noteWithLabels.note.text)
+      if (noteWithLabels.labels.isNotEmpty()) {
+        append("\n")
+        append(noteWithLabels.labels.joinToString(", ") { "[${it.name}]" })
+      }
+      for (child in children) {
+        append("\n↳ ")
+        append(child.note.text)
+      }
     }
   }
 

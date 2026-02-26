@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import dev.chrisbanes.insetter.Insetter;
 
@@ -122,6 +123,13 @@ public class TranslationView extends FrameLayout implements View.OnClickListener
   public void setVerses(@NonNull QuranDisplayData quranDisplayData,
                         @NonNull LocalTranslation[] translations,
                         @NonNull List<QuranAyahInfo> verses) {
+    setVerses(quranDisplayData, translations, verses, null);
+  }
+
+  public void setVerses(@NonNull QuranDisplayData quranDisplayData,
+                        @NonNull LocalTranslation[] translations,
+                        @NonNull List<QuranAyahInfo> verses,
+                        @Nullable Map<String, List<CharSequence>> notesMap) {
 
     List<TranslationViewRow> rows = new ArrayList<>();
     int currentSura = -1;
@@ -166,6 +174,16 @@ public class TranslationView extends FrameLayout implements View.OnClickListener
               metadata == null ? Collections.emptyList() : metadata.getAyat(),
               metadata == null ? Collections.emptyList() : metadata.getFootnotes()
               ));
+        }
+      }
+
+      if (notesMap != null) {
+        String key = verse.sura + ":" + verse.ayah;
+        List<CharSequence> notes = notesMap.get(key);
+        if (notes != null) {
+          for (CharSequence noteText : notes) {
+            rows.add(new TranslationViewRow(TranslationViewRow.Type.NOTE, verse, noteText));
+          }
         }
       }
 

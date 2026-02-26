@@ -146,6 +146,23 @@ searchNotes:
     notes.parent_note_id IS NULL AND notes.text LIKE '%' || ? || '%'
   ORDER BY notes.updated_date DESC;
 
+getNotesByPage:
+  SELECT
+    notes._ID,
+    notes.sura,
+    notes.ayah,
+    notes.page,
+    notes.text,
+    notes.parent_note_id,
+    notes.created_date,
+    notes.updated_date,
+    note_label_map.label_id
+  FROM
+    notes LEFT JOIN note_label_map ON notes._ID = note_label_map.note_id
+  WHERE
+    notes.page = ? AND notes.parent_note_id IS NULL
+  ORDER BY notes.sura ASC, notes.ayah ASC, notes.created_date ASC;
+
 getChildCount:
   SELECT COUNT(*) FROM notes WHERE parent_note_id = ?;
 

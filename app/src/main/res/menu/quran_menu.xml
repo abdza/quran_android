@@ -34,6 +34,10 @@
         android:checkable="true"
         android:title="@string/menu_memorization_mode"
         app:showAsAction="never" />
+    <item android:id="@+id/show_notes_in_translation"
+        android:checkable="true"
+        android:title="@string/menu_show_notes_in_translation"
+        app:showAsAction="never" />
     <item android:id="@+id/jump"
           android:title="@string/menu_jump"
           app:showAsAction="never" />

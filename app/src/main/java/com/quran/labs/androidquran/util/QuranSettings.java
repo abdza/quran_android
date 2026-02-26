@@ -103,6 +103,14 @@ public class QuranSettings {
     return prefs.getBoolean(Constants.PREF_AYAH_BEFORE_TRANSLATION, true);
   }
 
+  public boolean showNotesInTranslation() {
+    return prefs.getBoolean(Constants.PREF_SHOW_NOTES_IN_TRANSLATION, false);
+  }
+
+  public void setShowNotesInTranslation(boolean show) {
+    prefs.edit().putBoolean(Constants.PREF_SHOW_NOTES_IN_TRANSLATION, show).apply();
+  }
+
   public boolean wantDyslexicFontInTranslationView() {
     return prefs.getBoolean(Constants.PREF_USE_DYSLEXIC_FONT, false);
   }

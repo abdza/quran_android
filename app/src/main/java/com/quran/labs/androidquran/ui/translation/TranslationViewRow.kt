@@ -42,7 +42,8 @@ internal class TranslationViewRow @JvmOverloads constructor(
     Type.TRANSLATOR,
     Type.TRANSLATION_TEXT,
     Type.VERSE_NUMBER,
-    Type.SPACER
+    Type.SPACER,
+    Type.NOTE
   )
   internal annotation class Type {
     companion object {
@@ -53,6 +54,7 @@ internal class TranslationViewRow @JvmOverloads constructor(
       const val TRANSLATION_TEXT = 4
       const val VERSE_NUMBER = 5
       const val SPACER = 6
+      const val NOTE = 7
     }
   }
 }

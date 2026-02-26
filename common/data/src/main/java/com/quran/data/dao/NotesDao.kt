@@ -18,6 +18,7 @@ interface NotesDao {
   // notes listing
   suspend fun allNotesSortedByUpdated(): List<NoteWithLabels>
   fun notesForSuraAyah(sura: Int, ayah: Int): Flow<List<NoteWithLabels>>
+  suspend fun notesByPage(page: Int): List<NoteWithLabels>
   suspend fun notesBySura(sura: Int): List<NoteWithLabels>
   suspend fun notesByLabel(labelId: Long): List<NoteWithLabels>
   suspend fun childNotes(parentNoteId: Long): List<NoteWithLabels>

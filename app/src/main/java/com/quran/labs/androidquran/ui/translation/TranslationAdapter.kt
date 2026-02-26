@@ -297,6 +297,7 @@ internal class TranslationAdapter(
       TranslationViewRow.Type.SPACER -> R.layout.quran_translation_spacer_row
       TranslationViewRow.Type.VERSE_NUMBER -> R.layout.quran_translation_verse_number_row
       TranslationViewRow.Type.TRANSLATOR -> R.layout.quran_translation_translator_row
+      TranslationViewRow.Type.NOTE -> R.layout.quran_translation_text_row
       else -> R.layout.quran_translation_text_row
     }
 
@@ -335,6 +336,17 @@ internal class TranslationAdapter(
           if (row.type == TranslationViewRow.Type.TRANSLATOR) {
             text = row.data
             holder.text.setTextColor(inlineAyahColor)
+          } else if (row.type == TranslationViewRow.Type.NOTE) {
+            val label = context.getString(R.string.note_label) + ": "
+            val sb = SpannableStringBuilder(label)
+            sb.setSpan(ForegroundColorSpan(footnoteColor), 0, label.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            sb.append(row.data ?: "")
+            text = sb
+            holder.text.setTextColor(textColor)
+            holder.text.textSize = translationFontSize.toFloat()
+            holder.text.layoutDirection = View.LAYOUT_DIRECTION_INHERIT
+            holder.text.typeface = null
+            holder.text.movementMethod = null
           } else {
             // translation
             text = row.data?.let { rowText ->

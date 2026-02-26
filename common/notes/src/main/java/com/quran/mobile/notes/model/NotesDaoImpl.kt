@@ -99,6 +99,15 @@ class NotesDaoImpl @Inject constructor(
       }
   }
 
+  override suspend fun notesByPage(page: Int): List<NoteWithLabels> {
+    return withContext(Dispatchers.IO) {
+      noteQueries.getNotesByPage(page, NoteMappers.noteWithLabelMapper)
+        .executeAsList()
+        .convergeCommonlyLabeled()
+        .map { resolveNoteWithLabels(it) }
+    }
+  }
+
   override suspend fun notesBySura(sura: Int): List<NoteWithLabels> {
     return withContext(Dispatchers.IO) {
       noteQueries.getNotesBySura(sura, NoteMappers.noteWithLabelMapper)

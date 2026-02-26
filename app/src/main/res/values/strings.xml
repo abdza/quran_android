@@ -39,6 +39,8 @@
   <string name="menu_get_translations">Get Translations</string>
   <string name="menu_jump">@string/gotoPage</string>
   <string name="menu_memorization_mode">Memorization mode</string>
+  <string name="menu_show_notes_in_translation">Show Notes</string>
+  <string name="note_label">Note</string>
   <string name="gotoPage">Go to page</string>
   <string name="random_page">Random</string>
   <string name="sura_and_ayah">Sura and Ayah</string>

@@ -141,6 +141,7 @@ import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -210,6 +211,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
   private var lastActivatedLocalTranslations: Array<LocalTranslation> = emptyArray()
 
   @Inject lateinit var bookmarksDao: BookmarksDao
+  @Inject lateinit var notesDao: com.quran.data.dao.NotesDao
   @Inject lateinit var recentPagePresenter: RecentPagePresenter
   @Inject lateinit var quranSettings: QuranSettings
   @Inject lateinit var quranScreenInfo: QuranScreenInfo
@@ -1179,6 +1181,12 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       memorizationMode.isVisible = isShowingWordByWord
       memorizationMode.isChecked = quranSettings.isMemorizationModeEnabled
     }
+
+    val showNotesInTranslation = menu.findItem(R.id.show_notes_in_translation)
+    if (showNotesInTranslation != null) {
+      showNotesInTranslation.isVisible = showingTranslation
+      showNotesInTranslation.isChecked = quranSettings.showNotesInTranslation()
+    }
     return true
   }
 
@@ -1212,6 +1220,12 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     } else if (itemId == R.id.memorization_mode) {
       val isEnabled = !item.isChecked
       quranSettings.isMemorizationModeEnabled = isEnabled
+      item.isChecked = isEnabled
+      refreshQuranPages()
+      return true
+    } else if (itemId == R.id.show_notes_in_translation) {
+      val isEnabled = !item.isChecked
+      quranSettings.setShowNotesInTranslation(isEnabled)
       item.isChecked = isEnabled
       refreshQuranPages()
       return true
@@ -1868,15 +1882,31 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       updateLocalTranslations(start)
       val quranAyahInfo = lastSelectedTranslationAyah
       if (quranAyahInfo != null) {
-        val shareText = shareUtil.getShareText(this, quranAyahInfo, translationNames)
-        if (isCopy) {
-          shareUtil.copyToClipboard(this, shareText)
+        if (quranSettings.showNotesInTranslation()) {
+          lifecycleScope.launch {
+            val notesText = buildNotesTextForAyah(quranAyahInfo.sura, quranAyahInfo.ayah)
+            val shareText = shareUtil.getShareText(this@PagerActivity, quranAyahInfo, translationNames, notesText)
+            if (isCopy) {
+              shareUtil.copyToClipboard(this@PagerActivity, shareText)
+            } else {
+              shareUtil.shareViaIntent(
+                this@PagerActivity,
+                shareText,
+                com.quran.labs.androidquran.common.toolbar.R.string.share_ayah_text
+              )
+            }
+          }
         } else {
-          shareUtil.shareViaIntent(
-            this,
-            shareText,
-            com.quran.labs.androidquran.common.toolbar.R.string.share_ayah_text
-          )
+          val shareText = shareUtil.getShareText(this, quranAyahInfo, translationNames)
+          if (isCopy) {
+            shareUtil.copyToClipboard(this, shareText)
+          } else {
+            shareUtil.shareViaIntent(
+              this,
+              shareText,
+              com.quran.labs.androidquran.common.toolbar.R.string.share_ayah_text
+            )
+          }
         }
       }
 
@@ -1895,6 +1925,27 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
             shareUtil.shareVerses(this@PagerActivity, quranAyahs)
           }
         })
+  }
+
+  private suspend fun buildNotesTextForAyah(sura: Int, ayah: Int): String? {
+    val notes = notesDao.notesForSuraAyah(sura, ayah).first()
+      .sortedBy { it.note.createdDate }
+    if (notes.isEmpty()) return null
+    return buildString {
+      for ((index, noteWithLabels) in notes.withIndex()) {
+        if (index > 0) append("\n\n")
+        append(noteWithLabels.note.text)
+        if (noteWithLabels.labels.isNotEmpty()) {
+          append("\n")
+          append(noteWithLabels.labels.joinToString(", ") { "[${it.name}]" })
+        }
+        val children = notesDao.childNotes(noteWithLabels.note.id)
+        for (child in children) {
+          append("\n↳ ")
+          append(child.note.text)
+        }
+      }
+    }
   }
 
   fun shareAyahLink(start: SuraAyah, end: SuraAyah) {
