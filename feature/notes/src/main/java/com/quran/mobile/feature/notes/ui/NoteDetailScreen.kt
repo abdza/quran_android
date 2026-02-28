@@ -49,6 +49,7 @@ fun NoteDetailScreen(
   onAddReply: () -> Unit,
   onBack: () -> Unit,
   onShare: (() -> Unit)? = null,
+  showBackButton: Boolean = false,
   modifier: Modifier = Modifier
 ) {
   val note = noteWithLabels.note
@@ -77,7 +78,18 @@ fun NoteDetailScreen(
     )
   }
 
-  LazyColumn(modifier = modifier.padding(16.dp)) {
+  Column(modifier = modifier) {
+    if (showBackButton) {
+      IconButton(onClick = onBack) {
+        Icon(
+          QuranIcons.ArrowBack,
+          contentDescription = stringResource(R.string.back_to_notes),
+          tint = MaterialTheme.colorScheme.onSurface
+        )
+      }
+    }
+
+    LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) {
     item {
       // Ayah reference
       Text(
@@ -199,6 +211,7 @@ fun NoteDetailScreen(
           )
         }
       }
+    }
     }
   }
 }

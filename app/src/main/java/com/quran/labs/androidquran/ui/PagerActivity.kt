@@ -408,12 +408,14 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     window.setBackgroundDrawable(null)
 
     var page = -1
+    var isWordByWord = false
     isActionBarHidden = true
     if (savedInstanceState != null) {
       Timber.d("non-null saved instance state!")
       page = savedInstanceState.getInt(LAST_READ_PAGE, -1)
       showingTranslation = savedInstanceState
         .getBoolean(LAST_READING_MODE_IS_TRANSLATION, false)
+      isWordByWord = savedInstanceState.getBoolean(LAST_READING_MODE_IS_WORD_BY_WORD, false)
       if (savedInstanceState.containsKey(LAST_ACTIONBAR_STATE)) {
         isActionBarHidden = !savedInstanceState.getBoolean(LAST_ACTIONBAR_STATE)
       }
@@ -438,7 +440,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         }
       }
     }
-    onShowingTranslationBackCallback.isEnabled = showingTranslation
+    onShowingTranslationBackCallback.isEnabled = showingTranslation || isWordByWord
 
     compositeDisposable = CompositeDisposable()
 
@@ -481,6 +483,9 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       isSplitScreen,
       pageProviderFactoryProvider.providePageViewFactory(quranSettings.pageType)
     )
+    if (isWordByWord) {
+      pagerAdapter.setWordByWordMode()
+    }
     ayahToolBar = findViewById(R.id.ayah_toolbar)
     ayahToolBar.flavor = BuildConfig.FLAVOR
     ayahToolBar.longPressLambda = { charSequence: CharSequence? ->
@@ -875,6 +880,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
   public override fun onResume() {
     super.onResume()
 
+    supportInvalidateOptionsMenu()
     audioPresenter.bind(this)
     recentPagePresenter.bind(currentPageFlow)
 
@@ -1109,6 +1115,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     val lastPage = quranInfo.getPageFromPosition(viewPager.currentItem, isDualPageVisible)
     state.putInt(LAST_READ_PAGE, lastPage)
     state.putBoolean(LAST_READING_MODE_IS_TRANSLATION, showingTranslation)
+    state.putBoolean(LAST_READING_MODE_IS_WORD_BY_WORD, pagerAdapter.isShowingWordByWord)
     state.putBoolean(LAST_ACTIONBAR_STATE, isActionBarHidden)
     state.putBoolean(LAST_WAS_DUAL_PAGES, isDualPages)
     state.putBoolean(LAST_FOLDING_STATE, isFoldableDeviceOpenAndVertical)
@@ -2061,6 +2068,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     private const val AUDIO_DOWNLOAD_KEY = "AUDIO_DOWNLOAD_KEY"
     private const val LAST_READ_PAGE = "LAST_READ_PAGE"
     private const val LAST_READING_MODE_IS_TRANSLATION = "LAST_READING_MODE_IS_TRANSLATION"
+    private const val LAST_READING_MODE_IS_WORD_BY_WORD = "LAST_READING_MODE_IS_WORD_BY_WORD"
     private const val LAST_ACTIONBAR_STATE = "LAST_ACTIONBAR_STATE"
     private const val LAST_FOLDING_STATE = "LAST_FOLDING_STATE"
 

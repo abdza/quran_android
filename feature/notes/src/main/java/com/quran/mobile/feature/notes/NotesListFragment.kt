@@ -7,7 +7,9 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import com.quran.data.core.QuranInfo
 import com.quran.data.model.note.NoteWithLabels
@@ -67,6 +70,7 @@ class NotesListFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View {
     return ComposeView(requireContext()).apply {
+      setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
       setContent {
         val notes by notesPresenter.notesList.collectAsState()
         val labels by notesPresenter.labels.collectAsState()
@@ -79,7 +83,17 @@ class NotesListFragment : Fragment() {
         var editingNote by remember { mutableStateOf<NoteWithLabels?>(null) }
         var showReplyEditor by remember { mutableStateOf(false) }
 
+        val isInSubScreen = editingNote != null || showReplyEditor || viewingDetail != null
+        BackHandler(enabled = isInSubScreen) {
+          when {
+            editingNote != null -> editingNote = null
+            showReplyEditor -> showReplyEditor = false
+            else -> viewingDetail = null
+          }
+        }
+
         QuranTheme {
+          Surface(modifier = Modifier.fillMaxSize()) {
           when {
             editingNote != null -> {
               NoteEditorScreen(
@@ -141,6 +155,7 @@ class NotesListFragment : Fragment() {
                 },
                 onAddReply = { showReplyEditor = true },
                 onBack = { viewingDetail = null },
+                showBackButton = true,
                 onShare = {
                   scope.launch {
                     val n = viewingDetail!!.note
@@ -181,6 +196,7 @@ class NotesListFragment : Fragment() {
                 modifier = Modifier.fillMaxSize()
               )
             }
+          }
           }
         }
       }
