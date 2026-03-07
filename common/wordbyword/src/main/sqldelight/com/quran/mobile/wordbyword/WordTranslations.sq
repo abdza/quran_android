@@ -38,15 +38,46 @@ VALUES (?, ?, ?, ?, ?, ?, ?);
 deleteAll:
 DELETE FROM word_translations;
 
+-- Return one representative row per unique arabic form for a given root
 wordsByEtymology:
-SELECT DISTINCT arabic_text, translation, sura, ayah, word_position
+SELECT
+  arabic_text,
+  MIN(translation) AS translation,
+  MIN(sura) AS sura,
+  MIN(ayah) AS ayah,
+  MIN(word_position) AS word_position
 FROM word_translations
 WHERE etymology = ?
+GROUP BY arabic_text
 ORDER BY sura, ayah, word_position
-LIMIT 20;
+LIMIT 10;
 
 countByEtymology:
 SELECT COUNT(DISTINCT arabic_text) FROM word_translations WHERE etymology = ?;
+
+-- Return all unique arabic forms for a given root
+wordsByEtymologyAll:
+SELECT
+  arabic_text,
+  MIN(translation) AS translation,
+  MIN(sura) AS sura,
+  MIN(ayah) AS ayah,
+  MIN(word_position) AS word_position
+FROM word_translations
+WHERE etymology = ?
+GROUP BY arabic_text
+ORDER BY sura, ayah, word_position;
+
+-- Count total number of occurrences (all positions) for a given root
+countOccurrencesByEtymology:
+SELECT COUNT(*) FROM word_translations WHERE etymology = ?;
+
+-- Return every occurrence (not grouped) of a root across the mushaf
+wordsByEtymologyOccurrences:
+SELECT arabic_text, translation, sura, ayah, word_position
+FROM word_translations
+WHERE etymology = ?
+ORDER BY sura, ayah, word_position;
 
 getRootMeaning:
 SELECT * FROM root_meanings WHERE root = ?;

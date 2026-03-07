@@ -20,6 +20,8 @@
             android:textSize="48sp"
             android:textColor="@color/word_card_arabic_text"
             android:gravity="center"
+            android:textDirection="locale"
+            android:textLocale="ar"
             android:layout_marginBottom="8dp"
             tools:text="بِسْمِ" />
 
@@ -87,8 +89,39 @@
                 android:layout_height="wrap_content"
                 android:textSize="36sp"
                 android:textColor="@color/word_card_etymology_text"
+                android:textDirection="locale"
+                android:textLocale="ar"
                 android:layout_marginBottom="12dp"
                 tools:text="س-م-و" />
+
+            <!-- Fallback when no root meaning available -->
+            <LinearLayout
+                android:id="@+id/root_meaning_fallback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/root_meaning_missing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/root_detail_no_meaning"
+                    android:textSize="18sp"
+                    android:textColor="@color/word_card_transliteration_text"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/search_root_online"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_root_online"
+                    android:textSize="18sp"
+                    android:textColor="@color/word_card_translation_text"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <!-- Primary Meaning -->
             <TextView
@@ -189,6 +222,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/see_all_forms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all_forms"
+                android:textSize="16sp"
+                android:textColor="@color/word_card_translation_text"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/see_all_occurrences"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all_occurrences"
+                android:textSize="16sp"
+                android:textColor="@color/word_card_translation_text"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
         </LinearLayout>
 

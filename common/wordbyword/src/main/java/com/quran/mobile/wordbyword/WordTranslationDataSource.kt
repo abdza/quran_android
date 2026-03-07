@@ -25,7 +25,7 @@ class WordTranslationDataSource @Inject constructor(
             ayah = row.ayah.toInt(),
             wordPosition = row.word_position.toInt(),
             arabicText = row.arabic_text,
-            translation = row.translation,
+            translation = row.translation ?: "",
             transliteration = row.transliteration,
             etymology = row.etymology
           )
@@ -89,10 +89,10 @@ class WordTranslationDataSource @Inject constructor(
         .map { row ->
           RootOccurrence(
             arabicText = row.arabic_text,
-            translation = row.translation,
-            sura = row.sura.toInt(),
-            ayah = row.ayah.toInt(),
-            wordPosition = row.word_position.toInt()
+            translation = row.translation ?: "",
+            sura = row.sura?.toInt() ?: 0,
+            ayah = row.ayah?.toInt() ?: 0,
+            wordPosition = row.word_position?.toInt() ?: 0
           )
         }
     }
@@ -104,6 +104,69 @@ class WordTranslationDataSource @Inject constructor(
       database.wordTranslationsQueries.countByEtymology(etymology)
         .executeAsOne()
         .toInt()
+    }
+  }
+
+  suspend fun getAllRelatedWordsByRoot(etymology: String): List<RootOccurrence> {
+    return withContext(Dispatchers.IO) {
+      val database = databaseProvider.provideDatabase() ?: return@withContext emptyList()
+      database.wordTranslationsQueries.wordsByEtymologyAll(etymology)
+        .executeAsList()
+        .map { row ->
+          RootOccurrence(
+            arabicText = row.arabic_text,
+            translation = row.translation ?: "",
+            sura = row.sura?.toInt() ?: 0,
+            ayah = row.ayah?.toInt() ?: 0,
+            wordPosition = row.word_position?.toInt() ?: 0
+          )
+        }
+    }
+  }
+
+  suspend fun getRelatedOccurrencesCount(etymology: String): Int {
+    return withContext(Dispatchers.IO) {
+      val database = databaseProvider.provideDatabase() ?: return@withContext 0
+      database.wordTranslationsQueries.countOccurrencesByEtymology(etymology)
+        .executeAsOne()
+        .toInt()
+    }
+  }
+
+  suspend fun getRelatedOccurrencesByRoot(etymology: String): List<RootOccurrence> {
+    return withContext(Dispatchers.IO) {
+      val database = databaseProvider.provideDatabase() ?: return@withContext emptyList()
+      database.wordTranslationsQueries.wordsByEtymologyOccurrences(etymology)
+        .executeAsList()
+        .map { row ->
+          RootOccurrence(
+            arabicText = row.arabic_text,
+            translation = row.translation,
+            sura = row.sura.toInt(),
+            ayah = row.ayah.toInt(),
+            wordPosition = row.word_position.toInt()
+          )
+        }
+    }
+  }
+
+  suspend fun getWordAt(sura: Int, ayah: Int, wordPosition: Int): WordTranslation? {
+    return withContext(Dispatchers.IO) {
+      val database = databaseProvider.provideDatabase() ?: return@withContext null
+      database.wordTranslationsQueries.wordsForAyah(sura.toLong(), ayah.toLong())
+        .executeAsList()
+        .firstOrNull { it.word_position.toInt() == wordPosition }
+        ?.let { row ->
+          WordTranslation(
+            sura = row.sura.toInt(),
+            ayah = row.ayah.toInt(),
+            wordPosition = row.word_position.toInt(),
+            arabicText = row.arabic_text,
+            translation = row.translation,
+            transliteration = row.transliteration,
+            etymology = row.etymology
+          )
+        }
     }
   }
 

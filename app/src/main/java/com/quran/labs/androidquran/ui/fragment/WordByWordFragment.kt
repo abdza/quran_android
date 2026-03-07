@@ -25,6 +25,7 @@ import com.quran.labs.androidquran.model.translation.TranslationModel
 import com.quran.labs.androidquran.ui.PagerActivity
 import com.quran.labs.androidquran.ui.helpers.AyahTracker
 import com.quran.labs.androidquran.ui.helpers.QuranPage
+import com.quran.labs.androidquran.ui.helpers.JumpDestination
 import com.quran.labs.androidquran.ui.helpers.UthmaniSpan
 import com.quran.labs.androidquran.ui.util.TypefaceManager
 import com.quran.labs.androidquran.util.QuranSettings
@@ -126,6 +127,7 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
       override val translationTextSize: Float = translationTextSize
       override val arabicTypeface: Typeface = arabicTypeface
       override val uthmaniSpanApplier: ((SpannableString) -> Unit) = spanApplier
+      override val showRootOnlineSearchAction: Boolean = quranSettings.showRootOnlineSearchInWordByWord()
     }
   }
 
@@ -148,6 +150,11 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
     val show = quranSettings.showAyahTranslationInWordByWord()
     Timber.d("WordByWord: showAyahTranslation = $show")
     return show
+  }
+
+  override fun onNavigateToOtherPage(sura: Int, ayah: Int) {
+    val page = _quranInfo.getPageFromSuraAyah(sura, ayah)
+    (activity as? JumpDestination)?.jumpToAndHighlight(page, sura, ayah)
   }
 
   override suspend fun getAyahTranslations(sura: Int, ayah: Int): List<WordByWordDisplayRow.TranslationText> {

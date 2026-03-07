@@ -256,6 +256,23 @@ abstract class WordByWordFragment : Fragment(),
     adapter.unhighlightAudio()
   }
 
+  fun scrollToAyah(sura: Int, ayah: Int) {
+    val ayahId = quranInfo.getAyahId(sura, ayah)
+    val position = layoutManager.let { adapter.getPositionForAyah(ayahId) }
+    if (position >= 0) {
+      layoutManager.scrollToPositionWithOffset(position, 0)
+      readingEventPresenter.onAyahSelection(
+        AyahSelection.Ayah(SuraAyah(sura, ayah), SelectionIndicator.None)
+      )
+    } else {
+      onNavigateToOtherPage(sura, ayah)
+    }
+  }
+
+  protected open fun onNavigateToOtherPage(sura: Int, ayah: Int) {
+    // no-op here; app layer can override to navigate the pager
+  }
+
   override fun onWordClicked(word: WordTranslation) {
     showWordDetail(word)
   }
@@ -268,7 +285,8 @@ abstract class WordByWordFragment : Fragment(),
       suraName = getSuraName(word.sura),
       dataSource = presenter.getDataSource(),
       arabicTextSize = arabicTextSize,
-      translationTextSize = translationTextSize
+      translationTextSize = translationTextSize,
+      showRootSearchAction = getQuranSettings().showRootOnlineSearchAction
     )
     bottomSheet.show(childFragmentManager, WordDetailBottomSheet.TAG)
   }
@@ -280,6 +298,7 @@ abstract class WordByWordFragment : Fragment(),
     val translationTextSize: Float
     val arabicTypeface: Typeface?
     val uthmaniSpanApplier: ((SpannableString) -> Unit)?
+    val showRootOnlineSearchAction: Boolean
   }
 
   companion object {

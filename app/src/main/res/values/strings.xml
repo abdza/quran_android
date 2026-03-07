@@ -176,6 +176,8 @@
   <string name="prefs_wbw_translation_text_size_title">Word by Word Translation Text Size</string>
   <string name="prefs_word_by_word_show_ayah_translation_title">Show Ayah Translation</string>
   <string name="prefs_word_by_word_show_ayah_translation_summary">Display the full ayah translation after each verse</string>
+  <string name="prefs_wbw_show_root_online_search_title">Show root online search</string>
+  <string name="prefs_wbw_show_root_online_search_summary">Display a button to search the Arabic root online when no meaning is available</string>
   <!-- Memorization Mode -->
   <string name="prefs_memorization_category">Memorization Mode</string>
   <string name="prefs_memorization_enabled_title">Enable Memorization Mode</string>

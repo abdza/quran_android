@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/root_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:textColor="@color/word_card_arabic_text"
+            android:textDirection="locale"
+            android:textLocale="ar"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            tools:text="ر-ح-م" />
+
+        <TextView
+            android:id="@+id/occurrences_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/word_card_transliteration_text"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="12dp"
+            tools:text="Occurrences for root ر-ح-م (73)" />
+
+        <LinearLayout
+            android:id="@+id/occurrences_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="12dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+

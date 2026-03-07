@@ -22,6 +22,7 @@ class WordByWordDatabaseProvider @Inject constructor(
   private val databaseName = "word_by_word_en.db"
   private val databasePath = File(quranFileManager.databaseDirectory(), databaseName)
   private var cachedDatabase: WordByWordDatabase? = null
+  private val EXPECTED_ROOT_MEANINGS_MIN_COUNT = 2000
 
   private suspend fun ensureWordByWordDatabase(): Boolean {
     return withContext(Dispatchers.IO) {
@@ -133,7 +134,7 @@ class WordByWordDatabaseProvider @Inject constructor(
         }
         // Re-seed if we have significantly fewer entries than expected
         // Using INSERT OR REPLACE ensures no duplicates while adding new entries
-        if (currentCount < 500) {
+        if (currentCount < EXPECTED_ROOT_MEANINGS_MIN_COUNT) {
           seedRootMeanings(db)
         }
       }

@@ -2,6 +2,7 @@ package com.quran.labs.androidquran.feature.wordbyword.ui
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import java.net.URLEncoder
 
 class WordDetailBottomSheet : BottomSheetDialogFragment() {
 
@@ -29,6 +30,7 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
   private var dataSource: WordTranslationDataSource? = null
   private var arabicTextSize: Float = 0f
   private var translationTextSize: Float = 0f
+  private var showRootSearchAction: Boolean = true
 
   private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -108,28 +110,23 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
     val currentWord = word ?: return
 
     scope.launch {
-      // Load root meaning
-      val rootMeaning = withContext(Dispatchers.IO) {
-        ds.getRootMeaning(etymology)
-      }
-
-      // Load related words
-      val relatedWords = withContext(Dispatchers.IO) {
-        ds.getRelatedWordsByRoot(etymology)
-      }
-      val totalCount = withContext(Dispatchers.IO) {
-        ds.getRelatedWordsCount(etymology)
-      }
+      // Load root meaning and related words (DS methods switch to IO internally)
+      val rootMeaning = ds.getRootMeaning(etymology)
+      val relatedWords = ds.getRelatedWordsByRoot(etymology)
+      val totalForms = ds.getRelatedWordsCount(etymology)
+      val totalOccurrences = ds.getRelatedOccurrencesCount(etymology)
 
       if (!isAdded) return@launch
 
       // Display root meaning if available
       if (rootMeaning != null) {
         displayRootMeaning(view, rootMeaning)
+      } else {
+        displayRootMeaningFallback(view, etymology)
       }
 
       // Display related words
-      displayRelatedWords(view, etymology, relatedWords, totalCount, currentWord)
+      displayRelatedWords(view, etymology, relatedWords, totalForms, totalOccurrences, currentWord)
     }
   }
 
@@ -187,27 +184,28 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
     view: View,
     etymology: String,
     relatedWords: List<com.quran.mobile.wordbyword.RootOccurrence>,
-    totalCount: Int,
+    totalFormCount: Int,
+    totalOccurrences: Int,
     currentWord: WordTranslation
   ) {
     val relatedSection = view.findViewById<LinearLayout>(R.id.related_words_section)
     val relatedHeader = view.findViewById<TextView>(R.id.related_words_header)
     val relatedContainer = view.findViewById<LinearLayout>(R.id.related_words_container)
+    val seeAllView = view.findViewById<TextView>(R.id.see_all_forms)
+    val seeAllOccurrencesView = view.findViewById<TextView>(R.id.see_all_occurrences)
 
-    // Filter out the current word and get unique forms
-    val uniqueRelated = relatedWords
+    // Filter out the current word if it happens to be included
+    val forms = relatedWords
       .filter { it.arabicText != currentWord.arabicText || it.sura != currentWord.sura || it.ayah != currentWord.ayah }
-      .distinctBy { it.arabicText }
-      .take(10)
 
-    if (uniqueRelated.isNotEmpty()) {
-      relatedHeader.text = getString(R.string.word_detail_related_words, etymology, totalCount)
+    if (forms.isNotEmpty()) {
+      relatedHeader.text = getString(R.string.word_detail_related_words, etymology, totalFormCount)
       relatedSection.visibility = View.VISIBLE
 
       relatedContainer.removeAllViews()
       val inflater = LayoutInflater.from(requireContext())
 
-      for (related in uniqueRelated) {
+      for (related in forms) {
         val itemView = inflater.inflate(R.layout.word_detail_related_item, relatedContainer, false)
 
         val arabicView = itemView.findViewById<TextView>(R.id.related_arabic)
@@ -233,7 +231,61 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
           locationItemView.setTextColor(ContextCompat.getColor(requireContext(), R.color.word_card_transliteration_text_night))
         }
 
+        // Click to scroll to this verse in the parent list
+        itemView.setOnClickListener {
+          (parentFragment as? WordByWordFragment)?.scrollToAyah(related.sura, related.ayah)
+          dismissAllowingStateLoss()
+        }
+
         relatedContainer.addView(itemView)
+      }
+
+      // Show "See all" if there are more forms than displayed
+      if (totalFormCount > forms.size) {
+        seeAllView.visibility = View.VISIBLE
+        seeAllView.setOnClickListener {
+          val sheet = RootFormsBottomSheet.newInstance(
+            root = etymology,
+            isNightMode = isNightMode,
+            arabicTypeface = arabicTypeface,
+            arabicTextSize = arabicTextSize,
+            translationTextSize = translationTextSize,
+            totalForms = totalFormCount,
+            totalOccurrences = totalOccurrences
+          ).apply { setDataSource(dataSource) }
+          sheet.show(parentFragmentManager, RootFormsBottomSheet.TAG)
+        }
+        if (translationTextSize > 0f) {
+          seeAllView.textSize = translationTextSize
+        }
+        if (isNightMode) {
+          seeAllView.setTextColor(ContextCompat.getColor(requireContext(), R.color.word_card_translation_text_night))
+        }
+      } else {
+        seeAllView.visibility = View.GONE
+      }
+
+      if (totalOccurrences > forms.size) {
+        seeAllOccurrencesView.visibility = View.VISIBLE
+        seeAllOccurrencesView.setOnClickListener {
+          val sheet = RootOccurrencesBottomSheet.newInstance(
+            root = etymology,
+            isNightMode = isNightMode,
+            arabicTypeface = arabicTypeface,
+            arabicTextSize = arabicTextSize,
+            translationTextSize = translationTextSize,
+            totalOccurrences = totalOccurrences
+          ).apply { setDataSource(dataSource) }
+          sheet.show(parentFragmentManager, RootOccurrencesBottomSheet.TAG)
+        }
+        if (translationTextSize > 0f) {
+          seeAllOccurrencesView.textSize = translationTextSize
+        }
+        if (isNightMode) {
+          seeAllOccurrencesView.setTextColor(ContextCompat.getColor(requireContext(), R.color.word_card_translation_text_night))
+        }
+      } else {
+        seeAllOccurrencesView.visibility = View.GONE
       }
     }
   }
@@ -295,6 +347,41 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
     this.translationTextSize = translationSize
   }
 
+  fun setShowRootSearchAction(show: Boolean) {
+    this.showRootSearchAction = show
+  }
+
+  private fun displayRootMeaningFallback(view: View, root: String) {
+    val fallbackContainer = view.findViewById<LinearLayout>(R.id.root_meaning_fallback)
+    val searchView = view.findViewById<TextView>(R.id.search_root_online)
+    fallbackContainer.visibility = View.VISIBLE
+
+    // Sizing
+    if (translationTextSize > 0f) {
+      view.findViewById<TextView>(R.id.root_meaning_missing).textSize = translationTextSize
+      searchView.textSize = translationTextSize
+    }
+
+    if (showRootSearchAction) {
+      searchView.visibility = View.VISIBLE
+      searchView.setOnClickListener {
+        val q = "Arabic root $root meaning Quran"
+        val url = "https://www.google.com/search?q=" + URLEncoder.encode(q, Charsets.UTF_8.name())
+        val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+      }
+    } else {
+      searchView.visibility = View.GONE
+    }
+
+    if (isNightMode) {
+      val nightText = ContextCompat.getColor(requireContext(), R.color.word_card_translation_text_night)
+      val nightLabel = ContextCompat.getColor(requireContext(), R.color.word_card_transliteration_text_night)
+      view.findViewById<TextView>(R.id.root_meaning_missing).setTextColor(nightLabel)
+      searchView.setTextColor(nightText)
+    }
+  }
+
   companion object {
     const val TAG = "WordDetailBottomSheet"
 
@@ -305,7 +392,8 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
       suraName: String? = null,
       dataSource: WordTranslationDataSource? = null,
       arabicTextSize: Float = 0f,
-      translationTextSize: Float = 0f
+      translationTextSize: Float = 0f,
+      showRootSearchAction: Boolean = true
     ): WordDetailBottomSheet {
       return WordDetailBottomSheet().apply {
         setWord(word)
@@ -314,6 +402,7 @@ class WordDetailBottomSheet : BottomSheetDialogFragment() {
         setSuraName(suraName)
         setDataSource(dataSource)
         setTextSizes(arabicTextSize, translationTextSize)
+        setShowRootSearchAction(showRootSearchAction)
       }
     }
   }

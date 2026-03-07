@@ -96,6 +96,7 @@ object Constants {
   const val PREF_SHOW_TRANSLITERATION = "showTransliteration"
   const val PREF_SHOW_ETYMOLOGY = "showEtymology"
   const val PREF_WORD_BY_WORD_SHOW_AYAH_TRANSLATION = "wordByWordShowAyahTranslation"
+  const val PREF_WBW_SHOW_ROOT_ONLINE_SEARCH = "wbwShowRootOnlineSearch"
 
   // Word by Word Text Sizes
   const val PREF_WBW_ARABIC_TEXT_SIZE = "wbwArabicTextSize"

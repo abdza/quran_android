@@ -15,6 +15,8 @@
         android:layout_weight="1"
         android:textSize="27sp"
         android:textColor="@color/word_card_arabic_text"
+        android:textDirection="locale"
+        android:textLocale="ar"
         tools:text="رَحْمَة" />
 
     <TextView

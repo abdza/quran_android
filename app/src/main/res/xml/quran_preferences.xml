@@ -164,6 +164,14 @@
         android:title="@string/prefs_wbw_translation_text_size_title"/>
 
     <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/prefs_wbw_show_root_online_search"
+        android:persistent="true"
+        android:summary="@string/prefs_wbw_show_root_online_search_summary"
+        android:title="@string/prefs_wbw_show_root_online_search_title"
+        app:iconSpaceReserved="false"/>
+
+    <CheckBoxPreference
         android:defaultValue="false"
         android:key="@string/prefs_word_by_word_show_ayah_translation_key"
         android:persistent="true"
