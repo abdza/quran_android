@@ -37,6 +37,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
@@ -62,6 +63,9 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
   private var audioPlaybackJob: Job? = null
   private val audioScope = MainScope()
 
+  @Volatile private var cachedLocalTranslations: Array<LocalTranslation>? = null
+  private var translationsFetchJob: Job? = null
+
   override fun onAttach(context: Context) {
     super.onAttach(context)
     val pageNumber = arguments?.getInt(PAGE_NUMBER_EXTRA) ?: -1
@@ -75,8 +79,28 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
     }
   }
 
+  private fun prefetchTranslations() {
+    if (cachedLocalTranslations != null || translationsFetchJob?.isActive == true) return
+    translationsFetchJob = audioScope.launch(Dispatchers.IO) {
+      try {
+        val allTranslations = translationsDBAdapter.getTranslations().first()
+        val activeTranslations = quranSettings.activeTranslations
+        val result = if (activeTranslations.isEmpty()) {
+          allTranslations.sortedBy { it.displayOrder }
+        } else {
+          allTranslations.filter { activeTranslations.contains(it.filename) }
+            .sortedBy { it.displayOrder }
+        }
+        cachedLocalTranslations = result.toTypedArray()
+      } catch (e: Exception) {
+        Timber.e(e, "Error pre-warming translations cache")
+      }
+    }
+  }
+
   override fun onResume() {
     super.onResume()
+    prefetchTranslations()
     audioPlaybackJob = audioStatusRepository.audioPlaybackFlow
       .onEach { audioStatus ->
         val playbackAyah = audioStatus.currentPlaybackAyah()
@@ -214,6 +238,8 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
   }
 
   override fun getQuranAyahInfo(sura: Int, ayah: Int): QuranAyahInfo? {
+    // If translations DB not yet initialized, skip to avoid blocking the main thread
+    if (cachedLocalTranslations == null) return null
     return try {
       val (arabicText, translations) = runBlocking(Dispatchers.IO) {
         val verseRange = VerseRange(sura, ayah, sura, ayah, 1)
@@ -262,22 +288,8 @@ class WordByWordFragment : BaseWordByWordFragment(), QuranPage, AyahTracker {
   }
 
   override fun getLocalTranslations(): Array<LocalTranslation>? {
-    return try {
-      val allTranslations = runBlocking(Dispatchers.IO) {
-        translationsDBAdapter.getTranslations().first()
-      }
-      val activeTranslations = quranSettings.activeTranslations
-      val result = if (activeTranslations.isEmpty()) {
-        allTranslations.sortedBy { it.displayOrder }
-      } else {
-        allTranslations.filter { activeTranslations.contains(it.filename) }
-          .sortedBy { it.displayOrder }
-      }
-      result.toTypedArray()
-    } catch (e: Exception) {
-      Timber.e(e, "Error getting local translations")
-      null
-    }
+    prefetchTranslations()
+    return cachedLocalTranslations
   }
 
   companion object {

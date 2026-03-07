@@ -127,6 +127,18 @@ class WordByWordAdapter(
       footnoteColor = ContextCompat.getColor(context, R.color.word_by_word_footnote)
     }
 
+    // Recalculate highlight positions based on current data
+    if (highlightedAyahId > 0) {
+      val matches = data.withIndex().filter { it.value.ayahId == highlightedAyahId }
+      highlightedStartPosition = matches.firstOrNull()?.index ?: -1
+      highlightedRowCount = matches.size
+    }
+    if (audioHighlightedAyahId > 0) {
+      val matches = data.withIndex().filter { it.value.ayahId == audioHighlightedAyahId }
+      audioHighlightedStartPosition = matches.firstOrNull()?.index ?: -1
+      audioHighlightedRowCount = matches.size
+    }
+
     if (data.isNotEmpty()) {
       notifyDataSetChanged()
     }

@@ -363,8 +363,10 @@ class NotesActivity : ComponentActivity() {
     val intent = Intent().apply {
       setClassName(this@NotesActivity, "com.quran.labs.androidquran.ui.PagerActivity")
       putExtra("page", page)
-      putExtra("highlight_sura", sura)
-      putExtra("highlight_ayah", ayah)
+      putExtra("highlightSura", sura)
+      putExtra("highlightAyah", ayah)
+      // Use the agreed key without depending on app module constant
+      putExtra("jumpToWordByWord", true)
     }
     startActivity(intent)
   }

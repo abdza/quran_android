@@ -238,6 +238,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
   private lateinit var audioStatusRepositoryBridge: AudioStatusRepositoryBridge
   private lateinit var readingEventPresenterBridge: ReadingEventPresenterBridge
   private lateinit var windowInsetsController: WindowInsetsControllerCompat
+  private var pendingHighlight: SuraAyah? = null
 
   private var translationJob: Job? = null
   private var currentBookmarks: List<Bookmark> = listOf()
@@ -428,6 +429,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         page = extras.getInt("page", Constants.PAGES_FIRST)
         showingTranslation =
           extras.getBoolean(EXTRA_JUMP_TO_TRANSLATION, showingTranslation)
+        isWordByWord = extras.getBoolean(EXTRA_JUMP_TO_WORD_BY_WORD, false)
         val highlightedSura = extras.getInt(EXTRA_HIGHLIGHT_SURA, -1)
         val highlightedAyah = extras.getInt(EXTRA_HIGHLIGHT_AYAH, -1)
 
@@ -575,6 +577,15 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
           val ayahPos = quranInfo.getPositionFromPage(startPage, isDualPageVisible)
           if (abs((ayahPos - position).toDouble()) > 1) {
             endAyahMode()
+          }
+        }
+
+        // If we have a pending highlight for Word-by-Word, and we are now on its page, re-issue selection
+        pendingHighlight?.let { target ->
+          val targetPage = quranInfo.getPageFromSuraAyah(target.sura, target.ayah)
+          if (page == targetPage && pagerAdapter.isShowingWordByWord) {
+            readingEventPresenterBridge.setSelection(target.sura, target.ayah, true)
+            pendingHighlight = null
           }
         }
       }
@@ -1028,11 +1039,9 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
 
       val currentValue = showingTranslation
       showingTranslation = extras.getBoolean(EXTRA_JUMP_TO_TRANSLATION, showingTranslation)
+      val wantWordByWord = extras.getBoolean(EXTRA_JUMP_TO_WORD_BY_WORD, false)
       val highlightedSura = extras.getInt(EXTRA_HIGHLIGHT_SURA, -1)
       val highlightedAyah = extras.getInt(EXTRA_HIGHLIGHT_AYAH, -1)
-      if (highlightedSura > 0 && highlightedAyah > 0) {
-        readingEventPresenterBridge.setSelection(highlightedSura, highlightedAyah, true)
-      }
 
       if (showingTranslation != currentValue) {
         if (showingTranslation) {
@@ -1048,9 +1057,18 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         supportInvalidateOptionsMenu()
       }
 
+      if (wantWordByWord) {
+        pagerAdapter.setWordByWordMode()
+        onShowingTranslationBackCallback.isEnabled = true
+        supportInvalidateOptionsMenu()
+      }
+
       if (highlightedAyah > 0 && highlightedSura > 0) {
         // this will jump to the right page automagically
         ensurePage(highlightedSura, highlightedAyah)
+        // Store pending highlight to re-issue after page selection to ensure WBW fragment is active
+        pendingHighlight = SuraAyah(highlightedSura, highlightedAyah)
+        readingEventPresenterBridge.setSelection(highlightedSura, highlightedAyah, true)
       } else {
         val pagePosition = quranInfo.getPositionFromPage(page, isDualPageVisible)
         viewPager.currentItem = pagePosition
@@ -2073,6 +2091,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     private const val LAST_FOLDING_STATE = "LAST_FOLDING_STATE"
 
     const val EXTRA_JUMP_TO_TRANSLATION: String = "jumpToTranslation"
+    const val EXTRA_JUMP_TO_WORD_BY_WORD: String = "jumpToWordByWord"
     const val EXTRA_HIGHLIGHT_SURA: String = "highlightSura"
     const val EXTRA_HIGHLIGHT_AYAH: String = "highlightAyah"
     const val LAST_WAS_DUAL_PAGES: String = "wasDualPages"

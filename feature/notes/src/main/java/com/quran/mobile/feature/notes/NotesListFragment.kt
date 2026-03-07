@@ -221,8 +221,9 @@ class NotesListFragment : Fragment() {
     val intent = Intent().apply {
       setClassName(requireContext(), "com.quran.labs.androidquran.ui.PagerActivity")
       putExtra("page", page)
-      putExtra("highlight_sura", sura)
-      putExtra("highlight_ayah", ayah)
+      putExtra("highlightSura", sura)
+      putExtra("highlightAyah", ayah)
+      putExtra("jumpToWordByWord", true)
     }
     startActivity(intent)
   }

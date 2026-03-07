@@ -16,6 +16,7 @@ import com.quran.data.model.SuraAyah
 import com.quran.data.model.WordTranslation
 import com.quran.data.model.selection.AyahSelection
 import com.quran.data.model.selection.SelectionIndicator
+import com.quran.data.model.selection.selectionIndicator
 import com.quran.labs.androidquran.feature.wordbyword.R
 import com.quran.labs.androidquran.feature.wordbyword.model.MemorizationConfig
 import com.quran.labs.androidquran.feature.wordbyword.model.WordByWordDisplayRow
@@ -56,6 +57,8 @@ abstract class WordByWordFragment : Fragment(),
   private var uthmaniSpanApplier: ((SpannableString) -> Unit)? = null
   private var memorizationJob: Job? = null
   private var ayahSelectionJob: Job? = null
+  private var pendingScrollTo: SuraAyah? = null
+  private var suppressAutoDeselectUntil: Long = 0L
 
   protected abstract fun getSuraName(sura: Int): String
   protected abstract fun onPageClicked()
@@ -95,9 +98,9 @@ abstract class WordByWordFragment : Fragment(),
         val range = adapter.getHighlightedPositionRange() ?: return
         val first = layoutManager.findFirstVisibleItemPosition()
         val last = layoutManager.findLastVisibleItemPosition()
-        if (range.second < first || range.first > last) {
-          onVerseDeselected()
-        }
+        val now = System.currentTimeMillis()
+        if (now < suppressAutoDeselectUntil) return
+        if (range.second < first || range.first > last) onVerseDeselected()
       }
     })
     setupTranslationSpinner()
@@ -127,6 +130,21 @@ abstract class WordByWordFragment : Fragment(),
           is AyahSelection.Ayah -> {
             val suraAyah = ayahSelection.suraAyah
             highlightAyah(suraAyah.sura, suraAyah.ayah)
+            // If the selection indicates we should scroll, do so
+            when (ayahSelection.selectionIndicator()) {
+              is SelectionIndicator.ScrollOnly,
+              is SelectionIndicator.SelectedPointPosition,
+              is SelectionIndicator.SelectedItemPosition -> {
+                val ayahId = quranInfo.getAyahId(suraAyah.sura, suraAyah.ayah)
+                val pos = adapter.getPositionForAyah(ayahId)
+                if (pos >= 0) {
+                  scrollToAyah(suraAyah.sura, suraAyah.ayah)
+                } else {
+                  pendingScrollTo = suraAyah
+                }
+              }
+              is SelectionIndicator.None -> { /* no-op */ }
+            }
           }
           is AyahSelection.AyahRange -> {
             val suraAyah = ayahSelection.startSuraAyah
@@ -192,7 +210,15 @@ abstract class WordByWordFragment : Fragment(),
     adapter.resetMemorization()
     adapter.setData(rows)
     adapter.notifyDataSetChanged()
-    updateScrollPosition()
+    // Apply any pending scroll once data is present; otherwise restore previous position
+    val hadPending = pendingScrollTo != null
+    pendingScrollTo?.let { target ->
+      scrollToAyah(target.sura, target.ayah)
+      pendingScrollTo = null
+    }
+    if (!hadPending) {
+      updateScrollPosition()
+    }
 
     // Start memorization timer
     val config = getMemorizationConfig()
@@ -260,6 +286,7 @@ abstract class WordByWordFragment : Fragment(),
     val ayahId = quranInfo.getAyahId(sura, ayah)
     val position = layoutManager.let { adapter.getPositionForAyah(ayahId) }
     if (position >= 0) {
+      suppressAutoDeselectUntil = System.currentTimeMillis() + 600L
       layoutManager.scrollToPositionWithOffset(position, 0)
       readingEventPresenter.onAyahSelection(
         AyahSelection.Ayah(SuraAyah(sura, ayah), SelectionIndicator.None)
