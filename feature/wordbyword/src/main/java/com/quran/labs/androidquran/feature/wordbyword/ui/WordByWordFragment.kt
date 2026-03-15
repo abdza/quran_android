@@ -288,9 +288,6 @@ abstract class WordByWordFragment : Fragment(),
     if (position >= 0) {
       suppressAutoDeselectUntil = System.currentTimeMillis() + 600L
       layoutManager.scrollToPositionWithOffset(position, 0)
-      readingEventPresenter.onAyahSelection(
-        AyahSelection.Ayah(SuraAyah(sura, ayah), SelectionIndicator.None)
-      )
     } else {
       onNavigateToOtherPage(sura, ayah)
     }

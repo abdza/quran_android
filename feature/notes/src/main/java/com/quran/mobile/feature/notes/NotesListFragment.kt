@@ -203,6 +203,13 @@ class NotesListFragment : Fragment() {
     }
   }
 
+  override fun onResume() {
+    super.onResume()
+    scope.launch {
+      notesPresenter.loadNotes()
+    }
+  }
+
   override fun onDestroy() {
     scope.cancel()
     super.onDestroy()
