@@ -34,6 +34,16 @@
   <string name="playback_speed">Velocità di riproduzione:</string>
   <string name="next">Prossimo</string>
   <string name="undo">Undo</string>
+
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Nessun segnalibro ancora</string>
+  <string name="bookmarks_empty_subtitle">Tocca l\'icona del segnalibro per salvare una pagina, oppure tieni premuto un ayah per aggiungerlo ai segnalibri.</string>
+  <string name="reading_bookmark_movable_education_title">Questo è un segnalibro di lettura spostabile</string>
+  <string name="reading_bookmark_movable_education_body">Salvare un segnalibro di lettura sostituisce quello precedente. Per salvare più ayah, tieni premuto un ayah e aggiungilo a una raccolta.</string>
+  <string name="reading_bookmark_moved_from">Spostato da %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Segnalibro spostato da %1$s</string>
+  <string name="reading_bookmark_added">Segnalibro aggiunto</string>
+  <string name="reading_bookmark_dismiss_education">Ignora</string>
   <string name="tag_dlg_title">Tag</string>
   <string name="tag_name">Nome</string>
   <string name="play">Ascoltare</string>
@@ -66,6 +76,12 @@
   <string name="about_data_sources">Fonti di dati</string>
   <string name="about_contributors">Collaboratori</string>
   <string name="prefs_new_background_title">Nuovo sfondo</string>
+  <string name="prefs_lock_orientation_title">Orientamento della schermata di blocco</string>
+  <string name="prefs_lock_orientation_summary_on">Utilizzare la modalità di orientamento fisso</string>
+  <string name="prefs_lock_orientation_summary_off">Adattabile alla modalità di orientamento corrente</string>
+  <string name="prefs_landscape_orientation_title">Orientamento orizzontale</string>
+  <string name="prefs_landscape_orientation_summary_on">Usa sempre la modalità orizzontale</string>
+  <string name="prefs_landscape_orientation_summary_off">Usa sempre la modalità ritratto</string>
   <string name="prefs_night_mode_summary">Usa uno sfondo scuro e caratteri chiari</string>
   <string name="prefs_night_mode_text_brightness_title">Luminosità del testo</string>
   <string name="prefs_overlay_page_info_title">Mostra informazioni sulla pagina</string>
@@ -99,7 +115,7 @@
   <string name="import_data_permissions_error">Impossibile leggere il file di backup a causa di un errore di autorizzazione.</string>
   <string name="import_data_error">File di backup non valido (o impossibile leggere il file di backup).</string>
   <string name="import_data">Importazione di dati</string>
-  <string name="import_data_and_override">Se importi questo file, sostituirà tutti i tuoi segnalibri con %1$d segnalibri e %2$d tag. Importare?</string>
+  <string name="import_data_and_merge">Se importi questo file, aggiungerà %1$d segnalibri e %2$d tag ai tuoi dati attuali. Importare?</string>
   <string name="import_successful">Importazione riuscita</string>
   <string name="export_data_error">Errore nell\'esportazione dei dati</string>
   <string name="exported_data">Dati esportati in %1$s</string>
@@ -121,6 +137,7 @@
     <item quantity="other">Cancellati %d elementi</item>
   </plurals>
   <string name="recent_pages">Pagine recenti</string>
+  <string name="old_page_bookmarks">Vecchi segnalibri di pagina</string>
   <string name="tag_blank_tag_error">I nomi dei tag non possono essere vuoti!</string>
   <string name="tag_duplicate_tag_error">Il nome del tag esiste già!</string>
   <string name="bookmarks_list_empty">Nessun segnalibro</string>

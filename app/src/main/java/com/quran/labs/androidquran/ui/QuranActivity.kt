@@ -33,6 +33,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager.widget.ViewPager
+import com.quran.data.dao.RecentPagesDao
 import com.quran.labs.androidquran.AboutUsActivity
 import com.quran.labs.androidquran.HelpActivity
 import com.quran.labs.androidquran.QuranApplication
@@ -42,7 +43,7 @@ import com.quran.labs.androidquran.SearchActivity
 import com.quran.labs.androidquran.ShortcutsActivity
 import com.quran.labs.androidquran.data.Constants
 import com.quran.labs.androidquran.data.QuranDisplayData
-import com.quran.labs.androidquran.model.bookmark.RecentPageModel
+import com.quran.labs.androidquran.feature.reading.model.LatestPageTracker
 import com.quran.labs.androidquran.model.session.ReadingSessionManager
 import com.quran.labs.androidquran.presenter.data.QuranIndexEventLogger
 import com.quran.data.model.bookmark.SessionPage
@@ -66,8 +67,13 @@ import com.quran.mobile.di.ExtraScreenProvider
 import dev.zacsweers.metro.Inject
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import kotlin.math.abs
 import kotlinx.coroutines.Job
@@ -98,7 +104,23 @@ class QuranActivity : AppCompatActivity(),
   private var searchItem: MenuItem? = null
   private var supportActionMode: ActionMode? = null
   private val compositeDisposable = CompositeDisposable()
-  lateinit var latestPageObservable: Observable<Int>
+  private val latestPageFlow: Flow<Int> by lazy {
+    combine(
+      recentPagesDao.recentPagesFlow()
+        .map { recentPages -> recentPages.firstOrNull()?.page ?: Constants.NO_PAGE },
+      latestPageTracker.latestPage
+    ) { persistedPage, latestPage ->
+      latestPage
+        ?.takeIf { it.pageType == settings.pageType }
+        ?.page
+        ?: persistedPage
+    }
+      .distinctUntilChanged()
+  }
+
+  suspend fun latestPage(): Int {
+    return latestPageFlow.first()
+  }
 
   private var backStackListener: FragmentManager.OnBackStackChangedListener? = null
   private lateinit var searchItemCollapserCallback: OnBackPressedCallback
@@ -109,7 +131,9 @@ class QuranActivity : AppCompatActivity(),
   @Inject
   lateinit var audioUtils: AudioUtils
   @Inject
-  lateinit var recentPageModel: RecentPageModel
+  lateinit var recentPagesDao: RecentPagesDao
+  @Inject
+  lateinit var latestPageTracker: LatestPageTracker
   @Inject
   lateinit var translationManagerPresenter: TranslationManagerPresenter
   @Inject
@@ -184,7 +208,6 @@ class QuranActivity : AppCompatActivity(),
       )
     }
 
-    latestPageObservable = recentPageModel.getLatestPageObservable()
     val intent = intent
     if (intent != null) {
       val extras = intent.extras
@@ -204,7 +227,6 @@ class QuranActivity : AppCompatActivity(),
   }
 
   public override fun onResume() {
-    compositeDisposable.add(latestPageObservable.subscribe())
     super.onResume()
     val isRtl = isRtl()
     if (isRtl != this.isRtl) {
@@ -414,15 +436,12 @@ class QuranActivity : AppCompatActivity(),
   }
 
   private fun jumpToLastPage() {
-    compositeDisposable.add(
-        latestPageObservable
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { recentPage: Int ->
-              jumpTo(
-                  if (recentPage == Constants.NO_PAGE) 1 else recentPage
-              )
-            }
-    )
+    lifecycleScope.launch {
+      val recentPage = latestPage()
+      jumpTo(
+        if (recentPage == Constants.NO_PAGE) 1 else recentPage
+      )
+    }
   }
 
   private fun updateTranslationsListAsNeeded() {
@@ -494,7 +513,7 @@ class QuranActivity : AppCompatActivity(),
     }
   }
 
-  fun editTag(id: Long, name: String?) {
+  fun editTag(id: String, name: String?) {
     if (!isPaused) {
       val fm = supportFragmentManager
       val addTagDialog = newInstance(id, name!!)
@@ -502,7 +521,7 @@ class QuranActivity : AppCompatActivity(),
     }
   }
 
-  fun tagBookmarks(ids: LongArray?) {
+  fun tagBookmarks(ids: Array<String>?) {
     if (ids != null && ids.size == 1) {
       tagBookmark(ids[0])
       return
@@ -515,7 +534,7 @@ class QuranActivity : AppCompatActivity(),
     }
   }
 
-  private fun tagBookmark(id: Long) {
+  private fun tagBookmark(id: String) {
     if (!isPaused) {
       val fm = supportFragmentManager
       val tagBookmarkDialog = TagBookmarkDialog.newInstance(id)

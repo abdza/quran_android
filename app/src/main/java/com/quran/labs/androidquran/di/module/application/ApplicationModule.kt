@@ -11,6 +11,16 @@ import com.quran.data.di.AppScope
 import com.quran.data.source.DisplaySize
 import com.quran.data.source.PageProvider
 import com.quran.data.source.PageSizeCalculator
+import com.quran.labs.androidquran.common.audio.cache.QariDownloadInfoManager
+import com.quran.labs.androidquran.common.audio.cache.QariDownloadInfoSource
+import com.quran.labs.androidquran.data.QuranDisplayData
+import com.quran.labs.androidquran.data.QuranDisplayInterface
+import com.quran.page.common.data.QuranNaming
+import com.quran.labs.androidquran.util.AudioFileUtils
+import com.quran.labs.androidquran.util.AudioUtils
+import com.quran.labs.androidquran.util.AudioUtilsInterface
+import android.net.Uri
+import com.quran.labs.androidquran.presenter.ContentResolverOps
 import com.quran.labs.androidquran.util.QuranFileUtils
 import com.quran.labs.androidquran.util.QuranSettings
 import com.quran.labs.androidquran.util.SettingsImpl
@@ -84,6 +94,12 @@ object ApplicationModule {
   }
 
   @Provides
+  @SingleIn(AppScope::class)
+  fun provideQariDownloadInfoSource(manager: QariDownloadInfoManager): QariDownloadInfoSource {
+    return manager
+  }
+
+  @Provides
   fun provideFileSystem(): FileSystem {
     return FileSystem.SYSTEM
   }
@@ -109,4 +125,24 @@ object ApplicationModule {
   fun provideExtraScreens(): Set<ExtraScreenProvider> {
     return setOf(NotesScreenProvider)
   }
+
+  @Provides
+  fun provideAudioUtilsInterface(impl: AudioUtils): AudioUtilsInterface = impl
+
+  @Provides
+  fun provideAudioFileUtils(impl: QuranFileUtils): AudioFileUtils = impl
+
+  @Provides
+  fun provideQuranNaming(impl: QuranDisplayData): QuranNaming = impl
+
+  @Provides
+  fun provideQuranDisplayInterface(impl: QuranDisplayData): QuranDisplayInterface = impl
+
+  @Provides
+  fun provideContentResolverOps(@ApplicationContext context: Context): ContentResolverOps =
+    object : ContentResolverOps {
+      override fun openInputStream(uri: Uri) = context.contentResolver.openInputStream(uri)
+      override fun openFileDescriptor(uri: Uri, mode: String) =
+        context.contentResolver.openFileDescriptor(uri, mode)
+    }
 }

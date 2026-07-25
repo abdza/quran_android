@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -24,13 +24,13 @@ jobs:
           java-version-file: .github/workflows/.java-version
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build debug Apk
         run: ./gradlew assembleDebug
 
       - name: Upload Debug Apk
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: success()
         with:
           name: latest-apk
@@ -40,7 +40,7 @@ jobs:
         run: ./gradlew :app:dependencies --configuration madaniReleaseRuntimeClasspath > dependencies.txt
 
       - name: Upload dependencies list
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: success()
         with:
           name: dependencies

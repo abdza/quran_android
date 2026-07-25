@@ -70,7 +70,7 @@
         Для перекладів перейдіть до налаштувань і встановіть розмір тексту перекладу.
         &lt;br/>
         &lt;br/>&lt;b>Як поділитися ая?&lt;/b>
-        &lt;br/>Перебуваючи на будь-якій арабській сторінці, натисніть і утримуйте будь-який ayah, щоб отримати меню, де ви можете вибрати закладку, тег, поділитися або скопіювати цю ая в буфер обміну, побачити переклад або прослухати його декламацію.&lt;br/>
+        &lt;br/>Перебуваючи на будь-якій арабській сторінці, натисніть і утримуйте будь-який ayah, щоб отримати меню, де ви можете вибрати закладку, поділитися або скопіювати цю ая в буфер обміну, побачити переклад або прослухати його декламацію.&lt;br/>
         &lt;br/>&lt;b>Шрифти Malayalam/Tamil/Bengali/Urdu не працюють!&lt;/b>
         &lt;br/>На жаль, версії Android до 4.0 не підтримують ці шрифти, і ми мало що можемо зробити, щоб допомогти в цьому.
     </string>
@@ -105,6 +105,12 @@
   <string name="prefs_use_arabic_title">Арабський режим (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Використовуйте арабську мову для інтерфейсу програми</string>
   <string name="prefs_new_background_title">Нове тло</string>
+  <string name="prefs_lock_orientation_title">Орієнтація екрана блокування</string>
+  <string name="prefs_lock_orientation_summary_on">Використання режиму фіксованої орієнтації</string>
+  <string name="prefs_lock_orientation_summary_off">Адаптивний до поточного режиму орієнтації</string>
+  <string name="prefs_landscape_orientation_title">Альбомна орієнтація</string>
+  <string name="prefs_landscape_orientation_summary_on">Завжди використовувати альбомний режим</string>
+  <string name="prefs_landscape_orientation_summary_off">Завжди використовувати книжковий режим</string>
   <string name="prefs_night_mode_title">Нічний режим</string>
   <string name="prefs_night_mode_summary">Використання темного фону та світлих шрифтів</string>
   <string name="prefs_night_mode_text_brightness_title">Яскравість тексту</string>
@@ -164,7 +170,7 @@
   <string name="import_data_permissions_error">Не вдалося прочитати файл резервної копії через помилку дозволів.</string>
   <string name="import_data_error">Неприпустимий файл резервної копії (або не вдалося прочитати файл резервної копії).</string>
   <string name="import_data">Імпорт даних</string>
-  <string name="import_data_and_override">Якщо ви імпортуєте цей файл, він замінить усі ваші закладки закладками %1$d і тегами %2$d. Імпорт?</string>
+  <string name="import_data_and_merge">Якщо ви імпортуєте цей файл, до поточних даних буде додано %1$d закладок і %2$d тегів. Імпортувати?</string>
   <string name="import_successful">Імпорт успішний</string>
   <string name="export_data_error">Помилка експорту даних</string>
   <string name="exported_data">Дані експортуються до %1$s</string>
@@ -285,7 +291,18 @@
   </plurals>
   <string name="undo">Скасувати</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Поки немає закладок</string>
+  <string name="bookmarks_empty_subtitle">Торкніться значка закладки, щоб зберегти сторінку, або натисніть і утримуйте аят, щоб додати закладку.</string>
+  <string name="reading_bookmark_movable_education_title">Це рухома закладка читання</string>
+  <string name="reading_bookmark_movable_education_body">Збереження закладки читання замінює стару. Щоб зберегти декілька аятів, натисніть і утримуйте аят, а потім додайте його до колекції.</string>
+  <string name="reading_bookmark_moved_from">Переміщено з %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Закладку переміщено з %1$s</string>
+  <string name="reading_bookmark_added">Закладку додано</string>
+  <string name="reading_bookmark_dismiss_education">Закрити</string>
+
   <string name="recent_pages">Останні сторінки</string>
+  <string name="old_page_bookmarks">Старі закладки сторінок</string>
 
   <!-- tag dialog -->
   <string name="tag_dlg_title">Тег</string>

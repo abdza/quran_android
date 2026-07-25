@@ -17,7 +17,8 @@ import okio.Buffer;
 
 public class BookmarkJsonModelTest {
   private static final List<Tag> TAGS =
-      Arrays.asList(new Tag(1, "First"), new Tag(2, "Second"), new Tag(3, "Third"));
+      Arrays.asList(new Tag("tag-1", "First"), new Tag("tag-2", "Second"),
+          new Tag("tag-3", "Third"));
 
   private BookmarkJsonModel jsonModel;
 
@@ -37,6 +38,7 @@ public class BookmarkJsonModelTest {
     BookmarkData data = jsonModel.fromJson(buffer);
     assertThat(data).isNotNull();
     assertThat(data.getBookmarks()).isEmpty();
+    assertThat(data.getReadingBookmark()).isNull();
     assertThat(data.getTags()).hasSize(TAGS.size());
     assertThat(data.getTags()).isEqualTo(TAGS);
   }

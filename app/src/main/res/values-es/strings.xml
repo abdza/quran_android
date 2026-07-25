@@ -50,6 +50,12 @@
   <string name="prefs_use_arabic_title">Modo Árabe (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">La aplicación se mostrará en Árabe </string>
   <string name="prefs_new_background_title">Nuevo fondo</string>
+  <string name="prefs_lock_orientation_title">Bloquear orientación de la pantalla</string>
+  <string name="prefs_lock_orientation_summary_on">La Página del Corán estará en modo de orientación fija</string>
+  <string name="prefs_lock_orientation_summary_off">Adaptable a la orientación actual</string>
+  <string name="prefs_landscape_orientation_title">Orientación horizontal</string>
+  <string name="prefs_landscape_orientation_summary_on">Se utilizará orientación horizontal</string>
+  <string name="prefs_landscape_orientation_summary_off">Se utilizará la orientación vertical</string>
   <string name="prefs_night_mode_title">Modo nocturno</string>
   <string name="prefs_night_mode_summary">Se utilizará fondo oscuro y fuentes claras</string>
   <string name="prefs_night_mode_text_brightness_title">Texto Brillante</string>
@@ -212,7 +218,7 @@
   <string name="import_data_permissions_error">No se puede leer el archivo de copia de seguridad debido a un error de permisos.</string>
   <string name="import_data_error">Archivo de copia de seguridad no válido (o no se puede leer el archivo de copia de seguridad).</string>
   <string name="import_data">Importar datos</string>
-  <string name="import_data_and_override">Si importas este archivo, reemplazará todos tus marcadores con %1$d marcador(es) y %2$d etiqueta(s). ¿Importar?</string>
+  <string name="import_data_and_merge">Si importas este archivo, agregará %1$d marcador(es) y %2$d etiqueta(s) a tus datos actuales. ¿Importar?</string>
   <string name="import_successful">Importar con éxito</string>
   <string name="export_data_error">Error en la exportación de datos</string>
   <string name="exported_data">Datos exportados a %1$s</string>
@@ -230,7 +236,18 @@
   <string name="playback_prompt_title">Inicie la reproducción desde:</string>
   <string name="starting_page_label">Inicio de página</string>
   <string name="undo">Deshacer</string>
+
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Aún no hay favoritos</string>
+  <string name="bookmarks_empty_subtitle">Toca el icono de marcador para guardar una página, o mantén pulsado un versículo para añadirlo a favoritos.</string>
+  <string name="reading_bookmark_movable_education_title">Este es un marcador de lectura movible</string>
+  <string name="reading_bookmark_movable_education_body">Guardar un marcador de lectura reemplaza el anterior. Para guardar varios versículos, mantén pulsado un versículo y añádelo a una colección.</string>
+  <string name="reading_bookmark_moved_from">Movido desde %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Marcador movido desde %1$s</string>
+  <string name="reading_bookmark_added">Marcador añadido</string>
+  <string name="reading_bookmark_dismiss_education">Descartar</string>
   <string name="recent_pages">Páginas recientes</string>
+  <string name="old_page_bookmarks">Marcadores de páginas antiguos</string>
   <string name="tag_blank_tag_error">Los nombres de las etiquetas no pueden estar en blanco.</string>
   <string name="tag_duplicate_tag_error">El nombre de la etiqueta ya existe.</string>
   <string name="audio_updated_title">Actualización de los archivos de audio del Corán</string>

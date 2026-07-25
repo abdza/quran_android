@@ -70,7 +70,7 @@
         För översättningar går du till inställningar och ställer in storleken på översättningstexten.
         &lt;br/>
         &lt;br/>&lt;b>Hur delar jag en ayah?&lt;/b>
-        &lt;br/>När du är på en arabisk sida kan du trycka och hålla ned på en ayah för att få upp en meny där du kan välja att bokmärka, tagga, dela eller kopiera ayahen till klippbordet, se översättningen eller lyssna på dess recitation.&lt;br/>
+        &lt;br/>När du är på en arabisk sida kan du trycka och hålla ned på en ayah för att få upp en meny där du kan välja att bokmärka, dela eller kopiera ayahen till klippbordet, se översättningen eller lyssna på dess recitation.&lt;br/>
         &lt;br/>&lt;b>Typsnitten Malayalam/Tamil/Bengali/Urdu fungerar inte!&lt;/b>
         &lt;br/>Tyvärr har Android-versioner före 4.0 inte stöd för dessa teckensnitt, och det finns inte mycket vi kan göra för att hjälpa till med detta.
     </string>
@@ -104,6 +104,12 @@
   <string name="prefs_use_arabic_title">Arabiskt läge (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Använd arabiska för tillämpningsgränssnittet.</string>
   <string name="prefs_new_background_title">Ny bakgrund</string>
+  <string name="prefs_lock_orientation_title">Orientering av låsskärmen</string>
+  <string name="prefs_lock_orientation_summary_on">Använd läget för fast orientering</string>
+  <string name="prefs_lock_orientation_summary_off">Anpassar sig till det aktuella orienteringsläget</string>
+  <string name="prefs_landscape_orientation_title">Landskapsorientering</string>
+  <string name="prefs_landscape_orientation_summary_on">Använd alltid liggande läge</string>
+  <string name="prefs_landscape_orientation_summary_off">Använd alltid porträttläge</string>
   <string name="prefs_night_mode_title">Nattläge</string>
   <string name="prefs_night_mode_summary">Använd mörk bakgrund och ljusa typsnitt</string>
   <string name="prefs_night_mode_text_brightness_title">Textens ljusstyrka</string>
@@ -163,7 +169,7 @@
   <string name="import_data_permissions_error">Det går inte att läsa säkerhetskopian på grund av fel i behörigheterna.</string>
   <string name="import_data_error">Ogiltig säkerhetskopieringsfil (eller kan inte läsa säkerhetskopieringsfilen).</string>
   <string name="import_data">Importera data</string>
-  <string name="import_data_and_override">Om du importerar den här filen kommer alla dina bokmärken att ersättas med %1$d bokmärken och %2$d taggar. Importera?</string>
+  <string name="import_data_and_merge">Om du importerar den här filen läggs %1$d bokmärken och %2$d taggar till i dina nuvarande data. Importera?</string>
   <string name="import_successful">Import lyckad</string>
   <string name="export_data_error">Fel vid export av data</string>
   <string name="exported_data">Uppgifter som exporteras till %1$s</string>
@@ -282,7 +288,18 @@
   </plurals>
   <string name="undo">Ångra</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Inga bokmärken än</string>
+  <string name="bookmarks_empty_subtitle">Tryck på bokmärkesikonen för att spara en sida, eller tryck länge på en ayah för att bokmärka den.</string>
+  <string name="reading_bookmark_movable_education_title">Detta är ett flyttbart läsbokmärke</string>
+  <string name="reading_bookmark_movable_education_body">Att spara ett läsbokmärke ersätter det gamla. För att spara flera ayahs, tryck länge på en ayah och lägg till den i en samling.</string>
+  <string name="reading_bookmark_moved_from">Flyttat från %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Bokmärke flyttat från %1$s</string>
+  <string name="reading_bookmark_added">Bokmärke tillagt</string>
+  <string name="reading_bookmark_dismiss_education">Avvisa</string>
+
   <string name="recent_pages">Senaste sidorna</string>
+  <string name="old_page_bookmarks">Gamla sidbokmärken</string>
 
   <!-- tag dialog -->
   <string name="tag_dlg_title">Tag</string>

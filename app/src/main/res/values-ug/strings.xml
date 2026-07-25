@@ -76,6 +76,12 @@
   <string name="prefs_use_arabic_title">ئەرەبچە ھالەت (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">ئەپ ئارا يۈزىگە ئەرەبچە ئىشلىتىدۇ</string>
   <string name="prefs_new_background_title">يېڭى تەگلىك</string>
+  <string name="prefs_lock_orientation_title">قۇلۇپ ئېكران يۆنىلىشى</string>
+  <string name="prefs_lock_orientation_summary_on">مۇقىم يۆنىلىش ھالىتىنى ئىشلىتىدۇ</string>
+  <string name="prefs_lock_orientation_summary_off">نۆۋەتتىكى يۆنىلىش ھالىتىگە ماسلىشىدۇ</string>
+  <string name="prefs_landscape_orientation_title">توغرىسىغا يۆنىلىش</string>
+  <string name="prefs_landscape_orientation_summary_on">ھەمىشە توغرىسىغا يۆنىلىش ھالىتىنى ئىشلىتىدۇ</string>
+  <string name="prefs_landscape_orientation_summary_off">ھەمىشە بويىغا يۆنىلىش ھالىتىنى ئىشلىتىدۇ</string>
   <string name="prefs_night_mode_title">كېچە ھالىتى</string>
   <string name="prefs_night_mode_summary">قارا تەگلىك يورۇق خەت نۇسخىسى ئىشلىتىدۇ</string>
   <string name="prefs_night_mode_text_brightness_title">تېكىست يورۇقلۇقى</string>
@@ -137,7 +143,7 @@
   <string name="import_data_permissions_error">ئىجازەت خاتالىقى سەۋەبىدىن زاپاس ھۆججەتنى ئوقۇيالمىدى.</string>
   <string name="import_data_error">ئىناۋەتسىز زاپاس ھۆججەت (ياكى زاپاس ھۆججەتنى ئوقۇيالمىدى).</string>
   <string name="import_data">سانلىق مەلۇمات ئەكىر</string>
-  <string name="import_data_and_override">ئەگەر بۇ ھۆججەتنى ئەكىرسىڭىز، %1$d خەتكۈچ ۋە %2$d بەلگە بار ھەممە خەتكۈچلىرىڭىزنى ئالماشتۇرۇۋېتىدۇ. ئەكىرەمدۇ؟</string>
+  <string name="import_data_and_merge">ئەگەر بۇ ھۆججەتنى ئەكىرسىڭىز، ھازىرقى سانلىق مەلۇماتىڭىزغا %1$d خەتكۈچ ۋە %2$d بەلگە قوشۇلىدۇ. ئەكىرەمدۇ؟</string>
   <string name="import_successful">مۇۋەپپەقىيەتلىك ئەكىرىلدى</string>
   <string name="export_data_error">سانلىق مەلۇمات چىقارغاندا خاتالىق كۆرۈلدى</string>
   <string name="exported_data">سانلىق مەلۇماتنى %1$s غا چىقاردى</string>
@@ -236,7 +242,18 @@
   </plurals>
   <string name="undo">يېنىۋال</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">تېخى خەتكۈچ يوق</string>
+  <string name="bookmarks_empty_subtitle">بەتنى ساقلاش ئۈچۈن خەتكۈچ سىنبەلگىسىنى چېكىڭ ياكى ئايەتنى خەتكۈچلەش ئۈچۈن ئۇنى بېسىپ تۇرۇڭ.</string>
+  <string name="reading_bookmark_movable_education_title">بۇ يۆتكىلىشچان ئوقۇش خەتكۈچى</string>
+  <string name="reading_bookmark_movable_education_body">ئوقۇش خەتكۈچىنى ساقلاش كونىسىنىڭ ئورنىنى ئالىدۇ. بىر قانچە ئايەتنى ساقلاش ئۈچۈن، ئايەتنى بېسىپ تۇرۇپ يىغقۇچقا قوشۇڭ.</string>
+  <string name="reading_bookmark_moved_from">%1$s دىن يۆتكەلدى</string>
+  <string name="reading_bookmark_moved_from_title">خەتكۈچ %1$s دىن يۆتكەلدى</string>
+  <string name="reading_bookmark_added">خەتكۈچ قوشۇلدى</string>
+  <string name="reading_bookmark_dismiss_education">تاقاش</string>
+
   <string name="recent_pages">يېقىنقى بەتلەر</string>
+  <string name="old_page_bookmarks">كونا بەت خەتكۈچلىرى</string>
 
   <!-- tag dialog -->
   <string name="tag_dlg_title">بەلگە</string>

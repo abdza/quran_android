@@ -53,6 +53,14 @@ public class QuranSettings {
     prefs.unregisterOnSharedPreferenceChangeListener(listener);
   }
 
+  public boolean isLockOrientation() {
+    return prefs.getBoolean(Constants.PREF_LOCK_ORIENTATION, false);
+  }
+
+  public boolean isLandscapeOrientation() {
+    return prefs.getBoolean(Constants.PREF_LANDSCAPE_ORIENTATION, false);
+  }
+
   public boolean navigateWithVolumeKeys() {
     return prefs.getBoolean(Constants.PREF_USE_VOLUME_KEY_NAV, false);
   }
@@ -252,13 +260,11 @@ public class QuranSettings {
         setVersion(BuildConfig.VERSION_CODE);
       }
 
-      // remove debug info and other preferences that are no longer needed
+      // remove debug info that is no longer needed
       perInstallationPrefs.edit().remove("debugDidDownloadPages")
           .remove("debugPageDownloadedPath")
           .remove("debugPagesDownloadedTime")
           .remove("debugPagesDownloaded")
-          .remove("lockOrientation")
-          .remove("landscapeOrientation")
           .apply();
     }
   }
@@ -272,6 +278,17 @@ public class QuranSettings {
         .putInt(Constants.PREF_CURRENT_AUDIO_REVISION, version).apply();
   }
 
+  public boolean haveMigratedLegacyBookmarksToMobileSync() {
+    return perInstallationPrefs.getBoolean(
+        Constants.PREF_MOBILE_SYNC_LEGACY_BOOKMARKS_MIGRATED, false);
+  }
+
+  public void setMigratedLegacyBookmarksToMobileSync() {
+    perInstallationPrefs.edit()
+        .putBoolean(Constants.PREF_MOBILE_SYNC_LEGACY_BOOKMARKS_MIGRATED, true)
+        .apply();
+  }
+
   public boolean didPresentSdcardPermissionsDialog() {
     return perInstallationPrefs.getBoolean(Constants.PREF_DID_PRESENT_PERMISSIONS_DIALOG, false);
   }
@@ -279,6 +296,17 @@ public class QuranSettings {
   public void setSdcardPermissionsDialogPresented() {
     perInstallationPrefs.edit()
         .putBoolean(Constants.PREF_DID_PRESENT_PERMISSIONS_DIALOG, true).apply();
+  }
+
+  /** Marks the education as seen and returns whether this is its first presentation. */
+  public boolean markMovableBookmarkEducationSeen() {
+    final boolean isFirstPresentation = !perInstallationPrefs.getBoolean(
+        Constants.PREF_HAS_SEEN_MOVABLE_BOOKMARK_EDUCATION, false);
+    if (isFirstPresentation) {
+      perInstallationPrefs.edit()
+          .putBoolean(Constants.PREF_HAS_SEEN_MOVABLE_BOOKMARK_EDUCATION, true).apply();
+    }
+    return isFirstPresentation;
   }
 
   public String getAppCustomLocation() {

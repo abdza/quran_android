@@ -2,6 +2,7 @@ package com.quran.labs.androidquran.ui.fragment
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -9,17 +10,23 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import com.quran.labs.androidquran.QuranApplication
 import com.quran.labs.androidquran.R
+import com.quran.data.dao.BookmarkSortOrder
+import com.quran.labs.androidquran.common.ui.core.QuranTheme
 import com.quran.labs.androidquran.dao.bookmark.BookmarkRawResult
-import com.quran.labs.androidquran.database.BookmarksDBAdapter
 import com.quran.labs.androidquran.presenter.bookmark.BookmarkPresenter
 import com.quran.labs.androidquran.presenter.bookmark.BookmarksContextualModePresenter
 import com.quran.labs.androidquran.ui.QuranActivity
@@ -27,23 +34,30 @@ import com.quran.labs.androidquran.ui.helpers.BookmarkUIConverter
 import com.quran.labs.androidquran.ui.helpers.QuranListAdapter
 import com.quran.labs.androidquran.ui.helpers.QuranListAdapter.QuranTouchListener
 import com.quran.labs.androidquran.ui.helpers.QuranRow
+import com.quran.mobile.bookmark.model.isDefaultBookmarkCollectionId
+import com.quran.mobile.feature.sync.BookmarksSignInCard
+import com.quran.mobile.feature.sync.QuranSyncActivity
+import com.quran.mobile.feature.sync.QuranSyncManager
 import dev.zacsweers.metro.Inject
+import kotlinx.coroutines.launch
 
 class BookmarksFragment : Fragment(), QuranTouchListener {
+  private var bookmarksSwipeRefresh: SwipeRefreshLayout? = null
   private var recyclerView: RecyclerView? = null
   private var bookmarksAdapter: QuranListAdapter? = null
+  private var emptyStateView: ComposeView? = null
 
-  @JvmField
   @Inject
-  var bookmarkPresenter: BookmarkPresenter? = null
+  lateinit var bookmarkPresenter: BookmarkPresenter
 
-  @JvmField
   @Inject
-  var bookmarksContextualModePresenter: BookmarksContextualModePresenter? = null
+  lateinit var bookmarksContextualModePresenter: BookmarksContextualModePresenter
 
-  @JvmField
   @Inject
-  var bookmarkUIConverter: BookmarkUIConverter? = null
+  lateinit var bookmarkUIConverter: BookmarkUIConverter
+
+  @Inject
+  lateinit var syncManager: QuranSyncManager
 
   override fun onAttach(context: Context) {
     super.onAttach(context)
@@ -55,9 +69,22 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    val view = inflater.inflate(R.layout.quran_list, container, false)
+    val view = inflater.inflate(R.layout.quran_bookmarks_list, container, false)
 
     val context = requireContext()
+    view.findViewById<ComposeView>(R.id.sync_sign_in_card).setContent {
+      QuranTheme {
+        BookmarksSignInCard(
+          syncManager = syncManager,
+          onSignIn = { startActivity(Intent(context, QuranSyncActivity::class.java)) }
+        )
+      }
+    }
+
+    val bookmarksSwipeRefresh = view.findViewById<SwipeRefreshLayout>(R.id.bookmarks_swipe_refresh)
+    this.bookmarksSwipeRefresh = bookmarksSwipeRefresh
+    bookmarksSwipeRefresh.setOnRefreshListener { onRefreshBookmarks() }
+    updatePullToRefreshEnabled(syncManager.canTriggerSync)
 
     val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
     recyclerView.setLayoutManager(LinearLayoutManager(context))
@@ -69,6 +96,14 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
     bookmarksAdapter.setQuranTouchListener(this)
     this.bookmarksAdapter = bookmarksAdapter
     recyclerView.setAdapter(bookmarksAdapter)
+
+    val emptyStateView = view.findViewById<ComposeView>(R.id.bookmarks_empty_state)
+    emptyStateView.setContent {
+      QuranTheme {
+        BookmarksEmptyState()
+      }
+    }
+    this.emptyStateView = emptyStateView
 
     ViewCompat.setOnApplyWindowInsetsListener(
       recyclerView
@@ -86,25 +121,49 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
       )
       insets
     }
+    viewLifecycleOwner.lifecycleScope.launch {
+      viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        syncManager.canTriggerSyncFlow.collect { canTriggerSync ->
+          updatePullToRefreshEnabled(canTriggerSync)
+        }
+      }
+    }
     return view
   }
 
   override fun onStart() {
     super.onStart()
-    bookmarkPresenter?.bind(this)
-    bookmarksContextualModePresenter?.bind(this)
+    bookmarkPresenter.bind(this)
+    bookmarksContextualModePresenter.bind(this)
   }
 
   override fun onStop() {
-    bookmarkPresenter?.unbind(this)
-    bookmarksContextualModePresenter?.unbind(this)
+    bookmarkPresenter.unbind(this)
+    bookmarksContextualModePresenter.unbind(this)
     super.onStop()
   }
 
   override fun onDestroyView() {
+    bookmarksSwipeRefresh?.isRefreshing = false
+    bookmarksSwipeRefresh = null
     recyclerView = null
     bookmarksAdapter = null
+    emptyStateView = null
     super.onDestroyView()
+  }
+
+  private fun onRefreshBookmarks() {
+    if (syncManager.canTriggerSync) {
+      syncManager.triggerSync()
+    }
+    bookmarksSwipeRefresh?.isRefreshing = false
+  }
+
+  private fun updatePullToRefreshEnabled(isEnabled: Boolean) {
+    bookmarksSwipeRefresh?.isEnabled = isEnabled
+    if (!isEnabled) {
+      bookmarksSwipeRefresh?.isRefreshing = false
+    }
   }
 
   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -115,24 +174,24 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
       sortItem.isEnabled = true
 
       val bookmarkPresenter = bookmarkPresenter
-      if (bookmarkPresenter != null) {
-        if (BookmarksDBAdapter.SORT_DATE_ADDED == bookmarkPresenter.getSortOrder()) {
-          val sortByDate = menu.findItem(R.id.sort_date)
-          sortByDate.isChecked = true
-        } else {
-          val sortByLocation = menu.findItem(R.id.sort_location)
-          sortByLocation.isChecked = true
-        }
-
-        val groupByTags = menu.findItem(R.id.group_by_tags)
-        groupByTags.isChecked = bookmarkPresenter.isGroupedByTags
-
-        val showRecents = menu.findItem(R.id.show_recents)
-        showRecents.isChecked = bookmarkPresenter.isShowingRecents
-
-        val showDates = menu.findItem(R.id.show_date)
-        showDates.isChecked = bookmarkPresenter.isDateShowing
+      if (BookmarkSortOrder.SORT_DATE_ADDED == bookmarkPresenter.getSortOrder()) {
+        val sortByDate = menu.findItem(R.id.sort_date)
+        sortByDate.isChecked = true
+      } else {
+        val sortByLocation = menu.findItem(R.id.sort_location)
+        sortByLocation.isChecked = true
       }
+
+      val groupByTags = menu.findItem(R.id.group_by_tags)
+      groupByTags.isVisible = true
+      groupByTags.isEnabled = true
+      groupByTags.isChecked = bookmarkPresenter.isGroupedByTags
+
+      val showRecents = menu.findItem(R.id.show_recents)
+      showRecents.isChecked = bookmarkPresenter.isShowingRecents
+
+      val showDates = menu.findItem(R.id.show_date)
+      showDates.isChecked = bookmarkPresenter.isDateShowing
     }
   }
 
@@ -140,38 +199,36 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
     val itemId = item.itemId
     val bookmarkPresenter = bookmarkPresenter
 
-    if (bookmarkPresenter != null) {
-      when (itemId) {
-        R.id.sort_date -> {
-          bookmarkPresenter.setSortOrder(BookmarksDBAdapter.SORT_DATE_ADDED)
-          item.isChecked = true
-          return true
-        }
+    when (itemId) {
+      R.id.sort_date -> {
+        bookmarkPresenter.setSortOrder(BookmarkSortOrder.SORT_DATE_ADDED)
+        item.isChecked = true
+        return true
+      }
 
-        R.id.sort_location -> {
-          bookmarkPresenter.setSortOrder(BookmarksDBAdapter.SORT_LOCATION)
-          item.isChecked = true
-          return true
-        }
+      R.id.sort_location -> {
+        bookmarkPresenter.setSortOrder(BookmarkSortOrder.SORT_LOCATION)
+        item.isChecked = true
+        return true
+      }
 
-        R.id.group_by_tags -> {
-          bookmarkPresenter.toggleGroupByTags()
-          item.isChecked = bookmarkPresenter.isGroupedByTags
-          return true
-        }
+      R.id.group_by_tags -> {
+        bookmarkPresenter.toggleGroupByTags()
+        item.isChecked = bookmarkPresenter.isGroupedByTags
+        return true
+      }
 
-        R.id.show_recents -> {
-          bookmarkPresenter.toggleShowRecents()
-          item.isChecked = bookmarkPresenter.isShowingRecents
-          return true
-        }
+      R.id.show_recents -> {
+        bookmarkPresenter.toggleShowRecents()
+        item.isChecked = bookmarkPresenter.isShowingRecents
+        return true
+      }
 
-        R.id.show_date -> {
-          bookmarkPresenter.toggleShowDate()
-          bookmarksAdapter?.setShowDate(bookmarkPresenter.isDateShowing)
-          item.isChecked = bookmarkPresenter.isDateShowing
-          return true
-        }
+      R.id.show_date -> {
+        bookmarkPresenter.toggleShowDate()
+        bookmarksAdapter?.setShowDate(bookmarkPresenter.isDateShowing)
+        item.isChecked = bookmarkPresenter.isDateShowing
+        return true
       }
     }
 
@@ -183,20 +240,25 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
 
     val bookmarksAdapter = bookmarksAdapter
     val bookmarkPresenter = bookmarkPresenter
-    if (bookmarksAdapter != null && items != null && bookmarkPresenter != null) {
+    if (bookmarksAdapter != null && items != null) {
+      if (bookmarksContextualModePresenter.isInActionMode()) {
+        bookmarksContextualModePresenter.finishActionMode()
+      }
       bookmarksAdapter.setShowTags(bookmarkPresenter.shouldShowInlineTags())
       bookmarksAdapter.setShowDate(bookmarkPresenter.isDateShowing)
       bookmarksAdapter.setElements(
         items.rows.toTypedArray<QuranRow>(), items.tagMap
       )
       bookmarksAdapter.notifyDataSetChanged()
+
+      emptyStateView?.visibility = if (items.rows.isEmpty()) View.VISIBLE else View.GONE
     }
   }
 
   override fun onClick(row: QuranRow, position: Int) {
     val bookmarksAdapter = bookmarksAdapter
     val bookmarksContextualModePresenter = bookmarksContextualModePresenter
-    if (bookmarksAdapter != null && bookmarksContextualModePresenter != null) {
+    if (bookmarksAdapter != null) {
       if (bookmarksContextualModePresenter.isInActionMode()) {
         val checked = isValidSelection(row) && !bookmarksAdapter.isItemChecked(position)
         bookmarksAdapter.setItemChecked(position, checked)
@@ -212,7 +274,7 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
     if (isValidSelection(row)) {
       val bookmarksAdapter = bookmarksAdapter
       val bookmarksContextualModePresenter = bookmarksContextualModePresenter
-      if (bookmarksAdapter != null && bookmarksContextualModePresenter != null) {
+      if (bookmarksAdapter != null) {
         bookmarksAdapter.setItemChecked(position, !bookmarksAdapter.isItemChecked(position))
         if (bookmarksContextualModePresenter.isInActionMode() && bookmarksAdapter.getCheckedItems()
             .isEmpty()
@@ -228,18 +290,18 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
   }
 
   private fun isValidSelection(selected: QuranRow): Boolean {
-    return selected.isBookmark || (selected.isBookmarkHeader && selected.tagId >= 0)
+    return selected.isBookmark || (selected.isBookmarkHeader && selected.userTagId() != null)
   }
 
   private val mOnUndoClickListener: View.OnClickListener = View.OnClickListener {
-    bookmarkPresenter?.cancelDeletion()
-    bookmarkPresenter?.requestData(true)
+    bookmarkPresenter.cancelDeletion()
+    bookmarkPresenter.requestData(true)
   }
 
   fun prepareContextualMenu(menu: Menu) {
     val bookmarksAdapter = bookmarksAdapter
     val bookmarkPresenter = bookmarkPresenter
-    if (bookmarkPresenter != null && bookmarksAdapter != null) {
+    if (bookmarksAdapter != null) {
       val menuVisibility =
         bookmarkPresenter.getContextualOperationsForItems(bookmarksAdapter.getCheckedItems())
       menu.findItem(R.id.cab_edit_tag).isVisible = menuVisibility[0]
@@ -257,7 +319,7 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
           val selected: List<QuranRow> = bookmarksAdapter.getCheckedItems()
           val size = selected.size
           val res = resources
-          bookmarkPresenter?.deleteAfterSomeTime(selected)
+          bookmarkPresenter.deleteAfterSomeTime(selected)
           val recyclerView = recyclerView
           if (recyclerView != null) {
             val snackbar = Snackbar.make(
@@ -311,19 +373,17 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
   private fun handleTagEdit(activity: QuranActivity, selected: List<QuranRow>) {
     if (selected.size == 1) {
       val row = selected[0]
-      activity.editTag(row.tagId, row.text)
+      row.userTagId()?.let { tagId -> activity.editTag(tagId, row.text) }
     }
   }
 
   private fun handleTagBookmarks(activity: QuranActivity, selected: List<QuranRow>) {
-    val ids = LongArray(selected.size)
-    var i = 0
-    val selectedItems = selected.size
-    while (i < selectedItems) {
-      ids[i] = selected[i].bookmarkId
-      i++
-    }
+    val ids = selected.mapNotNull { row -> row.bookmarkId }.toTypedArray()
     activity.tagBookmarks(ids)
+  }
+
+  private fun QuranRow.userTagId(): String? {
+    return tagId?.takeUnless { tagId -> tagId.isDefaultBookmarkCollectionId() }
   }
 
   companion object {

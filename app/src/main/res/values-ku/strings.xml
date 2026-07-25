@@ -74,6 +74,12 @@
   <string name="prefs_use_arabic_title">شێوازی عەرەبی (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">زمانی بەرنامەکە ئەبێت بە عەرەبی </string>
   <string name="prefs_new_background_title">پشت شاشەی نوێ</string>
+  <string name="prefs_lock_orientation_title">قفڵکردنی گۆڕینی ئاڕاستەی شاشە</string>
+  <string name="prefs_lock_orientation_summary_on">پەڕەکانی قورئان تەنها بەیەک ئاڕاستە پیشان ئەدرێن</string>
+  <string name="prefs_lock_orientation_summary_off">گونجاندن بۆ شێوازی ئاڕاستەی ئێستا</string>
+  <string name="prefs_landscape_orientation_title">ئاڕاستەی لەسەرلا (ئاسۆیی)</string>
+  <string name="prefs_landscape_orientation_summary_on">شێوازی ئاسۆیی بەکاردێت</string>
+  <string name="prefs_landscape_orientation_summary_off">شێوازی ستوونی بەکاردێت</string>
   <string name="prefs_night_mode_title">شێوازی شەو (تاریک)</string>
   <string name="prefs_night_mode_summary">پشت شاشەی ڕەش و نوسینی سپی </string>
   <string name="prefs_night_mode_text_brightness_title">ڕووناکی نوسین</string>
@@ -238,7 +244,7 @@
   <string name="import_data_permissions_error">ناتوانێت فایلی پاڵپشت بخوێنێتەوە بەهۆی هەڵەی ڕێپێدانەکان.</string>
   <string name="import_data_error">فایلی پاشەکەوت نادروستە (یان ناتوانێت فایلی پاڵپشت بخوێنێتەوە).</string>
   <string name="import_data">هێنانی داتا</string>
-  <string name="import_data_and_override">ئەگەر ئەم فایلە هاوردە بکەیت، ئەوە هەموو نیشانەکانت بە %1$d نیشانە و %2$d تاگ جێگۆڕکێ دەکات. هاوردن؟</string>
+  <string name="import_data_and_merge">ئەگەر ئەم فایلە هاوردە بکەیت، %1$d نیشانە و %2$d تاگ بۆ داتاکانی ئێستات زیاد دەکرێت. هاوردن؟</string>
   <string name="import_successful">هێنانی سەرکەوتوو</string>
   <string name="export_data_error">هەڵە لە هەناردەکردنی داتا</string>
   <string name="exported_data">داتا نێردراوە بۆ %1$s</string>
@@ -266,7 +272,18 @@
   <string name="playback_prompt_title">دەست بکە بە پەخشکردنەوە لە:</string>
   <string name="starting_page_label">سەرەتای لاپەڕە</string>
   <string name="undo">پاشگەزبەوە</string>
+
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">هێشتا هیچ نیشانەیەک نییە</string>
+  <string name="bookmarks_empty_subtitle">دەستنیشانی وێنۆچکەی نیشانە بکە بۆ هەڵگرتنی پەڕەیەک، یان دەست بگرە سەر ئایەتێک بۆ نیشانەکردنی.</string>
+  <string name="reading_bookmark_movable_education_title">ئەمە نیشانەیەکی خوێندنەوەی گواستراوەیە</string>
+  <string name="reading_bookmark_movable_education_body">هەڵگرتنی نیشانەی خوێندنەوە جێی کۆنەکە دەگرێتەوە. بۆ هەڵگرتنی چەند ئایەتێک، دەست بگرە سەر ئایەتێک و زیادی بکە بۆ کۆکراوەیەک.</string>
+  <string name="reading_bookmark_moved_from">گوازراوەتەوە لە %1$s</string>
+  <string name="reading_bookmark_moved_from_title">نیشانە گوازراوەتەوە لە %1$s</string>
+  <string name="reading_bookmark_added">نیشانە زیادکرا</string>
+  <string name="reading_bookmark_dismiss_education">داخستن</string>
   <string name="recent_pages">پەڕەکانی ئەم دواییە</string>
+  <string name="old_page_bookmarks">نیشانەکانی پەڕەی کۆن</string>
   <string name="tag_blank_tag_error">ناتوانرێت ناوی تاگ بەتاڵ بێت!</string>
   <string name="tag_duplicate_tag_error">ناوی تاگ پێشتر بوونی هەیە!</string>
   <string name="audio_updated_title">بەڕۆژکردنەوەی فایلەکانی دەنگی قورئان</string>

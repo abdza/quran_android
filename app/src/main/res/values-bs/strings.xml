@@ -82,7 +82,7 @@
         &lt;br/>
         &lt;br/>&lt;b>Kako da podijelim ajet?&lt;/b>
         &lt;br/>Ako ste na stranici sa arapskim tekstom onda držite bilo koji ajet da biste dobili meni gdje možete
-        da zabilježite, označite, podijelite ili da kopirate taj ajet u međuspremnik, da vidite prijevod,
+        da zabilježite, podijelite ili da kopirate taj ajet u međuspremnik, da vidite prijevod,
         ili da poslušate njegovo učenje.&lt;br/>
         &lt;br/>&lt;b>Malayalam/Tamil/Bengali/Urdu fontovi ne rade!&lt;/b>
         &lt;br/>Nažalost, verzije androida prije verzije 4.0 ne podržavaju ove fontove, i to je sve
@@ -117,6 +117,12 @@
   <string name="prefs_use_arabic_title">Arapski (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Koristite aplikaciju na arapskom</string>
   <string name="prefs_new_background_title">Nova pozadina</string>
+  <string name="prefs_lock_orientation_title">Zabranite rotaciju zaslona u aplikaciji</string>
+  <string name="prefs_lock_orientation_summary_on">Koristite fiksni način orijentacije</string>
+  <string name="prefs_lock_orientation_summary_off">Prilagodite trenutnom načinu orijentacije</string>
+  <string name="prefs_landscape_orientation_title">Horizontalna orijentacija</string>
+  <string name="prefs_landscape_orientation_summary_on">Uvijek koristi horizontalni način orijentacije</string>
+  <string name="prefs_landscape_orientation_summary_off">Uvijek koristi vertikalni način orijentacije</string>
   <string name="prefs_night_mode_title">Noćni način </string>
   <string name="prefs_night_mode_summary">Koristite tamnu podlogu i svjetle fontove</string>
   <string name="prefs_night_mode_text_brightness_title">Osvijetljenost teksta</string>
@@ -173,8 +179,7 @@
   <string name="import_data_permissions_error">Nije moguće pročitati backup datoteke zbog grešaka sa dozvolama.</string>
   <string name="import_data_error">Nevalidna backup datoteka (ili nije moguće da se pročita backup datoteka).</string>
   <string name="import_data">Uvezi podatke</string>
-  <string name="import_data_and_override">Ako uvezete ovu datoteku onda će ona zamijenite sve vaše \
-        zabilješke sa %1$d zabilješkama i %2$d oznakama. Ipak uvesti?</string>
+  <string name="import_data_and_merge">Ako uvezete ovu datoteku, dodat će %1$d bilješki i %2$d oznaka vašim postojećim podacima. Uvesti?</string>
   <string name="import_successful">Uvoz uspješno završen</string>
   <string name="export_data_error">Problem izvoza podataka.</string>
   <string name="exported_data">Podaci izvezeni na %1$s.</string>
@@ -294,7 +299,18 @@
   </plurals>
   <string name="undo">Poništi</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Još nema bilješki</string>
+  <string name="bookmarks_empty_subtitle">Dodirnite ikonu bilješke da sačuvate stranicu, ili dugo pritisnite ajet da ga zabilježite.</string>
+  <string name="reading_bookmark_movable_education_title">Ovo je pomjerljiva čitalačka oznaka</string>
+  <string name="reading_bookmark_movable_education_body">Spremanje čitalačke oznake zamjenjuje staru. Da sačuvate više ajeta, dugo pritisnite ajet i dodajte ga u kolekciju.</string>
+  <string name="reading_bookmark_moved_from">Pomjereno sa %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Oznaka pomjerena sa %1$s</string>
+  <string name="reading_bookmark_added">Oznaka dodana</string>
+  <string name="reading_bookmark_dismiss_education">Odbaci</string>
+
   <string name="recent_pages">Nedavno otvarane stranice</string>
+  <string name="old_page_bookmarks">Stare bilješke stranica</string>
 
   <!-- tag dialog -->
   <string name="tag_dlg_title">Oznaka</string>

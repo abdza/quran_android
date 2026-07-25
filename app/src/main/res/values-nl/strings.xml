@@ -136,7 +136,7 @@
     &lt;br/>
     &lt;br/>&lt;b>Hoe deel ik een ayah?&lt;/b>
     &lt;br/>Terwijl je op een willekeurige Arabische pagina bent, druk en houd je op een ayah om een
-    menu te krijgen waar je kunt kiezen om de ayah als bladwijzer te markeren, taggen, delen of
+    menu te krijgen waar je kunt kiezen om de ayah als bladwijzer te markeren, delen of
     kopiëren naar het klembord, de vertaling te bekijken, of naar de recitatie te luisteren.
     &lt;br/>
     &lt;br/>&lt;b>Malayalam/Tamil/Bengali/Urdu-lettertypen werken niet!&lt;/b>
@@ -178,6 +178,12 @@
   <string name="prefs_use_arabic_title">Arabische modus (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Gebruik Arabisch voor de toepassingsinterface</string>
   <string name="prefs_new_background_title">Nieuwe achtergrond</string>
+  <string name="prefs_lock_orientation_title">Schermoriëntatie vergrendelen</string>
+  <string name="prefs_lock_orientation_summary_on">Gebruik de modus voor vaste oriëntatie</string>
+  <string name="prefs_lock_orientation_summary_off">Aanpasbare oriëntatiemodus</string>
+  <string name="prefs_landscape_orientation_title">Liggende modus</string>
+  <string name="prefs_landscape_orientation_summary_on">Gebruik altijd de liggende modus</string>
+  <string name="prefs_landscape_orientation_summary_off">Gebruik altijd de staande modus</string>
   <string name="prefs_night_mode_title">Nachtmodus</string>
   <string name="prefs_night_mode_summary">Gebruik een donkere achtergrond en lichte lettertypen</string>
   <string name="prefs_night_mode_text_brightness_title">Teksthelderheid</string>
@@ -252,8 +258,7 @@
     toestemmingsfout.</string>
   <string name="import_data_error">Ongeldig back-upbestand (of kan back-upbestand niet lezen).</string>
   <string name="import_data">Gegevens importeren</string>
-  <string name="import_data_and_override">Als je dit bestand importeert, worden alle bladwijzers
-    vervangen door %1$d bladwijzer(s) en %2$d tag(s). Importeren?</string>
+  <string name="import_data_and_merge">Als je dit bestand importeert, worden %1$d bladwijzers en %2$d tags aan je huidige gegevens toegevoegd. Importeren?</string>
   <string name="import_successful">Importeren voltooid</string>
   <string name="export_data_error">Fout bij exporteren van gegevens</string>
   <string name="exported_data">Gegevens geëxporteerd naar %1$s</string>
@@ -388,7 +393,18 @@
   </plurals>
   <string name="undo">Ongedaan maken</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Nog geen bladwijzers</string>
+  <string name="bookmarks_empty_subtitle">Tik op het bladwijzerpictogram om een pagina op te slaan, of houd een ayah ingedrukt om deze als bladwijzer te markeren.</string>
+  <string name="reading_bookmark_movable_education_title">Dit is een verplaatsbare leesbladwijzer</string>
+  <string name="reading_bookmark_movable_education_body">Het opslaan van een leesbladwijzer vervangt de oude. Houd een Ayah ingedrukt en voeg deze toe aan een collectie om meerdere Ayahs op te slaan.</string>
+  <string name="reading_bookmark_moved_from">Verplaatst van %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Bladwijzer verplaatst van %1$s</string>
+  <string name="reading_bookmark_added">Bladwijzer toegevoegd</string>
+  <string name="reading_bookmark_dismiss_education">Sluiten</string>
+
   <string name="recent_pages">Recente pagina\'s</string>
+  <string name="old_page_bookmarks">Oude paginabladwijzers</string>
   <plurals name="plural_recent_pages" translatable="false">
     <item quantity="one">@string/menu_jump_last_page</item>
     <item quantity="other">@string/recent_pages</item>

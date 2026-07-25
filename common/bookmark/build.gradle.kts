@@ -28,4 +28,17 @@ dependencies {
   implementation(libs.sqldelight.android.driver)
   implementation(libs.sqldelight.coroutines.extensions)
   implementation(libs.sqldelight.primitive.adapters)
+
+  //mobile-sync
+  implementation(libs.quran.mobile.sync)
+
+  // testing
+  testImplementation(project(":common:test-utils"))
+  testImplementation(project(":pages:data:madani"))
+  testImplementation(project(":pages:data:warsh"))
+  testImplementation(libs.junit)
+  testImplementation(libs.truth)
+  testImplementation(libs.kotlinx.coroutines.test)
+  testImplementation(libs.turbine)
+  testImplementation(libs.sqldelight.sqlite.driver)
 }

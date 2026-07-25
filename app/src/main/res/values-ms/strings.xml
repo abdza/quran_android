@@ -97,6 +97,12 @@
   <string name="prefs_use_arabic_title">Mod Aplikasi Arab (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Aplikasi keseluruhan akan menggunakan tulisan dan bahasa Arab</string>
   <string name="prefs_new_background_title">Latar beakang baru</string>
+  <string name="prefs_lock_orientation_title">Kunci orientasi layar</string>
+  <string name="prefs_lock_orientation_summary_on">Halaman Quran akan berada dalam mod orientasi tetap</string>
+  <string name="prefs_lock_orientation_summary_off">Penyesuaian orientasi layar secara automatik</string>
+  <string name="prefs_landscape_orientation_title">Orientasi Landscape</string>
+  <string name="prefs_landscape_orientation_summary_on">Menggunakan orientasi layar landscape (melintang)</string>
+  <string name="prefs_landscape_orientation_summary_off">Menggunakan orientasi layar portrait (tegak)</string>
   <string name="prefs_night_mode_title">Mod malam</string>
   <string name="prefs_night_mode_summary">Menggunakan latar belakang gelap dan teks terang</string>
   <string name="prefs_night_mode_text_brightness_title">Kecerahan teks</string>
@@ -251,7 +257,18 @@
   </plurals>
   <string name="undo">Batalkan</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Belum ada penanda</string>
+  <string name="bookmarks_empty_subtitle">Ketik ikon penanda untuk menyimpan halaman, atau tekan lama pada ayat untuk menandakannya.</string>
+  <string name="reading_bookmark_movable_education_title">Ini ialah penanda bacaan yang boleh dipindahkan</string>
+  <string name="reading_bookmark_movable_education_body">Menyimpan penanda bacaan menggantikan yang lama. Untuk menyimpan beberapa ayat, tekan lama pada ayat dan tambahkannya ke koleksi.</string>
+  <string name="reading_bookmark_moved_from">Dipindahkan daripada %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Penanda dipindahkan daripada %1$s</string>
+  <string name="reading_bookmark_added">Penanda ditambah</string>
+  <string name="reading_bookmark_dismiss_education">Tutup</string>
+
   <string name="recent_pages">Muka surat terkini</string>
+  <string name="old_page_bookmarks">Penanda halaman lama</string>
 
   <!-- tag dialog -->
   <string name="tag_dlg_title">Label</string>
@@ -277,8 +294,7 @@
   <string name="import_data_permissions_error">Tidak bisa membaca berkas cadangan karena masalah otentikasi.</string>
   <string name="import_data_error">Berkas cadangan tidak sah (atau tak bisa membaca berkas cadangan).</string>
   <string name="import_data">Impor Data</string>
-  <string name="import_data_and_override">Jika anda mengimpor berkas ini, ia akan menggantikan semua \
-        penanda anda dengan %1$d penanda dan %2$d label. Impor?</string>
+  <string name="import_data_and_merge">Jika anda mengimport fail ini, ia akan menambah %1$d penanda halaman dan %2$d tag pada data semasa anda. Import?</string>
   <string name="import_successful">Impor Berhasil</string>
   <string name="export_data_error">Kesalahan dalam mengekspor data.</string>
   <string name="exported_data">Data diekspor ke %1$s.</string>

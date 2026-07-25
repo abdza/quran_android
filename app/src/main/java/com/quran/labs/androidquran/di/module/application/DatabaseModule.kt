@@ -2,10 +2,16 @@ package com.quran.labs.androidquran.di.module.application
 
 import com.quran.data.dao.BookmarksDao
 import com.quran.data.dao.NotesDao
+import com.quran.data.dao.ReadingBookmarksDao
 import com.quran.data.dao.TranslationsDao
 import com.quran.data.di.AppScope
+import com.quran.labs.androidquran.database.TranslationsDBAdapter
+import com.quran.labs.androidquran.database.TranslationsDBAdapterImpl
 import com.quran.labs.androidquran.database.TranslationsDaoImpl
+import com.quran.labs.androidquran.presenter.translationlist.TranslationListPresenter
+import com.quran.labs.androidquran.presenter.translationlist.TranslationListPresenterImpl
 import com.quran.mobile.bookmark.model.BookmarksDaoImpl
+import com.quran.mobile.bookmark.model.ReadingBookmarksDaoImpl
 import com.quran.mobile.notes.model.NotesDaoImpl
 import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.Provides
@@ -16,7 +22,13 @@ object DatabaseModule {
 
   @Provides
   @SingleIn(AppScope::class)
-  fun provideBookamrksDao(daoImpl: BookmarksDaoImpl): BookmarksDao {
+  fun provideBookmarksDao(daoImpl: BookmarksDaoImpl): BookmarksDao {
+    return daoImpl
+  }
+
+  @Provides
+  @SingleIn(AppScope::class)
+  fun provideReadingBookmarksDao(daoImpl: ReadingBookmarksDaoImpl): ReadingBookmarksDao {
     return daoImpl
   }
 
@@ -30,5 +42,16 @@ object DatabaseModule {
   @SingleIn(AppScope::class)
   fun provideNotesDao(daoImpl: NotesDaoImpl): NotesDao {
     return daoImpl
+  }
+
+  @Provides
+  @SingleIn(AppScope::class)
+  fun provideTranslationsDBAdapter(impl: TranslationsDBAdapterImpl): TranslationsDBAdapter {
+    return impl
+  }
+
+  @Provides
+  fun provideTranslationListPresenter(impl: TranslationListPresenterImpl): TranslationListPresenter {
+    return impl
   }
 }

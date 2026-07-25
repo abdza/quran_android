@@ -91,6 +91,12 @@
   <string name="prefs_use_arabic_title">Mode arabe (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">L\'application sera traduite en arabe</string>
   <string name="prefs_new_background_title">Nouvel arrière-plan</string>
+  <string name="prefs_lock_orientation_title">Verrouiller l\'orientation de l\'écran</string>
+  <string name="prefs_lock_orientation_summary_on">L\'affichage du coran ne s\'adaptera pas au changement d\'orientation de l\'écran.</string>
+  <string name="prefs_lock_orientation_summary_off">L\'affichage du coran s\'adaptera au changement d\'orientation de l\'écran.</string>
+  <string name="prefs_landscape_orientation_title">Mode paysage</string>
+  <string name="prefs_landscape_orientation_summary_on">L\'orientation paysage sera utilisée.</string>
+  <string name="prefs_landscape_orientation_summary_off">L\'orientation portrait sera utilisée.</string>
   <string name="prefs_night_mode_title">Mode nuit</string>
   <string name="prefs_night_mode_summary">Un fond sombre et des polices lumineuses seront utilisés.</string>
   <string name="prefs_night_mode_text_brightness_title">Luminosité du texte</string>
@@ -141,7 +147,7 @@
   <string name="import_data_permissions_error">Impossible de lire le fichier de sauvegarde à cause d\'une erreur de permissions.</string>
   <string name="import_data_error">Fichier de sauvegarde invalide (ou impossible de lire le fichier de sauvegarde).</string>
   <string name="import_data">Importer des données</string>
-  <string name="import_data_and_override">Si vous importez ce fichier, cela remplacera tous vos marque-pages par %1$d marque-page(s) et %2$d tag(s). Effectuer l\'importation ?</string>
+  <string name="import_data_and_merge">Si vous importez ce fichier, %1$d favori(s) et %2$d tag(s) seront ajoutés à vos données actuelles. Importer ?</string>
   <string name="import_successful">Données importées avec succès</string>
   <string name="export_data_error">Erreur lors de l\'export des données.</string>
   <string name="exported_data">Données exportées dans %1$s.</string>
@@ -263,6 +269,16 @@
   </plurals>
   <string name="undo">Annuler</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Aucun favori pour le moment</string>
+  <string name="bookmarks_empty_subtitle">Appuyez sur l\'icône de signet pour enregistrer une page, ou appuyez longuement sur une aya pour l\'ajouter aux favoris.</string>
+  <string name="reading_bookmark_movable_education_title">Ceci est un signet de lecture déplaçable</string>
+  <string name="reading_bookmark_movable_education_body">Enregistrer un signet de lecture remplace l\'ancien. Pour enregistrer plusieurs ayas, appuyez longuement sur une aya et ajoutez-la à une collection.</string>
+  <string name="reading_bookmark_moved_from">Déplacé depuis %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Signet déplacé depuis %1$s</string>
+  <string name="reading_bookmark_added">Signet ajouté</string>
+  <string name="reading_bookmark_dismiss_education">Ignorer</string>
+
   <!-- m permissions stuff -->
   <string name="storage_permission_rationale">L\'application demande la permission de stocker ses données sur un support externe. Elle continuera de fonctionner sans cette permission, mais si vous effacez les données, ou désintallez l\'application, toutes les pages téléchargées, les audios, et les données seront supprimés. Accorder la permission à l\'application Coran ?</string>
   <string name="storage_permission_please_restart">Redémarrez l\'application pour appliquer les changements.</string>
@@ -279,6 +295,7 @@
   <string name="playback_prompt_title">Lecture depuis :</string>
   <string name="starting_page_label">Début de la page</string>
   <string name="recent_pages">Pages récente</string>
+  <string name="old_page_bookmarks">Anciens favoris de pages</string>
   <string name="tag_blank_tag_error">Le nom du tag ne peux pas être vide</string>
   <string name="tag_duplicate_tag_error">Le nom du tag existe déjà!</string>
   <string name="audio_updated_title">Mise à jour des fichiers audio du Coran</string>

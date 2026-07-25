@@ -1,257 +1,189 @@
 package com.quran.labs.androidquran.presenter.bookmark
 
-import android.content.Context
-import android.content.res.Resources
+import androidx.test.core.app.ApplicationProvider
 import com.google.common.truth.Truth.assertThat
+import com.quran.data.dao.BookmarkSortOrder
 import com.quran.data.model.bookmark.Bookmark
-import com.quran.data.model.bookmark.BookmarkData
+import com.quran.data.model.bookmark.PageReadingBookmark
 import com.quran.data.model.bookmark.RecentPage
 import com.quran.data.model.bookmark.Tag
+import com.quran.labs.androidquran.base.TestApplication
 import com.quran.labs.androidquran.dao.bookmark.BookmarkRawResult
-import com.quran.labs.androidquran.database.BookmarksDBAdapter
-import com.quran.labs.androidquran.model.bookmark.BookmarkModel
-import com.quran.labs.androidquran.model.bookmark.RecentPageModel
+import com.quran.labs.androidquran.dao.bookmark.BookmarkRowData
+import com.quran.labs.androidquran.fakes.FakeBookmarksDao
+import com.quran.labs.androidquran.fakes.FakeReadingBookmarksDao
+import com.quran.labs.androidquran.fakes.FakeRecentPagesDao
+import com.quran.labs.androidquran.ui.helpers.QuranRow
 import com.quran.labs.androidquran.util.QuranSettings
-import com.quran.labs.awaitTerminalEvent
-import io.reactivex.rxjava3.android.plugins.RxAndroidPlugins
-import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.quran.mobile.bookmark.model.DEFAULT_BOOKMARK_COLLECTION_ID
+import kotlinx.coroutines.runBlocking
+import org.junit.After
 import org.junit.Before
-import org.junit.BeforeClass
 import org.junit.Test
-import org.mockito.ArgumentMatchers.anyInt
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import org.mockito.Mockito.`when` as whenever
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+@Config(application = TestApplication::class, sdk = [33])
+@RunWith(RobolectricTestRunner::class)
 class BookmarkPresenterTest {
 
-  companion object {
-    private val TAG_LIST: MutableList<Tag> = ArrayList(2)
-    private val RECENT_LIST: MutableList<RecentPage> = ArrayList(1)
-    private val AYAH_BOOKMARKS_LIST: MutableList<Bookmark> = ArrayList(2)
-    private val MIXED_BOOKMARKS_LIST: MutableList<Bookmark>
-    private val RESOURCE_ARRAY: Array<String>
-    private val AYAH_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG: Int
-    private val MIXED_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG: Int
-
-    @BeforeClass
-    @JvmStatic
-    fun setup() {
-      RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.io() }
-    }
-
-    init {
-      // a list of two tags
-      TAG_LIST.add(Tag(1, "First Tag"))
-      TAG_LIST.add(Tag(2, "Second Tag"))
-
-      // recent page
-      RECENT_LIST.add(RecentPage(42, System.currentTimeMillis()))
-
-      // two ayah bookmarks
-
-      AYAH_BOOKMARKS_LIST.add(
-        Bookmark(42, 46, 1, 502, System.currentTimeMillis(), listOf(2L))
-      )
-      AYAH_BOOKMARKS_LIST.add(Bookmark(2, 2, 4, 2, System.currentTimeMillis() - 60000))
-
-      // two ayah bookmarks and one page bookmark
-      MIXED_BOOKMARKS_LIST = ArrayList(AYAH_BOOKMARKS_LIST)
-      MIXED_BOOKMARKS_LIST.add(
-        0,
-        Bookmark(23, null, null, 400, System.currentTimeMillis() + 1, listOf(1L, 2L))
-      )
-
-      // we return this fake array when getStringArray is called
-      RESOURCE_ARRAY = Array(114) { it.toString() }
-
-      // figure out how many rows the bookmarks would occupy if grouped by tags - this is really
-      // the max between number of tags and 1 for each bookmark.
-      var total = 0
-      for (bookmark in AYAH_BOOKMARKS_LIST) {
-        val tags = bookmark.tags.size
-        total += tags.coerceAtLeast(1)
-      }
-      AYAH_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG = total
-
-      total = 0
-      for (bookmark in MIXED_BOOKMARKS_LIST) {
-        val tags = bookmark.tags.size
-        total += tags.coerceAtLeast(1)
-      }
-      MIXED_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG = total
-    }
-  }
-
-  @Mock
-  private lateinit var appContext: Context
-
-  @Mock
-  private lateinit var resources: Resources
-
-  @Mock
-  private lateinit var settings: QuranSettings
-
-  @Mock
-  private lateinit var bookmarksAdapter: BookmarksDBAdapter
-
-  @Mock
-  private lateinit var recentPageModel: RecentPageModel
+  private lateinit var quranSettings: QuranSettings
+  private lateinit var fakeBookmarksDao: FakeBookmarksDao
+  private lateinit var fakeRecentPagesDao: FakeRecentPagesDao
+  private lateinit var fakeReadingBookmarksDao: FakeReadingBookmarksDao
 
   @Before
   fun setupTest() {
-    MockitoAnnotations.openMocks(this@BookmarkPresenterTest)
+    QuranSettings.setInstance(null)
+    quranSettings = QuranSettings.getInstance(ApplicationProvider.getApplicationContext())
+    fakeBookmarksDao = FakeBookmarksDao()
+    fakeRecentPagesDao = FakeRecentPagesDao()
+    fakeReadingBookmarksDao = FakeReadingBookmarksDao()
+  }
 
-    QuranSettings.setInstance(settings)
-    whenever(appContext.getString(anyInt())).thenReturn("Test")
-    whenever(appContext.resources).thenReturn(resources)
-    whenever(resources.getStringArray(anyInt())).thenReturn(RESOURCE_ARRAY)
-    whenever(appContext.applicationContext).thenReturn(appContext)
+  @After
+  fun teardown() {
+    QuranSettings.setInstance(null)
   }
 
   @Test
-  fun testBookmarkObservableAyahBookmarksByDate() {
-    val model: BookmarkModel = object : BookmarkModel(bookmarksAdapter, recentPageModel) {
-      override fun getBookmarkDataObservable(sortOrder: Int): Single<BookmarkData> {
-        return Single.zip(
-          Single.just(ArrayList()),
-          Single.just(AYAH_BOOKMARKS_LIST),
-          Single.just(ArrayList())
-        ) { tags: List<Tag>, bookmarks: List<Bookmark>, recentPages: List<RecentPage> ->
-          BookmarkData(tags, bookmarks, recentPages)
-        }
-      }
-    }
+  fun `renders ayah bookmarks with inline tag data`() {
+    fakeBookmarksDao.setTags(TAGS)
+    fakeBookmarksDao.setBookmarks(AYAH_BOOKMARKS)
 
-    val presenter = makeBookmarkPresenter(model)
-    val result = getBookmarkResultByDateAndValidate(presenter, false)
-    assertThat(result.tagMap).isEmpty()
-    // 1 for the header, plus one row per item
-    assertThat(result.rows).hasSize(AYAH_BOOKMARKS_LIST.size + 1)
+    val result = getBookmarkResultByDateAndValidate(makeBookmarkPresenter())
+
+    assertThat(result.tagMap).containsExactly("tag-1", TAGS[0], "tag-2", TAGS[1])
+    assertThat(result.rows.first()).isInstanceOf(BookmarkRowData.AyahBookmarksHeader::class.java)
+    assertThat(result.rows.filterIsInstance<BookmarkRowData.BookmarkItem>()).hasSize(2)
   }
 
   @Test
-  fun testBookmarkObservableMixedBookmarksByDate() {
-    val model: BookmarkModel = object : BookmarkModel(bookmarksAdapter, recentPageModel) {
-      override fun getBookmarkDataObservable(sortOrder: Int): Single<BookmarkData> {
-        return Single.zip(
-          Single.just(ArrayList()),
-          Single.just(MIXED_BOOKMARKS_LIST),
-          Single.just(ArrayList())
-        ) { tags: List<Tag>, bookmarks: List<Bookmark>, recentPages: List<RecentPage> ->
-          BookmarkData(tags, bookmarks, recentPages)
-        }
-      }
-    }
+  fun `page bookmarks are not rendered`() {
+    fakeBookmarksDao.setBookmarks(listOf(PAGE_BOOKMARK) + AYAH_BOOKMARKS.take(1))
 
-    val presenter = makeBookmarkPresenter(model)
-    val (rows, tagMap) = getBookmarkResultByDateAndValidate(presenter, false)
-    assertThat(tagMap).isEmpty()
-    // 1 for "page bookmarks" and 1 for "ayah bookmarks"
-    assertThat(rows).hasSize(MIXED_BOOKMARKS_LIST.size + 2)
+    val result = getBookmarkResultByDateAndValidate(makeBookmarkPresenter())
+
+    assertThat(result.rows.filterIsInstance<BookmarkRowData.PageBookmarksHeader>()).isEmpty()
+    assertThat(result.rows.filterIsInstance<BookmarkRowData.BookmarkItem>())
+      .containsExactly(BookmarkRowData.BookmarkItem(AYAH_BOOKMARKS.first(), null))
   }
 
   @Test
-  fun testBookmarkObservableMixedBookmarksByDateWithRecentPage() {
-    val model: BookmarkModel = object : BookmarkModel(bookmarksAdapter, recentPageModel) {
-      override fun getBookmarkDataObservable(sortOrder: Int): Single<BookmarkData> {
-        return Single.zip(
-          Single.just(TAG_LIST),
-          Single.just(MIXED_BOOKMARKS_LIST),
-          Single.just(RECENT_LIST)
-        ) { tags: List<Tag>, bookmarks: List<Bookmark>, recentPages: List<RecentPage> ->
-          BookmarkData(tags, bookmarks, recentPages)
-        }
-      }
-    }
+  fun `renders recent pages ahead of ayah bookmarks`() {
+    fakeBookmarksDao.setBookmarks(AYAH_BOOKMARKS)
+    fakeRecentPagesDao.setRecentPages(RECENT_PAGES)
 
-    whenever(settings.lastPage).thenReturn(42)
+    val result = getBookmarkResultByDateAndValidate(makeBookmarkPresenter())
 
-    val presenter = makeBookmarkPresenter(model)
-    val (rows, tagMap) = getBookmarkResultByDateAndValidate(presenter, false)
-    assertThat(tagMap).hasSize(2)
-    // 2 for "current page", 1 for "page bookmarks" and 1 for "ayah bookmarks"
-    assertThat(rows).hasSize(MIXED_BOOKMARKS_LIST.size + 4)
+    assertThat(result.rows.take(3)).containsExactly(
+      BookmarkRowData.RecentPageHeader(RECENT_PAGES.size),
+      BookmarkRowData.RecentPage(RECENT_PAGES[0]),
+      BookmarkRowData.RecentPage(RECENT_PAGES[1])
+    ).inOrder()
   }
 
   @Test
-  fun testBookmarkObservableAyahBookmarksGroupedByTag() {
-    val model: BookmarkModel = object : BookmarkModel(bookmarksAdapter, recentPageModel) {
-      override fun getBookmarkDataObservable(sortOrder: Int): Single<BookmarkData> {
-        return Single.zip(
-          Single.just(TAG_LIST),
-          Single.just(AYAH_BOOKMARKS_LIST),
-          Single.just(ArrayList())
-        ) { tags: List<Tag>, bookmarks: List<Bookmark>, recentPages: List<RecentPage> ->
-          BookmarkData(tags, bookmarks, recentPages)
-        }
-      }
-    }
+  fun `renders reading bookmark ahead of recent pages`() {
+    val readingBookmark = PageReadingBookmark(42, 300)
+    fakeBookmarksDao.setBookmarks(AYAH_BOOKMARKS)
+    fakeRecentPagesDao.setRecentPages(RECENT_PAGES)
+    fakeReadingBookmarksDao.setReadingBookmark(readingBookmark)
 
-    val presenter = makeBookmarkPresenter(model)
-    val (rows, tagMap) = getBookmarkResultByDateAndValidate(presenter, true)
-    assertThat(tagMap).hasSize(2)
+    val result = getBookmarkResultByDateAndValidate(makeBookmarkPresenter())
 
-    // number of tags (or 1) for each bookmark, plus number of tags (headers), plus unsorted
-    assertThat(rows).hasSize(
-      AYAH_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG + TAG_LIST.size + 1
+    assertThat(result.rows.take(5)).containsExactly(
+      BookmarkRowData.ReadingBookmarkHeader,
+      BookmarkRowData.ReadingBookmarkItem(readingBookmark),
+      BookmarkRowData.RecentPageHeader(RECENT_PAGES.size),
+      BookmarkRowData.RecentPage(RECENT_PAGES[0]),
+      BookmarkRowData.RecentPage(RECENT_PAGES[1])
+    ).inOrder()
+  }
+
+  @Test
+  fun `renders grouped tag rows`() {
+    fakeBookmarksDao.setTags(TAGS)
+    fakeBookmarksDao.setBookmarks(AYAH_BOOKMARKS)
+
+    val result = getBookmarkResultAndValidate(makeBookmarkPresenter(), BookmarkSortOrder.SORT_DATE_ADDED, true)
+
+    assertThat(result.rows).containsAtLeast(
+      BookmarkRowData.TagHeader(TAGS[0]),
+      BookmarkRowData.BookmarkItem(AYAH_BOOKMARKS[0], "tag-1"),
+      BookmarkRowData.TagHeader(TAGS[1]),
+      BookmarkRowData.BookmarkItem(AYAH_BOOKMARKS[0], "tag-2"),
+      BookmarkRowData.NotTaggedHeader,
+      BookmarkRowData.BookmarkItem(AYAH_BOOKMARKS[1], null),
+    ).inOrder()
+  }
+
+  @Test
+  fun `group by tags toggles setting`() {
+    quranSettings.bookmarksGroupedByTags = true
+    val presenter = makeBookmarkPresenter()
+
+    presenter.toggleGroupByTags()
+
+    assertThat(presenter.isGroupedByTags).isFalse()
+    assertThat(presenter.shouldShowInlineTags()).isTrue()
+    assertThat(quranSettings.bookmarksGroupedByTags).isFalse()
+  }
+
+  @Test
+  fun `contextual actions allow editing one tag header and tagging bookmark rows`() {
+    val presenter = makeBookmarkPresenter()
+    val tagHeaderResult = presenter.getContextualOperationsForItems(
+      listOf(QuranRow.Builder().withType(QuranRow.BOOKMARK_HEADER).withTagId("tag-1").build())
     )
+    val bookmarkResult = presenter.getContextualOperationsForItems(
+      listOf(
+        QuranRow.Builder().withType(QuranRow.AYAH_BOOKMARK).build()
+      )
+    )
+
+    assertThat(tagHeaderResult.asList()).containsExactly(true, true, false).inOrder()
+    assertThat(bookmarkResult.asList()).containsExactly(false, true, true).inOrder()
   }
 
   @Test
-  fun testBookmarkObservableMixedBookmarksGroupedByTag() {
-    val model: BookmarkModel = object : BookmarkModel(bookmarksAdapter, recentPageModel) {
-      override fun getBookmarkDataObservable(sortOrder: Int): Single<BookmarkData> {
-        return Single.zip(
-          Single.just(TAG_LIST),
-          Single.just(MIXED_BOOKMARKS_LIST),
-          Single.just(ArrayList())
-        ) { tags: List<Tag>, bookmarks: List<Bookmark>, recentPages: List<RecentPage> ->
-          BookmarkData(tags, bookmarks, recentPages)
-        }
-      }
-    }
-
-    val presenter = makeBookmarkPresenter(model)
-    val (rows, tagMap) = getBookmarkResultByDateAndValidate(presenter, true)
-    assertThat(tagMap).hasSize(2)
-
-    // number of tags (or 1) for each bookmark, plus number of tags (headers), plus unsorted
-    assertThat(rows).hasSize(
-      MIXED_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG + TAG_LIST.size + 1
+  fun `contextual actions ignore default collection header`() {
+    val presenter = makeBookmarkPresenter()
+    val result = presenter.getContextualOperationsForItems(
+      listOf(
+        QuranRow.Builder()
+          .withType(QuranRow.BOOKMARK_HEADER)
+          .withTagId(DEFAULT_BOOKMARK_COLLECTION_ID)
+          .build()
+      )
     )
+
+    assertThat(result.asList()).containsExactly(false, false, false).inOrder()
   }
 
   @Test
-  fun testBookmarkObservableMixedBookmarksGroupedByTagWithRecentPage() {
-    val model: BookmarkModel = object : BookmarkModel(bookmarksAdapter, recentPageModel) {
-      override fun getBookmarkDataObservable(sortOrder: Int): Single<BookmarkData> {
-        return Single.zip(
-          Single.just(TAG_LIST),
-          Single.just(MIXED_BOOKMARKS_LIST),
-          Single.just(RECENT_LIST)
-        ) { tags: List<Tag>, bookmarks: List<Bookmark>, recentPages: List<RecentPage> ->
-          BookmarkData(tags, bookmarks, recentPages)
-        }
-      }
-    }
-
-    val presenter = makeBookmarkPresenter(model)
-    val (rows, tagMap) = getBookmarkResultByDateAndValidate(presenter, true)
-    assertThat(tagMap).hasSize(2)
-
-    // number of tags (or 1) for each bookmark, plus number of tags (headers), plus unsorted, plus
-    // current page header, plus current page
-    assertThat(rows).hasSize(
-      MIXED_BOOKMARKS_ROW_COUNT_WHEN_GROUPED_BY_TAG + TAG_LIST.size + 1 + 2
+  fun `location sort delegates to bookmarks dao`() {
+    fakeBookmarksDao.setBookmarks(
+      listOf(
+        Bookmark("bookmark-1", 4, 1, 75, 2),
+        Bookmark("bookmark-2", 2, 255, 42, 1)
+      )
     )
+
+    val result = getBookmarkResultAndValidate(makeBookmarkPresenter(), BookmarkSortOrder.SORT_LOCATION)
+
+    assertThat(result.rows.filterIsInstance<BookmarkRowData.BookmarkItem>().map { it.bookmark.id })
+      .containsExactly("bookmark-2", "bookmark-1")
+      .inOrder()
   }
 
-  private fun makeBookmarkPresenter(model: BookmarkModel): BookmarkPresenter {
+  private fun makeBookmarkPresenter(): BookmarkPresenter {
     return object : BookmarkPresenter(
-      model,
-      settings,
+      fakeBookmarksDao,
+      fakeRecentPagesDao,
+      fakeReadingBookmarksDao,
+      quranSettings,
       { throw IllegalStateException("ArabicDatabaseUtils not wired up in test") },
     ) {
       override fun subscribeToChanges() {
@@ -260,16 +192,33 @@ class BookmarkPresenterTest {
     }
   }
 
-  private fun getBookmarkResultByDateAndValidate(
+  private fun getBookmarkResultByDateAndValidate(presenter: BookmarkPresenter): BookmarkRawResult {
+    return getBookmarkResultAndValidate(presenter, BookmarkSortOrder.SORT_DATE_ADDED)
+  }
+
+  private fun getBookmarkResultAndValidate(
     presenter: BookmarkPresenter,
-    groupByTags: Boolean,
+    sortOrder: Int,
+    groupByTags: Boolean = false
   ): BookmarkRawResult {
-    val testObserver = presenter
-      .getBookmarksListObservable(BookmarksDBAdapter.SORT_DATE_ADDED, groupByTags)
-      .test()
-    testObserver.awaitTerminalEvent()
-    testObserver.assertNoErrors()
-    testObserver.assertValueCount(1)
-    return testObserver.values()[0]
+    return runBlocking {
+      presenter.getBookmarksList(sortOrder, groupByTags)
+    }
+  }
+
+  private companion object {
+    private val TAGS = listOf(
+      Tag("tag-1", "Review"),
+      Tag("tag-2", "Important")
+    )
+    private val AYAH_BOOKMARKS = listOf(
+      Bookmark("bookmark-42", 46, 1, 502, 200, listOf("tag-1", "tag-2")),
+      Bookmark("bookmark-2", 2, 4, 2, 100)
+    )
+    private val PAGE_BOOKMARK = Bookmark("bookmark-23", null, null, 400, 300)
+    private val RECENT_PAGES = listOf(
+      RecentPage(42, 200),
+      RecentPage(43, 100)
+    )
   }
 }

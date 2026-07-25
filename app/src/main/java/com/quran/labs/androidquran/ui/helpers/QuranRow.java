@@ -13,6 +13,8 @@ public class QuranRow {
   public static final int PAGE_BOOKMARK = 2;
   public static final int AYAH_BOOKMARK = 3;
   public static final int BOOKMARK_HEADER = 4;
+  public static final int PAGE_READING_BOOKMARK = 5;
+  public static final int AYAH_READING_BOOKMARK = 6;
 
   public int sura;
   public int ayah;
@@ -27,8 +29,8 @@ public class QuranRow {
   public long dateAddedInMillis;
 
   // For Bookmarks
-  public long tagId;
-  public long bookmarkId;
+  public String tagId;
+  public String bookmarkId;
   public Bookmark bookmark;
 
   public static class Builder {
@@ -40,8 +42,8 @@ public class QuranRow {
     private int rowType = NONE;
     private Integer imageResource;
     private Integer juzType;
-    private long tagId = -1;
-    private long bookmarkId = -1;
+    private String tagId;
+    private String bookmarkId;
     private String juzOverlayText;
     private long dateAddedInMillis;
     private Integer imageFilterColorResource;
@@ -78,6 +80,14 @@ public class QuranRow {
       return this;
     }
 
+    /**
+     * Sets the ayah number for rows that navigate to a specific ayah without owning a Bookmark.
+     */
+    public Builder withAyah(int ayah) {
+      this.ayah = ayah;
+      return this;
+    }
+
     public Builder withPage(int page) {
       this.page = page;
       return this;
@@ -103,7 +113,7 @@ public class QuranRow {
       return this;
     }
 
-    public Builder withTagId(long id) {
+    public Builder withTagId(String id) {
       tagId = id;
       return this;
     }
@@ -122,7 +132,7 @@ public class QuranRow {
 
   private QuranRow(String text, String metadata, int rowType,
       int sura, int ayah, int page, Integer imageResource, Integer filterColorResource,
-      Integer juzType, String juzOverlayText, long bookmarkId, long tagId, Bookmark bookmark,
+      Integer juzType, String juzOverlayText, String bookmarkId, String tagId, Bookmark bookmark,
                    long dateAddedInMillis) {
     this.text = text;
     this.rowType = rowType;
@@ -152,7 +162,11 @@ public class QuranRow {
     return rowType == PAGE_BOOKMARK || rowType == AYAH_BOOKMARK;
   }
 
+  public boolean isReadingBookmark() {
+    return rowType == PAGE_READING_BOOKMARK || rowType == AYAH_READING_BOOKMARK;
+  }
+
   public boolean isAyahBookmark() {
-    return rowType == AYAH_BOOKMARK;
+    return rowType == AYAH_BOOKMARK || rowType == AYAH_READING_BOOKMARK;
   }
 }

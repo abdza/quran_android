@@ -23,6 +23,7 @@ dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
   implementation(libs.material)
+  implementation(libs.timber)
 
   implementation(libs.compose.ui)
   implementation(libs.compose.material)
@@ -36,4 +37,10 @@ dependencies {
   // coroutines
   implementation(libs.kotlinx.coroutines.core)
   implementation(libs.kotlinx.coroutines.android)
+
+  // testing
+  testImplementation(libs.junit)
+  testImplementation(libs.truth)
+  testImplementation(libs.kotlinx.coroutines.test)
+  testImplementation(libs.turbine)
 }

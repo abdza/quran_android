@@ -45,6 +45,8 @@ object Constants {
   // Settings Key (some of these have corresponding values in preference_keys.xml)
   const val PREF_APP_LOCATION = "appLocation"
   const val PREF_LAST_PAGE = "lastPage"
+  const val PREF_LOCK_ORIENTATION = "lockOrientation"
+  const val PREF_LANDSCAPE_ORIENTATION = "landscapeOrientation"
   const val PREF_AYAH_TEXT_SIZE = "ayahTextSize"
   const val PREF_TRANSLATION_TEXT_SIZE = "translationTextSize"
   const val PREF_ACTIVE_TRANSLATION = "activeTranslation"
@@ -90,6 +92,8 @@ object Constants {
   const val PREF_SHOW_SIDELINES = "showSidelines"
   const val PREF_SHOW_LINE_DIVIDERS = "showLineDividers"
   const val PREF_APP_THEME = "appTheme"
+  const val PREF_MOBILE_SYNC_LEGACY_BOOKMARKS_MIGRATED = "mobileSyncLegacyBookmarksMigrated"
+  const val PREF_HAS_SEEN_MOVABLE_BOOKMARK_EDUCATION = "hasSeenMovableBookmarkEducation"
 
   // Word by Word
   const val PREF_WORD_BY_WORD_ENABLED = "wordByWordEnabled"

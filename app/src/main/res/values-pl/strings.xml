@@ -69,7 +69,7 @@
         &lt;br/>Aby powiększyć tekst po arabsku, zmień orientację ekranu na poziomą (obróć urządzenie). Rozmiar tekstu tłumaczenia możesz dostosować w ustawieniach.
         &lt;br/>
         &lt;br/>&lt;b>Jak udostępnić ajat?&lt;/b>
-        &lt;br/>Na dowolnej stronie Koranu po arabsku, naciśnij i przytrzymaj wybrany ajat, aby wyświetlić menu, w którym możesz wybrać opcję dodania wersetu do zakładek, otagowania go, udostępnienia lub skopiowania ajatu do schowka, wyświetlenia tłumaczenia lub posłuchania jego recytacji.
+        &lt;br/>Na dowolnej stronie Koranu po arabsku, naciśnij i przytrzymaj wybrany ajat, aby wyświetlić menu, w którym możesz wybrać opcję dodania wersetu do zakładek, udostępnienia lub skopiowania ajatu do schowka, wyświetlenia tłumaczenia lub posłuchania jego recytacji.
         &lt;br/>&lt;b>Czcionki Malajalam/Tamil/Bengali/Urdu nie działają!&lt;/b>
         &lt;br/>Niestety, systemy Android w wersjach wcześniejszych niż 4.0 nie obsługują tych czcionek, i nie możemy nic z tym zrobić.
     </string>
@@ -104,6 +104,12 @@
   <string name="prefs_use_arabic_title">Tryb arabski (الوضع العربي)</string>
   <string name="prefs_use_arabic_summary_on">Użyj języka arabskiego jako interfejsu aplikacji</string>
   <string name="prefs_new_background_title">Nowe tło (bielsze)</string>
+  <string name="prefs_lock_orientation_title">Zablokuj orientację ekranu</string>
+  <string name="prefs_lock_orientation_summary_on">Używana jest jedna, stała orientacja ekranu</string>
+  <string name="prefs_lock_orientation_summary_off">Używana jest systemowa orientacja ekranu</string>
+  <string name="prefs_landscape_orientation_title">Stała orientacja ekranu</string>
+  <string name="prefs_landscape_orientation_summary_on">Zawsze używaj orientacji poziomej</string>
+  <string name="prefs_landscape_orientation_summary_off">Zawsze używaj orientacji pionowej</string>
   <string name="prefs_night_mode_title">Tryb nocny</string>
   <string name="prefs_night_mode_summary">Użyj ciemnego tła i jasnych czcionek</string>
   <string name="prefs_night_mode_text_brightness_title">Jasność tekstu</string>
@@ -166,7 +172,7 @@
   <string name="import_data_permissions_error">Nie można odczytać pliku kopii zapasowej z powodu błędu uprawnień.</string>
   <string name="import_data_error">Nieprawidłowy plik kopii zapasowej (lub błąd przy jego odczycie).</string>
   <string name="import_data">Zaimportuj dane</string>
-  <string name="import_data_and_override">Zaimportowanie tego pliku spowoduje zastąpienie wszystkich zakładek %1$d zakładką(ami) i %2$d tagiem(ami). Zaimportować?</string>
+  <string name="import_data_and_merge">Zaimportowanie tego pliku doda %1$d zakładkę/zakładki i %2$d tag/tagi do bieżących danych. Zaimportować?</string>
   <string name="import_successful">Import danych zakończony sukcesem</string>
   <string name="export_data_error">Błąd przy eksporcie danych</string>
   <string name="exported_data">Dane zostały wyeksportowane do %1$s</string>
@@ -290,7 +296,18 @@
   </plurals>
   <string name="undo">Cofnij</string>
 
+  <!-- bookmarks empty state -->
+  <string name="bookmarks_empty_title">Brak zakładek</string>
+  <string name="bookmarks_empty_subtitle">Dotknij ikony zakładki, aby zapisać stronę, lub przytrzymaj ajat, aby dodać go do zakładek.</string>
+  <string name="reading_bookmark_movable_education_title">To jest przenośna zakładka czytania</string>
+  <string name="reading_bookmark_movable_education_body">Zapisanie zakładki czytania zastępuje poprzednią. Aby zapisać kilka ajatów, przytrzymaj ajat i dodaj go do kolekcji.</string>
+  <string name="reading_bookmark_moved_from">Przeniesiono z %1$s</string>
+  <string name="reading_bookmark_moved_from_title">Zakładkę przeniesiono z %1$s</string>
+  <string name="reading_bookmark_added">Dodano zakładkę</string>
+  <string name="reading_bookmark_dismiss_education">Odrzuć</string>
+
   <string name="recent_pages">Ostatnie strony</string>
+  <string name="old_page_bookmarks">Stare zakładki stron</string>
 
   <!-- tag dialog -->
   <string name="tag_dlg_title">Tag</string>
