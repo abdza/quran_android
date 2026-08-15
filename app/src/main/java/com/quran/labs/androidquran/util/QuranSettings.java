@@ -119,6 +119,14 @@ public class QuranSettings {
     prefs.edit().putBoolean(Constants.PREF_SHOW_NOTES_IN_TRANSLATION, show).apply();
   }
 
+  public boolean areBarsStatic() {
+    return prefs.getBoolean(Constants.PREF_STATIC_BARS, false);
+  }
+
+  public void setBarsStatic(boolean isStatic) {
+    prefs.edit().putBoolean(Constants.PREF_STATIC_BARS, isStatic).apply();
+  }
+
   public boolean wantDyslexicFontInTranslationView() {
     return prefs.getBoolean(Constants.PREF_USE_DYSLEXIC_FONT, false);
   }

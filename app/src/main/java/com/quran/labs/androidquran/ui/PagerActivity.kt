@@ -20,6 +20,7 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.View.OnLayoutChangeListener
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.FrameLayout
@@ -599,6 +600,12 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     audioStatusBar.visibility = View.VISIBLE
     toggleActionBarVisibility(true)
 
+    val staticBarLayoutListener = OnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+      updateStaticBarPadding()
+    }
+    toolBarArea.addOnLayoutChangeListener(staticBarLayoutListener)
+    audioStatusBar.addOnLayoutChangeListener(staticBarLayoutListener)
+
     if (shouldAdjustPageNumber) {
       // when going from two page per screen to one or vice versa, we adjust the page number,
       // such that the first page is always selected.
@@ -745,7 +752,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
 
   override fun onWindowFocusChanged(hasFocus: Boolean) {
     super.onWindowFocusChanged(hasFocus)
-    if (hasFocus) {
+    if (hasFocus && !quranSettings.areBarsStatic()) {
       handler.sendEmptyMessageDelayed(MSG_HIDE_ACTIONBAR, DEFAULT_HIDE_AFTER_TIME)
     } else {
       handler.removeMessages(MSG_HIDE_ACTIONBAR)
@@ -754,6 +761,28 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
 
   private fun onPageClicked() {
     toggleActionBar()
+  }
+
+  /**
+   * When the bars are pinned open, they'd otherwise cover the top and bottom of the page, since
+   * the pager sits underneath them. Inset the pager by their heights so the whole page stays
+   * readable (and shift the ayah toolbar down by the same amount, as its position is reported in
+   * page coordinates).
+   */
+  private fun updateStaticBarPadding() {
+    val isStatic = quranSettings.areBarsStatic()
+    val topPadding = if (isStatic) toolBarArea.height else 0
+    val bottomPadding = if (isStatic && audioStatusBar.isVisible) audioStatusBar.height else 0
+
+    if (viewPager.paddingTop != topPadding || viewPager.paddingBottom != bottomPadding) {
+      viewPager.setPadding(0, topPadding, 0, bottomPadding)
+    }
+
+    val params = ayahToolBar.layoutParams as FrameLayout.LayoutParams
+    if (params.topMargin != topPadding) {
+      params.topMargin = topPadding
+      ayahToolBar.layoutParams = params
+    }
   }
 
   private fun onAudioPlaybackAyahChanged(suraAyah: SuraAyah?) {
@@ -1236,6 +1265,11 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       showNotesInTranslation.isVisible = showingTranslation
       showNotesInTranslation.isChecked = quranSettings.showNotesInTranslation()
     }
+
+    val staticBars = menu.findItem(R.id.static_bars)
+    if (staticBars != null) {
+      staticBars.isChecked = quranSettings.areBarsStatic()
+    }
     return true
   }
 
@@ -1277,6 +1311,18 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       quranSettings.setShowNotesInTranslation(isEnabled)
       item.isChecked = isEnabled
       refreshQuranPages()
+      return true
+    } else if (itemId == R.id.static_bars) {
+      val isEnabled = !item.isChecked
+      quranSettings.setBarsStatic(isEnabled)
+      item.isChecked = isEnabled
+      if (isEnabled) {
+        handler.removeMessages(MSG_HIDE_ACTIONBAR)
+        toggleActionBarVisibility(true)
+      } else {
+        handler.sendEmptyMessageDelayed(MSG_HIDE_ACTIONBAR, DEFAULT_HIDE_AFTER_TIME)
+      }
+      updateStaticBarPadding()
       return true
     } else if (itemId == R.id.settings) {
       val i = Intent(this, QuranPreferenceActivity::class.java)
@@ -1488,7 +1534,9 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       setUiVisibility(true)
 
       isActionBarHidden = false
-    } else {
+    } else if (!quranSettings.areBarsStatic()) {
+      // when the bars are pinned, nothing (a page tap, an overlay, the auto-hide timer) may
+      // hide them - otherwise there'd be no way to get them back, since taps no longer toggle.
       handler.removeMessages(MSG_HIDE_ACTIONBAR)
       setUiVisibility(false)
 
