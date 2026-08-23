@@ -26,6 +26,7 @@ import android.widget.ArrayAdapter
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -288,7 +289,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
   }
 
   public override fun onCreate(savedInstanceState: Bundle?) {
-    WindowCompat.setDecorFitsSystemWindows(window, false)
+    enableEdgeToEdge()
     super.onCreate(savedInstanceState)
 
     // field injection
@@ -326,7 +327,7 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
     setContentView(R.layout.quran_page_activity_slider)
 
     val lightStatusBar = resources.getBoolean(R.bool.light_navigation_bar)
-    windowInsetsController = WindowInsetsControllerCompat(
+    windowInsetsController = WindowCompat.getInsetsController(
       window, findViewById<ViewGroup>(R.id.sliding_panel)
     ).apply {
       isAppearanceLightStatusBars = lightStatusBar
@@ -826,46 +827,23 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
   }
 
   private fun setUiVisibility(isVisible: Boolean) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-      setUiVisibilityR(isVisible)
-    } else {
-      setUiVisibilityKitKat(isVisible)
-    }
-  }
-
-  private fun setUiVisibilityR(isVisible: Boolean) {
+    val systemBars = WindowInsetsCompat.Type.statusBars() or
+        WindowInsetsCompat.Type.navigationBars()
     if (isVisible) {
-      windowInsetsController.show(
-        WindowInsetsCompat.Type.statusBars() or
-            WindowInsetsCompat.Type.navigationBars()
-      )
+      windowInsetsController.show(systemBars)
     } else {
-      windowInsetsController.hide(
-        WindowInsetsCompat.Type.statusBars() or
-            WindowInsetsCompat.Type.navigationBars()
-      )
+      windowInsetsController.hide(systemBars)
       windowInsetsController.systemBarsBehavior =
         WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isInMultiWindowMode) {
-      animateToolBar(isVisible)
-    }
-  }
-
-  private fun setUiVisibilityKitKat(isVisible: Boolean) {
-    var flags = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
-    if (!isVisible) {
-      flags = flags or (View.SYSTEM_UI_FLAG_LOW_PROFILE
-          or View.SYSTEM_UI_FLAG_FULLSCREEN
-          or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-          or View.SYSTEM_UI_FLAG_IMMERSIVE)
-    }
-    viewPager.systemUiVisibility = flags
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isInMultiWindowMode) {
+    // from api 30 on, the toolbar animation is driven by the window insets listener, since that
+    // also reflects bars the system brings back on its own (a transient swipe, for example).
+    // before that, WindowInsetsCompat doesn't report per-type visibility, and in multi-window the
+    // system bars belong to the system ui rather than to us - so animate directly in both cases.
+    val isMultiWindow =
+      Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && isInMultiWindowMode
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R || isMultiWindow) {
       animateToolBar(isVisible)
     }
   }
@@ -885,16 +863,13 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
         animateToolBar(isVisible)
         insets
       }
-    } else {
-      viewPager.setOnSystemUiVisibilityChangeListener { flags: Int ->
-        val visible = (flags and View.SYSTEM_UI_FLAG_FULLSCREEN) == 0
-        animateToolBar(visible)
-      }
     }
   }
 
   private fun clearUiVisibilityListener() {
-    viewPager.setOnSystemUiVisibilityChangeListener(null)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+      ViewCompat.setOnApplyWindowInsetsListener(window.decorView, null)
+    }
   }
 
   private fun animateToolBar(visible: Boolean) {

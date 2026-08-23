@@ -33,10 +33,10 @@
     <item name="android:tint">@color/icon_tint</item>
   </style>
 
+  <!-- the system bar colors are set by enableEdgeToEdge() in PagerActivity; the platform
+       ignores android:statusBarColor / android:navigationBarColor from api 35 on. -->
   <style name="QuranToolBar.Overlay">
     <item name="windowActionBarOverlay">true</item>
-    <item name="android:statusBarColor">@color/toolbar</item>
-    <item name="android:navigationBarColor">@color/toolbar</item>
     <item name="actionButtonStyle">@style/QuranToolBarActionButton</item>
     <item name="actionModeCloseButtonStyle">@style/QuranToolBarActionButton</item>
   </style>
