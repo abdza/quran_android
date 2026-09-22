@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +24,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.quran.data.model.bookmark.AyahReadingBookmark
+import com.quran.data.model.bookmark.EmptyReadingBookmark
+import com.quran.data.model.bookmark.PageReadingBookmark
+import com.quran.data.model.bookmark.ReadingBookmarkType
 import com.quran.mobile.feature.ayahbookmark.R
 import com.quran.mobile.feature.ayahbookmark.state.AyahBookmarkCollectionCreationState
 import com.quran.mobile.feature.ayahbookmark.state.AyahBookmarkEvent
@@ -40,7 +45,13 @@ internal fun AyahBookmarkSheet(
     state.suraAyahNameResolver(context, state.ayah)
   }
   val currentReadingBookmarkName = remember(context, state.currentReadingBookmark) {
-    state.currentReadingBookmark?.let { state.readingBookmarkNameResolver(context, it) }
+    state.currentReadingBookmark?.let { readingBookmark ->
+      when (readingBookmark) {
+        is AyahReadingBookmark -> state.suraAyahNameResolver(context, readingBookmark.asSuraAyah())
+        is EmptyReadingBookmark -> ""
+        is PageReadingBookmark -> state.suraPageNameResolver(context, readingBookmark.page)
+      }
+    }
   }
 
   Column(
@@ -65,10 +76,25 @@ internal fun AyahBookmarkSheet(
           .fillMaxWidth()
           .padding(bottom = 14.dp)
       ) {
+        val isSaved = state.isSaved
+        Text(
+          text = if (isSaved) {
+            stringResource(R.string.ayahbookmark_saved)
+          } else {
+            stringResource(R.string.ayahbookmark_not_saved)
+          },
+          style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
+          color = if (isSaved) {
+            MaterialTheme.colorScheme.onSurface
+          } else {
+            MaterialTheme.colorScheme.onSurfaceVariant
+          }
+        )
         Text(
           text = suraAyahName,
-          style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
-          color = MaterialTheme.colorScheme.onSurface
+          style = MaterialTheme.typography.bodySmall,
+          color = MaterialTheme.colorScheme.onSurfaceVariant,
+          modifier = Modifier.padding(start = 9.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
         Text(
@@ -85,7 +111,15 @@ internal fun AyahBookmarkSheet(
       ReadingBookmarkRow(
         isEnabled = state.isReadingBookmarkEnabled,
         currentReadingBookmarkName = currentReadingBookmarkName,
-        onToggle = { eventSink(AyahBookmarkEvent.ToggleReadingBookmark) }
+        // TODO: fix when we fix the ui
+        onToggle = { eventSink(AyahBookmarkEvent.ToggleReadingBookmark(ReadingBookmarkType.TEAL)) }
+      )
+
+      HighlightRow(
+        highlight = state.highlight?.color,
+        onSelect = { color -> eventSink(AyahBookmarkEvent.SetHighlight(color)) },
+        onClear = { eventSink(AyahBookmarkEvent.ClearHighlight) },
+        modifier = Modifier.padding(top = 10.dp)
       )
 
       Text(
@@ -110,13 +144,9 @@ internal fun AyahBookmarkSheet(
       }
     }
 
-    // pinned footer: last-place warning, new collection, remove bookmark
+    // pinned footer
     Column {
-      if (state.showLastPlaceWarning) {
-        LastPlaceWarningBanner(
-          modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp)
-        )
-      }
+      HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
 
       when (val creation = state.collectionCreation) {
         is AyahBookmarkCollectionCreationState.Inactive -> NewCollectionTriggerRow(
@@ -126,14 +156,11 @@ internal fun AyahBookmarkSheet(
         is AyahBookmarkCollectionCreationState.Active -> NewCollectionInputRow(
           name = creation.name,
           isSubmitting = creation.isSubmitting,
+          hasNameError = creation.hasNameError,
           onNameChange = { eventSink(AyahBookmarkEvent.CollectionNameChanged(it)) },
           onCancel = { eventSink(AyahBookmarkEvent.CancelCreatingCollection) },
           onCreate = { eventSink(AyahBookmarkEvent.CreateCollection(creation.name)) }
         )
-      }
-
-      if (state.showRemoveBookmarkButton) {
-        RemoveBookmarkRow(onClick = { eventSink(AyahBookmarkEvent.RemoveBookmark) })
       }
     }
   }

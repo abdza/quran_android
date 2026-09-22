@@ -4,6 +4,8 @@ import com.quran.data.model.bookmark.Bookmark
 import com.quran.data.model.bookmark.RecentPage
 import com.quran.data.model.bookmark.SessionPage
 import com.quran.mobile.bookmark.legacy.LegacyBookmarkIds
+import com.quran.mobile.bookmark.time.legacyTimestampMillis
+import kotlin.time.Instant
 
 object Mappers {
   val bookmarkWithTagMapper: ((
@@ -19,7 +21,7 @@ object Mappers {
   }
 
   val recentPageMapper: ((id: Long, page: Int, addedDate: Long) -> RecentPage) =
-    { _, page, addedDate -> RecentPage(page, addedDate) }
+    { _, page, addedDate -> RecentPage(page, Instant.fromEpochMilliseconds(addedDate.legacyTimestampMillis())) }
 
   val sessionPageMapper: ((id: Long, page: Int, sessionStart: Long, endedAt: Long) -> SessionPage) =
     { id, page, sessionStart, endedAt -> SessionPage(id, page, sessionStart, endedAt) }

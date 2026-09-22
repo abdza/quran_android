@@ -225,6 +225,24 @@ public class QuranSettings {
     prefs.edit().putBoolean(Constants.PREF_SHOW_DATE, isDateShown).apply();
   }
 
+  public boolean isHighlightsCollapsed(boolean defaultValue) {
+    return prefs.getBoolean(Constants.PREF_HIGHLIGHTS_COLLAPSED, defaultValue);
+  }
+
+  public void setHighlightsCollapsed(boolean isCollapsed) {
+    prefs.edit().putBoolean(Constants.PREF_HIGHLIGHTS_COLLAPSED, isCollapsed).apply();
+  }
+
+  public Set<String> getCollapsedCollections() {
+    return prefs.getStringSet(Constants.PREF_COLLAPSED_COLLECTIONS, Collections.emptySet());
+  }
+
+  public void setCollapsedCollections(Set<String> collapsedCollections) {
+    prefs.edit()
+        .putStringSet(Constants.PREF_COLLAPSED_COLLECTIONS, new HashSet<>(collapsedCollections))
+        .apply();
+  }
+
   public boolean isQuranSplitWithTranslation() {
     return prefs.getBoolean(Constants.PREF_SPLIT_PAGE_AND_TRANSLATION, false);
   }

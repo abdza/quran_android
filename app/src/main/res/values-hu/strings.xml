@@ -20,7 +20,6 @@
     <string name="menu_jump_last_page">Legutóbbi lap</string>
     <string name="menu_bookmarks">Könyvjelzők</string>
     <string name="menu_bookmarks_page">Oldal könyvjelzők</string>
-    <string name="menu_bookmarks_ayah">Ája könyvjelzők</string>
     <string name="menu_sort">Rendezés</string>
     <string name="menu_sort_date">Hozzáadása ideje szerint</string>
     <string name="menu_sort_location">Koránban való hely szerint</string>
@@ -222,7 +221,6 @@
     <string name="delete_tag">Címke törlése</string>
     <string name="edit_tag">Címke szerkesztése</string>
     <string name="new_tag">Új címke</string>
-    <string name="not_tagged">Nincs címkézve</string>
 
     <!-- tag dialog -->
     <string name="tag_dlg_title">Címke</string>
@@ -302,8 +300,6 @@
   <string name="reading_bookmark_movable_education_title">Ez egy mozgatható olvasási könyvjelző</string>
   <string name="reading_bookmark_movable_education_body">Az olvasási könyvjelző mentése felülírja a régit. Több ája mentéséhez tartsd lenyomva az áját, és add hozzá egy gyűjteményhez.</string>
   <string name="reading_bookmark_moved_from">Áthelyezve innen: %1$s</string>
-  <string name="reading_bookmark_moved_from_title">A könyvjelző áthelyezve innen: %1$s</string>
-  <string name="reading_bookmark_added">Könyvjelző hozzáadva</string>
   <string name="reading_bookmark_dismiss_education">Elvetés</string>
   <string name="recent_pages">Legutóbbi oldalak</string>
   <string name="old_page_bookmarks">Régi oldal-könyvjelzők</string>

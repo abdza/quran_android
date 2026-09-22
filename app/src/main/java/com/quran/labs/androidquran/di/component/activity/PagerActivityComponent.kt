@@ -12,6 +12,7 @@ import com.quran.mobile.feature.audiobar.AudioBarWrapper
 import com.quran.mobile.feature.ayahbookmark.AyahBookmarkWrapper
 import com.quran.mobile.feature.notes.AyahNoteFragment
 import com.quran.mobile.feature.notes.di.NotesFragmentInjector
+import com.quran.mobile.feature.ayahbookmark.readingbookmark.ReadingBookmarkSheetWrapper
 import com.quran.mobile.feature.qarilist.QariListWrapper
 import com.quran.page.common.toolbar.AyahToolBar
 import dev.zacsweers.metro.GraphExtension
@@ -33,6 +34,7 @@ interface PagerActivityComponent : QuranReadingActivityComponent, NotesFragmentI
   fun inject(audioBarWrapper: AudioBarWrapper)
   override fun inject(ayahNoteFragment: AyahNoteFragment)
   fun inject(ayahBookmarkWrapper: AyahBookmarkWrapper)
+  fun inject(readingBookmarkSheetWrapper: ReadingBookmarkSheetWrapper)
 
   @GraphExtension.Factory
   interface Factory {

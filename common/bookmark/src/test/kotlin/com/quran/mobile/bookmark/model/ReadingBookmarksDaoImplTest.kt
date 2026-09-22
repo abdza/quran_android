@@ -7,7 +7,10 @@ import com.quran.data.core.QuranInfo
 import com.quran.data.dao.Settings
 import com.quran.data.model.SuraAyah
 import com.quran.data.model.bookmark.AyahReadingBookmark
+import com.quran.data.model.bookmark.EmptyReadingBookmark
 import com.quran.data.model.bookmark.PageReadingBookmark
+import com.quran.data.model.bookmark.ReadingBookmark
+import com.quran.data.model.bookmark.ReadingBookmarkType
 import com.quran.data.source.DisplaySize
 import com.quran.data.source.PageProvider
 import com.quran.data.source.PageSizeCalculator
@@ -18,6 +21,7 @@ import com.quran.labs.androidquran.pages.data.warsh.WarshDataSource
 import com.quran.mobile.bookmark.di.MobileSyncDatabase
 import com.quran.mobile.bookmark.time.FakeMobileSyncTimestampProvider
 import com.quran.shared.persistence.model.PageReadingBookmark as SyncPageReadingBookmark
+import com.quran.shared.persistence.model.ReadingBookmarkSlot
 import com.quran.shared.persistence.repository.readingbookmark.repository.ReadingBookmarksRepositoryImpl
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -64,81 +68,145 @@ class ReadingBookmarksDaoImplTest {
   }
 
   @Test
-  fun `reading bookmark is null when no mobile sync reading bookmark exists`() = runTest {
-    assertThat(dao.readingBookmark()).isNull()
+  fun `reading bookmarks are empty when no mobile sync reading bookmark exists`() = runTest {
+    assertThat(dao.readingBookmarks()).isEmpty()
   }
 
   @Test
   fun `set page reading bookmark stores mobile sync page reading bookmark`() = runTest {
-    dao.setPageReadingBookmark(42)
+    dao.setPageReadingBookmark(ReadingBookmarkType.TEAL, 42)
 
-    val bookmark = dao.readingBookmark() as PageReadingBookmark
+    val bookmark = dao.readingBookmarks().single() as PageReadingBookmark
     assertThat(bookmark.page).isEqualTo(42)
-    assertThat(bookmark.timestamp).isEqualTo(timestampProvider.timestampSeconds)
-    assertThat(dao.isPageReadingBookmark(42)).isTrue()
+    assertThat(bookmark.timestamp).isEqualTo(timestampProvider.now())
+    assertThat(dao.isPageReadingBookmark(ReadingBookmarkType.TEAL, 42)).isTrue()
   }
 
   @Test
   fun `set ayah reading bookmark stores ayah reading bookmark`() = runTest {
     val suraAyah = SuraAyah(2, 255)
 
-    dao.setAyahReadingBookmark(suraAyah)
+    dao.setAyahReadingBookmark(ReadingBookmarkType.TEAL, suraAyah)
 
-    val bookmark = dao.readingBookmark() as AyahReadingBookmark
+    val bookmark = dao.readingBookmarks().single() as AyahReadingBookmark
     assertThat(bookmark.sura).isEqualTo(suraAyah.sura)
     assertThat(bookmark.ayah).isEqualTo(suraAyah.ayah)
-    assertThat(bookmark.timestamp).isEqualTo(timestampProvider.timestampSeconds)
+    assertThat(bookmark.timestamp).isEqualTo(timestampProvider.now())
   }
 
   @Test
   fun `set page reading bookmark replaces existing ayah reading bookmark`() = runTest {
-    dao.setAyahReadingBookmark(SuraAyah(2, 255))
+    dao.setAyahReadingBookmark(ReadingBookmarkType.TEAL, SuraAyah(2, 255))
 
-    dao.setPageReadingBookmark(42)
+    dao.setPageReadingBookmark(ReadingBookmarkType.TEAL, 42)
 
-    val bookmark = dao.readingBookmark() as PageReadingBookmark
+    val bookmark = dao.readingBookmarks().single() as PageReadingBookmark
     assertThat(bookmark.page).isEqualTo(42)
   }
 
   @Test
-  fun `toggle page reading bookmark deletes exact current page`() = runTest {
-    dao.setPageReadingBookmark(42)
+  fun `replacing and clearing a slot preserves the other reading bookmarks`() = runTest {
+    dao.setPageReadingBookmark(ReadingBookmarkType.CORAL, 42)
+    dao.setAyahReadingBookmark(ReadingBookmarkType.TEAL, SuraAyah(2, 255))
+    dao.setPageReadingBookmark(ReadingBookmarkType.INDIGO, 43)
 
-    val isBookmarked = dao.togglePageReadingBookmark(42)
+    dao.setPageReadingBookmark(ReadingBookmarkType.TEAL, 50)
 
-    assertThat(isBookmarked).isFalse()
-    assertThat(dao.readingBookmark()).isNull()
+    assertThat(dao.readingBookmarks()).containsExactly(
+      PageReadingBookmark(ReadingBookmarkType.CORAL, 42, timestampProvider.now()),
+      PageReadingBookmark(ReadingBookmarkType.TEAL, 50, timestampProvider.now()),
+      PageReadingBookmark(ReadingBookmarkType.INDIGO, 43, timestampProvider.now())
+    )
+    assertThat(dao.isPageReadingBookmark(ReadingBookmarkType.TEAL, 42)).isFalse()
+
+    dao.clearReadingBookmark(ReadingBookmarkType.CORAL)
+
+    assertThat(dao.readingBookmarks().placed()).containsExactly(
+      PageReadingBookmark(ReadingBookmarkType.TEAL, 50, timestampProvider.now()),
+      PageReadingBookmark(ReadingBookmarkType.INDIGO, 43, timestampProvider.now())
+    )
+    // the cleared slot keeps its row rather than disappearing - that row is where a renamed
+    // pin's name lives, whether or not it is pointing anywhere
+    assertThat(dao.readingBookmarks().single { it.slot == ReadingBookmarkType.CORAL })
+      .isInstanceOf(EmptyReadingBookmark::class.java)
   }
 
   @Test
-  fun `deleting no reading bookmark does not notify`() = runTest {
-    val deleted = dao.deleteReadingBookmark()
+  fun `toggle page reading bookmark deletes exact current page`() = runTest {
+    dao.setPageReadingBookmark(ReadingBookmarkType.TEAL, 42)
 
-    assertThat(deleted).isFalse()
+    val isBookmarked = dao.togglePageReadingBookmark(ReadingBookmarkType.TEAL, 42)
+
+    assertThat(isBookmarked).isFalse()
+    assertThat(dao.readingBookmarks().placed()).isEmpty()
+  }
+
+  @Test
+  fun `a pin keeps its name when it is cleared, and when it was never placed`() = runTest {
+    dao.setPageReadingBookmark(ReadingBookmarkType.CORAL, 42)
+    dao.renameReadingBookmark(ReadingBookmarkType.CORAL, "Tafsir study")
+    // naming a slot that has never been placed has to work too - Indigo starts out that way
+    dao.renameReadingBookmark(ReadingBookmarkType.INDIGO, "Memorizing")
+
+    assertThat(dao.readingBookmarks().single { it.slot == ReadingBookmarkType.CORAL }.name)
+      .isEqualTo("Tafsir study")
+    val indigo = dao.readingBookmarks().single { it.slot == ReadingBookmarkType.INDIGO }
+    assertThat(indigo).isInstanceOf(EmptyReadingBookmark::class.java)
+    assertThat(indigo.name).isEqualTo("Memorizing")
+
+    dao.clearReadingBookmark(ReadingBookmarkType.CORAL)
+
+    // the placement goes, the name stays
+    val coral = dao.readingBookmarks().single { it.slot == ReadingBookmarkType.CORAL }
+    assertThat(coral).isInstanceOf(EmptyReadingBookmark::class.java)
+    assertThat(coral.name).isEqualTo("Tafsir study")
+  }
+
+  @Test
+  fun `renaming with null restores the default name`() = runTest {
+    dao.setPageReadingBookmark(ReadingBookmarkType.TEAL, 42)
+    dao.renameReadingBookmark(ReadingBookmarkType.TEAL, "Nightly")
+
+    dao.renameReadingBookmark(ReadingBookmarkType.TEAL, null)
+
+    assertThat(dao.readingBookmarks().single { it.slot == ReadingBookmarkType.TEAL }.name).isNull()
+  }
+
+  @Test
+  fun `clearing an unused slot returns an empty bookmark`() = runTest {
+    val cleared = dao.clearReadingBookmark(ReadingBookmarkType.TEAL)
+
+    assertThat(cleared).isInstanceOf(EmptyReadingBookmark::class.java)
+    assertThat(cleared.slot).isEqualTo(ReadingBookmarkType.TEAL)
+    assertThat(dao.readingBookmarks().placed()).isEmpty()
   }
 
   @Test
   fun `toggle page reading bookmark replaces ayah bookmark on same page`() = runTest {
     val suraAyah = SuraAyah(2, 255)
     val page = quranInfo.getPageFromSuraAyah(suraAyah.sura, suraAyah.ayah)
-    dao.setAyahReadingBookmark(suraAyah)
+    dao.setAyahReadingBookmark(ReadingBookmarkType.TEAL, suraAyah)
 
-    val isBookmarked = dao.togglePageReadingBookmark(page)
+    val isBookmarked = dao.togglePageReadingBookmark(ReadingBookmarkType.TEAL, page)
 
     assertThat(isBookmarked).isTrue()
-    val bookmark = dao.readingBookmark() as PageReadingBookmark
+    val bookmark = dao.readingBookmarks().single() as PageReadingBookmark
     assertThat(bookmark.page).isEqualTo(page)
   }
 
   @Test
   fun `reading bookmark flow emits external mobile sync writes`() = runTest {
-    dao.readingBookmarkFlow().test {
-      assertThat(awaitItem()).isNull()
+    dao.readingBookmarksFlow().test {
+      assertThat(awaitItem()).isEmpty()
 
-      repository.addPageReadingBookmark(42)
+      repository.setPageReadingBookmark(ReadingBookmarkSlot.TEAL, 42)
 
-      val bookmark = awaitItem() as PageReadingBookmark
+      val bookmark = awaitItem().single() as PageReadingBookmark
       assertThat(bookmark.page).isEqualTo(42)
+
+      repository.clearReadingBookmark(ReadingBookmarkSlot.TEAL)
+
+      assertThat(awaitItem().placed()).isEmpty()
       cancelAndIgnoreRemainingEvents()
     }
   }
@@ -148,27 +216,27 @@ class ReadingBookmarksDaoImplTest {
     val (warshPage, madaniPage) = firstWarshPageWithDifferentMadaniStorage()
     settings.setPageType("warsh")
 
-    dao.setPageReadingBookmark(warshPage)
+    dao.setPageReadingBookmark(ReadingBookmarkType.TEAL, warshPage)
 
-    val syncBookmark = repository.getReadingBookmark() as SyncPageReadingBookmark
+    val syncBookmark = repository.getReadingBookmarks().single() as SyncPageReadingBookmark
     assertThat(syncBookmark.page).isEqualTo(madaniPage)
-    assertThat((dao.readingBookmark() as PageReadingBookmark).page).isEqualTo(warshPage)
-    assertThat(dao.isPageReadingBookmark(warshPage)).isTrue()
+    assertThat((dao.readingBookmarks().single() as PageReadingBookmark).page).isEqualTo(warshPage)
+    assertThat(dao.isPageReadingBookmark(ReadingBookmarkType.TEAL, warshPage)).isTrue()
   }
 
   @Test
   fun `reading bookmark flow remaps page bookmark when page type changes`() = runTest {
     val (warshPage, madaniPage) = firstWarshPageWithDifferentMadaniStorage()
-    repository.addPageReadingBookmark(madaniPage)
+    repository.setPageReadingBookmark(ReadingBookmarkSlot.TEAL, madaniPage)
 
-    dao.readingBookmarkFlow().test {
-      val madaniBookmark = awaitItem() as PageReadingBookmark
+    dao.readingBookmarksFlow().test {
+      val madaniBookmark = awaitItem().single() as PageReadingBookmark
       assertThat(madaniBookmark.page).isEqualTo(madaniPage)
 
       settings.awaitPreferencesSubscriber()
       settings.setPageType("warsh")
 
-      val warshBookmark = awaitItem() as PageReadingBookmark
+      val warshBookmark = awaitItem().single() as PageReadingBookmark
       assertThat(warshBookmark.page).isEqualTo(warshPage)
       cancelAndIgnoreRemainingEvents()
     }
@@ -270,4 +338,12 @@ class ReadingBookmarksDaoImplTest {
 
     override fun getDefaultQariId(): Int = 0
   }
+
+  /**
+   * The pins that are actually pointing somewhere. Every slot that has ever been touched keeps a
+   * row, so the dao's list is not empty just because nothing is placed.
+   */
+  private fun List<ReadingBookmark>.placed(): List<ReadingBookmark> =
+    filterNot { it is EmptyReadingBookmark }
+
 }

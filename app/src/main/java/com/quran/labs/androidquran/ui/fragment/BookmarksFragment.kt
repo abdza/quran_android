@@ -29,12 +29,12 @@ import com.quran.labs.androidquran.common.ui.core.QuranTheme
 import com.quran.labs.androidquran.dao.bookmark.BookmarkRawResult
 import com.quran.labs.androidquran.presenter.bookmark.BookmarkPresenter
 import com.quran.labs.androidquran.presenter.bookmark.BookmarksContextualModePresenter
+import com.quran.labs.androidquran.ui.BookmarkListActivity
 import com.quran.labs.androidquran.ui.QuranActivity
 import com.quran.labs.androidquran.ui.helpers.BookmarkUIConverter
 import com.quran.labs.androidquran.ui.helpers.QuranListAdapter
 import com.quran.labs.androidquran.ui.helpers.QuranListAdapter.QuranTouchListener
 import com.quran.labs.androidquran.ui.helpers.QuranRow
-import com.quran.mobile.bookmark.model.isDefaultBookmarkCollectionId
 import com.quran.mobile.feature.sync.BookmarksSignInCard
 import com.quran.mobile.feature.sync.QuranSyncActivity
 import com.quran.mobile.feature.sync.QuranSyncManager
@@ -270,6 +270,21 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
     }
   }
 
+  /**
+   * The trailing chevron on a collection header, and a tap anywhere on a highlight color row,
+   * open that collection or color as its own screen.
+   */
+  override fun onOpenClicked(row: QuranRow, position: Int) {
+    if (bookmarksContextualModePresenter.isInActionMode()) {
+      // while selecting, the chevron is part of the row rather than a way out of the screen
+      onClick(row, position)
+      return
+    }
+
+    val tagId = row.tagId ?: return
+    startActivity(BookmarkListActivity.collectionIntent(requireContext(), tagId, row.text))
+  }
+
   override fun onLongClick(row: QuranRow, position: Int): Boolean {
     if (isValidSelection(row)) {
       val bookmarksAdapter = bookmarksAdapter
@@ -290,7 +305,7 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
   }
 
   private fun isValidSelection(selected: QuranRow): Boolean {
-    return selected.isBookmark || (selected.isBookmarkHeader && selected.userTagId() != null)
+    return selected.isBookmark || selected.isEditableCollectionHeader
   }
 
   private val mOnUndoClickListener: View.OnClickListener = View.OnClickListener {
@@ -360,12 +375,30 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
   }
 
   private fun handleRowClicked(activity: Activity?, row: QuranRow) {
-    if (!row.isHeader && activity is QuranActivity) {
-      val quranActivity = activity
-      if (row.isAyahBookmark) {
-        quranActivity.jumpToAndHighlight(row.page, row.sura, row.ayah)
-      } else {
-        quranActivity.jumpTo(row.page)
+    when {
+      // tapping a collection header collapses or expands its group in place; the header's
+      // trailing chevron is what opens the collection as a screen
+      row.isBookmarkHeader && row.isCollapsible -> {
+        bookmarkPresenter.toggleCollectionCollapsed(row.tagId ?: return)
+      }
+
+      row.isHighlightsHeader -> {
+        bookmarkPresenter.toggleHighlightsCollapsed()
+      }
+
+      row.isHighlightColor -> {
+        val color = row.highlightColor
+        if (color != null) {
+          startActivity(BookmarkListActivity.highlightsIntent(requireContext(), color))
+        }
+      }
+
+      !row.isHeader && activity is QuranActivity -> {
+        if (row.isAyahBookmark || row.isHighlightedAyah) {
+          activity.jumpToAndHighlight(row.page, row.sura, row.ayah)
+        } else {
+          activity.jumpTo(row.page)
+        }
       }
     }
   }
@@ -373,17 +406,13 @@ class BookmarksFragment : Fragment(), QuranTouchListener {
   private fun handleTagEdit(activity: QuranActivity, selected: List<QuranRow>) {
     if (selected.size == 1) {
       val row = selected[0]
-      row.userTagId()?.let { tagId -> activity.editTag(tagId, row.text) }
+      row.tagId?.let { tagId -> activity.editTag(tagId, row.text) }
     }
   }
 
   private fun handleTagBookmarks(activity: QuranActivity, selected: List<QuranRow>) {
     val ids = selected.mapNotNull { row -> row.bookmarkId }.toTypedArray()
     activity.tagBookmarks(ids)
-  }
-
-  private fun QuranRow.userTagId(): String? {
-    return tagId?.takeUnless { tagId -> tagId.isDefaultBookmarkCollectionId() }
   }
 
   companion object {

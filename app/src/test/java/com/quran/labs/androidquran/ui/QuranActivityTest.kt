@@ -1,5 +1,6 @@
 package com.quran.labs.androidquran.ui
 
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
@@ -7,6 +8,7 @@ import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.quran.labs.androidquran.R
 import com.quran.labs.androidquran.base.TestApplication
 import org.hamcrest.Matchers
 import org.junit.After
@@ -37,7 +39,7 @@ class QuranActivityTest {
   @Test
   fun testClickingOnSuraOnListViewNavigatesToSura() {
     //given
-    Espresso.onView(ViewMatchers.withText(Matchers.startsWith("Quran")))
+    Espresso.onView(ViewMatchers.withText(Matchers.startsWith(ApplicationProvider.getApplicationContext<TestApplication>().getString(R.string.app_name))))
         .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
     //when

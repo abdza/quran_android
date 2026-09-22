@@ -1,9 +1,11 @@
 package com.quran.mobile.bookmark.migration
 
 import android.content.Context
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import com.google.common.truth.Truth.assertThat
 import com.quran.data.core.QuranInfo
 import com.quran.data.di.AppCoroutineScope
+import com.quran.labs.androidquran.BookmarksDatabase
 import com.quran.labs.androidquran.pages.data.madani.MadaniDataSource
 import com.quran.mobile.bookmark.di.MobileSyncDatabase
 import com.quran.mobile.bookmark.importdata.MobileSyncImportBookmark
@@ -13,9 +15,11 @@ import com.quran.mobile.bookmark.importdata.MobileSyncImportData
 import com.quran.mobile.bookmark.importdata.MobileSyncImportReadingBookmark
 import com.quran.mobile.bookmark.importdata.MobileSyncImportReadingSession
 import com.quran.mobile.bookmark.importdata.MobileSyncImporterImpl
+import com.quran.mobile.bookmark.inMemoryBookmarksDatabase
 import com.quran.mobile.bookmark.model.BookmarksDaoImpl
-import com.quran.mobile.bookmark.model.RepositoryBookmarkCollectionsState
+import com.quran.mobile.bookmark.model.RepositoryBackedTestBookmarkCollectionsState
 import com.quran.mobile.bookmark.time.FakeMobileSyncTimestampProvider
+import com.quran.shared.persistence.model.ReadingBookmarkSlot
 import com.quran.shared.persistence.repository.bookmark.repository.BookmarksRepositoryImpl
 import com.quran.shared.persistence.repository.collection.repository.CollectionsRepositoryImpl
 import com.quran.shared.persistence.repository.collectionbookmark.repository.CollectionBookmarksRepositoryImpl
@@ -27,8 +31,8 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RuntimeEnvironment
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 
 @RunWith(RobolectricTestRunner::class)
 class MobileSyncImporterImplTest {
@@ -51,15 +55,18 @@ class MobileSyncImporterImplTest {
       bookmarksRepository = BookmarksRepositoryImpl(mobileSyncDatabase.database),
       collectionsRepository = collectionsRepository,
       collectionBookmarksRepository = collectionBookmarksRepository,
-      bookmarkCollectionsState = RepositoryBookmarkCollectionsState(
+      bookmarkCollectionsState = RepositoryBackedTestBookmarkCollectionsState(
         collectionsRepository,
         collectionBookmarksRepository,
         appCoroutineScope
       ),
       timestampProvider = FakeMobileSyncTimestampProvider(),
+      bookmarksDatabase = inMemoryBookmarksDatabase(
+        AndroidSqliteDriver(BookmarksDatabase.Schema, context, null)
+      ),
       appCoroutineScope = appCoroutineScope
     )
-    importer = MobileSyncImporterImpl(mobileSyncDatabase)
+    importer = MobileSyncImporterImpl(mobileSyncDatabase, context)
   }
 
   @After
@@ -101,25 +108,42 @@ class MobileSyncImporterImplTest {
             ayah = 1,
             timestampMillis = 1_100_000L
           )
-        ),
-        readingBookmark = MobileSyncImportReadingBookmark.Page(
-          page = 42,
-          timestampMillis = 1_300_000L
         )
       )
     )
 
     val bookmarks = bookmarksDao.bookmarks()
-    val tags = bookmarksDao.tags()
+    // the default collection is always present, so this asserts on the imported ones
+    val tags = bookmarksDao.tags().filterNot { tag -> tag.isSystem }
     val readingSessions = ReadingSessionsRepositoryImpl(mobileSyncDatabase.database).getReadingSessions()
-    val readingBookmark = ReadingBookmarksRepositoryImpl(mobileSyncDatabase.database).getReadingBookmark()
 
     assertThat(bookmarks.map { bookmark -> bookmark.sura to bookmark.ayah }).containsExactly(2 to 255)
     assertThat(bookmarks.single().timestamp).isEqualTo(1234L)
     assertThat(tags.map { tag -> tag.name }).containsExactly("Reading")
-    assertThat(bookmarksDao.getBookmarkTagIds(bookmarks.single().id)).containsExactly(tags.single().id)
+    assertThat(bookmarksDao.getBookmarkTagIds(bookmarks.single().id)).contains(tags.single().id)
     assertThat(readingSessions.map { session -> session.sura to session.ayah }).containsExactly(18 to 1)
-    assertThat(readingBookmark).isNotNull()
+  }
+
+  @Test
+  fun `unsupported reading bookmark import preserves existing slots`() = runTest {
+    val repository = ReadingBookmarksRepositoryImpl(mobileSyncDatabase.database)
+    val existing = repository.setPageReadingBookmark(ReadingBookmarkSlot.TEAL, 12)
+
+    val result = importer.importData(
+      MobileSyncImportData(
+        readingBookmarks = listOf(
+          MobileSyncImportReadingBookmark.Page(
+            slot = ReadingBookmarkSlot.TEAL,
+            page = 42,
+            timestampMillis = 1_700_000_000_000L
+          )
+        )
+      )
+    )
+
+    // Reading-bookmark persistence import is deferred until the artifact supports it.
+    assertThat(result.readingBookmarkImported).isEqualTo(0)
+    assertThat(repository.getReadingBookmarks()).containsExactly(existing)
   }
 
   @Test
