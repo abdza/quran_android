@@ -5,7 +5,7 @@ Validate common/wordbyword/src/main/assets/root_meanings.json against the Quran 
 Checks:
   - every root used by a word in word_by_word_en.db has an entry (and no duplicates)
   - every verse reference like "2:255" in an entry is a verse where that root occurs
-  - "N times" occurrence counts match the word data
+  - an opening "Occurs N times" matches the root's total, and no other count exceeds it
   - required fields are present
 
 Usage:
@@ -28,6 +28,7 @@ DB_PATH = os.path.join(ROOT_DIR, "app/src/main/assets/word_by_word_en.db")
 TEXT_FIELDS = ("primaryMeaning", "extendedMeaning", "quranUsage", "notes")
 VERSE_REF = re.compile(r"(?<![\d:])(\d{1,3}):(\d{1,3})(?![\d:])")
 TIMES = re.compile(r"(\d[\d,]*) times")
+TOTAL = re.compile(r"Occurs (once|[\d,]+ times)")
 
 
 def load_occurrences():
@@ -84,8 +85,15 @@ def main():
             ref = (int(sura), int(ayah))
             if ref not in occurrences.get(root, ()):
                 problems.append(f"{root}: cites {sura}:{ayah}, where this root does not occur")
+        usage = e.get("quranUsage") or ""
+        # An opening "Occurs N times" states the root's total, so it must match exactly
+        total = TOTAL.match(usage)
+        if total:
+            stated = 1 if total.group(1) == "once" else int(total.group(1).split()[0].replace(",", ""))
+            if stated != counts[root]:
+                problems.append(f"{root}: says it occurs {stated} times but the root occurs {counts[root]} times")
         # Counts of individual forms can't be checked here, but none can exceed the root's total
-        for n in TIMES.findall(e.get("quranUsage") or ""):
+        for n in TIMES.findall(usage):
             if int(n.replace(",", "")) > counts[root]:
                 problems.append(f"{root}: says {n} times but the root occurs {counts[root]} times")
 
