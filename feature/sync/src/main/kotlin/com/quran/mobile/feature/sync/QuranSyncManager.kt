@@ -3,6 +3,7 @@ package com.quran.mobile.feature.sync
 import android.content.Context
 import androidx.activity.ComponentActivity
 import com.quran.data.di.AppScope
+import com.quran.mobile.bookmark.migration.MobileSyncLegacySchema
 import com.quran.mobile.di.qualifier.ApplicationContext
 import com.quran.shared.auth.di.AuthFlowFactoryProvider
 import com.quran.shared.auth.model.AuthConfig
@@ -241,6 +242,8 @@ class QuranSyncManager(
   }
 
   private fun createGraph(): AppGraph {
+    // The graph opens quran.db itself, so an old-schema file must be moved aside first
+    MobileSyncLegacySchema.moveAsideIfLegacy(context)
     clearInterruptedLogoutIfNeeded()
 
     return if (config.isConfigured) {

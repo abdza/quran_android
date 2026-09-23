@@ -5,6 +5,7 @@ import com.quran.labs.androidquran.util.QuranSettings
 import com.quran.mobile.bookmark.importdata.MobileSyncImporter
 import com.quran.mobile.bookmark.migration.LegacyBookmarkMigrationNormalizer
 import com.quran.mobile.bookmark.migration.LegacyBookmarksDataSource
+import com.quran.mobile.bookmark.migration.MobileSyncLegacySchemaUpgrader
 import dev.zacsweers.metro.Inject
 import dev.zacsweers.metro.SingleIn
 import kotlinx.coroutines.CancellationException
@@ -19,19 +20,31 @@ class LegacyBookmarksMigrator @Inject constructor(
   private val quranSettings: QuranSettings,
   private val legacyBookmarksDataSource: LegacyBookmarksDataSource,
   private val normalizer: LegacyBookmarkMigrationNormalizer,
-  private val mobileSyncImporter: MobileSyncImporter
+  private val mobileSyncImporter: MobileSyncImporter,
+  private val legacySchemaUpgrader: MobileSyncLegacySchemaUpgrader
 ) {
   private val migrationMutex = Mutex()
 
   suspend fun migrateIfNeeded(): Boolean {
-    if (quranSettings.haveMigratedLegacyBookmarksToMobileSync()) return true
-
     return migrationMutex.withLock {
+      // Runs even after the legacy migration, since it also covers databases made by mobile-sync 0.1.14
+      upgradeLegacyMobileSyncSchema()
       if (quranSettings.haveMigratedLegacyBookmarksToMobileSync()) {
         true
       } else {
         migrate()
       }
+    }
+  }
+
+  private suspend fun upgradeLegacyMobileSyncSchema() {
+    try {
+      legacySchemaUpgrader.importIfNeeded()
+    } catch (exception: CancellationException) {
+      throw exception
+    } catch (exception: Exception) {
+      // The old database stays in place, so the import is retried on the next launch
+      Timber.e(exception, "Unable to import the mobile-sync 0.1.14 database.")
     }
   }
 

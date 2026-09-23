@@ -7,6 +7,7 @@ import com.quran.data.core.QuranInfo
 import com.quran.data.model.bookmark.Bookmark
 import com.quran.labs.androidquran.base.TestApplication
 import com.quran.labs.androidquran.data.Constants
+import com.quran.labs.androidquran.fakes.FakeReadingBookmarksDao
 import com.quran.labs.androidquran.pages.data.madani.MadaniDataSource
 import com.quran.labs.androidquran.util.QuranSettings
 import com.quran.mobile.bookmark.importdata.MobileSyncImportData
@@ -15,6 +16,7 @@ import com.quran.mobile.bookmark.importdata.MobileSyncImporter
 import com.quran.mobile.bookmark.migration.LegacyBookmarkMigrationNormalizer
 import com.quran.mobile.bookmark.migration.LegacyBookmarksDataSource
 import com.quran.mobile.bookmark.migration.LegacyBookmarksSnapshot
+import com.quran.mobile.bookmark.migration.MobileSyncLegacySchemaUpgrader
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -50,7 +52,8 @@ class LegacyBookmarksMigratorTest {
       quranSettings = quranSettings,
       legacyBookmarksDataSource = dataSource,
       normalizer = LegacyBookmarkMigrationNormalizer(context, QuranInfo(MadaniDataSource())),
-      mobileSyncImporter = importer
+      mobileSyncImporter = importer,
+      legacySchemaUpgrader = MobileSyncLegacySchemaUpgrader(context, importer, FakeReadingBookmarksDao())
     )
   }
 
