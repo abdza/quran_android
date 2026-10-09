@@ -95,6 +95,7 @@ import com.quran.labs.androidquran.service.util.PermissionUtil.canRequestPostNot
 import com.quran.labs.androidquran.service.util.PermissionUtil.havePostNotificationPermission
 import com.quran.labs.androidquran.service.util.ServiceIntentHelper.getDownloadIntent
 import com.quran.labs.androidquran.ui.fragment.AddTagDialog
+import com.quran.labs.androidquran.ui.fragment.ArrangeWordsRangeDialog
 import com.quran.labs.androidquran.ui.fragment.JumpFragment
 import com.quran.labs.androidquran.ui.fragment.TabletFragment
 import com.quran.labs.androidquran.ui.fragment.TagBookmarkDialog.OnBookmarkTagsUpdateListener
@@ -1283,6 +1284,10 @@ class PagerActivity : AppCompatActivity(), AudioBarListener, OnBookmarkTagsUpdat
       item.setIcon(if (isNightMode) R.drawable.ic_night_mode else R.drawable.ic_day_mode)
       item.isChecked = isNightMode
       refreshQuranPages()
+      return true
+    } else if (itemId == R.id.arrange_words) {
+      ArrangeWordsRangeDialog.newInstance(currentPage)
+        .show(supportFragmentManager, ArrangeWordsRangeDialog.TAG)
       return true
     } else if (itemId == R.id.memorization_mode) {
       val isEnabled = !item.isChecked

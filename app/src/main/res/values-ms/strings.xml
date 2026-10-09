@@ -310,4 +310,29 @@
   <string name="prefs_category_dual_screen">Preferensi Halaman Ganda</string>
   <string name="prefs_split_page_and_translation_title">Al-Quran dan terjemahan dalam mode ganda</string>
   <string name="prefs_split_page_and_translation_summary">Dalam mode halaman ganda dengan terjemahan, halaman Quran dan terjemahan ditampilkan</string>
+
+  <!-- Arrange the words -->
+  <string name="menu_arrange_words">Susun perkataan</string>
+  <string name="arrange_words_progress">%1$d daripada %2$d ayat</string>
+  <string name="arrange_words_show_translation">Tunjuk terjemahan</string>
+  <string name="arrange_words_shuffle">Kocok semula</string>
+  <string name="arrange_words_close">Tutup</string>
+  <string name="arrange_words_complete_title">Masya-Allah!</string>
+  <plurals name="arrange_words_complete_message">
+    <item quantity="other">Anda telah menyusun %1$d ayat dalam masa %2$s.</item>
+  </plurals>
+  <string name="arrange_words_unavailable">Data perkataan demi perkataan tidak tersedia.</string>
+  <string name="arrange_words_choose_title">Susun perkataan</string>
+  <string name="arrange_words_by_page">Halaman</string>
+  <string name="arrange_words_by_sura">Surah</string>
+  <string name="arrange_words_by_ayat">Ayat</string>
+  <string name="arrange_words_from_page">Dari halaman</string>
+  <string name="arrange_words_to_page">Hingga halaman</string>
+  <string name="arrange_words_from_ayah">Dari ayat</string>
+  <string name="arrange_words_to_ayah">Hingga ayat</string>
+  <string name="arrange_words_start">Mula</string>
+  <string name="arrange_words_invalid_pages">Masukkan halaman antara %1$d dan %2$d</string>
+  <string name="arrange_words_invalid_ayat">Masukkan ayat antara 1 dan %1$d</string>
+  <string name="arrange_words_title_page">Halaman %1$d</string>
+  <string name="arrange_words_title_pages">Halaman %1$d–%2$d</string>
 </resources>

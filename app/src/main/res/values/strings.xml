@@ -467,4 +467,33 @@
   <!-- notification channel names [CHAR LIMIT=40] -->
   <string name="notification_channel_download">Quran Downloads</string>
   <string name="notification_channel_audio">Quran Recitation</string>
+
+  <!-- Arrange the words -->
+  <string name="menu_arrange_words">Arrange the words</string>
+  <string name="arrange_words_ayah_header">%1$d:%2$d</string>
+  <string name="arrange_words_progress">%1$d of %2$d ayat</string>
+  <string name="arrange_words_show_translation">Show translation</string>
+  <string name="arrange_words_shuffle">Shuffle again</string>
+  <string name="arrange_words_close">Close</string>
+  <string name="arrange_words_complete_title">Masha\'Allah!</string>
+  <plurals name="arrange_words_complete_message">
+    <item quantity="one">You arranged %1$d ayah in %2$s.</item>
+    <item quantity="other">You arranged all %1$d ayat in %2$s.</item>
+  </plurals>
+  <string name="arrange_words_unavailable">Word by word data is not available.</string>
+  <string name="arrange_words_choose_title">Arrange the words</string>
+  <string name="arrange_words_by_page">Pages</string>
+  <string name="arrange_words_by_sura">Surah</string>
+  <string name="arrange_words_by_ayat">Ayat</string>
+  <string name="arrange_words_from_page">From page</string>
+  <string name="arrange_words_to_page">To page</string>
+  <string name="arrange_words_from_ayah">From ayah</string>
+  <string name="arrange_words_to_ayah">To ayah</string>
+  <string name="arrange_words_start">Start</string>
+  <string name="arrange_words_invalid_pages">Enter pages between %1$d and %2$d</string>
+  <string name="arrange_words_invalid_ayat">Enter ayat between 1 and %1$d</string>
+  <string name="arrange_words_title_page">Page %1$d</string>
+  <string name="arrange_words_title_pages">Pages %1$d–%2$d</string>
+  <string name="arrange_words_title_ayat">%1$s %2$d–%3$d</string>
+  <string name="arrange_words_title_ayah">%1$s %2$d</string>
 </resources>

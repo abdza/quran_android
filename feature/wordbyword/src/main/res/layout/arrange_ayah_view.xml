@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <TextView
+        android:id="@+id/arrange_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:textColor="@color/word_by_word_verse_number"
+        android:textSize="14sp"
+        tools:text="34:1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/arrange_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:minHeight="72dp"
+            android:padding="4dp"
+            app:alignItems="flex_start"
+            app:flexDirection="row_reverse"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start" />
+
+        <TextView
+            android:id="@+id/arrange_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/arrange_words_hint"
+            android:textColor="@color/word_by_word_verse_number"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/arrange_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="4dp"
+        android:background="@color/arrange_ayah_pool_divider" />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/arrange_pool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:padding="4dp"
+        app:alignItems="flex_start"
+        app:flexDirection="row_reverse"
+        app:flexWrap="wrap"
+        app:justifyContent="center" />
+</merge>

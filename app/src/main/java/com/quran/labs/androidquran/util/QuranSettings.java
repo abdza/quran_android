@@ -565,4 +565,13 @@ public class QuranSettings {
   public void setMemorizationDelaySeconds(int seconds) {
     prefs.edit().putString(Constants.PREF_MEMORIZATION_DELAY_SECONDS, String.valueOf(seconds)).apply();
   }
+
+  // Arrange the words
+  public boolean showTranslationInArrangeWords() {
+    return prefs.getBoolean(Constants.PREF_ARRANGE_WORDS_SHOW_TRANSLATION, true);
+  }
+
+  public void setShowTranslationInArrangeWords(boolean show) {
+    prefs.edit().putBoolean(Constants.PREF_ARRANGE_WORDS_SHOW_TRANSLATION, show).apply();
+  }
 }

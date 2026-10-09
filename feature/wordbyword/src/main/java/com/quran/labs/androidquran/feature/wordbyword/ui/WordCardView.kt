@@ -24,6 +24,7 @@ class WordCardView @JvmOverloads constructor(
   private var isNightMode: Boolean = false
   private var showTransliteration: Boolean = true
   private var arabicTypeface: Typeface? = null
+  private var showTranslation: Boolean = true
 
   // Memorization mode fields
   private var currentWord: WordTranslation? = null
@@ -54,7 +55,9 @@ class WordCardView @JvmOverloads constructor(
       translationText.text = HIDDEN_PLACEHOLDER
     }
 
-    if (showTransliteration && word.transliteration != null) {
+    translationText.visibility = if (showTranslation) View.VISIBLE else View.GONE
+
+    if (showTranslation && showTransliteration && word.transliteration != null) {
       if (isRevealed || !hideTranslation) {
         transliterationText.text = word.transliteration
       } else {
@@ -80,6 +83,12 @@ class WordCardView @JvmOverloads constructor(
     } else {
       View.GONE
     }
+  }
+
+  /** Shows only the Arabic when false (no translation or transliteration). */
+  fun setShowTranslation(show: Boolean) {
+    showTranslation = show
+    currentWord?.let { setWord(it) }
   }
 
   fun setArabicTypeface(typeface: Typeface?) {

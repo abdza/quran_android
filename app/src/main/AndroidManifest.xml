@@ -98,6 +98,12 @@
         android:exported="false"/>
 
     <activity
+        android:name=".ui.ArrangeWordsActivity"
+        android:theme="@style/QuranToolBarDayNight"
+        android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+        android:exported="false"/>
+
+    <activity
         android:name=".SearchActivity"
         android:launchMode="singleTop"
         android:theme="@style/QuranToolBarDayNight"

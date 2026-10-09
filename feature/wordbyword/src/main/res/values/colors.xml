@@ -44,4 +44,16 @@
     <!-- Footnote Colors -->
     <color name="word_by_word_footnote">#1976D2</color>
     <color name="word_by_word_footnote_night">#64B5F6</color>
+
+    <!-- Arrange Words Colors -->
+    <color name="arrange_ayah_unsolved">#FDEDED</color>
+    <color name="arrange_ayah_unsolved_night">#3A2224</color>
+    <color name="arrange_ayah_unsolved_border">#F2C4C4</color>
+    <color name="arrange_ayah_unsolved_border_night">#5C3236</color>
+    <color name="arrange_ayah_solved">#E3F4E4</color>
+    <color name="arrange_ayah_solved_night">#1F3A24</color>
+    <color name="arrange_ayah_solved_border">#A5D6A7</color>
+    <color name="arrange_ayah_solved_border_night">#2E7D32</color>
+    <color name="arrange_ayah_pool_divider">#33000000</color>
+    <color name="arrange_ayah_pool_divider_night">#33FFFFFF</color>
 </resources>

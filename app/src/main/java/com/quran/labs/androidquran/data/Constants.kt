@@ -115,6 +115,9 @@ object Constants {
   const val PREF_MEMORIZATION_HIDE_TRANSLATION = "memorizationHideTranslation"
   const val PREF_MEMORIZATION_DELAY_SECONDS = "memorizationDelaySeconds"
 
+  // Arrange the words
+  const val PREF_ARRANGE_WORDS_SHOW_TRANSLATION = "arrangeWordsShowTranslation"
+
   // Themes
   const val THEME_LIGHT = "light"
   const val THEME_DARK = "dark"

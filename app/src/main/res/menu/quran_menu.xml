@@ -34,6 +34,9 @@
         android:icon="@drawable/ic_day_mode"
         android:title="@string/prefs_night_mode_title"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/arrange_words"
+        android:title="@string/menu_arrange_words"
+        app:showAsAction="never" />
     <item android:id="@+id/memorization_mode"
         android:checkable="true"
         android:title="@string/menu_memorization_mode"
